@@ -1,18 +1,26 @@
 ---
-// src/pages/[lang]/[slug].astro
+// src/pages/[lang]/[...slug].astro
+
+// Import the BaseLayout component to make it available in the template
+import BaseLayout from '../../layouts/BaseLayout.astro';
+// Note: Ensure this path is correct. It might be '../../i18n/ui' depending on your file structure.
 import { ui } from '../../i18n/config';
 
-// Capture language and slug
-const { lang, slug } = Astro.params as { lang: keyof typeof ui; slug: string };
+// Capture language and slug from the URL parameters
+const { lang, slug = 'home' } = Astro.params as { lang: keyof typeof ui; slug?: string };
 
-// Validate language
+// Validate that the language from the URL is one you support
 if (!(lang in ui)) {
-  throw new Error(`Unsupported language: ${lang}`);
+  // If not, you could redirect to a 404 or the default language homepage
+  return Astro.redirect('/404', 404);
 }
 
-// List of pages handled by this dynamic route
+// --- Content Management Section ---
+// All page titles and descriptions are managed here.
+
 const pageTitles: Record<string, Record<string, string>> = {
   nl: {
+    home: 'Home',
     'over-ons': 'Over Ons',
     portfolio: 'Portfolio',
     prijzen: 'Prijzen',
@@ -20,6 +28,7 @@ const pageTitles: Record<string, Record<string, string>> = {
     tijdlijn: 'Tijdlijn',
   },
   en: {
+    home: 'Home',
     about: 'About Us',
     portfolio: 'Portfolio',
     pricing: 'Pricing',
@@ -30,6 +39,7 @@ const pageTitles: Record<string, Record<string, string>> = {
 
 const pageDescriptions: Record<string, Record<string, string>> = {
   nl: {
+    home: 'Welkom bij VeermanDev – digitale oplossingen voor bedrijven.',
     'over-ons': 'Maak kennis met ons team en onze expertise.',
     portfolio: 'Bekijk onze projecten en cases.',
     prijzen: 'Ontdek onze tarieven en pakketten.',
@@ -37,6 +47,7 @@ const pageDescriptions: Record<string, Record<string, string>> = {
     tijdlijn: 'Onze roadmap en belangrijke mijlpalen.',
   },
   en: {
+    home: 'Welcome to VeermanDev – digital solutions for businesses.',
     about: 'Meet our team and discover our expertise.',
     portfolio: 'Explore our projects and cases.',
     pricing: 'Discover our pricing and packages.',
@@ -45,48 +56,66 @@ const pageDescriptions: Record<string, Record<string, string>> = {
   },
 };
 
-// Redirect `/home` or unknown slugs to the homepage
-if (slug === 'home' || !(slug in pageTitles[lang])) {
-  return Astro.redirect(`/${lang}/home`, 307);
+// --- Routing and Data Fetching ---
+
+// Redirect if the requested slug doesn't exist in our content objects
+if (!(slug in pageTitles[lang])) {
+  return Astro.redirect(`/${lang}/404`, 307); // Use a 404 page if you have one
 }
 
-// Page info
+// Get the title and description for the current page
 const title = pageTitles[lang][slug];
 const description = pageDescriptions[lang][slug];
-const t = ui[lang];
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="container mx-auto py-12 px-6 fade-in">
     <h1 class="text-4xl md:text-5xl font-heading font-bold mb-6">{title}</h1>
     <p class="text-lg md:text-xl text-opacity-80 mb-8">{description}</p>
+    
+    {/* --- Page Content Rendering --- */}
+    {/* This section conditionally renders the content for each specific page slug. */}
+    <div class="prose dark:prose-invert lg:prose-xl max-w-none">
+      {/* 'About Us' Content */}
+      {(slug === 'over-ons' |
 
-    <div class="prose dark:prose-invert lg:prose-xl">
-      {slug === 'over-ons' && (
+| slug === 'about') && (
         <>
           <p>
             {lang === 'nl'
-              ? 'Wij zijn een team van ervaren ontwikkelaars, ontwerpers en data-specialisten die digitale oplossingen creëren voor bedrijven van elke omvang.'
+             ? 'Wij zijn een team van ervaren ontwikkelaars, ontwerpers en data-specialisten die digitale oplossingen creëren voor bedrijven van elke omvang.'
               : 'We are a team of experienced developers, designers, and data specialists creating digital solutions for businesses of all sizes.'}
           </p>
           <p>
             {lang === 'nl'
-              ? 'Onze focus ligt op performance, schaalbaarheid en moderne webstandaarden, zodat elke website toekomstbestendig is.'
+             ? 'Onze focus ligt op performance, schaalbaarheid en moderne webstandaarden, zodat elke website toekomstbestendig is.'
               : 'Our focus is on performance, scalability, and modern web standards, ensuring every website is future-proof.'}
           </p>
         </>
       )}
+
+      {/* 'Portfolio' Content */}
       {slug === 'portfolio' && (
-        <p>{lang === 'nl' ? 'Hier presenteren we onze recente projecten.' : 'Here we showcase our recent projects.'}</p>
+        <p>{lang === 'nl'? 'Hier presenteren we onze recente projecten.' : 'Here we showcase our recent projects.'}</p>
       )}
-      {slug === 'prijzen' && (
-        <p>{lang === 'nl' ? 'Bekijk onze transparante en eerlijke tarieven.' : 'Check out our transparent and fair pricing.'}</p>
+
+      {/* 'Pricing' Content */}
+      {(slug === 'prijzen' |
+
+| slug === 'pricing') && (
+        <p>{lang === 'nl'? 'Bekijk onze transparante en eerlijke tarieven.' : 'Check out our transparent and fair pricing.'}</p>
       )}
+
+      {/* 'Contact' Content */}
       {slug === 'contact' && (
-        <p>{lang === 'nl' ? 'Neem contact met ons op voor een vrijblijvende offerte.' : 'Get in touch with us for a quote.'}</p>
+        <p>{lang === 'nl'? 'Neem contact met ons op voor een vrijblijvende offerte.' : 'Get in touch with us for a quote.'}</p>
       )}
-      {slug === 'tijdlijn' && (
-        <p>{lang === 'nl' ? 'Bekijk onze belangrijkste mijlpalen en roadmap.' : 'See our key milestones and roadmap.'}</p>
+
+      {/* 'Timeline' Content */}
+      {(slug === 'tijdlijn' |
+
+| slug === 'timeline') && (
+        <p>{lang === 'nl'? 'Bekijk onze belangrijkste mijlpalen en roadmap.' : 'See our key milestones and roadmap.'}</p>
       )}
     </div>
   </section>
