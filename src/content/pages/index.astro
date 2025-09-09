@@ -1,0 +1,16 @@
+---
+import { defaultLang, supportedLangs } from '../../i18n/config'; // correct relative path
+
+// Detect the browser language from the Accept-Language header
+const acceptLangHeader = Astro.request.headers.get('accept-language');
+let userLang: string | undefined = acceptLangHeader?.split(',')[0].split('-')[0];
+
+// Fallback to default if unsupported or undefined
+if (!userLang || !supportedLangs.includes(userLang)) {
+  userLang = defaultLang;
+}
+
+// Redirect to the correct language homepage
+// Use 307 for development, 308 for production
+return Astro.redirect(`/${userLang}/home`, 307);
+---

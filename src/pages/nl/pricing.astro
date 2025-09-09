@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Prijzen | VeermanDev";
+const pageDescription = "Ontdek de tarieven van VeermanDev – transparant, eerlijk en afgestemd op uw digitale behoeften.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="fade-in text-center py-24 bg-card-light dark:bg-card-dark rounded-xl shadow-lg">
+    <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
+      Onze <span class="text-primary">Prijzen</span>
+    </h1>
+    <p class="text-lg md:text-xl max-w-3xl mx-auto text-opacity-80">
+      Transparante en eerlijke tarieven voor hoogwaardige, op maat gemaakte weboplossingen. Kies het pakket dat het beste past bij uw behoeften.
+    </p>
+  </section>
+
+  <!-- Pricing Tiers -->
+  <section class="fade-in grid md:grid-cols-3 gap-8 py-16">
+    <!-- Basic -->
+    <div class="p-8 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between">
+      <h2 class="text-2xl font-semibold mb-4 text-center">🚀 Basic</h2>
+      <p class="text-center text-opacity-80 mb-6">
+        Ideaal voor start-ups of kleine projecten. Inclusief responsive design en basisoptimalisatie.
+      </p>
+      <div class="text-center mb-6 text-3xl font-bold">€750</div>
+      <ul class="mb-6 space-y-2 text-opacity-80">
+        <li>✅ Standaard responsive website</li>
+        <li>✅ Basis SEO-optimalisatie</li>
+        <li>✅ Tot 5 pagina’s</li>
+      </ul>
+      <a 
+        href="/nl/contact" 
+        class="bg-primary text-white font-heading font-semibold py-3 px-6 rounded-lg shadow hover:bg-primary/90 transition text-center inline-block"
+      >
+        Kies Basic
+      </a>
+    </div>
+
+    <!-- Standard -->
+    <div class="p-8 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between">
+      <h2 class="text-2xl font-semibold mb-4 text-center">📊 Standard</h2>
+      <p class="text-center text-opacity-80 mb-6">
+        Voor groeiende bedrijven. Inclusief geavanceerde optimalisatie en extra functionaliteiten.
+      </p>
+      <div class="text-center mb-6 text-3xl font-bold">€1.500</div>
+      <ul class="mb-6 space-y-2 text-opacity-80">
+        <li>✅ Alles van Basic</li>
+        <li>✅ Geavanceerde SEO & performance</li>
+        <li>✅ Tot 10 pagina’s + contactformulieren</li>
+      </ul>
+      <a 
+        href="/nl/contact" 
+        class="bg-primary text-white font-heading font-semibold py-3 px-6 rounded-lg shadow hover:bg-primary/90 transition text-center inline-block"
+      >
+        Kies Standard
+      </a>
+    </div>
+
+    <!-- Premium -->
+    <div class="p-8 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between">
+      <h2 class="text-2xl font-semibold mb-4 text-center">💡 Premium</h2>
+      <p class="text-center text-opacity-80 mb-6">
+        Complete maatwerk oplossingen voor bedrijven die willen uitblinken op het web. Inclusief integraties en extra ondersteuning.
+      </p>
+      <div class="text-center mb-6 text-3xl font-bold">€3.000+</div>
+      <ul class="mb-6 space-y-2 text-opacity-80">
+        <li>✅ Alles van Standard</li>
+        <li>✅ Volledig maatwerk</li>
+        <li>✅ Integraties en geavanceerde functionaliteiten</li>
+      </ul>
+      <a 
+        href="/nl/contact" 
+        class="bg-primary text-white font-heading font-semibold py-3 px-6 rounded-lg shadow hover:bg-primary/90 transition text-center inline-block"
+      >
+        Kies Premium
+      </a>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="fade-in text-center py-16">
+    <p class="text-lg md:text-xl mb-6">
+      Niet zeker welk pakket bij u past? Neem contact op voor een vrijblijvend adviesgesprek.
+    </p>
+    <a 
+      href="/nl/contact" 
+      class="bg-primary text-white font-heading font-semibold py-4 px-10 rounded-full text-xl shadow-lg hover:bg-primary/90 transition-transform transform hover:scale-105 duration-300 inline-block"
+    >
+      Contacteer ons
+    </a>
+  </section>
+</BaseLayout>

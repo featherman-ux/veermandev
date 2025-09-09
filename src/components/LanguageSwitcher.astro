@@ -1,0 +1,38 @@
+---
+import { languages } from '../i18n/ui';
+
+const { pathname } = Astro.url;
+const currentPath = pathname.replace(/^\/[a-z]{2}\//, '/').replace(/\/$/, '');
+---
+<div class="language-switcher">
+  {Object.entries(languages).map(([lang, label]) => (
+    <a 
+      href={`/${lang}${currentPath || '/'}`}
+      class:list={[
+        "lang-link",
+        pathname.startsWith(`/${lang}`) ? "is-active" : ""
+      ]}
+      aria-current={pathname.startsWith(`/${lang}`) ? "page" : undefined}
+    >
+      {label}
+    </a>
+  ))}
+</div>
+
+<style>
+ .language-switcher {
+    display: flex;
+    gap: 0.5rem;
+  }
+ .lang-link {
+    text-decoration: none;
+    color: var(--color-text-muted);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+ .lang-link.is-active {
+    font-weight: bold;
+    color: var(--color-primary);
+    background-color: var(--color-primary-light);
+  }
+</style>

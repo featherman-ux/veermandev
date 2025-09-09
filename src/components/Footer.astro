@@ -1,0 +1,23 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+import { ui } from '../i18n/config';
+
+// Get current language from URL
+const lang = getLangFromUrl(Astro.url);
+
+// Get translations for current language
+const t = ui[lang];
+
+// Current year
+const currentYear = new Date().getFullYear();
+---
+<footer class="bg-dark-slate text-subtle-gray py-10 mt-20">
+  <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+    <p class="text-sm">&copy; {currentYear} Veerman Webdevelopment. All Rights Reserved.</p>
+    <div class="flex gap-6 text-lg">
+      <a href="#" class="hover:text-primary transition-colors">Twitter</a>
+      <a href="#" class="hover:text-primary transition-colors">LinkedIn</a>
+      <a href="#" class="hover:text-primary transition-colors">GitHub</a>
+    </div>
+  </div>
+</footer>

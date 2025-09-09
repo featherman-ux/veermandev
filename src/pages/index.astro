@@ -1,16 +1,20 @@
 ---
+// src/pages/index.astro
+import { ui, defaultLang } from '../i18n/config';
 
+// Get supported languages
+const supportedLangs = Object.keys(ui);
+
+// Read Accept-Language header from the browser
+const acceptLangHeader = Astro.request.headers.get('accept-language');
+
+// Determine the user's language
+const userLang: string =
+  acceptLangHeader
+    ?.split(',')
+    .map(lang => lang.split(';')[0].trim()) // primary language code
+    .find(lang => supportedLangs.includes(lang)) ?? defaultLang;
+
+// Redirect to language-specific homepage
+return Astro.redirect(`/${userLang}/home`, 307);
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>

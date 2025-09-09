@@ -1,0 +1,46 @@
+---
+import Card from './Card.astro';
+
+const services = [
+  {
+    title: "⚡ Lightning-Fast Development",
+    body: "Your website goes live in days, not weeks. Built with modern frameworks, no drag-and-drop bloat.",
+    href: "/services/speed",
+    imageSrc: "/images/speed.jpg",
+    imageAlt: "Fast development"
+  },
+  {
+    title: "💰 Cost-Effective",
+    body: "Efficient, clean code means lower costs and no expensive maintenance fees. You provide the vision, we deliver.",
+    href: "/services/cost",
+    imageSrc: "/images/cost.jpg",
+    imageAlt: "Affordable pricing"
+  },
+  {
+    title: "🚀 Zero Hosting Costs",
+    body: "Static sites hosted on modern platforms are lightning-fast, free, and secure — saving you even more.",
+    href: "/services/hosting",
+    imageSrc: "/images/hosting.jpg",
+    imageAlt: "Free hosting"
+  },
+  {
+    title: "🏆 Premium Performance",
+    body: "Unique coding methodology ensures blazing-fast, responsive, and premium-looking websites.",
+    href: "/services/performance",
+    imageSrc: "/images/performance.jpg",
+    imageAlt: "Performance design"
+  }
+];
+---
+<section class="bg-dark py-24 sm:py-32 fade-in">
+  <div class="container mx-auto px-6">
+    <h2 class="font-heading text-4xl sm:text-5xl font-bold text-white text-center mb-16">
+      Our Services
+    </h2>
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      {services.map(service => (
+        <Card {...service} />
+      ))}
+    </div>
+  </div>
+</section>

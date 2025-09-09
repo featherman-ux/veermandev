@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "About Us | VeermanDev";
+const pageDescription = "Meet VeermanDev – we deliver modern, data-driven web solutions that make an impact.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="fade-in text-center py-24 bg-card-light dark:bg-card-dark rounded-xl shadow-lg">
+    <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
+      About <span class="text-primary">Us</span>
+    </h1>
+    <p class="text-lg md:text-xl max-w-3xl mx-auto text-opacity-80">
+      We are a dedicated team of web developers with a strong focus on performance, modern web standards, and scalable solutions. Our mission is to craft digital experiences that are visually impressive, lightning fast, and reliable.
+    </p>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="fade-in grid md:grid-cols-3 gap-8 py-16">
+    <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold mb-3">🚀 Performance & Optimization</h2>
+      <p class="text-opacity-80">
+        We build websites that are not only visually striking but also fast, technically optimized, and designed for an exceptional user experience.
+      </p>
+    </div>
+    <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold mb-3">📊 Data-Driven Development</h2>
+      <p class="text-opacity-80">
+        Our solutions are guided by analytics and industry best practices, ensuring they align with your organization’s strategic objectives and growth ambitions.
+      </p>
+    </div>
+    <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold mb-3">💡 Modern Technology</h2>
+      <p class="text-opacity-80">
+        Using Astro, Tailwind CSS, and the latest frameworks, we deliver future-proof, scalable, and maintainable digital solutions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="fade-in text-center py-16">
+    <p class="text-lg md:text-xl mb-6">
+      Ready to elevate your digital presence? Let’s collaborate and turn your vision into reality.
+    </p>
+    <a 
+      href="/en/contact" 
+      class="bg-primary text-white font-heading font-semibold py-4 px-10 rounded-full text-xl shadow-lg hover:bg-primary/90 transition-transform transform hover:scale-105 duration-300 inline-block"
+    >
+      Contact Us
+    </a>
+  </section>
+</BaseLayout>

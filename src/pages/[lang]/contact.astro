@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangFromUrl } from '../../i18n/utils';
+import { ui } from '../../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = ui[lang];
+
+// Define the type for form submission result
+type ContactResult = {
+  success: boolean;
+  message: string;
+} | null;
+
+// Initialize with null
+let contactResult: ContactResult = null;
+
+// Handle form submission safely
+if (Astro.request.method === 'POST') {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get('name')?.toString() ?? '';
+    const email = data.get('email')?.toString() ?? '';
+    const message = data.get('message')?.toString() ?? '';
+
+    // Here you would normally send the data to an API, DB, or email service
+    console.log({ name, email, message });
+
+    // Update contactResult on success
+    contactResult = {
+      success: true,
+      message: t['contact.submit'] + ' successfully!', // Optional: translated feedback
+    };
+  } catch (error) {
+    // Update contactResult on error
+    contactResult = {
+      success: false,
+      message: 'There was an error processing your request.',
+    };
+  }
+}
+---
+
+<BaseLayout title={t['contact.title']} description={t['contact.description']}>
+  <section class="container mx-auto px-6 py-12 md:py-20">
+    <h1 class="font-heading text-3xl mb-6">{t['contact.heading']}</h1>
+    <p class="mb-8">{t['contact.subtitle']}</p>
+
+    <form method="POST" class="grid gap-4 max-w-lg">
+      <div class="flex flex-col">
+        <label for="name" class="mb-1">{t['contact.name']}</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder={t['contact.namePlaceholder']}
+          class="p-2 border border-gray-600 rounded bg-dark-slate text-white"
+          required
+        />
+      </div>
+
+      <div class="flex flex-col">
+        <label for="email" class="mb-1">{t['contact.email']}</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder={t['contact.emailPlaceholder']}
+          class="p-2 border border-gray-600 rounded bg-dark-slate text-white"
+          required
+        />
+      </div>
+
+      <div class="flex flex-col">
+        <label for="message" class="mb-1">{t['contact.message']}</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder={t['contact.messagePlaceholder']}
+          class="p-2 border border-gray-600 rounded bg-dark-slate text-white"
+          rows="5"
+          required
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="bg-primary text-dark font-semibold px-6 py-2 rounded hover:opacity-90 transition"
+      >
+        {t['contact.submit']}
+      </button>
+    </form>
+
+    {/* Render feedback message safely */}
+    {contactResult?.message && (
+      <p
+        class={`mt-4 ${
+          contactResult.success ? 'text-green-400' : 'text-red-400'
+        }`}
+      >
+        {contactResult.message}
+      </p>
+    )}
+  </section>
+</BaseLayout>

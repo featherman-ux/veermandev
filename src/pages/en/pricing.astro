@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Pricing | VeermanDev";
+const pageDescription = "Discover VeermanDev's transparent and fair pricing for high-quality, tailored web solutions.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="fade-in text-center py-24 bg-card-light dark:bg-card-dark rounded-xl shadow-lg">
+    <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
+      Our <span class="text-primary">Pricing</span>
+    </h1>
+    <p class="text-lg md:text-xl max-w-3xl mx-auto text-opacity-80">
+      Transparent and fair rates for high-quality, tailor-made web solutions. Select the package that best suits your business needs.
+    </p>
+  </section>
+
+  <!-- Pricing Tiers -->
+  <section class="fade-in grid md:grid-cols-3 gap-8 py-16">
+    <!-- Basic -->
+    <div class="p-8 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between">
+      <h2 class="text-2xl font-semibold mb-4 text-center">🚀 Basic</h2>
+      <p class="text-center text-opacity-80 mb-6">
+        Perfect for start-ups or small projects. Includes responsive design and basic optimization.
+      </p>
+      <div class="text-center mb-6 text-3xl font-bold">€750</div>
+      <ul class="mb-6 space-y-2 text-opacity-80">
+        <li>✅ Standard responsive website</li>
+        <li>✅ Basic SEO optimization</li>
+        <li>✅ Up to 5 pages</li>
+      </ul>
+      <a 
+        href="/en/contact" 
+        class="bg-primary text-white font-heading font-semibold py-3 px-6 rounded-lg shadow hover:bg-primary/90 transition text-center inline-block"
+      >
+        Choose Basic
+      </a>
+    </div>
+
+    <!-- Standard -->
+    <div class="p-8 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between">
+      <h2 class="text-2xl font-semibold mb-4 text-center">📊 Standard</h2>
+      <p class="text-center text-opacity-80 mb-6">
+        Ideal for growing businesses. Includes advanced optimization and additional functionalities.
+      </p>
+      <div class="text-center mb-6 text-3xl font-bold">€1,500</div>
+      <ul class="mb-6 space-y-2 text-opacity-80">
+        <li>✅ Everything in Basic</li>
+        <li>✅ Advanced SEO & performance</li>
+        <li>✅ Up to 10 pages + contact forms</li>
+      </ul>
+      <a 
+        href="/en/contact" 
+        class="bg-primary text-white font-heading font-semibold py-3 px-6 rounded-lg shadow hover:bg-primary/90 transition text-center inline-block"
+      >
+        Choose Standard
+      </a>
+    </div>
+
+    <!-- Premium -->
+    <div class="p-8 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between">
+      <h2 class="text-2xl font-semibold mb-4 text-center">💡 Premium</h2>
+      <p class="text-center text-opacity-80 mb-6">
+        Complete custom solutions for businesses that want to stand out online. Includes integrations and premium support.
+      </p>
+      <div class="text-center mb-6 text-3xl font-bold">€3,000+</div>
+      <ul class="mb-6 space-y-2 text-opacity-80">
+        <li>✅ Everything in Standard</li>
+        <li>✅ Fully custom design & development</li>
+        <li>✅ Integrations and advanced functionalities</li>
+      </ul>
+      <a 
+        href="/en/contact" 
+        class="bg-primary text-white font-heading font-semibold py-3 px-6 rounded-lg shadow hover:bg-primary/90 transition text-center inline-block"
+      >
+        Choose Premium
+      </a>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="fade-in text-center py-16">
+    <p class="text-lg md:text-xl mb-6">
+      Not sure which package fits your business? Contact us for a free consultation.
+    </p>
+    <a 
+      href="/en/contact" 
+      class="bg-primary text-white font-heading font-semibold py-4 px-10 rounded-full text-xl shadow-lg hover:bg-primary/90 transition-transform transform hover:scale-105 duration-300 inline-block"
+    >
+      Get in Touch
+    </a>
+  </section>
+</BaseLayout>

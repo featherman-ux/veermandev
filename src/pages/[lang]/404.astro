@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ui } from '../../i18n/ui';
+
+const { lang } = Astro.params as { lang: keyof typeof ui };
+const t = ui[lang] || ui['en'];
+---
+
+<BaseLayout title="404" description="Page not found">
+  <div class="container mx-auto text-center py-20">
+    <h1 class="text-6xl font-bold mb-4">404</h1>
+    <p class="text-xl mb-6">{t.page_not_found || 'Page not found'}</p>
+    <a href={`/${lang}/home`} class="btn-primary">{t.back_home || 'Back to home'}</a>
+  </div>
+</BaseLayout>
