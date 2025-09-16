@@ -31,5 +31,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 41e06ef76f253fc7135939d93e4e12df
-          projectName: "veermandev"
+          projectName: "veermandev1"
           directory: "dist"
