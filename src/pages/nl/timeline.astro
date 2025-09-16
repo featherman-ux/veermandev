@@ -1,101 +1,93 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+// src/pages/nl/timeline.astro
 
-const pageTitle = "Tijdlijn | VeermanDev";
-const pageDescription = "Bekijk de projecttijdlijn van VeermanDev – van concept tot oplevering, stap voor stap transparant en professioneel.";
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ui } from '../../i18n/config';
+
+const pageTitle = "Tijdlijn | VeermanDevelopment";
+const pageDescription = "Uw website live in drie dagen: van kickoff tot livegang, plus doorlopende zorg.";
+const t = ui.nl;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero Section -->
-  <section class="fade-in text-center py-24 bg-card-light dark:bg-card-dark rounded-xl shadow-lg">
-    <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
-      Onze <span class="text-primary">Tijdlijn</span>
+  <!-- Hero & Delivery Banner -->
+  <section class="fade-in text-center py-12 md:py-16 bg-card-light dark:bg-card-dark rounded-xl shadow">
+    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">
+      {t['nav.timeline']}
     </h1>
-    <p class="text-lg md:text-xl max-w-3xl mx-auto text-opacity-80">
-      Van eerste concept tot live oplevering: ontdek hoe wij uw project stap voor stap realiseren met maximale kwaliteit en transparantie.
+    <p class="text-xl md:text-2xl opacity-90 mb-6 max-w-2xl mx-auto">
+      Van kickoff tot livegang, uw site staat binnen drie dagen online.
     </p>
-  </section>
-
-  <!-- Timeline Section -->
-  <section class="fade-in py-16">
-    <div class="max-w-5xl mx-auto space-y-12">
-      <!-- Phase 1 -->
-      <div class="flex flex-col md:flex-row md:items-center md:gap-12">
-        <div class="md:w-1/3 text-center md:text-left">
-          <h2 class="text-2xl font-semibold text-primary mb-2">Stap 1: Concept & Analyse</h2>
-          <p class="text-opacity-80">
-            Samen bespreken we uw wensen, doelgroep en doelen. We analyseren de beste strategie en functionaliteiten voor uw project.
-          </p>
-        </div>
-        <div class="md:w-2/3">
-          <div class="h-2 bg-primary rounded-full w-full"></div>
-        </div>
-      </div>
-
-      <!-- Phase 2 -->
-      <div class="flex flex-col md:flex-row md:items-center md:gap-12">
-        <div class="md:w-1/3 text-center md:text-left">
-          <h2 class="text-2xl font-semibold text-primary mb-2">Stap 2: Ontwerp & Prototyping</h2>
-          <p class="text-opacity-80">
-            Wij creëren een visueel aantrekkelijk en functioneel ontwerp. Prototypes geven u een realistisch beeld van de uiteindelijke website.
-          </p>
-        </div>
-        <div class="md:w-2/3">
-          <div class="h-2 bg-primary rounded-full w-full"></div>
-        </div>
-      </div>
-
-      <!-- Phase 3 -->
-      <div class="flex flex-col md:flex-row md:items-center md:gap-12">
-        <div class="md:w-1/3 text-center md:text-left">
-          <h2 class="text-2xl font-semibold text-primary mb-2">Stap 3: Ontwikkeling & Integratie</h2>
-          <p class="text-opacity-80">
-            Onze ontwikkelaars bouwen een performante en schaalbare website. Eventuele integraties met externe tools worden zorgvuldig ingesteld.
-          </p>
-        </div>
-        <div class="md:w-2/3">
-          <div class="h-2 bg-primary rounded-full w-full"></div>
-        </div>
-      </div>
-
-      <!-- Phase 4 -->
-      <div class="flex flex-col md:flex-row md:items-center md:gap-12">
-        <div class="md:w-1/3 text-center md:text-left">
-          <h2 class="text-2xl font-semibold text-primary mb-2">Stap 4: Testen & Oplevering</h2>
-          <p class="text-opacity-80">
-            We testen de website grondig op snelheid, veiligheid en gebruiksvriendelijkheid. Daarna leveren we uw project live op met volledige documentatie.
-          </p>
-        </div>
-        <div class="md:w-2/3">
-          <div class="h-2 bg-primary rounded-full w-full"></div>
-        </div>
-      </div>
-
-      <!-- Phase 5 -->
-      <div class="flex flex-col md:flex-row md:items-center md:gap-12">
-        <div class="md:w-1/3 text-center md:text-left">
-          <h2 class="text-2xl font-semibold text-primary mb-2">Stap 5: Onderhoud & Optimalisatie</h2>
-          <p class="text-opacity-80">
-            Na oplevering blijven wij ondersteuning bieden en optimaliseren we de website indien nodig, zodat uw digitale aanwezigheid altijd top blijft.
-          </p>
-        </div>
-        <div class="md:w-2/3">
-          <div class="h-2 bg-primary rounded-full w-full"></div>
-        </div>
-      </div>
+    <div class="inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-3 font-semibold text-lg">
+      <span class="underline">3 Dagen Levering</span>
     </div>
   </section>
 
-  <!-- Call-to-Action Section -->
-  <section class="fade-in text-center py-16">
-    <p class="text-lg md:text-xl mb-6">
-      Klaar om uw project met ons te starten? Neem vandaag nog contact op voor een vrijblijvend adviesgesprek.
-    </p>
-    <a 
-      href="/nl/contact" 
-      class="bg-primary text-white font-heading font-semibold py-4 px-10 rounded-full text-xl shadow-lg hover:bg-primary/90 transition-transform transform hover:scale-105 duration-300 inline-block"
-    >
-      Contacteer ons
-    </a>
+  <!-- Three-Day Sprint Steps -->
+  <section class="py-16 px-6 md:px-0">
+    <div class="max-w-4xl mx-auto space-y-16">
+
+      <!-- Dag Eén -->
+      <div class="flex flex-col md:flex-row items-center md:space-x-12">
+        <div class="md:w-1/2 text-center md:text-left">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-primary text-white rounded-full mb-4 text-2xl font-bold animate-pulse">
+            1
+          </div>
+          <h2 class="text-3xl font-semibold mb-2">Dag Eén</h2>
+          <p class="text-opacity-80">
+            Kickoff-meeting over doelstellingen, doelgroep en kernfeatures. We verfijnen de scope en leggen alles vast.
+          </p>
+        </div>
+        <div class="md:w-1/2 mt-6 md:mt-0">
+          <img src="/assets/Pictures_Timeline/day-1.png" alt="Kickoff meeting illustratie" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" />
+        </div>
+      </div>
+
+      <!-- Dag Twee -->
+      <div class="flex flex-col md:flex-row-reverse items-center md:space-x-0 md:space-x-reverse md:space-x-12">
+        <div class="md:w-1/2 text-center md:text-left">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-primary text-white rounded-full mb-4 text-2xl font-bold animate-pulse">
+            2
+          </div>
+          <h2 class="text-3xl font-semibold mb-2">Dag Twee</h2>
+          <p class="text-opacity-80">
+            Eerste ontwerp & interactieve prototype. Direct visueel inzicht en ruimte voor feedback.
+          </p>
+        </div>
+        <div class="md:w-1/2 mt-6 md:mt-0">
+          <img src="/assets/Pictures_Timeline/day-2.png" alt="Ontwerp prototype illustratie" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" />
+        </div>
+      </div>
+
+      <!-- Dag Drie -->
+      <div class="flex flex-col md:flex-row items-center md:space-x-12">
+        <div class="md:w-1/2 text-center md:text-left">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-primary text-white rounded-full mb-4 text-2xl font-bold animate-pulse">
+            3
+          </div>
+          <h2 class="text-3xl font-semibold mb-2">Dag Drie</h2>
+          <p class="text-opacity-80">
+            Volledig werkende website gebouwd, getest en live gezet. Geoptimaliseerd voor performance en SEO.
+          </p>
+        </div>
+        <div class="md:w-1/2 mt-6 md:mt-0">
+          <img src="/assets/Pictures_Timeline/day-3.png" alt="Livegang illustratie" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Maintenance & Optimization -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-3xl mx-auto text-center space-y-6 px-6">
+      <h2 class="text-4xl font-semibold text-primary">Onderhoud & Optimalisatie</h2>
+      <p class="text-opacity-80">
+        Na livegang bieden we doorlopende ondersteuning, performance tuning en feature-updates. Uw website blijft snel, veilig en up-to-date.
+      </p>
+      <a href="/nl/contact" class="inline-block bg-primary text-white font-heading font-semibold py-3 px-8 rounded-lg shadow hover:bg-primary/90 transition-transform transform hover:scale-105 duration-300">
+        Lees Meer
+      </a>
+    </div>
   </section>
 </BaseLayout>

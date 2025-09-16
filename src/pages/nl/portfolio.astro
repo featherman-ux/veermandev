@@ -1,0 +1,85 @@
+---
+// src/pages/nl/portfolio.astro
+
+// Capture the language from the route
+const { lang } = Astro.params as { lang: 'nl' };
+
+// Import layout and translations
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ui } from '../../i18n/config';
+
+// Translation helper
+const t = ui.nl;
+
+// Define page metadata
+const pageTitle = `Portfolio | VeermanDevelopment`;
+const pageDescription = `Bekijk onze projecten en cases die onze expertise in moderne weboplossingen tonen.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Sectie -->
+  <section class="fade-in text-center py-24 bg-card-light dark:bg-card-dark rounded-xl shadow-lg">
+    <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
+      Portfolio
+    </h1>
+    <p class="text-lg md:text-xl max-w-3xl mx-auto text-opacity-80">
+      Hier presenteren we onze recente projecten.
+    </p>
+  </section>
+
+  <!-- Uitgelichte Projecten -->
+  <section class="fade-in grid gap-16 py-16 lg:grid-cols-2 xl:grid-cols-3">
+    <!-- Project 1: waarisniels.nl -->
+    <div class="project-card featured">
+      <img src="/images/waarisniels-mockup.jpg" alt="waarisniels.nl interface" class="rounded-lg" />
+      <div class="mt-4">
+        <h2 class="text-2xl font-semibold">
+          <a href="https://waarisniels.nl" target="_blank" rel="noopener">waarisniels.nl</a>
+        </h2>
+        <p class="text-sm text-primary uppercase font-medium">
+          Contentmarketingplatform
+        </p>
+        <p class="mt-2 text-opacity-80">
+          Een uitgebreid platform voor Nederlandse ondernemers met contentbeheer, SEO-tools, analytics en geautomatiseerde social planning.
+        </p>
+      </div>
+    </div>
+
+    <!-- Project 2: Modern E-commerce -->
+    <div class="project-card">
+      <img src="/images/ecommerce-mockup.jpg" alt="E-commerce dashboard" class="rounded-lg" />
+      <div class="mt-4">
+        <h2 class="text-2xl font-semibold">Modern E-commerce</h2>
+        <p class="text-sm text-primary uppercase font-medium">Full-Stack Ontwikkeling</p>
+        <p class="mt-2 text-opacity-80">
+          Schaalbare winkel met voorraadbeheer, real-time analytics en betalingsintegraties.
+        </p>
+      </div>
+    </div>
+
+    <!-- Project 3: Bedrijfsherontwerp -->
+    <div class="project-card">
+      <img src="/images/corporate-mockup.jpg" alt="Bedrijfswebsite" class="rounded-lg" />
+      <div class="mt-4">
+        <h2 class="text-2xl font-semibold">Bedrijfsherontwerp</h2>
+        <p class="text-sm text-primary uppercase font-medium">UI/UX Design & Ontwikkeling</p>
+        <p class="mt-2 text-opacity-80">
+          Herontwerp voor een financiële dienstverlener met focus op toegankelijkheid, prestaties en leadgeneratie.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="fade-in text-center py-16">
+    <p class="mb-6 text-lg md:text-xl text-opacity-80">
+      Klaar voor uw volgende project? Neem contact op!
+    </p>
+    <a
+      href="/nl/contact"
+      class="inline-block bg-primary text-white font-heading font-semibold py-3 px-8 rounded-lg shadow hover:bg-primary/90 transition"
+    >
+      Neem Contact Op
+    </a>
+  </section>
+</BaseLayout>

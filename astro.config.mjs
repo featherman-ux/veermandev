@@ -1,14 +1,13 @@
+// astro.config.ts - This should already be correct
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import node from '@astrojs/node';
+import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
-  site: 'https://www.veerman-webdevelopment.com',
+  site: 'https://www.veermandev.nl',
   output: 'server',
-  adapter: node({
-    mode: 'standalone', // ← Add this line
-  }),
+  adapter: cloudflare(),
   integrations: [
     tailwind(),
     sitemap(),

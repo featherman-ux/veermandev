@@ -11,13 +11,16 @@
     "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.5",
     "@astrojs/node": "^9.4.3",
+    "@cloudflare/kv-asset-handler": "^0.4.0",
     "astro": "^5.13.5",
     "motion": "^12.23.12",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "^12.6.8",
     "@astrojs/sitemap": "^3.5.1",
     "@astrojs/tailwind": "^6.0.2",
     "autoprefixer": "^10.4.21",
