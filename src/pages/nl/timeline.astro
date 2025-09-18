@@ -17,7 +17,8 @@ const t = ui.nl;
 <BaseLayout title={pageTitle} description={pageDescription}>
   <section class="fade-in text-center py-12 md:py-16 bg-card-light dark:bg-card-dark rounded-xl shadow">
     <h1 class="text-5xl md:text-6xl font-heading font-bold mb-4">
-      {t['nav.timeline']}
+      {/* Changed to use the two new translation keys for dual-color text */}
+      {t['nav.timelineStart']}<span class="text-primary">{t['nav.timelineEnd']}</span>
     </h1>
     <p class="text-xl md:text-2xl opacity-90 mb-6 max-w-2xl mx-auto">
       Van kickoff tot livegang, uw site staat binnen drie dagen online.
