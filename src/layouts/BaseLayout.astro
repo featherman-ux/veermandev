@@ -3,7 +3,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLangFromUrl } from '../i18n/utils';
-import '../styles/global.css';
+// 1. Changed the CSS import to read the file's content
+import globalStyles from '../styles/global.css?raw';
 
 interface Props {
   title: string;
@@ -29,14 +30,15 @@ const canonicalUrl = Astro.site
 <html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale-1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {/* 2. Inlined the styles to prevent render-blocking */}
+    <style is:inline set:html={globalStyles}></style>
 
-    {/* The three <link> tags for Google Fonts have been removed from here */}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={lang} href={canonicalUrl} />
@@ -63,7 +65,6 @@ const canonicalUrl = Astro.site
             applyTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
           }
 
-          // Optional: update if system theme changes and user hasn't set a preference
           if (window.matchMedia) {
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
               const stored = localStorage.getItem('theme');
