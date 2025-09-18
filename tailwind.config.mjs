@@ -1,3 +1,8 @@
+// tailwind.config.mjs
+
+// 1. ADD THIS IMPORT AT THE TOP
+import { fontFamily } from 'tailwindcss/defaultTheme';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
@@ -19,8 +24,9 @@ export default {
         'text-dark': "#E5E7EB",          // subtle gray text for dark mode
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['Poppins', 'sans-serif'],
+        // 2. ADD THE '...fontFamily.sans' FALLBACKS
+        sans: ['Inter', ...fontFamily.sans],
+        heading: ['Poppins', ...fontFamily.sans],
       },
     },
   },

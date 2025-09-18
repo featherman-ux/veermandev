@@ -29,15 +29,14 @@ const canonicalUrl = Astro.site
 <html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale-1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+
+    {/* The three <link> tags for Google Fonts have been removed from here */}
 
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={lang} href={canonicalUrl} />
@@ -46,14 +45,12 @@ const canonicalUrl = Astro.site
   <body class="bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark font-sans leading-relaxed">
     <Header />
 
-    <!-- Balanced gap below sticky header -->
     <main id="main-content" class="min-h-screen px-4 md:px-8 pt-6 md:pt-8">
       <slot />
     </main>
 
     <Footer />
 
-    <!-- Theme init (runs in browser only) -->
     <script type="module">
       if (typeof window !== 'undefined') {
         const applyTheme = (theme) => document.documentElement.classList.toggle('dark', theme === 'dark');
