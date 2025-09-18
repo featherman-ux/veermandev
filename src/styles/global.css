@@ -1,3 +1,51 @@
+/* src/styles/global.css */
+
+/* 1. DEFINE YOUR LOCAL FONTS */
+/* =========================== */
+
+/* ==== INTER FONT FAMILY ==== */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/inter-v13-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/inter-v13-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/inter-v13-latin-700.woff2') format('woff2');
+}
+
+/* ==== POPPINS FONT FAMILY ==== */
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/poppins-v21-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/poppins-v21-latin-700.woff2') format('woff2');
+}
+
+
+/* 2. TAILWIND & BODY STYLES */
+/* ========================== */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
