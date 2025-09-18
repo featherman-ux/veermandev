@@ -13,7 +13,8 @@ const navLinks = [
   { href: `/${lang}/about`, text: t['nav.about'] },
   { href: `/${lang}/portfolio`, text: t['nav.portfolio'] },
   { href: `/${lang}/pricing`, text: t['nav.pricing'] },
-  { href: `/${lang}/timeline`, text: t['nav.timeline'] },
+  // FIX: Combine the two new keys to form the full word "Timeline" / "Tijdlijn"
+  { href: `/${lang}/timeline`, text: t['nav.timelineStart'] + t['nav.timelineEnd'] },
   { href: `/${lang}/contact`, text: t['nav.contact'] },
 ];
 
@@ -21,12 +22,10 @@ const currentPath = Astro.url.pathname;
 ---
 <header class="h-20 bg-background-light dark:bg-background-dark sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700">
   <div class="container mx-auto px-6 h-full flex items-center justify-between">
-    <!-- Logo -->
     <a href={`/${lang}/home`} class="font-heading text-2xl font-bold text-text-light dark:text-text-dark tracking-wide hover:text-primary transition">
       Veerman<span class="text-primary">Development</span>
     </a>
 
-    <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center gap-8 h-full">
       {navLinks.map(link => (
         <a
@@ -42,7 +41,6 @@ const currentPath = Astro.url.pathname;
         </a>
       ))}
 
-      <!-- Theme toggle (desktop) -->
       <button 
         id="theme-toggler-desktop" 
         type="button" 
@@ -56,9 +54,7 @@ const currentPath = Astro.url.pathname;
       <LanguageSwitcher />
     </nav>
 
-    <!-- Mobile Menu + Theme -->
     <div class="md:hidden flex items-center gap-4 h-full">
-      <!-- Theme toggle (mobile) -->
       <button 
         id="theme-toggler-mobile" 
         type="button" 
@@ -80,7 +76,6 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
 
-  <!-- Mobile Navigation (inside header so it pushes content down when open) -->
   <div id="mobile-menu" class="hidden md:hidden w-full bg-background-light dark:bg-background-dark">
     <nav class="flex flex-col gap-4 px-6 py-4">
       {navLinks.map(link => (
@@ -98,7 +93,6 @@ const currentPath = Astro.url.pathname;
     </nav>
   </div>
 
-  <!-- Client script (robust, runs after DOM ready) -->
   <script type="module">
     if (typeof window !== 'undefined') {
       const init = () => {
