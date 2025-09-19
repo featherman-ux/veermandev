@@ -1,24 +1,20 @@
 ---
 // src/pages/nl/home.astro
-
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
 const pageTitle = "Home | VeermanDevelopment";
-const pageDescription = "Welkom bij VeermanDevelopment – Wij bouwen hoogwaardige weboplossingen met moderne technologieën.";
+const pageDescription = "Ontdek razendsnelle, veilige websites gebouwd in dagen met moderne Jamstack-architectuur.";
 ---
-
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero section -->
+  <!-- Hero Sectie -->
   <section class="fade-in text-center py-16 bg-card-light dark:bg-card-dark rounded-xl shadow">
     <h1 class="font-heading font-bold">
-      <span class="block text-3xl md:text-4xl">Welkom bij</span>
-      {/* ADDED &shy; and reverted to stepped, larger font sizes */}
-      <span class="block text-5xl sm:text-6xl md:text-6xl mt-2">  
-        <span class="block sm:inline">Veerman</span><span class="block sm:inline text-primary">Development</span>
+      <span class="block text-4xl sm:text-5xl md:text-6xl mt-2">
+        <span class="block sm:inline">Live binnen</span>
+        <span class="block sm:inline text-primary">3 Dagen</span>
       </span>
     </h1>
     <p class="mt-6 text-lg max-w-2xl mx-auto opacity-80">
-      Wij ontwikkelen datagedreven, schaalbare en moderne weboplossingen voor bedrijven en particulieren.
+      Wij bouwen uitzonderlijk snelle, veilige en conversiegerichte websites met moderne Jamstack-technologie.
     </p>
     <a
       href="/nl/portfolio"
@@ -28,24 +24,24 @@ const pageDescription = "Welkom bij VeermanDevelopment – Wij bouwen hoogwaardi
     </a>
   </section>
 
-  <!-- Features section -->
+  <!-- Features Sectie -->
   <section class="fade-in grid md:grid-cols-3 gap-8 py-16">
     <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-semibold">🚀 Snel & Geoptimaliseerd</h2>
+      <h2 class="text-xl font-semibold">🚀 Directe Snelheid</h2>
       <p class="mt-3 opacity-80">
-        Websites gebouwd met performance en SEO in gedachten, zodat zowel gebruikers als zoekmachines tevreden zijn.
+        Van tevoren gegenereerde statische pagina’s via een CDN voor bliksemsnelle laadtijden, betere SEO en minder bounces.
       </p>
     </div>
     <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-semibold">📊 Datagedreven</h2>
+      <h2 class="text-xl font-semibold">🔒 Onfeilbare Veiligheid</h2>
       <p class="mt-3 opacity-80">
-        We benutten analytics en best practices om oplossingen te leveren die aansluiten bij jouw bedrijfsdoelen.
+        Geen servercode of databases per request—sterk verkleinde kwetsbaarheden voor gemoedsrust.
       </p>
     </div>
     <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-semibold">💡 Moderne Technologie</h2>
+      <h2 class="text-xl font-semibold">💡 Jamstack Technologie</h2>
       <p class="mt-3 opacity-80">
-        Met Astro, Tailwind en de nieuwste frameworks zorgen wij voor een toekomstbestendige digitale aanwezigheid.
+        Toekomstbestendige architectuur met Astro en Tailwind voor schaalbaarheid, onderhoudbaarheid en lage hostingkosten.
       </p>
     </div>
   </section>

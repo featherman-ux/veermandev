@@ -1,94 +1,93 @@
 ---
+// src/pages/nl/prijzen.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
 const pageTitle = "Prijzen | VeermanDevelopment";
-const pageDescription = "Ontdek de tarieven van VeermanDevelopment – transparant, eerlijk en afgestemd op uw digitale behoeften.";
+const pageDescription = "Transparante, waardegerichte tarieven voor high-performance Jamstack-websites.";
 ---
-
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero Section -->
+  <!-- Hero Sectie -->
   <section class="fade-in text-center py-24 bg-card-light dark:bg-card-dark rounded-xl shadow-lg">
     <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
       Onze <span class="text-primary">Prijzen</span>
     </h1>
     <p class="text-lg md:text-xl max-w-3xl mx-auto text-opacity-80">
-      Transparante en eerlijke tarieven voor hoogwaardige, op maat gemaakte weboplossingen. Kies het pakket dat het beste past bij uw behoeften.
+      Concurrerende pakketten gebaseerd op efficiëntie—enterprise-prestaties zonder premiumkosten.
     </p>
   </section>
 
-  <!-- Pricing Tiers -->
+  <!-- Prijs Tiers -->
   <section class="fade-in grid md:grid-cols-3 gap-8 py-16">
-    <!-- Basic -->
+    <!-- Startpunt -->
     <div class="p-8 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between">
-      <h2 class="text-2xl font-semibold mb-4 text-center">🚀 Basic</h2>
+      <h2 class="text-2xl font-semibold mb-4 text-center">🚀 Core</h2>
       <p class="text-center text-opacity-80 mb-6">
-        Ideaal voor start-ups of kleine projecten. Inclusief responsive design en basisoptimalisatie.
+        Ideaal voor startups—tot 3 pagina’s, gebouwd en live in 3 dagen.
       </p>
-      <div class="text-center mb-6 text-3xl font-bold">€750</div>
+      <div class="text-center mb-6 text-3xl font-bold">€399</div>
       <ul class="mb-6 space-y-2 text-opacity-80">
-        <li>✅ Standaard responsive website</li>
-        <li>✅ Basis SEO-optimalisatie</li>
-        <li>✅ Tot 5 pagina’s</li>
+        <li>✅ Statische Jamstack-site</li>
+        <li>✅ 3-daagse levering</li>
+        <li>✅ Enterprise-grade beveiliging</li>
       </ul>
       <a 
         href="/nl/contact" 
         class="bg-primary text-black font-heading font-semibold py-3 px-6 rounded-lg shadow hover:bg-primary/90 transition text-center inline-block"
       >
-        Kies Basic
+        Kies Core
       </a>
     </div>
 
-    <!-- Standard -->
+    <!-- Groei Motor -->
     <div class="p-8 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between">
-      <h2 class="text-2xl font-semibold mb-4 text-center">📊 Standaard</h2>
+      <h2 class="text-2xl font-semibold mb-4 text-center">📈 Plus</h2>
       <p class="text-center text-opacity-80 mb-6">
-        Voor groeiende bedrijven. Inclusief geavanceerde optimalisatie en extra functionaliteiten.
+        Voor groeiende MKB’s—tot 10 pagina’s, headless CMS, integraties.
       </p>
-      <div class="text-center mb-6 text-3xl font-bold">€1.500</div>
+      <div class="text-center mb-6 text-3xl font-bold">€999</div>
       <ul class="mb-6 space-y-2 text-opacity-80">
-        <li>✅ Alles van Basic</li>
-        <li>✅ Geavanceerde SEO & performance</li>
-        <li>✅ Tot 10 pagina’s + contactformulieren</li>
+        <li>✅ Alles uit Core</li>
+        <li>✅ Headless CMS</li>
+        <li>✅ Contactformulieren & basis-API’s</li>
       </ul>
       <a 
         href="/nl/contact" 
         class="bg-primary text-black font-heading font-semibold py-3 px-6 rounded-lg shadow hover:bg-primary/90 transition text-center inline-block"
       >
-        Kies Standaard
+        Kies Plus
       </a>
     </div>
 
-    <!-- Premium -->
+    <!-- Performance Pro -->
     <div class="p-8 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between">
-      <h2 class="text-2xl font-semibold mb-4 text-center">💡 Premium</h2>
+      <h2 class="text-2xl font-semibold mb-4 text-center">💡 Performance Pro</h2>
       <p class="text-center text-opacity-80 mb-6">
-        Complete maatwerk oplossingen voor bedrijven die willen uitblinken op het web. Inclusief integraties en extra ondersteuning.
+        Volledig maatwerk—onbeperkte pagina’s, e-commerce, geavanceerde API’s.
       </p>
-      <div class="text-center mb-6 text-3xl font-bold">€3.000+</div>
+      <div class="text-center mb-6 text-3xl font-bold">€1.999+</div>
       <ul class="mb-6 space-y-2 text-opacity-80">
-        <li>✅ Alles van Standaard</li>
-        <li>✅ Volledig maatwerk</li>
-        <li>✅ Integraties en geavanceerde functionaliteiten</li>
+        <li>✅ Alles uit Plus</li>
+        <li>✅ E-commerce & geavanceerde integraties</li>
+        <li>✅ Toegewijde support</li>
       </ul>
       <a 
         href="/nl/contact" 
         class="bg-primary text-black font-heading font-semibold py-3 px-6 rounded-lg shadow hover:bg-primary/90 transition text-center inline-block"
       >
-        Kies Premium
+        Kies Pro
       </a>
     </div>
   </section>
 
-  <!-- Call-to-Action Section -->
+  <!-- Call-to-Action Sectie -->
   <section class="fade-in text-center py-16">
     <p class="text-lg md:text-xl mb-6">
-      Niet zeker welk pakket bij u past? Neem contact op voor een vrijblijvend adviesgesprek.
+      Weet je niet welk pakket past? Vraag een gratis consult aan.
     </p>
     <a 
       href="/nl/contact" 
       class="bg-primary text-black font-heading font-semibold py-4 px-10 rounded-full text-xl shadow-lg hover:bg-primary/90 transition-transform transform hover:scale-105 duration-300 inline-block"
     >
-      Contacteer ons
+      Neem Contact Op
     </a>
   </section>
 </BaseLayout>

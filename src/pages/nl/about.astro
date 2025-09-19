@@ -1,53 +1,53 @@
 ---
+// src/pages/nl/about.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
 const pageTitle = "Over Ons | VeermanDevelopment";
-const pageDescription = "Maak kennis met VeermanDevelopment – wij creëren moderne, datagedreven weboplossingen die impact maken.";
+const pageDescription = "Wij leveren razendsnelle, veilige websites met moderne Jamstack-technologie.";
 ---
-
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero Section -->
+  <!-- Hero Sectie -->
   <section class="fade-in text-center py-24 bg-card-light dark:bg-card-dark rounded-xl shadow-lg">
     <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
       Over <span class="text-primary">Ons</span>
     </h1>
     <p class="text-lg md:text-xl max-w-3xl mx-auto text-opacity-80">
-      Wij zijn een gepassioneerd team van webontwikkelaars met een scherp oog voor performance, moderne webstandaarden en schaalbare oplossingen. Onze missie is om digitale ervaringen te realiseren die zowel visueel indrukwekkend als razendsnel en betrouwbaar zijn.
+      Wij zijn de nieuwe generatie webontwikkelaars: snel, wendbaar en vrij van legacy-technologie.  
+      Onze beheersing van Astro en moderne Jamstack-tools stelt ons in staat om enterprise-grade prestaties te leveren tegen concurrerende tarieven.
     </p>
   </section>
 
-  <!-- Expertise Section -->
+  <!-- Expertise Sectie -->
   <section class="fade-in grid md:grid-cols-3 gap-8 py-16">
     <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-semibold mb-3">🚀 Performance & Optimalisatie</h2>
+      <h2 class="text-xl font-semibold mb-3">🚀 Snelheid</h2>
       <p class="text-opacity-80">
-        Wij leveren websites die niet alleen visueel aantrekkelijk zijn, maar ook snel laden, technisch geoptimaliseerd zijn en een uitstekende gebruikerservaring bieden.
+        Uw site staat live in slechts drie dagen—geen gehaaste compromissen, maar technologiegedreven efficiëntie.
       </p>
     </div>
     <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-semibold mb-3">📊 Datagedreven Ontwikkeling</h2>
+      <h2 class="text-xl font-semibold mb-3">🔒 Veiligheid</h2>
       <p class="text-opacity-80">
-        Onze oplossingen worden ondersteund door data en best practices, zodat ze aansluiten bij de strategische doelstellingen en groeiambities van uw organisatie.
+        Static-first architectuur betekent geen server-attack surface en minder onderhoudskopzorgen voor u.
       </p>
     </div>
     <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-semibold mb-3">💡 Moderne Technologie</h2>
+      <h2 class="text-xl font-semibold mb-3">💡 Efficiëntie</h2>
       <p class="text-opacity-80">
-        Met Astro, Tailwind CSS en de nieuwste frameworks realiseren wij toekomstbestendige, schaalbare en onderhoudsvriendelijke digitale oplossingen.
+        Met Astro en Tailwind bouwen we toekomstbestendige sites die moeiteloos schalen en goedkoper hosten.
       </p>
     </div>
   </section>
 
-  <!-- Call-to-Action Section -->
+  <!-- Call-to-Action Sectie -->
   <section class="fade-in text-center py-16">
     <p class="text-lg md:text-xl mb-6">
-      Klaar om uw digitale aanwezigheid naar een hoger niveau te tillen? Laten we samenwerken en uw visie werkelijkheid maken.
+      Klaar om het verschil te ervaren? Laten we een website bouwen die net zo hard werkt als u.
     </p>
     <a 
       href="/nl/contact" 
       class="bg-primary text-black font-heading font-semibold py-4 px-10 rounded-full text-xl shadow-lg hover:bg-primary/90 transition-transform transform hover:scale-105 duration-300 inline-block"
     >
-      Neem contact op
+      Neem Contact Op
     </a>
   </section>
 </BaseLayout>

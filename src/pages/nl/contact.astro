@@ -1,40 +1,37 @@
 ---
-// src/pages/nl/contact.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 
 const pageTitle = "Contact | VeermanDevelopment";
-const pageDescription = "Neem contact met ons op voor een vrijblijvende offerte of kennismakingsgesprek.";
+const pageDescription = "Neem contact met ons op voor vragen, offertes of om een kennismakingsgesprek te boeken.";
 ---
-
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero Section -->
-  <section class="fade-in text-center py-16 bg-card-light dark:bg-card-dark rounded-xl shadow">
-    <h1 class="font-heading font-bold text-4xl md:text-5xl mb-6">
-      Laten We Samen Iets Geweldigs Bouwen
+  <!-- Hero -->
+  <section class="fade-in text-center py-12 md:py-16 bg-card-light dark:bg-card-dark rounded-xl shadow">
+    <h1 class="font-heading font-bold text-5xl md:text-6xl mb-4">
+      <span>Let's </span><span class="text-primary">Build</span>
     </h1>
-    <p class="text-lg md:text-xl max-w-3xl mx-auto opacity-80">
-      Heb je een project in gedachten? De beste manier om te beginnen is door een vrijblijvend kennismakingsgesprek in te plannen.
+    <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-80">
+      Een project in gedachten? Plan een gratis kennismakingsgesprek.
     </p>
   </section>
 
-  <!-- Main Content Grid -->
-  <section class="fade-in grid lg:grid-cols-2 gap-12 py-16">
-    <!-- Calendly Section -->
-    <div class="order-2 lg:order-1">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow p-6">
-        <h2 class="font-heading text-2xl font-semibold mb-4 text-center">
-          Plan een Kennismakingsgesprek
+  <!-- Booking & Message Cards with 'of' between -->
+  <section class="fade-in grid lg:grid-cols-2 gap-12 py-16 items-stretch relative">
+    <!-- Discovery Call Card -->
+    <div class="h-full">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow p-6 h-full flex flex-col">
+        <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-4 text-center">
+          Boek een kennismakingsgesprek
         </h2>
         <p class="text-center mb-6 opacity-80">
-          Kies hieronder een moment dat jou uitkomt. We bespreken 30 minuten vrijblijvend de mogelijkheden voor je project.
+          Kies een tijd die jou uitkomt. We besteden 30 minuten aan het bespreken van je projectdoelen, zonder verplichtingen.
         </p>
-        
-        <!-- Calendly Embed with proper sizing -->
-        <div class="calendly-inline-widget-container">
+        <div class="calendly-inline-widget-container flex-grow">
           <div 
             class="calendly-inline-widget" 
             data-url="https://calendly.com/contact-veermandev/30min?hide_event_type_details=1&primary_color=0a84ff&hide_gdpr_banner=1"
-            style="min-width:320px;height:700px;"
+            style="min-width:320px;height:600px;"
             data-resize="true">
           </div>
         </div>
@@ -42,24 +39,28 @@ const pageDescription = "Neem contact met ons op voor een vrijblijvende offerte 
       </div>
     </div>
 
-    <!-- Contact Form Section -->
-    <div class="order-1 lg:order-2">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow p-6">
-        <h2 class="font-heading text-2xl font-semibold mb-4 text-center">
-          Of Stuur een Bericht
+    <!-- Small 'of' -->
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-card-light dark:bg-card-dark px-4 py-1 rounded-full shadow">
+      <span class="text-primary font-semibold">of</span>
+    </div>
+
+    <!-- Send Message Card -->
+    <div class="h-full">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow p-6 h-full flex flex-col">
+        <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-4 text-center">
+          Stuur een bericht
         </h2>
         <p class="text-center mb-6 opacity-80">
-          We nemen zo snel mogelijk contact met je op.
+          We reageren zo snel mogelijk.
         </p>
-        
         <form 
           id="contact-form"
           action="https://formspree.io/f/xdklqakn" 
           method="POST" 
-          class="space-y-6"
+          class="space-y-6 flex-grow flex flex-col"
           data-sending-text="Verzenden..."
           data-success-title="Bedankt!"
-          data-success-body="Je bericht is succesvol verzonden. Ik neem zo snel mogelijk contact met je op."
+          data-success-body="Je bericht is succesvol verzonden. We nemen snel contact met je op."
           data-error-text="Er is iets misgegaan bij het verzenden. Probeer het opnieuw."
         >
           <div>
@@ -75,7 +76,6 @@ const pageDescription = "Neem contact met ons op voor een vrijblijvende offerte 
               required 
             />
           </div>
-          
           <div>
             <label for="email" class="block mb-2 text-sm font-medium">
               E-mail
@@ -89,7 +89,6 @@ const pageDescription = "Neem contact met ons op voor een vrijblijvende offerte 
               required 
             />
           </div>
-          
           <div>
             <label for="message" class="block mb-2 text-sm font-medium">
               Bericht
@@ -103,122 +102,52 @@ const pageDescription = "Neem contact met ons op voor een vrijblijvende offerte 
               required>
             </textarea>
           </div>
-          
           <button 
             type="submit" 
-            class="w-full bg-primary text-black font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+            class="w-full bg-card-light dark:bg-card-dark text-black font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors mt-auto"
           >
-            Verstuur bericht
+            Verzenden
           </button>
         </form>
-        
         <div id="success-message" class="hidden text-center p-6 border border-green-500 bg-green-50 dark:bg-green-900/20 rounded-lg mt-6">
           <h3 class="font-heading text-xl mb-2 text-green-800 dark:text-green-300">
             Bedankt!
           </h3>
           <p class="text-green-700 dark:text-green-300">
-            Je bericht is succesvol verzonden. Ik neem zo snel mogelijk contact met je op.
+            Je bericht is succesvol verzonden. We nemen snel contact met je op.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Info Section -->
+  <!-- Info Cards -->
   <section class="fade-in py-16">
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow text-center hover:shadow-lg transition">
-        <div class="text-3xl mb-4">📧</div>
+    <div class="grid md:grid-cols-3 gap-6 items-stretch">
+      <div class="p-4 bg-card-light dark:bg-card-dark rounded-xl shadow text-center hover:shadow-lg transition flex flex-col">
+        <div class="text-3xl mb-3">📧</div>
         <h3 class="text-xl font-semibold mb-2">E-mail</h3>
-        <p class="opacity-80">contact@veermandev.nl</p>
+        <p class="opacity-80 mt-auto">contact@veermandev.nl</p>
       </div>
-      
-      <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow text-center hover:shadow-lg transition">
-        <div class="text-3xl mb-4">⚡</div>
-        <h3 class="text-xl font-semibold mb-2">Snelle Respons</h3>
-        <p class="opacity-80">Binnen 24 uur reactie</p>
+      <div class="p-4 bg-card-light dark:bg-card-dark rounded-xl shadow text-center hover:shadow-lg transition flex flex-col">
+        <div class="text-3xl mb-3">⚡</div>
+        <h3 class="text-xl font-semibold mb-2">Snel antwoord</h3>
+        <p class="opacity-80 mt-auto">Reactie binnen 24 uur</p>
       </div>
-      
-      <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow text-center hover:shadow-lg transition">
-        <div class="text-3xl mb-4">🚀</div>
-        <h3 class="text-xl font-semibold mb-2">Vrijblijvend</h3>
-        <p class="opacity-80">Geen verplichtingen</p>
+      <div class="p-4 bg-card-light dark:bg-card-dark rounded-xl shadow text-center hover:shadow-lg transition flex flex-col">
+        <div class="text-3xl mb-3">🚀</div>
+        <h3 class="text-xl font-semibold mb-2">Zonder verplichting</h3>
+        <p class="opacity-80 mt-auto">Gratis consult</p>
       </div>
     </div>
   </section>
 
   <style>
-    .calendly-inline-widget-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-    
-    .calendly-inline-widget {
-      border-radius: 8px;
-    }
-    
-    /* Ensure proper responsive behavior */
-    @media (max-width: 1023px) {
-      .calendly-inline-widget {
-        min-height: 600px;
-      }
-    }
-    
-    @media (min-width: 1024px) {
-      .calendly-inline-widget {
-        min-height: 700px;
-      }
-    }
+    /* Match spacing/font sizes with process page */
+    h1, h2 { line-height: 1.2; }
+    section.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+    section.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+    .calendly-inline-widget { border-radius: 8px; }
+    section.relative { position: relative; }
   </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('contact-form') as HTMLFormElement;
-      const successMessage = document.getElementById('success-message');
-
-      if (form && successMessage) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-          const originalButtonText = submitButton.innerHTML;
-          
-          const sendingText = form.dataset.sendingText || 'Verzenden...';
-          const errorText = form.dataset.errorText || 'Er is een fout opgetreden.';
-          
-          submitButton.disabled = true;
-          submitButton.innerHTML = sendingText;
-
-          const formData = new FormData(form);
-          
-          fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-          }).then(response => {
-            if (response.ok) {
-              form.style.display = 'none';
-              successMessage.style.display = 'block';
-            } else {
-              response.json().then(data => {
-                if (Object.hasOwn(data, 'errors')) {
-                  alert(data["errors"].map((error: { message: string }) => error["message"]).join(", "));
-                } else {
-                  alert(errorText);
-                }
-              })
-              submitButton.disabled = false;
-              submitButton.innerHTML = originalButtonText;
-            }
-          }).catch((error: any) => {
-            alert(errorText);
-            submitButton.disabled = false;
-            submitButton.innerHTML = originalButtonText;
-          });
-        });
-      }
-    });
-  </script>
 </BaseLayout>

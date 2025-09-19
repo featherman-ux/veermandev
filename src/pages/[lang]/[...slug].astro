@@ -1,61 +1,74 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { ui } from '../../i18n/config';
+import { ui, routes } from '../../i18n/config';
+import { getLangFromUrl } from '../../i18n/utils';
 
-// Capture language and slug from the URL parameters
-const { lang, slug = 'home' } = Astro.params as { lang: keyof typeof ui; slug?: string };
+const lang = getLangFromUrl(Astro.url);
+const { slug = routes[lang].home } = Astro.params as { slug?: string };
 
-// Validate the language
+// Validate language
 if (!(lang in ui)) {
   return Astro.redirect('/404', 404);
 }
 
-// Redirect contact to dedicated contact pages FIRST
-if (slug === 'contact') {
-  return Astro.redirect(`/${lang}/contact`, 307);
+// Redirect contact
+if (slug === routes[lang].contact) {
+  return Astro.redirect(`/${lang}/${routes[lang].contact}`, 307);
+}
+
+// Redirect old process slug to timeline
+if (
+  slug === routes[lang].process ||
+  slug === 'proces' ||
+  slug === 'werkwijze'
+) {
+  return Astro.redirect(`/${lang}/${routes[lang].timeline}`, 307);
 }
 
 // --- Page Titles & Descriptions ---
 const pageTitles: Record<string, Record<string, string>> = {
   nl: {
-    home: 'Home',
-    'over-ons': 'Over Ons',
-    portfolio: 'Portfolio',
-    prijzen: 'Prijzen',
-    tijdlijn: 'Tijdlijn',
+    [routes.nl.home]: 'Home',
+    [routes.nl.about]: 'Over Ons',
+    [routes.nl.portfolio]: 'Portfolio',
+    [routes.nl.pricing]: 'Prijzen',
+    [routes.nl.timeline]: 'Onze Werkwijze',
+    [routes.nl.technology]: 'Onze Technologie',
   },
   en: {
-    home: 'Home',
-    about: 'About Us',
-    portfolio: 'Portfolio',
-    pricing: 'Pricing',
-    timeline: 'Timeline',
+    [routes.en.home]: 'Home',
+    [routes.en.about]: 'About Us',
+    [routes.en.portfolio]: 'Portfolio',
+    [routes.en.pricing]: 'Pricing',
+    [routes.en.timeline]: 'Our Process',
+    [routes.en.technology]: 'Our Technology',
   },
 };
 
 const pageDescriptions: Record<string, Record<string, string>> = {
   nl: {
-    home: 'Welkom bij VeermanDevelopment – digitale oplossingen voor bedrijven.',
-    'over-ons': 'Maak kennis met ons team en onze expertise.',
-    portfolio: 'Bekijk onze projecten en cases.',
-    prijzen: 'Ontdek onze tarieven en pakketten.',
-    tijdlijn: 'Onze roadmap en belangrijke mijlpalen.',
+    [routes.nl.home]: 'Welkom bij VeermanDevelopment – digitale oplossingen voor bedrijven.',
+    [routes.nl.about]: 'Maak kennis met ons team en onze expertise.',
+    [routes.nl.portfolio]: 'Bekijk onze projecten en cases.',
+    [routes.nl.pricing]: 'Ontdek onze tarieven en pakketten.',
+    [routes.nl.timeline]: 'Uw site live in drie dagen—transparante vijf-stappen werkwijze.',
+    [routes.nl.technology]: 'Waarom Jamstack en Astro superieure snelheid, veiligheid en schaalbaarheid bieden.',
   },
   en: {
-    home: 'Welcome to VeermanDevelopment – digital solutions for businesses.',
-    about: 'Meet our team and discover our expertise.',
-    portfolio: 'Explore our projects and cases.',
-    pricing: 'Discover our pricing and packages.',
-    timeline: 'Our roadmap and key milestones.',
+    [routes.en.home]: 'Welcome to VeermanDevelopment – digital solutions for businesses.',
+    [routes.en.about]: 'Meet our team and discover our expertise.',
+    [routes.en.portfolio]: 'Explore our projects and cases.',
+    [routes.en.pricing]: 'Discover our pricing and packages.',
+    [routes.en.timeline]: 'Your site live in just three days—transparent five-step journey.',
+    [routes.en.technology]: 'Why Jamstack and Astro deliver superior speed, security, and scalability.',
   },
 };
 
-// Redirect unknown slugs to homepage
+// Redirect unknown slugs to home
 if (!(slug in pageTitles[lang])) {
-  return Astro.redirect(`/${lang}/home`, 307);
+  return Astro.redirect(`/${lang}/${routes[lang].home}`, 307);
 }
 
-// Page info
 const title = pageTitles[lang][slug];
 const description = pageDescriptions[lang][slug];
 ---
@@ -66,8 +79,7 @@ const description = pageDescriptions[lang][slug];
     <p class="text-lg md:text-xl text-opacity-80 mb-8">{description}</p>
 
     <div class="prose dark:prose-invert lg:prose-xl max-w-none">
-      {/* 'About Us' / 'Over Ons' */}
-      {(slug === 'over-ons' || slug === 'about') && (
+      {slug === routes[lang].about && (
         <>
           <p>
             {lang === 'nl'
@@ -82,8 +94,7 @@ const description = pageDescriptions[lang][slug];
         </>
       )}
 
-      {/* Portfolio */}
-      {slug === 'portfolio' && (
+      {slug === routes[lang].portfolio && (
         <p>
           {lang === 'nl'
             ? 'Hier presenteren we onze recente projecten.'
@@ -91,8 +102,7 @@ const description = pageDescriptions[lang][slug];
         </p>
       )}
 
-      {/* Pricing / Prijzen */}
-      {(slug === 'prijzen' || slug === 'pricing') && (
+      {slug === routes[lang].pricing && (
         <p>
           {lang === 'nl'
             ? 'Bekijk onze transparante en eerlijke tarieven.'
@@ -100,12 +110,19 @@ const description = pageDescriptions[lang][slug];
         </p>
       )}
 
-      {/* Timeline / Tijdlijn */}
-      {(slug === 'tijdlijn' || slug === 'timeline') && (
+      {slug === routes[lang].timeline && (
         <p>
           {lang === 'nl'
-            ? 'Bekijk onze belangrijkste mijlpalen en roadmap.'
-            : 'See our key milestones and roadmap.'}
+            ? 'Uw site live in drie dagen—volg ons transparante vijf-stappen plan.'
+            : 'Your site live in just three days—follow our transparent five-step plan.'}
+        </p>
+      )}
+
+      {slug === routes[lang].technology && (
+        <p>
+          {lang === 'nl'
+            ? "Pre-rendered pagina's, beveiligingsvoordelen en schaalbare CDN-hosting."
+            : 'Pre-rendered pages, security advantages, and scalable CDN hosting.'}
         </p>
       )}
     </div>

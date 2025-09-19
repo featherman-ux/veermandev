@@ -1,3 +1,5 @@
+// src/i18n/ui.ts
+
 export const languages = {
   en: 'English',
   nl: 'Nederlands',
@@ -8,20 +10,26 @@ export const defaultLang = 'nl';
 // Maps canonical route names to translated slugs
 export const routes = {
   nl: {
+    home: 'home',
     about: 'over-ons',
     portfolio: 'portfolio',
     pricing: 'prijzen',
+    process: 'werkwijze',
+    technology: 'technologie',
     contact: 'contact',
     timeline: 'tijdlijn',
   },
   en: {
+    home: 'home',
     about: 'about',
     portfolio: 'portfolio',
     pricing: 'pricing',
+    process: 'process',
+    technology: 'technology',
     contact: 'contact',
     timeline: 'timeline',
   },
-};
+} as const;
 
 export const ui = {
   en: {
@@ -30,6 +38,8 @@ export const ui = {
     'nav.about': 'About',
     'nav.portfolio': 'Portfolio',
     'nav.pricing': 'Pricing',
+    'nav.process': 'Process',
+    'nav.technology': 'Technology',
     'nav.timeline': 'Timeline',
     'nav.contact': 'Contact',
 
@@ -52,6 +62,8 @@ export const ui = {
     'nav.about': 'Over Ons',
     'nav.portfolio': 'Portfolio',
     'nav.pricing': 'Prijzen',
+    'nav.process': 'Werkwijze',
+    'nav.technology': 'Technologie',
     'nav.timeline': 'Tijdlijn',
     'nav.contact': 'Contact',
 

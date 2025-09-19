@@ -6,8 +6,8 @@ import day2Image from '../../assets/Pictures_Timeline/day-2.png';
 import day3Image from '../../assets/Pictures_Timeline/day-3.png';
 import maintenance from '../../assets/Pictures_Timeline/maintenance.png';
 
-const pageTitle = "Our Process | VeermanDevelopment";
-const pageDescription = "Your site live in just three days—transparent five-step journey from discovery to growth.";
+const pageTitle = "Ons Proces | VeermanDevelopment";
+const pageDescription = "Je site live in slechts drie dagen—transparant stappenplan van kickoff tot groei.";
 ---
 <BaseLayout title={pageTitle} description={pageDescription}>
   <!-- Hero -->
@@ -16,86 +16,88 @@ const pageDescription = "Your site live in just three days—transparent five-st
       Succes <span class="text-primary">Path</span>
     </h1>
     <p class="text-xl md:text-2xl max-w-2xl mx-auto opacity-90 mb-6">
-      From kickoff to launch, your site is live in just three days.
+      Van kickoff tot live, je site staat binnen drie dagen online.
     </p>
   </section>
 
-  <!-- Steps -->
+  <!-- Stappen -->
   <section class="py-16 px-6 md:px-0">
     <div class="max-w-4xl mx-auto space-y-16">
-      <!-- Step One -->
+
+      <!-- Stap Eén -->
       <div class="flex flex-col md:flex-row items-center md:space-x-12">
         <div class="md:w-1/2 text-center md:text-left">
           <div class="inline-flex items-center justify-center px-8 h-16 bg-card-light dark:bg-card-dark border-2 border-primary rounded-full mb-4">
-            <span class="text-primary font-bold text-2xl">Day 1</span>
+            <span class="text-primary font-bold text-2xl">Dag 1</span>
           </div>
           <p class="text-lg md:text-xl opacity-80">
-            Kickoff meeting to discuss objectives, audience, and key features. We refine requirements and agree on scope.
+            Kickoff-meeting om doelen, doelgroep en belangrijkste functies te bespreken. We verfijnen de eisen en stemmen de scope af.
           </p>
         </div>
         <div class="md:w-1/2 mt-6 md:mt-0">
-          <Image src={day1Image} widths={[332,664]} sizes="(max-width: 768px) 100vw, 332px" format="webp" alt="Kickoff meeting illustration" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" fetchpriority="high" />
+          <Image src={day1Image} widths={[332,664]} sizes="(max-width: 768px) 100vw, 332px" format="webp" alt="Kickoff meeting illustratie" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" fetchpriority="high" />
         </div>
       </div>
 
-      <!-- Step Two -->
+      <!-- Stap Twee -->
       <div class="flex flex-col md:flex-row-reverse items-center md:space-x-12 md:space-x-reverse">
         <div class="md:w-1/2 text-center md:text-left">
           <div class="inline-flex items-center justify-center px-8 h-16 bg-card-light dark:bg-card-dark border-2 border-primary rounded-full mb-4">
-            <span class="text-primary font-bold text-2xl">Day 2</span>
+            <span class="text-primary font-bold text-2xl">Dag 2</span>
           </div>
           <p class="text-lg md:text-xl opacity-80">
-            First design & interactive prototype delivered. You get a clear visual and can provide feedback in real time.
+            Eerste ontwerp & interactieve prototype. Je krijgt direct een visueel overzicht en kunt real-time feedback geven.
           </p>
         </div>
         <div class="md:w-1/2 mt-6 md:mt-0">
-          <Image src={day2Image} widths={[332,664]} sizes="(max-width: 768px) 100vw, 332px" format="webp" alt="Design prototype illustration" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" />
+          <Image src={day2Image} widths={[332,664]} sizes="(max-width: 768px) 100vw, 332px" format="webp" alt="Ontwerp prototype illustratie" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" />
         </div>
       </div>
 
-      <!-- Step Three -->
+      <!-- Stap Drie -->
       <div class="flex flex-col md:flex-row items-center md:space-x-12">
         <div class="md:w-1/2 text-center md:text-left">
           <div class="inline-flex items-center justify-center px-8 h-16 bg-card-light dark:bg-card-dark border-2 border-primary rounded-full mb-4">
-            <span class="text-primary font-bold text-2xl">Day 3</span>
+            <span class="text-primary font-bold text-2xl">Dag 3</span>
           </div>
           <p class="text-lg md:text-xl opacity-80">
-            Fully functional website built, tested, and launched. Your site goes live, optimized for speed and SEO.
+            Volledig functionerende website gebouwd, getest en gelanceerd. Je site gaat live, geoptimaliseerd voor snelheid en SEO.
           </p>
         </div>
         <div class="md:w-1/2 mt-6 md:mt-0">
-          <Image src={day3Image} widths={[332,664]} sizes="(max-width: 768px) 100vw, 332px" format="webp" alt="Deployment illustration" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" />
+          <Image src={day3Image} widths={[332,664]} sizes="(max-width: 768px) 100vw, 332px" format="webp" alt="Livegang illustratie" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" />
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Emphasis on 3-Day Delivery -->
+  <!-- Live in 3 Dagen -->
   <section class="fade-in text-center py-12 bg-card-light dark:bg-card-dark rounded-xl shadow-lg">
     <h2 class="font-heading font-bold text-3xl md:text-4xl mb-2">
-      Live in <span class="text-primary">3 Days</span>
+      Live in <span class="text-primary">3 Dagen</span>
     </h2>
     <p class="text-lg md:text-xl opacity-80">
-      Our streamlined process means your site is live and ready to impress in just three days.
+      Ons gestroomlijnde proces zorgt dat je site in drie dagen live staat en indruk maakt.
     </p>
   </section>
 
-  <!-- Maintenance & Optimization -->
+  <!-- Onderhoud & Optimalisatie -->
   <section class="py-16 px-6 md:px-0 bg-gray-50 dark:bg-gray-800">
     <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:space-x-12">
       <div class="md:w-1/2 mb-6 md:mb-0 text-center md:text-left">
         <h2 class="font-heading font-bold text-3xl md:text-4xl mb-4">
-          Maintenance & Optimization
+          Onderhoud &amp; Optimalisatie
         </h2>
         <p class="text-lg md:text-xl opacity-80 mb-6">
-          After launch, we provide ongoing support, performance tuning, and feature updates. Your website stays secure, fast, and up to date.
+          Na livegang bieden we doorlopende support, performance-tuning en feature-updates. Je website blijft veilig, snel en up-to-date.
         </p>
-        <a href="/en/contact" class="inline-block bg-primary text-black font-heading font-semibold py-3 px-8 rounded-lg shadow hover:bg-primary/90 transition-transform transform hover:scale-105 duration-300">
-          Contact Us
+        <a href="/nl/contact" class="inline-block bg-primary text-black font-heading font-semibold py-3 px-8 rounded-lg shadow hover:bg-primary/90 transition-transform transform hover:scale-105 duration-300">
+          Contact opnemen
         </a>
       </div>
       <div class="md:w-1/2">
-        <Image src={maintenance} widths={[332,664]} sizes="(max-width: 768px) 100vw, 332px" format="webp" alt="Maintenance illustration" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" />
+        <Image src={maintenance} widths={[332,664]} sizes="(max-width: 768px) 100vw, 332px" format="webp" alt="Onderhoud illustratie" class="w-full rounded-lg shadow-lg transform hover:scale-105 transition" />
       </div>
     </div>
   </section>
