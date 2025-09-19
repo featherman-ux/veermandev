@@ -1,43 +1,53 @@
 ---
-import { ui } from '../i18n/ui';
+import { useTranslatedPath } from '../i18n/utils';
 
-const lang = 'en'; // Replace with dynamic detection if needed
-const t = ui[lang] || ui['en'];
+const actionUrl = '/api/contact'; // or your Astro action URL
 ---
 
-<form id="contact-form" class="bg-dark-slate rounded-2xl shadow-lg p-8 space-y-6 fade-in">
+<form
+  id="contact-form"
+  action={actionUrl}
+  method="POST"
+  class="bg-dark-slate rounded-2xl shadow-lg p-8 space-y-6 fade-in"
+>
   <div>
-    <label for="name" class="block text-sm font-medium text-subtle-gray">{t['contact.name']}</label>
+    <label for="name" class="block text-sm font-medium text-subtle-gray">
+      Name
+    </label>
     <input
       type="text"
       id="name"
       name="name"
       required
-      placeholder={t['contact.namePlaceholder']}
+      placeholder="Your full name"
       class="mt-2 block w-full rounded-lg bg-dark text-white border border-gray-600 focus:border-primary focus:ring-primary px-4 py-2"
     />
   </div>
 
   <div>
-    <label for="email" class="block text-sm font-medium text-subtle-gray">{t['contact.email']}</label>
+    <label for="email" class="block text-sm font-medium text-subtle-gray">
+      Email
+    </label>
     <input
       type="email"
       id="email"
       name="email"
       required
-      placeholder={t['contact.emailPlaceholder']}
+      placeholder="you@example.com"
       class="mt-2 block w-full rounded-lg bg-dark text-white border border-gray-600 focus:border-primary focus:ring-primary px-4 py-2"
     />
   </div>
 
   <div>
-    <label for="message" class="block text-sm font-medium text-subtle-gray">{t['contact.message']}</label>
+    <label for="message" class="block text-sm font-medium text-subtle-gray">
+      Message
+    </label>
     <textarea
       id="message"
       name="message"
       rows="4"
       required
-      placeholder={t['contact.messagePlaceholder']}
+      placeholder="Write your message here..."
       class="mt-2 block w-full rounded-lg bg-dark text-white border border-gray-600 focus:border-primary focus:ring-primary px-4 py-2"
     ></textarea>
   </div>
@@ -47,7 +57,7 @@ const t = ui[lang] || ui['en'];
       type="submit"
       class="w-full flex justify-center py-3 px-6 rounded-lg text-lg font-heading font-semibold text-white bg-primary hover:bg-accent transition duration-300 shadow-md"
     >
-      {t['contact.submit']}
+      Send Message
     </button>
   </div>
 
@@ -60,32 +70,27 @@ const t = ui[lang] || ui['en'];
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     if (!form || !feedback) return;
 
-    const formData = new FormData(form);
     feedback.textContent = 'Sending...';
     feedback.className = 'text-gray-300';
 
     try {
-      // Use Astro actions if you have server actions set up
-      const { data, error } = await window.actions?.contact?.(formData) ?? {};
+      const formData = new FormData(form);
+      // Replace this with your Astro server action or fetch call
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' },
+      });
+      const result = await res.json();
 
-      if (error) {
-        if (error.fields) {
-          // Display validation errors
-          const messages = Object.values(error.fields).flat().join(' ');
-          feedback.textContent = messages;
-          feedback.className = 'text-red-500';
-        } else {
-          feedback.textContent = `Server error: ${error.message}`;
-          feedback.className = 'text-red-500';
-        }
-        return;
-      }
-
-      if (data?.success) {
-        feedback.textContent = data.message;
+      if (!res.ok) {
+        const msg = result.errors?.join(' ') || result.message || 'Server error';
+        feedback.textContent = msg;
+        feedback.className = 'text-red-500';
+      } else {
+        feedback.textContent = result.message || 'Message sent!';
         feedback.className = 'text-green-500';
         form.reset();
       }
