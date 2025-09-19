@@ -1,4 +1,5 @@
 ---
+// src/pages/[lang]/contact.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLangFromUrl } from '../../i18n/utils';
 import { ui } from '../../i18n/ui';
@@ -6,100 +7,122 @@ import { ui } from '../../i18n/ui';
 const lang = getLangFromUrl(Astro.url);
 const t = ui[lang];
 
-// Define the type for form submission result
-type ContactResult = {
-  success: boolean;
-  message: string;
-} | null;
-
-// Initialize with null
-let contactResult: ContactResult = null;
-
-// Handle form submission safely
-if (Astro.request.method === 'POST') {
-  try {
-    const data = await Astro.request.formData();
-    const name = data.get('name')?.toString() ?? '';
-    const email = data.get('email')?.toString() ?? '';
-    const message = data.get('message')?.toString() ?? '';
-
-    // Here you would normally send the data to an API, DB, or email service
-    console.log({ name, email, message });
-
-    // Update contactResult on success
-    contactResult = {
-      success: true,
-      message: t['contact.submit'] + ' successfully!', // Optional: translated feedback
-    };
-  } catch (error) {
-    // Update contactResult on error
-    contactResult = {
-      success: false,
-      message: 'There was an error processing your request.',
-    };
-  }
-}
+// All server-side logic has been removed as Formspree and Calendly handle everything.
 ---
-
 <BaseLayout title={t['contact.title']} description={t['contact.description']}>
-  <section class="container mx-auto px-6 py-12 md:py-20">
-    <h1 class="font-heading text-3xl mb-6">{t['contact.heading']}</h1>
-    <p class="mb-8">{t['contact.subtitle']}</p>
 
-    <form method="POST" class="grid gap-4 max-w-lg">
-      <div class="flex flex-col">
-        <label for="name" class="mb-1">{t['contact.name']}</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder={t['contact.namePlaceholder']}
-          class="p-2 border border-gray-600 rounded bg-dark-slate text-white"
-          required
-        />
+  <!-- Main Section Container -->
+  <section class="py-16 md:py-24 bg-background-dark text-text-light">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Page Header -->
+      <div class="text-center max-w-3xl mx-auto">
+        {/* FIX: Replaced 'contact.mainHeading' with 'contact.heading' */}
+        <h1 class="font-heading text-4xl font-bold tracking-tight sm:text-5xl">{t['contact.heading']}</h1>
+        {/* FIX: Replaced 'contact.mainSubtitle' with 'contact.subtitle' */}
+        <p class="mt-4 text-lg text-text-light/80">{t['contact.subtitle']}</p>
       </div>
 
-      <div class="flex flex-col">
-        <label for="email" class="mb-1">{t['contact.email']}</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder={t['contact.emailPlaceholder']}
-          class="p-2 border border-gray-600 rounded bg-dark-slate text-white"
-          required
-        />
+      <!-- =============================================================== -->
+      <!-- SECTION 1: BOOK A CALL (Primary Call-to-Action)                -->
+      <!-- =============================================================== -->
+      <div class="mt-16 max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+          {/* FIX: Replaced 'meeting.title' with a valid key. See note below. */}
+          <h2 class="font-heading text-3xl font-semibold">{t['contact.heading']}</h2>
+          {/* FIX: Replaced 'meeting.description' with a valid key. See note below. */}
+          <p class="mt-2 text-text-light/70">{t['contact.subtitle']}</p>
+        </div>
+
+        <!-- Card container for a polished look -->
+        <div class="bg-card-dark border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+          <!-- Calendly Inline Widget Start -->
+          <!-- The 'data-url' includes your custom primary color -->
+          <div 
+            class="calendly-inline-widget min-h-[700px]" 
+            data-url="https://calendly.com/contact-veermandev/30min?primary_color=0a84ff"
+          ></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <!-- Calendly Inline Widget End -->
+        </div>
       </div>
 
-      <div class="flex flex-col">
-        <label for="message" class="mb-1">{t['contact.message']}</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder={t['contact.messagePlaceholder']}
-          class="p-2 border border-gray-600 rounded bg-dark-slate text-white"
-          rows="5"
-          required
-        ></textarea>
+      <!-- Visual Separator -->
+      <div class="relative my-20">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-gray-700"></div>
+        </div>
+        <div class="relative flex justify-center">
+          <span class="bg-background-dark px-4 text-sm font-medium text-gray-400">OR</span>
+        </div>
       </div>
 
-      <button
-        type="submit"
-        class="bg-primary text-dark font-semibold px-6 py-2 rounded hover:opacity-90 transition"
-      >
-        {t['contact.submit']}
-      </button>
-    </form>
+      <!-- =============================================================== -->
+      <!-- SECTION 2: CONTACT FORM (Secondary Call-to-Action)              -->
+      <!-- =============================================================== -->
+      <div class="max-w-lg mx-auto">
+        <div class="text-center mb-8">
+          {/* FIX: Replaced 'contact.formTitle' with 'contact.title' */}
+          <h2 class="font-heading text-3xl font-semibold">{t['contact.title']}</h2>
+          <p class="mt-2 text-text-light/70">{t['contact.subtitle']}</p>
+        </div>
 
-    {/* Render feedback message safely */}
-    {contactResult?.message && (
-      <p
-        class={`mt-4 ${
-          contactResult.success ? 'text-green-400' : 'text-red-400'
-        }`}
-      >
-        {contactResult.message}
-      </p>
-    )}
+        <!-- Formspree Form with improved styling -->
+        <form 
+          action="https://formspree.io/f/xdklqakn" 
+          method="POST" 
+          class="space-y-6"
+        >
+          <!-- Name Field -->
+          <div>
+            <label for="name" class="block mb-2 text-sm font-medium text-text-light/90">{t['contact.name']}</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder={t['contact.namePlaceholder']}
+              class="w-full p-3 border border-gray-600 rounded-lg bg-dark-slate text-white focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              required
+            />
+          </div>
+
+          <!-- Email Field -->
+          <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-text-light/90">{t['contact.email']}</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder={t['contact.emailPlaceholder']}
+              class="w-full p-3 border border-gray-600 rounded-lg bg-dark-slate text-white focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              required
+            />
+          </div>
+
+          <!-- Message Field -->
+          <div>
+            <label for="message" class="block mb-2 text-sm font-medium text-text-light/90">{t['contact.message']}</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder={t['contact.messagePlaceholder']}
+              class="w-full p-3 border border-gray-600 rounded-lg bg-dark-slate text-white focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full bg-primary text-dark font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background-dark focus:ring-primary transition-colors"
+          >
+            {t['contact.submit']}
+          </button>
+        </form>
+      </div>
+
+    </div>
   </section>
 </BaseLayout>
+

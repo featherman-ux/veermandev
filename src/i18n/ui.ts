@@ -50,6 +50,12 @@ export const ui = {
     'contact.message': 'Message',
     'contact.messagePlaceholder': 'Write your message here...',
     'contact.submit': 'Send Message',
+    // -- NEW KEYS FOR UPGRADED CONTACT PAGE --
+    'contact.mainHeading': 'Let\'s Build Something Great Together',
+    'contact.mainSubtitle': 'Have a project in mind? The best way to get started is to book a free discovery call directly in my calendar.',
+    'meeting.title': 'Book a Discovery Call',
+    'meeting.description': 'Choose a time that works for you. We\'ll spend 30 minutes discussing your project goals, no strings attached.',
+    'contact.formTitle': 'Or Send a Message',
 
     // General
     page_not_found: 'Page not found',
@@ -81,6 +87,12 @@ export const ui = {
     'contact.message': 'Bericht',
     'contact.messagePlaceholder': 'Schrijf hier je bericht...',
     'contact.submit': 'Verstuur bericht',
+    // -- NEW KEYS FOR UPGRADED CONTACT PAGE --
+    'contact.mainHeading': 'Laten We Samen Iets Geweldigs Bouwen',
+    'contact.mainSubtitle': 'Heb je een project in gedachten? De beste manier om te beginnen is door een vrijblijvend kennismakingsgesprek in te plannen.',
+    'meeting.title': 'Plan een Kennismakingsgesprek',
+    'meeting.description': 'Kies hieronder een moment dat jou uitkomt. We bespreken 30 minuten vrijblijvend de mogelijkheden voor je project.',
+    'contact.formTitle': 'Of Stuur een Bericht',
 
     // General
     page_not_found: 'Pagina niet gevonden',
