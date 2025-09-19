@@ -38,7 +38,11 @@ export const ui = {
     'nav.technology': 'Technology',
     'nav.timeline': 'Timeline',
     'nav.contact': 'Contact',
-    // …other translations…
+    // Hero section
+    'hero.title': 'Your Partner in Digital Innovation.',
+    'hero.subtitle': 'We build fast, modern websites that deliver results.',
+    'hero.cta': 'Get in Touch',
+    // Other translations...
     page_not_found: 'Page not found',
     back_home: 'Back to home',
   },
@@ -51,7 +55,11 @@ export const ui = {
     'nav.technology': 'Technologie',
     'nav.timeline': 'Tijdlijn',
     'nav.contact': 'Contact',
-    // …other translations…
+    // Hero section
+    'hero.title': 'Uw Partner in Digitale Innovatie.',
+    'hero.subtitle': 'Wij bouwen snelle, moderne websites die resultaten leveren.',
+    'hero.cta': 'Neem Contact Op',
+    // Other translations...
     page_not_found: 'Pagina niet gevonden',
     back_home: 'Terug naar home',
   },
