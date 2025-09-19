@@ -54,7 +54,7 @@ export const ui = {
     'nav.portfolio': 'Portfolio',
     'nav.pricing': 'Prijzen',
     'nav.timelineStart': 'Tijd',
-    'nav.timelineEnd': 'Lijn',
+    'nav.timelineEnd': 'lijn',
     'nav.contact': 'Contact',
     'hero.title': 'Uw Partner in Digitale Innovatie.',
     'hero.subtitle': 'Wij bouwen snelle, moderne websites die resultaten leveren.',
