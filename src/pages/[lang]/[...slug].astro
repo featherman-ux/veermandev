@@ -10,6 +10,11 @@ if (!(lang in ui)) {
   return Astro.redirect('/404', 404);
 }
 
+// Redirect contact to dedicated contact pages FIRST
+if (slug === 'contact') {
+  return Astro.redirect(`/${lang}/contact`, 307);
+}
+
 // --- Page Titles & Descriptions ---
 const pageTitles: Record<string, Record<string, string>> = {
   nl: {
@@ -17,7 +22,6 @@ const pageTitles: Record<string, Record<string, string>> = {
     'over-ons': 'Over Ons',
     portfolio: 'Portfolio',
     prijzen: 'Prijzen',
-    contact: 'Contact',
     tijdlijn: 'Tijdlijn',
   },
   en: {
@@ -25,7 +29,6 @@ const pageTitles: Record<string, Record<string, string>> = {
     about: 'About Us',
     portfolio: 'Portfolio',
     pricing: 'Pricing',
-    contact: 'Contact',
     timeline: 'Timeline',
   },
 };
@@ -36,7 +39,6 @@ const pageDescriptions: Record<string, Record<string, string>> = {
     'over-ons': 'Maak kennis met ons team en onze expertise.',
     portfolio: 'Bekijk onze projecten en cases.',
     prijzen: 'Ontdek onze tarieven en pakketten.',
-    contact: 'Neem contact op met ons team.',
     tijdlijn: 'Onze roadmap en belangrijke mijlpalen.',
   },
   en: {
@@ -44,7 +46,6 @@ const pageDescriptions: Record<string, Record<string, string>> = {
     about: 'Meet our team and discover our expertise.',
     portfolio: 'Explore our projects and cases.',
     pricing: 'Discover our pricing and packages.',
-    contact: 'Get in touch with our team.',
     timeline: 'Our roadmap and key milestones.',
   },
 };
@@ -96,15 +97,6 @@ const description = pageDescriptions[lang][slug];
           {lang === 'nl'
             ? 'Bekijk onze transparante en eerlijke tarieven.'
             : 'Check out our transparent and fair pricing.'}
-        </p>
-      )}
-
-      {/* Contact */}
-      {slug === 'contact' && (
-        <p>
-          {lang === 'nl'
-            ? 'Neem contact met ons op voor een vrijblijvende offerte.'
-            : 'Get in touch with us for a quote.'}
         </p>
       )}
 
