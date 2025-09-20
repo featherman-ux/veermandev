@@ -1,43 +1,37 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import { getLangFromUrl } from '../i18n/utils';
-import { ui, routes } from '../i18n/config';
+import { ui } from '../i18n/config';
 
 const lang = getLangFromUrl(Astro.url);
 const t = ui[lang];
 
-// Navigation links
+// CORRECTED: Navigation links updated to remove 'home' and add 'technology' & 'timeline'.
 const navLinks = [
-  { href: `/${lang}/${routes[lang].home}`, text: t['nav.home'] },
-  { href: `/${lang}/${routes[lang].about}`, text: t['nav.about'] },
-  { href: `/${lang}/${routes[lang].portfolio}`, text: t['nav.portfolio'] },
-  { href: `/${lang}/${routes[lang].pricing}`, text: t['nav.pricing'] },
-  { href: `/${lang}/${routes[lang].timeline}`, text: t['nav.timeline'] },
-  { href: `/${lang}/${routes[lang].technology}`, text: t['nav.technology'] },
-  { href: `/${lang}/${routes[lang].contact}`, text: t['nav.contact'] },
+  { href: `/${lang}/about`, text: t['nav.about'] },
+  { href: `/${lang}/portfolio`, text: t['nav.portfolio'] },
+  { href: `/${lang}/pricing`, text: t['nav.pricing'] },
+  { href: `/${lang}/technology`, text: t['nav.technology'] },
+  { href: `/${lang}/timeline`, text: t['nav.timeline'] },
+  { href: `/${lang}/contact`, text: t['nav.contact'] },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
-
-<header class="h-20 bg-background-light dark:bg-background-dark sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 lg:px-10">
+<header class="h-20 bg-background-light dark:bg-background-dark sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700 px-10">
   <div class="h-full flex items-center justify-between">
-    <!-- Logo/Brand -->
-    <a 
-      href={`/${lang}/${routes[lang].home}`} 
-      class="font-heading text-lg sm:text-xl lg:text-2xl font-bold text-text-light dark:text-text-dark tracking-wide hover:text-primary transition flex-shrink-0"
-    >
-      <span class="hidden sm:inline">Veerman</span><span class="sm:hidden">V</span><span class="text-primary">Development</span>
+    <a href={`/${lang}/home`} class="font-heading text-2xl font-bold text-text-light dark:text-text-dark tracking-wide hover:text-primary transition">
+      Veerman<span class="text-primary">Development</span>
     </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden lg:flex items-center gap-6 xl:gap-8 h-full">
+    {/* CORRECTED: Changed 'md:flex' to 'lg:flex' to collapse the menu earlier */}
+    <nav class="hidden lg:flex items-center gap-8 h-full">
       {navLinks.map(link => (
         <a
           href={link.href}
           class:list={[
-            "text-text-light dark:text-text-dark hover:text-primary transition relative pb-1 whitespace-nowrap text-sm xl:text-base",
-            currentPath === link.href || currentPath === link.href + '/'
+            "text-text-light dark:text-text-dark hover:text-primary transition relative pb-1 whitespace-nowrap",
+            currentPath.startsWith(link.href) // Use startsWith for better active state matching
               ? "font-semibold after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:bg-primary"
               : ""
           ]}
@@ -46,11 +40,11 @@ const currentPath = Astro.url.pathname;
         </a>
       ))}
 
-      <button 
-        id="theme-toggler-desktop" 
-        type="button" 
+      <button
+        id="theme-toggler-desktop"
+        type="button"
         aria-label="Toggle dark mode"
-        class="p-2 rounded hover:bg-card-light dark:hover:bg-card-dark transition flex-shrink-0"
+        class="p-2 rounded hover:bg-card-light dark:hover:bg-card-dark transition"
       >
         <span class="dark:hidden">🌙</span>
         <span class="hidden dark:inline">☀️</span>
@@ -59,13 +53,13 @@ const currentPath = Astro.url.pathname;
       <LanguageSwitcher />
     </nav>
 
-    <!-- Mobile Navigation Controls -->
-    <div class="lg:hidden flex items-center gap-2 sm:gap-4 h-full">
-      <button 
-        id="theme-toggler-mobile" 
-        type="button" 
+    {/* CORRECTED: Changed 'md:hidden' to 'lg:hidden' to show the hamburger button earlier */}
+    <div class="lg:hidden flex items-center gap-4 h-full">
+      <button
+        id="theme-toggler-mobile"
+        type="button"
         aria-label="Toggle dark mode"
-        class="p-2 rounded hover:bg-card-light dark:hover:bg-card-dark transition flex-shrink-0"
+        class="p-2 rounded hover:bg-card-light dark:hover:bg-card-dark transition"
       >
         <span class="dark:hidden">🌙</span>
         <span class="hidden dark:inline">☀️</span>
@@ -73,7 +67,7 @@ const currentPath = Astro.url.pathname;
 
       <button
         id="mobile-menu-button"
-        class="text-text-light dark:text-text-dark focus:outline-none p-2 flex-shrink-0"
+        class="text-text-light dark:text-text-dark focus:outline-none"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
@@ -82,23 +76,21 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden w-full bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700">
-    <nav class="flex flex-col gap-4 px-4 sm:px-6 py-4 max-h-[70vh] overflow-y-auto">
+  {/* CORRECTED: Changed 'md:hidden' to 'lg:hidden' for the mobile menu container */}
+  <div id="mobile-menu" class="hidden lg:hidden w-full bg-background-light dark:bg-background-dark">
+    <nav class="flex flex-col gap-4 px-6 py-4">
       {navLinks.map(link => (
         <a
           href={link.href}
           class:list={[
-            "text-text-light dark:text-text-dark hover:text-primary transition py-2 text-base",
-            currentPath === link.href || currentPath === link.href + '/' ? "font-semibold border-l-4 pl-3 border-primary" : "pl-1"
+            "text-text-light dark:text-text-dark hover:text-primary transition",
+            currentPath.startsWith(link.href) ? "font-semibold border-l-4 pl-2 border-primary" : ""
           ]}
         >
           {link.text}
         </a>
       ))}
-      <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
-        <LanguageSwitcher />
-      </div>
+      <LanguageSwitcher />
     </nav>
   </div>
 
@@ -111,14 +103,6 @@ const currentPath = Astro.url.pathname;
           menuButton.addEventListener('click', () => {
             const nowHidden = mobileMenu.classList.toggle('hidden');
             menuButton.setAttribute('aria-expanded', String(!nowHidden));
-          });
-
-          // Close mobile menu when clicking outside
-          document.addEventListener('click', (e) => {
-            if (!menuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-              mobileMenu.classList.add('hidden');
-              menuButton.setAttribute('aria-expanded', 'false');
-            }
           });
         }
 
