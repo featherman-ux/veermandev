@@ -206,6 +206,13 @@ export const ui = {
     'privacy.hero.title': 'Privacy Policy',
     'privacy.hero.text': 'Your privacy is important to us. This policy explains how we collect, use, and protect your information.',
 
+    //
+    // 404 PAGE
+    //
+    '404.title': 'Page Not Found',
+    '404.heading': 'Oops! This Page is Lost in Cyberspace',
+    '404.message': "We can't seem to find the page you're looking for. It might have been moved, deleted, or maybe it never existed.",
+    '404.back_home': 'Go Back Home',
   },
   nl: {
     //
@@ -381,6 +388,14 @@ export const ui = {
       'Lees hoe VeermanDevelopment uw privacy beschermt en uw persoonlijke informatie behandelt. Transparante gegevenspraktijken voor onze webontwikkelingsdiensten.',
     'privacy.hero.title': 'Privacybeleid',
     'privacy.hero.text': 'Uw privacy is belangrijk voor ons. Dit beleid legt uit hoe we uw informatie verzamelen, gebruiken en beschermen.',
-
+    
+    //
+    // 404 PAGE
+    //
+    '404.title': 'Pagina Niet Gevonden',
+    '404.heading': 'Oeps! Deze Pagina is Verdwaald',
+    '404.message': "We kunnen de pagina die je zoekt niet vinden. Mogelijk is deze verplaatst, verwijderd of heeft deze nooit bestaan.",
+    '404.back_home': 'Ga Terug Naar Home',
   },
 } as const;
+
