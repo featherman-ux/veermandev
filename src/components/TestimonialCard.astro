@@ -1,0 +1,28 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  title: string;
+  company?: string;
+  image?: string;
+}
+
+const { quote, author, title, company, image } = Astro.props;
+---
+
+<div class="testimonial-card bg-background-light dark:bg-background-dark rounded-xl p-8 shadow-lg">
+  <blockquote class="text-xl italic mb-6">
+    "{quote}"
+  </blockquote>
+  <div class="testimonial-author flex items-center gap-4">
+    {image && (
+      <img src={image} alt={author} class="w-12 h-12 rounded-full object-cover" />
+    )}
+    <div>
+      <div class="font-semibold">{author}</div>
+      <div class="text-sm opacity-70">
+        {title}{company && `, ${company}`}
+      </div>
+    </div>
+  </div>
+</div>

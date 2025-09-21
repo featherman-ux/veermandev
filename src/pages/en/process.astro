@@ -1,0 +1,603 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const pageTitle = "About VeermanDevelopment | Your Growth Partners";
+const pageDescription = "Meet the team behind high-performance websites. Learn about our philosophy, process, and commitment to building strategic partnerships that drive measurable business growth.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- ENHANCED MISSION/VISION SECTION with Parallax -->
+  <section class="mission-section py-20 px-4 text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
+        Your Strategic <span class="text-primary typewriter-highlight" data-text="Growth Partners">Growth Partners</span>
+      </h1>
+      <p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text">
+        We believe every business deserves a website that works as hard as they do. Our mission is to transform 
+        traditional web development from a one-time transaction into a strategic partnership that drives continuous growth.
+      </p>
+      <div class="mission-statement bg-card-light dark:bg-card-dark rounded-xl p-8 reveal-card hover-lift-subtle">
+        <h2 class="font-heading font-bold text-2xl mb-4 gradient-text">Our Philosophy</h2>
+        <p class="text-lg opacity-90">
+          Technology isn't just about code—it's about enabling business success. We combine cutting-edge development 
+          with strategic thinking to create digital assets that generate measurable results, not just pretty interfaces.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Animated Background Elements -->
+    <div class="floating-elements absolute inset-0 pointer-events-none">
+      <div class="floating-circle absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full"></div>
+      <div class="floating-square absolute top-40 right-20 w-16 h-16 bg-primary/5 transform rotate-45"></div>
+      <div class="floating-triangle absolute bottom-20 left-1/4 w-12 h-12 bg-primary/10"></div>
+    </div>
+  </section>
+
+  <!-- ENHANCED TEAM SECTION with Real Photos -->
+  <section class="team-section py-16 px-4 reveal-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Meet Your Growth Team</h2>
+        <p class="text-lg opacity-80 reveal-text">Passionate experts, fresh out of university—equipped with the latest skills and technologies, fully dedicated to driving your success.</p>
+      </div>
+      
+      <div class="team-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Niels - Founder & Lead Developer -->
+        <div class="team-member text-center group tilt-card-subtle" data-tilt>
+          <div class="member-card bg-card-light dark:bg-card-dark rounded-xl p-6 h-full relative overflow-hidden hover-lift-subtle">
+            <div class="card-shine absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="member-photo mb-6 overflow-hidden rounded-lg relative">
+                <img src="/src/assets/Teampictures/Niels-Founder-Lead-Developer.jpeg" alt="Niels Veerman - Founder & Lead Developer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div class="photo-overlay absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Niels Veerman</h3>
+              <p class="text-primary font-medium mb-3">Founder & Lead Developer</p>
+              <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                Passionate about building performance-driven websites that deliver real business results. 
+                Specialized in modern Jamstack architecture and conversion optimization.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Cedric - Brand Success -->
+        <div class="team-member text-center group tilt-card-subtle" data-tilt>
+          <div class="member-card bg-card-light dark:bg-card-dark rounded-xl p-6 h-full relative overflow-hidden hover-lift-subtle">
+            <div class="card-shine absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="member-photo mb-6 overflow-hidden rounded-lg relative">
+                <img src="/src/assets/Teampictures/Cedric-Business-Development.jpeg" alt="Cedric - Brand Success" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div class="photo-overlay absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Cedric Mueller</h3>
+              <p class="text-primary font-medium mb-3">Brand Success</p>
+              <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                Strategic partner focused on understanding business goals and translating them into 
+                effective digital experiences that drive measurable results and sustainable growth.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Jochem - Frontend Developer -->
+        <div class="team-member text-center group tilt-card-subtle" data-tilt>
+          <div class="member-card bg-card-light dark:bg-card-dark rounded-xl p-6 h-full relative overflow-hidden hover-lift-subtle">
+            <div class="card-shine absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="member-photo mb-6 overflow-hidden rounded-lg relative">
+                <img src="/src/assets/Teampictures/Jochem-Frontend-Developer.jpeg" alt="Jochem - Frontend Developer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div class="photo-overlay absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Jochem Schreurs</h3>
+              <p class="text-primary font-medium mb-3">Frontend Developer</p>
+              <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                Conversion-focused developer who creates beautiful interfaces that guide users toward 
+                your most profitable actions. Expert in user experience and modern frontend technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENHANCED TECHNOLOGY SECTION with Animated Table -->
+  <section class="technology-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Our Technology Advantage</h2>
+        <p class="text-lg opacity-80 reveal-text">Why we choose modern Jamstack over traditional platforms</p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="technology-content reveal-card">
+          <h3 class="text-2xl font-semibold mb-6">Strategic Choice of Astro/Jamstack Architecture</h3>
+          <p class="text-lg mb-6 opacity-90">
+            Our technology choices aren't arbitrary—they're strategic decisions based on what delivers 
+            the best business outcomes for our clients. Every framework and tool we use is selected 
+            to maximize performance, security, and your return on investment.
+          </p>
+          
+          <div class="technology-benefits space-y-4">
+            <div class="benefit flex items-start gap-3 hover-slide">
+              <span class="text-primary text-xl benefit-icon">⚡</span>
+              <div>
+                <h4 class="font-semibold mb-1">Uncompromising Performance</h4>
+                <p class="text-sm opacity-80">Sub-1-second load times that convert 2-3x better than slow sites</p>
+              </div>
+            </div>
+            
+            <div class="benefit flex items-start gap-3 hover-slide">
+              <span class="text-primary text-xl benefit-icon">🛡️</span>
+              <div>
+                <h4 class="font-semibold mb-1">Enterprise-Grade Security</h4>
+                <p class="text-sm opacity-80">Zero database vulnerabilities, virtually unhackable architecture</p>
+              </div>
+            </div>
+            
+            <div class="benefit flex items-start gap-3 hover-slide">
+              <span class="text-primary text-xl benefit-icon">💰</span>
+              <div>
+                <h4 class="font-semibold mb-1">Lower Total Cost of Ownership</h4>
+                <p class="text-sm opacity-80">No ongoing maintenance costs, 60-99% lower hosting expenses</p>
+              </div>
+            </div>
+            
+            <div class="benefit flex items-start gap-3 hover-slide">
+              <span class="text-primary text-xl benefit-icon">📈</span>
+              <div>
+                <h4 class="font-semibold mb-1">SEO Excellence</h4>
+                <p class="text-sm opacity-80">Perfect PageSpeed scores and technical SEO out of the box</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="performance-comparison bg-background-light dark:bg-background-dark rounded-lg p-6 hover-lift-subtle reveal-card">
+          <h4 class="font-semibold mb-6 text-center">Comparative Performance & Security Analysis</h4>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm animated-table">
+              <thead>
+                <tr class="border-b border-gray-300 dark:border-gray-600">
+                  <th class="text-left py-3">Metric</th>
+                  <th class="text-left py-3 text-green-600">Our Astro Solution</th>
+                  <th class="text-left py-3 text-red-600">WordPress</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+                  <td class="py-3 font-medium">PageSpeed Score</td>
+                  <td class="py-3 text-green-600 font-bold">95-100 (Excellent)</td>
+                  <td class="py-3 text-red-600">40-80 (Poor to Fair)</td>
+                </tr>
+                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+                  <td class="py-3 font-medium">Load Time</td>
+                  <td class="py-3 text-green-600 font-bold">&lt;1 second</td>
+                  <td class="py-3 text-red-600">3-5 seconds</td>
+                </tr>
+                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+                  <td class="py-3 font-medium">Vulnerabilities (Annual)</td>
+                  <td class="py-3 text-green-600 font-bold">Near-Zero</td>
+                  <td class="py-3 text-red-600">8,000+ (96% plugins)</td>
+                </tr>
+                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+                  <td class="py-3 font-medium">Maintenance</td>
+                  <td class="py-3 text-green-600 font-bold">None Required</td>
+                  <td class="py-3 text-red-600">Constant Updates</td>
+                </tr>
+                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+                  <td class="py-3 font-medium">Hosting Cost</td>
+                  <td class="py-3 text-green-600 font-bold">€1-20/year</td>
+                  <td class="py-3 text-red-600">€10-200/month</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="py-3 font-medium">Conversion Impact</td>
+                  <td class="py-3 text-green-600 font-bold">+200-400%</td>
+                  <td class="py-3 text-red-600">Baseline</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENHANCED PROCESS SECTION with Real Timeline Images -->
+  <section class="process-section py-16 px-4 reveal-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Our Partnership Timeline</h2>
+        <p class="text-lg opacity-80 reveal-text">From initial meeting to live website—here's our proven 3-day process</p>
+      </div>
+      
+      <!-- Enhanced Timeline with Real Images -->
+      <div class="timeline-container relative">
+        <div class="timeline-line absolute left-1/2 transform -translate-x-1/2 top-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-primary h-full hidden lg:block"></div>
+        
+        <div class="process-flow space-y-16">
+          <!-- Day 1: Initial Meeting -->
+          <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="1">
+            <div class="step-content lg:order-1">
+              <div class="step-header flex items-center mb-6">
+                <div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">1</div>
+                <div>
+                  <h3 class="text-2xl font-semibold">Day 1: Initial Meeting</h3>
+                  <p class="text-primary font-medium">Discovery & Strategy Session</p>
+                </div>
+              </div>
+              <p class="text-lg mb-6 opacity-90">
+                We start with a comprehensive discovery session to understand your business goals, target audience, 
+                and growth objectives. This collaborative meeting sets the foundation for your website's success.
+              </p>
+              <ul class="space-y-3 checklist">
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Business goals and KPI analysis</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Target audience research and persona development</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Competitive analysis and market positioning</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Technical requirements and feature planning</span>
+                </li>
+              </ul>
+            </div>
+            <div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
+              <img src="/src/assets/Pictures_Timeline/day-1.png" alt="Day 1: Initial Meeting" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+            </div>
+          </div>
+
+          <!-- Day 2: Prototype -->
+          <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="2">
+            <div class="step-image lg:order-1 tilt-card-subtle" data-tilt>
+              <img src="/src/assets/Pictures_Timeline/day-2.png" alt="Day 2: Prototype Development" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+            </div>
+            <div class="step-content lg:order-2">
+              <div class="step-header flex items-center mb-6">
+                <div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">2</div>
+                <div>
+                  <h3 class="text-2xl font-semibold">Day 2: Prototype</h3>
+                  <p class="text-primary font-medium">Design & Development</p>
+                </div>
+              </div>
+              <p class="text-lg mb-6 opacity-90">
+                Based on our discovery session, we create a functional prototype that brings your vision to life. 
+                You'll see exactly how your website will look and function before we go live.
+              </p>
+              <ul class="space-y-3 checklist">
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Custom design based on your brand and goals</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Responsive layout for all device types</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Core functionality and user flow implementation</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Performance optimization and testing</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Day 3: Live! -->
+          <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="3">
+            <div class="step-content lg:order-1">
+              <div class="step-header flex items-center mb-6">
+                <div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">3</div>
+                <div>
+                  <h3 class="text-2xl font-semibold">Day 3: Live!</h3>
+                  <p class="text-primary font-medium">Launch & Optimization</p>
+                </div>
+              </div>
+              <p class="text-lg mb-6 opacity-90">
+                Your website goes live with full functionality, optimized performance, and ongoing support. 
+                We ensure a smooth launch and provide training so you can manage your content independently.
+              </p>
+              <ul class="space-y-3 checklist">
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Domain setup and SSL certificate installation</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Analytics and performance monitoring setup</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Content management training session</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Ongoing support and optimization guidance</span>
+                </li>
+              </ul>
+            </div>
+            <div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
+              <img src="/src/assets/Pictures_Timeline/day-3.png" alt="Day 3: Website Goes Live" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES & COMMITMENT -->
+  <section class="values-section py-16 px-4 bg-card-light dark:bg-card-dark">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-heading font-bold text-4xl mb-12 gradient-text">Our Commitment to Your Success</h2>
+      
+      <div class="values-grid grid md:grid-cols-3 gap-8">
+        <div class="value-item hover-lift-subtle">
+          <div class="value-icon text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold mb-3">Results-Driven</h3>
+          <p class="text-sm opacity-80">Every decision is measured against business outcomes. We succeed only when you succeed.</p>
+        </div>
+        
+        <div class="value-item hover-lift-subtle">
+          <div class="value-icon text-4xl mb-4">🤝</div>
+          <h3 class="text-xl font-semibold mb-3">True Partnership</h3>
+          <p class="text-sm opacity-80">We're not vendors—we're strategic partners invested in your long-term growth and success.</p>
+        </div>
+        
+        <div class="value-item hover-lift-subtle">
+          <div class="value-icon text-4xl mb-4">⚡</div>
+          <h3 class="text-xl font-semibold mb-3">Excellence in Speed</h3>
+          <p class="text-sm opacity-80">From 3-day delivery to lightning-fast websites—speed is built into everything we do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced script section -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Advanced scroll reveal system
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50px',
+        threshold: 0.1
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            
+            // Apply different animations based on class
+            if (element.classList.contains('reveal-title')) {
+              element.style.opacity = '1';
+              element.style.transform = 'translateY(0)';
+              
+              // Typewriter effect for highlights
+              const highlight = element.querySelector('.typewriter-highlight') as HTMLElement;
+              if (highlight) {
+                const text = highlight.dataset.text || '';
+                let currentText = '';
+                let i = 0;
+                
+                const typeWriter = () => {
+                  if (i < text.length) {
+                    currentText += text.charAt(i);
+                    highlight.textContent = currentText + '|';
+                    i++;
+                    setTimeout(typeWriter, 100);
+                  } else {
+                    highlight.textContent = text;
+                  }
+                };
+                
+                setTimeout(typeWriter, 800);
+              }
+            } else if (element.classList.contains('reveal-text')) {
+              setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+              }, 200);
+            } else if (element.classList.contains('reveal-card')) {
+              setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0) scale(1)';
+              }, 400);
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Apply reveal animations to elements
+      const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-card');
+      revealElements.forEach(element => {
+        const el = element as HTMLElement;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px) scale(0.95)';
+        el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        revealObserver.observe(el);
+      });
+
+      // Subtle 3D Tilt effect for cards (reduced movement)
+      const tiltCards = document.querySelectorAll('.tilt-card-subtle');
+      tiltCards.forEach(card => {
+        const cardElement = card as HTMLElement;
+        
+        cardElement.addEventListener('mousemove', (e) => {
+          const rect = cardElement.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          // Reduced tilt values for subtler effect
+          const rotateX = (y - centerY) / 40; // Was /15, now /40
+          const rotateY = (centerX - x) / 40; // Was /15, now /40
+          
+          cardElement.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
+        });
+        
+        cardElement.addEventListener('mouseleave', () => {
+          cardElement.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        });
+      });
+
+      // Floating elements animation
+      const floatingElements = document.querySelectorAll('.floating-circle, .floating-square, .floating-triangle');
+      floatingElements.forEach((element, index) => {
+        const el = element as HTMLElement;
+        const duration = 4000 + Math.random() * 2000;
+        const delay = index * 800;
+        
+        el.style.animation = `float-${index} ${duration}ms ease-in-out infinite ${delay}ms`;
+        
+        // Create unique keyframes
+        const keyframes = `
+          @keyframes float-${index} {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+            25% { transform: translateY(-20px) rotate(90deg); opacity: 0.3; }
+            50% { transform: translateY(0) rotate(180deg); opacity: 0.2; }
+            75% { transform: translateY(20px) rotate(270deg); opacity: 0.4; }
+          }
+        `;
+        
+        const style = document.createElement('style');
+        style.textContent = keyframes;
+        document.head.appendChild(style);
+      });
+
+      // Animated table rows
+      const tableRows = document.querySelectorAll('.table-row');
+      const tableObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const rows = Array.from(tableRows);
+            rows.forEach((row, index) => {
+              const rowElement = row as HTMLElement;
+              setTimeout(() => {
+                rowElement.style.opacity = '1';
+                rowElement.style.transform = 'translateX(0)';
+              }, index * 150);
+            });
+          }
+        });
+      }, observerOptions);
+
+      const table = document.querySelector('.animated-table');
+      if (table) {
+        tableRows.forEach(row => {
+          const rowElement = row as HTMLElement;
+          rowElement.style.opacity = '0';
+          rowElement.style.transform = 'translateX(-20px)';
+          rowElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        });
+        tableObserver.observe(table);
+      }
+
+      // Benefit icons pulse animation
+      const benefitIcons = document.querySelectorAll('.benefit-icon');
+      benefitIcons.forEach((icon, index) => {
+        const iconElement = icon as HTMLElement;
+        setTimeout(() => {
+          iconElement.style.animation = 'pulse 2s ease-in-out infinite';
+        }, index * 200);
+      });
+    });
+  </script>
+
+  <style>
+    .gradient-text {
+      background: linear-gradient(135deg, var(--color-text-light, #1f2937), var(--color-primary, #3b82f6));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Subtle hover effects */
+    .hover-lift-subtle {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hover-lift-subtle:hover {
+      transform: translateY(-4px); /* Reduced from -8px */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Reduced shadow */
+    }
+
+    .hover-zoom-subtle {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hover-zoom-subtle:hover {
+      transform: scale(1.02); /* Reduced from 1.05 */
+    }
+
+    .pulse-animation {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .hover-slide:hover {
+      transform: translateX(10px);
+      transition: transform 0.3s ease-out;
+    }
+
+    .checklist-item {
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideInLeft 0.6s ease-out forwards;
+    }
+
+    .checklist-item:nth-child(1) { animation-delay: 0.1s; }
+    .checklist-item:nth-child(2) { animation-delay: 0.2s; }
+    .checklist-item:nth-child(3) { animation-delay: 0.3s; }
+    .checklist-item:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); /* Reduced from 1.1 */ }
+    }
+
+    .timeline-line {
+      background: linear-gradient(to bottom, var(--color-primary), transparent);
+    }
+
+    .tilt-card-subtle {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+
+    .card-shine {
+      background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    }
+
+    .value-item {
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .value-item:hover {
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+  </style>
+</BaseLayout>

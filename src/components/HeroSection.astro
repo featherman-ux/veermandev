@@ -1,0 +1,269 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  typewriterWords?: string[];
+  primaryCTA?: {
+    text: string;
+    href: string;
+  };
+  secondaryCTA?: {
+    text: string;
+    href: string;
+  };
+  trustSignals?: string[];
+  background?: 'default' | 'card' | 'gradient';
+  size?: 'normal' | 'large';
+}
+
+const { 
+  title, 
+  subtitle, 
+  description, 
+  typewriterWords = ['Growth', 'Performance', 'Success', 'Results'],
+  primaryCTA, 
+  secondaryCTA, 
+  trustSignals,
+  background = 'default',
+  size = 'normal'
+} = Astro.props;
+
+const bgClasses = {
+  default: '',
+  card: 'bg-card-light dark:bg-card-dark rounded-xl shadow-lg',
+  gradient: 'bg-gradient-to-br from-primary/5 to-primary/10'
+};
+
+const sizeClasses = {
+  normal: 'py-20 px-4',
+  large: 'py-24 md:py-32 px-4'
+};
+---
+
+<section class={`hero-section text-center ${sizeClasses[size]} ${bgClasses[background]} overflow-hidden`}>
+  <div class="max-w-4xl mx-auto">
+    {subtitle && (
+      <div class="hero-subtitle text-primary font-semibold text-sm md:text-base uppercase tracking-wide mb-4 opacity-80">
+        {subtitle}
+      </div>
+    )}
+    
+    <h1 class="hero-title font-heading font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 leading-tight">
+      <span class="title-static">{title} </span>
+      <span class="typewriter-container relative inline-block">
+        <span 
+          class="typewriter-text text-primary"
+          data-words={JSON.stringify(typewriterWords)}
+        >
+          {typewriterWords[0]}
+        </span>
+        <span class="cursor">|</span>
+      </span>
+    </h1>
+    
+    {description && (
+      <p class="hero-description text-lg sm:text-xl max-w-4xl mx-auto mb-8 opacity-90 leading-relaxed">
+        {description}
+      </p>
+    )}
+
+    {(primaryCTA || secondaryCTA) && (
+      <div class="hero-ctas flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+        {primaryCTA && (
+          <a
+            href={primaryCTA.href}
+            class="primary-cta group bg-primary text-black font-semibold px-10 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 relative overflow-hidden"
+          >
+            <span class="relative z-10">{primaryCTA.text}</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+          </a>
+        )}
+        
+        {secondaryCTA && (
+          <a
+            href={secondaryCTA.href}
+            class="secondary-cta group border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary hover:text-black transition-all duration-300 relative overflow-hidden"
+          >
+            <span class="relative z-10">{secondaryCTA.text}</span>
+            <div class="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+          </a>
+        )}
+      </div>
+    )}
+
+    {trustSignals && trustSignals.length > 0 && (
+      <div class="hero-trust-signals flex flex-wrap justify-center items-center gap-6 text-sm opacity-70">
+        {trustSignals.map((signal, index) => (
+          <span class="trust-signal flex items-center gap-2" data-index={index}>
+            <span class="text-primary animate-pulse">✓</span>
+            {signal}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <!-- Floating particles effect -->
+  <div class="particles absolute inset-0 pointer-events-none">
+    {Array.from({ length: 20 }).map((_, i) => (
+      <div class={`particle particle-${i + 1} absolute w-2 h-2 bg-primary/10 rounded-full`}></div>
+    ))}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Terminal typewriter effect - FIXED TO PREVENT PAGE JUMPING
+    const typewriterElement = document.querySelector('.typewriter-text') as HTMLElement;
+    const cursor = document.querySelector('.cursor') as HTMLElement;
+    
+    if (typewriterElement && cursor) {
+      const words = JSON.parse(typewriterElement.dataset.words || '[]');
+      let currentWordIndex = 0;
+      let currentCharIndex = 0;
+      let isDeleting = false;
+      let isWaiting = false;
+
+      // Set initial width to prevent jumping
+      const longestWord = words.reduce((a: string, b: string) => a.length > b.length ? a : b, '');
+      typewriterElement.style.minWidth = longestWord.length + 'ch';
+
+      function typeWriter() {
+        const currentWord = words[currentWordIndex];
+        const shouldDelete = isDeleting;
+        const shouldWait = isWaiting;
+
+        if (shouldWait) {
+          setTimeout(() => {
+            isWaiting = false;
+            typeWriter();
+          }, 2000);
+          return;
+        }
+
+        if (shouldDelete) {
+          if (currentCharIndex > 0) {
+            currentCharIndex--;
+            typewriterElement.textContent = currentWord.substring(0, currentCharIndex);
+            setTimeout(typeWriter, 50);
+          } else {
+            isDeleting = false;
+            currentWordIndex = (currentWordIndex + 1) % words.length;
+            setTimeout(typeWriter, 100);
+          }
+        } else {
+          if (currentCharIndex < currentWord.length) {
+            currentCharIndex++;
+            typewriterElement.textContent = currentWord.substring(0, currentCharIndex);
+            setTimeout(typeWriter, 100);
+          } else {
+            isWaiting = true;
+            setTimeout(() => {
+              isDeleting = true;
+              isWaiting = false;
+              typeWriter();
+            }, 3000);
+          }
+        }
+      }
+
+      // Start typewriter effect after a delay
+      setTimeout(typeWriter, 1000);
+    }
+
+    // Hero stagger-fade animation
+    const heroElements = document.querySelectorAll('.hero-subtitle, .title-static, .hero-description, .hero-ctas');
+    heroElements.forEach((el, index) => {
+      const element = el as HTMLElement;
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(20px)';
+      
+      setTimeout(() => {
+        element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+      }, index * 200);
+    });
+
+    // Trust signals animation
+    const trustSignals = document.querySelectorAll('.trust-signal');
+    trustSignals.forEach((signal, index) => {
+      const element = signal as HTMLElement;
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(10px)';
+      
+      setTimeout(() => {
+        element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+      }, 2000 + (index * 150));
+    });
+
+    // Floating particles animation
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach((particle, index) => {
+      const element = particle as HTMLElement;
+      const delay = Math.random() * 2000;
+      const duration = 4000 + Math.random() * 4000;
+      const xMovement = (Math.random() - 0.5) * 200;
+      const yMovement = (Math.random() - 0.5) * 200;
+      
+      // Position randomly
+      element.style.left = Math.random() * 100 + '%';
+      element.style.top = Math.random() * 100 + '%';
+      element.style.animationDelay = delay + 'ms';
+      element.style.animationDuration = duration + 'ms';
+      
+      // Create unique keyframe animation for each particle
+      const keyframeName = `float-${index}`;
+      const keyframes = `
+        @keyframes ${keyframeName} {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.1; }
+          50% { transform: translate(${xMovement}px, ${yMovement}px) scale(1.5); opacity: 0.3; }
+        }
+      `;
+      
+      const style = document.createElement('style');
+      style.textContent = keyframes;
+      document.head.appendChild(style);
+      
+      element.style.animation = `${keyframeName} ${duration}ms ease-in-out infinite`;
+    });
+  });
+</script>
+
+<style>
+  .cursor {
+    animation: blink 1s infinite;
+    color: var(--color-primary);
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .primary-cta:hover {
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+  }
+
+  .secondary-cta:hover {
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+  }
+
+  .typewriter-container {
+    min-height: 1.2em;
+    display: inline-block;
+  }
+  
+  .typewriter-text {
+    display: inline-block;
+    text-align: center; /* CHANGED FROM left TO center */
+  }
+
+  .particles {
+    z-index: -1;
+  }
+</style>
+

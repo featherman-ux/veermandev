@@ -1,18 +1,29 @@
 ---
-import { languages } from '../i18n/ui';
+import { languages, routes } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
 
 const { pathname } = Astro.url;
-const currentPath = pathname.replace(/^\/[a-z]{2}\//, '/').replace(/\/$/, '');
+const lang = getLangFromUrl(Astro.url);
+
+// Extract the page route from the current path
+const currentRoute = pathname.replace(/^\/[a-z]{2}\//, '').replace(/\/$/, '') || 'home';
+
+// Function to get translated path for target language
+function getTranslatedPath(targetLang: string, route: string) {
+  const translatedRoute = routes[targetLang as keyof typeof routes]?.[route as keyof typeof routes['en']] || route;
+  return `/${targetLang}/${translatedRoute}`;
+}
 ---
+
 <div class="language-switcher">
-  {Object.entries(languages).map(([lang, label]) => (
+  {Object.entries(languages).map(([langCode, label]) => (
     <a 
-      href={`/${lang}${currentPath || '/'}`}
+      href={getTranslatedPath(langCode, currentRoute)}
       class:list={[
         "lang-link",
-        pathname.startsWith(`/${lang}`) ? "is-active" : ""
+        lang === langCode ? "is-active" : ""
       ]}
-      aria-current={pathname.startsWith(`/${lang}`) ? "page" : undefined}
+      aria-current={lang === langCode ? "page" : undefined}
     >
       {label}
     </a>
@@ -20,19 +31,26 @@ const currentPath = pathname.replace(/^\/[a-z]{2}\//, '/').replace(/\/$/, '');
 </div>
 
 <style>
- .language-switcher {
+  .language-switcher {
     display: flex;
     gap: 0.5rem;
   }
- .lang-link {
+  
+  .lang-link {
     text-decoration: none;
-    color: var(--color-text-muted);
+    color: var(--color-text-muted, #6b7280);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
+    transition: all 0.2s;
   }
- .lang-link.is-active {
+  
+  .lang-link:hover {
+    background-color: var(--color-primary-light, rgba(59, 130, 246, 0.1));
+  }
+  
+  .lang-link.is-active {
     font-weight: bold;
-    color: var(--color-primary);
-    background-color: var(--color-primary-light);
+    color: var(--color-primary, #3b82f6);
+    background-color: var(--color-primary-light, rgba(59, 130, 246, 0.1));
   }
 </style>

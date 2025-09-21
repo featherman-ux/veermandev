@@ -1,68 +1,472 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const pageTitle = "Portfolio | VeermanDevelopment";
-const pageDescription = "Explore conceptual case studies showcasing our high-performance web solutions.";
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const pageTitle = "Real Websites for Real Businesses | VeermanDevelopment";
+const pageDescription = "See what we build for small businesses across the Netherlands. Professional websites that actually work, now accessible for small businesses.";
 ---
+
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero Section -->
-  <section class="fade-in text-center py-24 bg-card-light dark:bg-card-dark rounded-xl shadow-lg">
-    <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">
-      Port<span class="text-primary">folio</span>
-    </h1>
-    <p class="text-lg md:text-xl max-w-3xl mx-auto text-opacity-80">
-      Conceptual projects that demonstrate our approach to speed, security, and design.
-    </p>
+  <!-- LAUNCH OFFER BANNER -->
+  <section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <p class="text-sm font-medium">
+        🚀 <strong>Launch Offer:</strong> €100 off all packages + brand strategy included | Limited time only!
+      </p>
+    </div>
+    <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
   </section>
 
-  <!-- Featured Projects -->
-  <section class="fade-in grid gap-16 py-16 lg:grid-cols-2 xl:grid-cols-3">
-    <!-- Project 1 -->
-    <div class="project-card featured">
-      <img src="/images/waarisniels-mockup.jpg" alt="Local Bakery Concept" class="rounded-lg" />
-      <div class="mt-4">
-        <h2 class="text-2xl font-semibold">De Bakkerij</h2>
-        <p class="text-sm text-primary uppercase font-medium">Fictional Bakery</p>
-        <p class="mt-2 text-opacity-80">
-          A hyper-fast, SEO-optimized website for a local bakery, featuring online ordering and event promotion.
-        </p>
+  <!-- INTRO -->
+  <section class="intro-section py-24 px-4 text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="champion-badge inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+        The Small Business Champion
       </div>
+      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
+        Real Websites for <span class="text-primary">Real Businesses</span>
+      </h1>
+      <p class="text-xl opacity-90 leading-relaxed reveal-text">
+        See what we build for small businesses across the Netherlands. Professional websites that actually work, now accessible for small businesses.
+      </p>
     </div>
-
-    <!-- Project 2 -->
-    <div class="project-card">
-      <img src="/images/ecommerce-mockup.jpg" alt="Tech Startup Concept" class="rounded-lg" />
-      <div class="mt-4">
-        <h2 class="text-2xl font-semibold">Innovate AI</h2>
-        <p class="text-sm text-primary uppercase font-medium">Fictional Startup</p>
-        <p class="mt-2 text-opacity-80">
-          Sleek landing page for an AI startup, showcasing real-time analytics and newsletter signup integrations.
-        </p>
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="project-card">
-      <img src="/images/corporate-mockup.jpg" alt="Consulting Concept" class="rounded-lg" />
-      <div class="mt-4">
-        <h2 class="text-2xl font-semibold">AdviesCo</h2>
-        <p class="text-sm text-primary uppercase font-medium">Fictional Consultancy</p>
-        <p class="mt-2 text-opacity-80">
-          Professional website with headless blog, service showcase, and client portal mockup.
-        </p>
-      </div>
+    
+    <!-- Simple background pattern -->
+    <div class="background-pattern absolute inset-0 opacity-5 pointer-events-none">
+      <div class="grid-lines w-full h-full" style="background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section class="fade-in text-center py-16">
-    <p class="mb-6 text-lg md:text-xl text-opacity-80">
-      Want a high-performance site like these? Let’s get started.
-    </p>
-    <a
-      href="/en/contact"
-      class="inline-block bg-primary text-black font-heading font-semibold py-3 px-8 rounded-lg shadow hover:bg-primary/90 transition"
-    >
-      Get in Touch
-    </a>
+  <!-- FILTER SECTION -->
+  <section class="filter-section py-8 px-4 reveal-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="filter-buttons flex flex-wrap justify-center gap-4 mb-12">
+        <button class="filter-btn active bg-primary text-black px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-filter="all">
+          All Examples
+        </button>
+        <button class="filter-btn bg-card-light dark:bg-card-dark px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-black transition-all duration-300" data-filter="foundation">
+          €249 Brand Foundation
+        </button>
+        <button class="filter-btn bg-card-light dark:bg-card-dark px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-black transition-all duration-300" data-filter="growth">
+          €349 Brand Growth
+        </button>
+        <button class="filter-btn bg-card-light dark:bg-card-dark px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-black transition-all duration-300" data-filter="complete">
+          €449 Brand Complete
+        </button>
+      </div>
+    </div>
   </section>
+
+  <!-- PROJECT EXAMPLES -->
+  <section class="projects-grid-section py-16 px-4 reveal-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Example 1: Foundation - Coming Soon -->
+        <div class="project-item group cursor-pointer subtle-card" data-category="foundation">
+          <div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 flex flex-col">
+            <div class="project-image relative overflow-hidden">
+              <div class="coming-soon-placeholder w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 flex items-center justify-center">
+                <div class="text-center">
+                  <div class="text-4xl mb-2">📝</div>
+                  <div class="font-semibold text-blue-800 dark:text-blue-200">Coming Soon</div>
+                  <div class="text-sm text-blue-600 dark:text-blue-300">pienvandenboom.nl</div>
+                </div>
+              </div>
+              <div class="launch-offer-badge absolute top-3 right-3 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
+                €100 OFF
+              </div>
+            </div>
+            
+            <div class="project-content p-6 flex-grow flex flex-col">
+              <div class="package-info flex justify-between items-start mb-3">
+                <span class="text-xs bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full font-medium">Brand Foundation - €249</span>
+                <span class="text-xs text-gray-500 dark:text-gray-400">Building now</span>
+              </div>
+              
+              <h3 class="text-xl font-semibold mb-2">Professional Portfolio</h3>
+              <p class="text-sm opacity-80 mb-4 flex-grow">Clean, professional portfolio website for showcasing work and expertise. Perfect for consultants and service professionals.</p>
+              
+              <div class="features-list text-xs opacity-60 space-y-2">
+                <div>• Professional website that reflects expertise</div>
+                <div>• Brand strategy & positioning</div>
+                <div>• Lightning-fast performance</div>
+                <div>• Brand visibility setup</div>
+                <div>• Hosting & updates included forever</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2: Growth - Live Success -->
+        <div class="project-item group cursor-pointer subtle-card" data-category="growth">
+          <div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 border-2 border-green-200 dark:border-green-800 flex flex-col">
+            <div class="success-badge absolute top-4 right-4 z-10 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+              Live Site
+            </div>
+            <div class="project-image relative overflow-hidden">
+              <img src="/src/assets/portfolio/waarisniels-mockup.jpg" alt="Waar is Niels Travel Blog" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="project-overlay absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="overlay-content absolute bottom-4 left-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <span class="text-sm font-medium">Visit Live Site →</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-content p-6 flex-grow flex flex-col">
+              <div class="package-info flex justify-between items-start mb-3">
+                <span class="text-xs bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 px-3 py-1 rounded-full font-medium">Brand Growth - €349</span>
+                <span class="text-xs text-green-500 font-medium">Live Example</span>
+              </div>
+              
+              <h3 class="text-xl font-semibold mb-2">Travel Blog</h3>
+              <p class="text-sm opacity-80 mb-4 flex-grow">Feature-rich travel blog with interactive maps, photo galleries, and social sharing. Niels wanted something cooler than basic blog platforms.</p>
+              
+              <div class="features-list text-xs opacity-60 space-y-2 mb-4">
+                <div>• Advanced brand strategy & positioning</div>
+                <div>• 8+ pages designed to convert</div>
+                <div>• Blog system for ongoing engagement</div>
+                <div>• Interactive maps & galleries</div>
+                <div>• Social media integration</div>
+                <div>• Complete brand visibility setup</div>
+              </div>
+              
+              <a href="https://waarisniels.nl" target="_blank" class="text-primary text-sm font-medium hover:underline inline-flex items-center gap-1 mt-auto">
+                Visit waarisniels.nl 
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 3: Complete - Coming Soon -->
+        <div class="project-item group cursor-pointer subtle-card" data-category="complete">
+          <div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 flex flex-col">
+            <div class="project-image relative overflow-hidden">
+              <div class="coming-soon-placeholder w-full h-48 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 flex items-center justify-center">
+                <div class="text-center">
+                  <div class="text-4xl mb-2">🛍️</div>
+                  <div class="font-semibold text-purple-800 dark:text-purple-200">Coming Soon</div>
+                  <div class="text-sm text-purple-600 dark:text-purple-300">vrmn.shop</div>
+                </div>
+              </div>
+              <div class="launch-offer-badge absolute top-3 right-3 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
+                €100 OFF
+              </div>
+            </div>
+            
+            <div class="project-content p-6 flex-grow flex flex-col">
+              <div class="package-info flex justify-between items-start mb-3">
+                <span class="text-xs bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full font-medium">Brand Complete - €449</span>
+                <span class="text-xs text-gray-500 dark:text-gray-400">Building now</span>
+              </div>
+              
+              <h3 class="text-xl font-semibold mb-2">Online Store</h3>
+              <p class="text-sm opacity-80 mb-4 flex-grow">Complete e-commerce solution with product catalog, shopping cart, and secure payments. Everything needed to sell online professionally.</p>
+              
+              <div class="features-list text-xs opacity-60 space-y-2">
+                <div>• Complete e-commerce brand experience</div>
+                <div>• Payment processing & secure checkout</div>
+                <div>• Product catalog & inventory management</div>
+                <div>• Customer accounts & order system</div>
+                <div>• Advanced marketing automation</div>
+                <div>• Complete brand strategy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FROM TRAVELLER TO BLOGGER -->
+  <section class="success-example py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-4xl mb-4">From Traveller to Blogger</h2>
+        <p class="text-lg opacity-80">Niels wanted a unique site to showcase his adventures, so we built him a stylish, feature-rich blog.</p>
+      </div>
+
+      <div class="transformation-grid grid lg:grid-cols-2 gap-12 items-center">
+        <div class="transformation-image">
+          <img src="/src/assets/portfolio/waarisniels-mockup.jpg" alt="Travel Blog Website" class="w-full h-80 object-cover rounded-lg shadow-lg" />
+        </div>
+
+        <div class="transformation-content">
+          <h3 class="text-2xl font-semibold mb-4">About the Blog</h3>
+          <p class="text-lg mb-6">A clean and modern design with interactive maps, photo galleries, and social sharing to inspire fellow travellers.</p>
+
+          <div class="transformation-benefits space-y-6 mb-8">
+            <div class="before-after bg-background-light dark:bg-background-dark rounded-lg p-4">
+              <div class="text-sm font-semibold mb-2">Before: Basic Blog</div>
+              <div class="text-sm opacity-70">Generic platform with minimal features and little visibility</div>
+            </div>
+            <div class="arrow text-center text-primary text-3xl">↓</div>
+            <div class="before-after bg-primary/10 rounded-lg p-4">
+              <div class="text-sm font-semibold mb-2 text-primary">After: Feature-Rich Platform</div>
+              <div class="text-sm">Custom design with interactive maps, galleries, and growing audience</div>
+            </div>
+          </div>
+
+          <a href="https://waarisniels.nl" target="_blank" class="text-primary font-medium hover:underline inline-flex items-center gap-2">
+            Visit the Blog
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="whats-included py-16 px-4 reveal-section">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-heading font-bold text-4xl mb-12">What Every Package Includes</h2>
+      
+      <div class="included-grid grid md:grid-cols-3 gap-8">
+        <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+          <div class="text-3xl mb-4">⚡</div>
+          <h3 class="font-semibold mb-3">Lightning Fast</h3>
+          <p class="text-sm opacity-80">All our websites load in under 1 second. Your customers won't wait around.</p>
+        </div>
+        
+        <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+          <div class="text-3xl mb-4">📱</div>
+          <h3 class="font-semibold mb-3">Mobile Perfect</h3>
+          <p class="text-sm opacity-80">Looks perfect on phones, tablets, and computers. Most of your customers use phones.</p>
+        </div>
+        
+        <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+          <div class="text-3xl mb-4">🔍</div>
+          <h3 class="font-semibold mb-3">Google Ready</h3>
+          <p class="text-sm opacity-80">Built to rank well on Google from day one. No extra SEO fees needed.</p>
+        </div>
+        
+        <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+          <div class="text-3xl mb-4">🛡️</div>
+          <h3 class="font-semibold mb-3">Super Secure</h3>
+          <p class="text-sm opacity-80">No WordPress vulnerabilities. Your site won't get hacked or break randomly.</p>
+        </div>
+        
+        <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+          <div class="text-3xl mb-4">💚</div>
+          <h3 class="font-semibold mb-3">Free Forever</h3>
+          <p class="text-sm opacity-80">Free hosting & updates included forever. No monthly bills or surprise costs.</p>
+        </div>
+        
+        <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+          <div class="text-3xl mb-4">📚</div>
+          <h3 class="font-semibold mb-3">Easy Updates</h3>
+          <p class="text-sm opacity-80">We teach you how to update content yourself. No monthly fees to change text.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="simple-cta py-16 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-heading font-bold text-4xl mb-6">Ready to Get Started?</h2>
+      <p class="text-lg opacity-80 mb-8">
+        Pick your package and let's build you a website that actually gets you customers. Free hosting & updates included forever.
+      </p>
+      <div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`/${lang}/services`}
+          class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary/90 transition-all inline-block"
+        >
+          See Packages & Pricing
+        </a>
+        <a
+          href={`/${lang}/contact`}
+          class="bg-card-light dark:bg-card-dark border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary hover:text-black transition-all inline-block"
+        >
+          Ask Questions First
+        </a>
+      </div>
+      
+      <!-- Launch urgency -->
+      <div class="launch-urgency mt-8 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-4 rounded-lg border border-orange-200 dark:border-orange-800">
+        <p class="font-semibold text-orange-800 dark:text-orange-300">
+          🚀 <strong>Launch offer:</strong> €100 off + complete brand strategy included. Limited to first 20 clients.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Filter functionality
+      const filterButtons = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
+      const projectItems = document.querySelectorAll('.project-item') as NodeListOf<HTMLElement>;
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.getAttribute('data-filter');
+          
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-black'));
+          button.classList.add('active', 'bg-primary', 'text-black');
+          
+          // Filter projects
+          projectItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Enhanced scroll reveals
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0) scale(1)';
+            
+            // Stagger children animation
+            const children = element.querySelectorAll('.project-card, .included-item') as NodeListOf<HTMLElement>;
+            children.forEach((child, childIndex) => {
+              setTimeout(() => {
+                child.style.opacity = '1';
+                child.style.transform = 'translateY(0)';
+              }, childIndex * 150);
+            });
+          }
+        });
+      }, observerOptions);
+
+      // Apply to sections with proper casting
+      const sections = document.querySelectorAll('.reveal-section') as NodeListOf<HTMLElement>;
+      sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px) scale(0.98)';
+        section.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(section);
+      });
+
+      // Subtle card effects
+      const subtleCards = document.querySelectorAll('.subtle-card') as NodeListOf<HTMLElement>;
+      subtleCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 80;
+          const rotateY = (centerX - x) / 80;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(3px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        });
+      });
+    });
+  </script>
+
+  <style>
+    /* Launch banner animation */
+    @keyframes shine {
+      0% { transform: translateX(-100%) skewX(-12deg); }
+      100% { transform: translateX(200%) skewX(-12deg); }
+    }
+    
+    .animate-shine {
+      animation: shine 3s ease-in-out infinite;
+    }
+
+    .subtle-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+      min-height: 500px;
+    }
+
+    .subtle-card:hover {
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    }
+
+    .hover\:scale-102:hover {
+      transform: scale(1.02);
+    }
+
+    .coming-soon-placeholder {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    }
+
+    .dark .coming-soon-placeholder {
+      background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+    }
+
+    .success-badge {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .launch-offer-badge {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+
+    .grid-lines {
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(20px, 20px); }
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .project-card {
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .included-item {
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .flex-grow {
+      flex-grow: 1;
+    }
+  </style>
 </BaseLayout>

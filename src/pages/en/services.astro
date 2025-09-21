@@ -1,0 +1,606 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const pageTitle = "Website Packages for Small Businesses | VeermanDevelopment";
+const pageDescription = "Clear pricing, no surprises. Professional websites that get you more customers. Built in 3 days, free hosting & updates included forever.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- LAUNCH OFFER BANNER -->
+  <section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <p class="text-sm font-medium">
+        🚀 <strong>Launch Offer:</strong> €100 off all packages + brand strategy included | Limited time only!
+      </p>
+    </div>
+    <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
+  </section>
+
+  <!-- INTRO SECTION -->
+  <section class="intro-section py-24 px-4 text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="champion-badge inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+        The Small Business Champion
+      </div>
+      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
+        Pick What Works for <span class="text-primary">Your Business</span>
+      </h1>
+      <p class="text-xl opacity-90 leading-relaxed reveal-text">
+        Clear pricing, no surprises. Professional websites that get you more customers. 
+        Built in 3 days, free hosting & updates included forever.
+      </p>
+    </div>
+  </section>
+
+  <!-- PACKAGE COMPARISON -->
+  <section class="packages-section py-16 px-4 reveal-section">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-heading font-bold text-4xl mb-4">Choose Your Brand Transformation</h2>
+        <p class="text-lg opacity-80">€100 off all packages + complete brand strategy included</p>
+      </div>
+      
+      <div class="packages-grid grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Package 1: Foundation -->
+        <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
+          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
+            €100 OFF
+          </div>
+          <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+          
+          <div class="relative z-10 p-8 flex flex-col flex-grow">
+            <div class="package-header text-center mb-8">
+              <div class="pricing-section mb-4">
+                <div class="original-price text-lg text-gray-500 line-through">€349</div>
+                <div class="package-price text-4xl font-bold text-primary">€249</div>
+                <div class="savings text-sm text-green-600 font-medium">Save €100</div>
+              </div>
+              <h3 class="text-2xl font-semibold mb-2">Brand Foundation</h3>
+              <p class="text-sm opacity-60">Perfect for coaches, consultants, service professionals</p>
+            </div>
+            
+            <div class="package-features space-y-4 mb-8 flex-grow">
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Professional website that reflects your expertise</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Brand strategy & positioning</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Lightning-fast performance (under 1 second)</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Brand visibility setup (Google, socials)</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Mobile-perfect on every device</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span><strong>Hosting & updates included forever</strong></span>
+              </div>
+            </div>
+            
+            <div class="example-info bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-6">
+              <p class="text-sm"><strong>Example:</strong> Professional portfolio that commands respect</p>
+              <p class="text-xs opacity-60 mt-1">Perfect for showcasing your work and getting contacted</p>
+            </div>
+            
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+              Start Your Transformation
+            </a>
+          </div>
+        </div>
+        
+        <!-- Package 2: Growth (Most Popular) -->
+        <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative border-2 border-primary flex flex-col">
+          <div class="popular-badge-container absolute -top-4 left-0 right-0 flex justify-center z-30">
+            <div class="popular-badge bg-primary text-black px-5 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white dark:border-gray-800">
+              ⭐ Most Chosen
+            </div>
+          </div>
+          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
+            €100 OFF
+          </div>
+          <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+          
+          <div class="relative z-10 p-8 pt-12 flex flex-col flex-grow">
+            <div class="package-header text-center mb-8">
+              <div class="pricing-section mb-4">
+                <div class="original-price text-lg text-gray-500 line-through">€449</div>
+                <div class="package-price text-4xl font-bold text-primary">€349</div>
+                <div class="savings text-sm text-green-600 font-medium">Save €100</div>
+              </div>
+              <h3 class="text-2xl font-semibold mb-2">Brand Growth</h3>
+              <p class="text-sm opacity-60">Perfect for local businesses ready to dominate their market</p>
+            </div>
+            
+            <div class="package-features space-y-4 mb-8 flex-grow">
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Everything in Foundation, plus:</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Advanced brand strategy & market positioning</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>5-8 pages designed to convert visitors</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Customer targeting strategy</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Local SEO to dominate your area</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Blog/portfolio system for ongoing engagement</span>
+              </div>
+            </div>
+            
+            <div class="example-info bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-6">
+              <p class="text-sm"><strong>Live Example:</strong> waarisniels.nl (travel blog)</p>
+              <p class="text-xs opacity-60 mt-1">Full-featured site with blog, galleries, and maps</p>
+            </div>
+            
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+              Dominate Your Market
+            </a>
+          </div>
+        </div>
+        
+        <!-- Package 3: Complete -->
+        <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
+          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
+            €100 OFF
+          </div>
+          <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+          
+          <div class="relative z-10 p-8 flex flex-col flex-grow">
+            <div class="package-header text-center mb-8">
+              <div class="pricing-section mb-4">
+                <div class="original-price text-lg text-gray-500 line-through">€549</div>
+                <div class="package-price text-4xl font-bold text-primary">€449</div>
+                <div class="savings text-sm text-green-600 font-medium">Save €100</div>
+              </div>
+              <h3 class="text-2xl font-semibold mb-2">Brand Complete</h3>
+              <p class="text-sm opacity-60">Perfect for ambitious businesses ready to sell online</p>
+            </div>
+            
+            <div class="package-features space-y-4 mb-8 flex-grow">
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Everything in Growth, plus:</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Complete e-commerce brand experience</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Payment processing & secure checkout</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Inventory management & order system</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Customer loyalty & retention features</span>
+              </div>
+              <div class="feature flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+                <span>Advanced marketing automation</span>
+              </div>
+            </div>
+            
+            <div class="example-info bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg mb-6">
+              <p class="text-sm"><strong>Example:</strong> vrmn.shop (coming soon)</p>
+              <p class="text-xs opacity-60 mt-1">Complete e-commerce solution for online sales</p>
+            </div>
+            
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+              Build Complete Brand
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- All packages include -->
+      <div class="all-packages-include mt-16 text-center bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+        <h3 class="font-semibold mb-4">Complete brand strategy included with every package:</h3>
+        <div class="grid md:grid-cols-5 gap-4 text-sm">
+          <div>✓ Brand positioning strategy</div>
+          <div>✓ Customer targeting plan</div>
+          <div>✓ Visibility optimization</div>
+          <div>✓ Market differentiation</div>
+          <div>✓ Growth partnership</div>
+        </div>
+        <p class="text-xs opacity-60 mt-4">Launch offer: This comprehensive brand strategy normally costs €400+</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY NOT WORDPRESS -->
+  <section class="why-not-wordpress py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-4xl mb-4">Why Not Just Use WordPress?</h2>
+        <p class="text-lg opacity-80">Here's why most small business websites are slow and expensive</p>
+      </div>
+      
+      <div class="comparison-cards grid md:grid-cols-2 gap-8">
+        <div class="wordpress-card bg-red-50 dark:bg-red-900/20 p-8 rounded-lg border border-red-200 dark:border-red-800 flex flex-col">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="text-4xl">😰</div>
+            <h3 class="text-xl font-semibold text-red-700 dark:text-red-300">Most WordPress Sites</h3>
+          </div>
+          <ul class="space-y-4 text-sm flex-grow">
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Take 4-8 seconds to load (customers leave after 3)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Break randomly when plugins update</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Get hacked regularly (96% from plugins)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Cost €20-50/month for hosting & maintenance</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Rank poorly on Google due to slow speed</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="our-card bg-green-50 dark:bg-green-900/20 p-8 rounded-lg border border-green-200 dark:border-green-800 flex flex-col">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="text-4xl">😊</div>
+            <h3 class="text-xl font-semibold text-green-700 dark:text-green-300">Our Modern Websites</h3>
+          </div>
+          <ul class="space-y-4 text-sm flex-grow">
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
+              <span>Load in under 1 second (customers stay & buy)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
+              <span>Never break - built to last for years</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
+              <span>Virtually unhackable (no database to attack)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
+              <span><strong>Free hosting & updates included forever</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
+              <span>Perfect Google scores = more customers find you</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="bottom-line text-center mt-8 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+        <p class="text-lg font-semibold text-blue-800 dark:text-blue-300">
+          Simple math: Fast website = More customers. Slow website = Customers go to competitors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="process-section py-16 px-4 reveal-section">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-heading font-bold text-4xl mb-12">How It Works</h2>
+      
+      <div class="process-steps grid md:grid-cols-3 gap-12">
+        <div class="step group">
+          <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">1</div>
+          <h3 class="text-xl font-semibold mb-4">Tell Us What You Need</h3>
+          <p class="text-sm opacity-80">Quick call or message about your business. We'll recommend the right package and explain everything clearly.</p>
+        </div>
+        
+        <div class="step group">
+          <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">2</div>
+          <h3 class="text-xl font-semibold mb-4">We Build Your Website</h3>
+          <p class="text-sm opacity-80"><strong>Just 3 days</strong> to design and build. We send updates and ask for feedback. No surprises or hidden costs.</p>
+        </div>
+        
+        <div class="step group">
+          <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">3</div>
+          <h3 class="text-xl font-semibold mb-4">You Get More Customers</h3>
+          <p class="text-sm opacity-80">Fast, professional website goes live with <strong>free hosting & updates forever</strong>. We teach you how to update it.</p>
+        </div>
+      </div>
+      
+      <div class="process-guarantee mt-12 bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
+        <p class="font-semibold text-yellow-800 dark:text-yellow-300">
+          🎯 <strong>Our Promise:</strong> Fixed price, delivered in 3 days, free hosting & updates forever. No surprises.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-4xl mb-4">Common Questions</h2>
+        <p class="text-lg opacity-80">Quick answers from real small business owners</p>
+      </div>
+      
+      <div class="faq-list space-y-4">
+        <div class="faq-item bg-background-light dark:bg-background-dark rounded-lg">
+          <button class="faq-question w-full text-left p-6 font-semibold flex justify-between items-center hover:text-primary transition-colors duration-300">
+            Can I update the website myself?
+            <span class="faq-toggle text-2xl">+</span>
+          </button>
+          <div class="faq-answer hidden p-6 pt-0 opacity-80">
+            <p>Yes! We teach you how to edit text, add photos, and update your content. No monthly fees to change simple things like your phone number or opening hours.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item bg-background-light dark:bg-background-dark rounded-lg">
+          <button class="faq-question w-full text-left p-6 font-semibold flex justify-between items-center hover:text-primary transition-colors duration-300">
+            What if I need changes after it's built?
+            <span class="faq-toggle text-2xl">+</span>
+          </button>
+          <div class="faq-answer hidden p-6 pt-0 opacity-80">
+            <p>Small changes and updates are included forever! For bigger changes like adding new pages or features, we charge fair rates (usually €25-50). We're always happy to help.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item bg-background-light dark:bg-background-dark rounded-lg">
+          <button class="faq-question w-full text-left p-6 font-semibold flex justify-between items-center hover:text-primary transition-colors duration-300">
+            Do you work with very small businesses?
+            <span class="faq-toggle text-2xl">+</span>
+          </button>
+          <div class="faq-answer hidden p-6 pt-0 opacity-80">
+            <p>Absolutely! We specialize in small local businesses. From solo freelancers to family restaurants to small shops - we love helping small businesses get more customers.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item bg-background-light dark:bg-background-dark rounded-lg">
+          <button class="faq-question w-full text-left p-6 font-semibold flex justify-between items-center hover:text-primary transition-colors duration-300">
+            Is free hosting really enough?
+            <span class="faq-toggle text-2xl">+</span>
+          </button>
+          <div class="faq-answer hidden p-6 pt-0 opacity-80">
+            <p>Absolutely! Our websites are so efficient they barely use any server resources. We include free hosting forever because our modern technology is that much more efficient than WordPress.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item bg-background-light dark:bg-background-dark rounded-lg">
+          <button class="faq-question w-full text-left p-6 font-semibold flex justify-between items-center hover:text-primary transition-colors duration-300">
+            What happens if you go out of business?
+            <span class="faq-toggle text-2xl">+</span>
+          </button>
+          <div class="faq-answer hidden p-6 pt-0 opacity-80">
+            <p>Great question! Your website files are yours, and we use standard hosting services. If anything happens, any developer can take over your site. You're never locked in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta py-16 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-heading font-bold text-4xl mb-6">Ready to Get More Customers?</h2>
+      <p class="text-lg opacity-80 mb-8">
+        Stop losing customers to your slow website. Let's build you something that actually works. Free hosting & updates included forever.
+      </p>
+      <div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`/${lang}/contact`}
+          class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105 inline-block"
+        >
+          Get Started Today
+        </a>
+        <a
+          href={`/${lang}/portfolio`}
+          class="bg-card-light dark:bg-card-dark border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary hover:text-black transition-all inline-block"
+        >
+          See Real Examples
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ functionality
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling as HTMLElement;
+          const toggle = question.querySelector('.faq-toggle') as HTMLElement;
+          
+          if (answer && toggle) {
+            if (answer.classList.contains('hidden')) {
+              answer.classList.remove('hidden');
+              toggle.textContent = '−';
+            } else {
+              answer.classList.add('hidden');
+              toggle.textContent = '+';
+            }
+          }
+        });
+      });
+
+      // Enhanced scroll reveals
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0) scale(1)';
+            
+            // Stagger children animation
+            const children = element.querySelectorAll('.package-card, .step, .faq-item');
+            children.forEach((child, childIndex) => {
+              const childElement = child as HTMLElement;
+              setTimeout(() => {
+                childElement.style.opacity = '1';
+                childElement.style.transform = 'translateY(0)';
+              }, childIndex * 150);
+            });
+          }
+        });
+      }, observerOptions);
+
+      // Apply to sections
+      const sections = document.querySelectorAll('.reveal-section');
+      sections.forEach(section => {
+        const element = section as HTMLElement;
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px) scale(0.98)';
+        element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(element);
+      });
+
+      // Subtle card effects
+      const subtleCards = document.querySelectorAll('.subtle-card');
+      subtleCards.forEach(card => {
+        const cardElement = card as HTMLElement;
+        
+        cardElement.addEventListener('mousemove', (e) => {
+          const rect = cardElement.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 80;
+          const rotateY = (centerX - x) / 80;
+          
+          cardElement.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(3px)`;
+        });
+        
+        cardElement.addEventListener('mouseleave', () => {
+          cardElement.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        });
+      });
+    });
+  </script>
+
+  <style>
+    /* Launch banner animation */
+    @keyframes shine {
+      0% { transform: translateX(-100%) skewX(-12deg); }
+      100% { transform: translateX(200%) skewX(-12deg); }
+    }
+    
+    .animate-shine {
+      animation: shine 3s ease-in-out infinite;
+    }
+
+    .subtle-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+      min-height: 600px;
+    }
+
+    .subtle-card:hover {
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    }
+
+    .popular-badge-container {
+      z-index: 30;
+    }
+    
+    .popular-badge {
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+      white-space: nowrap;
+      animation: badgeFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes badgeFloat {
+      0%, 100% { 
+        transform: translateY(0) scale(1); 
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+      }
+      50% { 
+        transform: translateY(-2px) scale(1.02); 
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+      }
+    }
+
+    .launch-offer-badge {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      align-items: stretch;
+    }
+    
+    @media (max-width: 1024px) {
+      .packages-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .packages-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .comparison-cards .wordpress-card,
+    .comparison-cards .our-card {
+      min-height: 400px;
+    }
+    
+    .faq-question:hover .faq-toggle {
+      color: var(--color-primary);
+    }
+
+    .flex-shrink-0 {
+      flex-shrink: 0;
+    }
+    
+    .flex-grow {
+      flex-grow: 1;
+    }
+  </style>
+</BaseLayout>

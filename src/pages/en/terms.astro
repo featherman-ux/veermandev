@@ -1,0 +1,384 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const pageTitle = "Terms of Service | VeermanDevelopment";
+const pageDescription = "Terms and conditions for VeermanDevelopment web development services. Clear agreements for our partnership-focused approach to building high-performance websites.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- HEADER SECTION -->
+  <section class="legal-header py-16 px-4 text-center bg-card-light dark:bg-card-dark">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl mb-4 reveal-title">
+        Terms of <span class="text-primary">Service</span>
+      </h1>
+      <p class="text-lg opacity-80 mb-4 reveal-text">
+        Clear terms and conditions that govern our partnership and service delivery approach.
+      </p>
+      <div class="last-updated bg-background-light dark:bg-background-dark px-4 py-2 rounded-lg inline-block text-sm opacity-70 reveal-meta">
+        <span class="update-icon">📅</span> Last updated: September 20, 2025
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="legal-content py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="legal-navigation bg-card-light dark:bg-card-dark rounded-lg p-6 mb-12 sticky top-24 z-10">
+        <h3 class="font-semibold mb-4">Quick Navigation</h3>
+        <div class="nav-links grid md:grid-cols-3 gap-2 text-sm">
+          <a href="#acceptance" class="nav-link text-primary hover:underline transition-colors">Agreement</a>
+          <a href="#services" class="nav-link text-primary hover:underline transition-colors">Our Services</a>
+          <a href="#payment" class="nav-link text-primary hover:underline transition-colors">Payment Terms</a>
+          <a href="#intellectual-property" class="nav-link text-primary hover:underline transition-colors">Intellectual Property</a>
+          <a href="#warranties" class="nav-link text-primary hover:underline transition-colors">Warranties</a>
+          <a href="#limitation" class="nav-link text-primary hover:underline transition-colors">Limitations</a>
+        </div>
+      </div>
+
+      <div class="legal-sections space-y-12">
+        <!-- Agreement -->
+        <div class="legal-section reveal-section" id="acceptance">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+            <span class="section-icon">🤝</span>
+            Agreement to Terms
+          </h2>
+          <div class="section-content prose-like">
+            <p class="mb-4">
+              These Terms of Service ("Terms") govern your use of VeermanDevelopment's website and services. By engaging our services, you agree to be bound by these terms.
+            </p>
+            <div class="agreement-highlight bg-primary/10 p-6 rounded-lg border border-primary/20 mb-4">
+              <h4 class="font-semibold mb-2 text-primary">Partnership Approach</h4>
+              <p class="text-sm">
+                We believe in building long-term partnerships, not just completing transactions. These terms reflect our commitment to mutual success and clear communication.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="legal-section reveal-section" id="services">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+            <span class="section-icon">🚀</span>
+            Our Services
+          </h2>
+          <div class="section-content prose-like">
+            <p class="mb-6">VeermanDevelopment provides the following services:</p>
+            
+            <div class="services-grid grid md:grid-cols-2 gap-6 mb-6">
+              <div class="service-card bg-card-light dark:bg-card-dark p-6 rounded-lg border border-primary/20">
+                <h4 class="font-semibold mb-3 text-primary">Core Services</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>• Growth-Driven Website Design</li>
+                  <li>• Jamstack Development</li>
+                  <li>• Performance Optimization</li>
+                  <li>• Website Maintenance & Support</li>
+                  <li>• SEO Implementation</li>
+                </ul>
+              </div>
+              <div class="service-card bg-card-light dark:bg-card-dark p-6 rounded-lg border border-primary/20">
+                <h4 class="font-semibold mb-3 text-primary">Partnership Services</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>• Strategic Consulting</li>
+                  <li>• Ongoing Analytics & Reporting</li>
+                  <li>• Conversion Rate Optimization</li>
+                  <li>• Content Strategy Guidance</li>
+                  <li>• Technical Support</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="service-commitment bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-semibold mb-2 text-green-800 dark:text-green-300">Our Service Commitment</h4>
+              <p class="text-sm text-green-700 dark:text-green-400">
+                All services are delivered with a focus on measurable business outcomes and long-term growth partnerships.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Terms -->
+        <div class="legal-section reveal-section" id="payment">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+            <span class="section-icon">💳</span>
+            Payment Terms
+          </h2>
+          <div class="section-content prose-like">
+            <div class="payment-structure space-y-6">
+              <div class="payment-section">
+                <h4 class="font-semibold mb-3">Project-Based Services</h4>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                  <li><strong>Discovery Phase:</strong> 25% deposit upon signed agreement</li>
+                  <li><strong>Design Phase:</strong> 35% upon design approval</li>
+                  <li><strong>Development Phase:</strong> 25% at development milestone</li>
+                  <li><strong>Launch:</strong> 15% upon project completion</li>
+                </ul>
+              </div>
+
+              <div class="payment-section">
+                <h4 class="font-semibold mb-3">Ongoing Partnerships</h4>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                  <li>Monthly retainer billed in advance</li>
+                  <li>30-day payment terms from invoice date</li>
+                  <li>Auto-renewal unless 30 days written notice</li>
+                </ul>
+              </div>
+
+              <div class="payment-policies bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                <h4 class="font-semibold mb-2 text-yellow-800 dark:text-yellow-300">Payment Policies</h4>
+                <ul class="text-sm text-yellow-700 dark:text-yellow-400 space-y-1">
+                  <li>• Late payments may incur 1.5% monthly service charge</li>
+                  <li>• Work may be suspended for accounts 30+ days overdue</li>
+                  <li>• Refunds considered on case-by-case basis</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Intellectual Property -->
+        <div class="legal-section reveal-section" id="intellectual-property">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+            <span class="section-icon">©️</span>
+            Intellectual Property Rights
+          </h2>
+          <div class="section-content prose-like">
+            <div class="ip-sections space-y-6">
+              <div class="ip-section">
+                <h4 class="font-semibold mb-3 text-primary">Client Ownership</h4>
+                <p class="mb-3">Upon full payment, you own:</p>
+                <ul class="list-disc pl-6 mb-4 space-y-1">
+                  <li>Final website design and custom code</li>
+                  <li>Content you provide or we create specifically for you</li>
+                  <li>Licensed images and assets purchased for your project</li>
+                </ul>
+              </div>
+
+              <div class="ip-section">
+                <h4 class="font-semibold mb-3 text-primary">VeermanDevelopment Retains</h4>
+                <ul class="list-disc pl-6 mb-4 space-y-1">
+                  <li>Rights to general methodologies and techniques</li>
+                  <li>Pre-existing code libraries and frameworks</li>
+                  <li>Rights to showcase work in portfolio (unless confidential)</li>
+                </ul>
+              </div>
+
+              <div class="ip-notice bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                <h4 class="font-semibold mb-2 text-blue-800 dark:text-blue-300">Important Notice</h4>
+                <p class="text-sm text-blue-700 dark:text-blue-400">
+                  We respect intellectual property rights. If you believe content infringes your rights, contact us immediately for resolution.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Client Responsibilities -->
+        <div class="legal-section reveal-section" id="client-responsibilities">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+            <span class="section-icon">✅</span>
+            Client Responsibilities
+          </h2>
+          <div class="section-content prose-like">
+            <p class="mb-4">For successful project completion, clients agree to:</p>
+            <div class="responsibilities-grid grid md:grid-cols-2 gap-6">
+              <div class="responsibility-category">
+                <h4 class="font-semibold mb-3 text-primary">Content & Materials</h4>
+                <ul class="text-sm space-y-2">
+                  <li>• Provide content in timely manner</li>
+                  <li>• Ensure content accuracy and legality</li>
+                  <li>• Obtain necessary permissions/licenses</li>
+                  <li>• Review and approve deliverables promptly</li>
+                </ul>
+              </div>
+              <div class="responsibility-category">
+                <h4 class="font-semibold mb-3 text-primary">Communication & Access</h4>
+                <ul class="text-sm space-y-2">
+                  <li>• Maintain responsive communication</li>
+                  <li>• Provide necessary system access</li>
+                  <li>• Participate in scheduled meetings</li>
+                  <li>• Provide feedback within agreed timeframes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warranties -->
+        <div class="legal-section reveal-section" id="warranties">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+            <span class="section-icon">🛡️</span>
+            Warranties and Disclaimers
+          </h2>
+          <div class="section-content prose-like">
+            <div class="warranty-sections space-y-6">
+              <div class="our-warranties bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
+                <h4 class="font-semibold mb-3 text-green-800 dark:text-green-300">Our Warranties</h4>
+                <ul class="text-sm text-green-700 dark:text-green-400 space-y-2">
+                  <li>• Websites will function as specified at delivery</li>
+                  <li>• 90-day warranty on development work</li>
+                  <li>• Services performed with professional skill and care</li>
+                  <li>• Compliance with agreed specifications</li>
+                </ul>
+              </div>
+
+              <div class="disclaimers">
+                <h4 class="font-semibold mb-3">Disclaimers</h4>
+                <p class="mb-4 text-sm">
+                  EXCEPT AS EXPRESSLY STATED, ALL SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND. 
+                  We do not warrant that services will be uninterrupted or error-free, or that results will meet your expectations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Limitation of Liability -->
+        <div class="legal-section reveal-section" id="limitation">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+            <span class="section-icon">⚖️</span>
+            Limitation of Liability
+          </h2>
+          <div class="section-content prose-like">
+            <div class="liability-content space-y-4">
+              <p class="mb-4">
+                Our total liability for any claims related to our services shall not exceed the amount paid by you for the specific services giving rise to the claim.
+              </p>
+              
+              <div class="exclusions bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
+                <h4 class="font-semibold mb-2 text-red-800 dark:text-red-300">We Are Not Liable For:</h4>
+                <ul class="text-sm text-red-700 dark:text-red-400 space-y-1">
+                  <li>• Indirect, incidental, or consequential damages</li>
+                  <li>• Loss of profits, data, or business opportunities</li>
+                  <li>• Third-party actions or services</li>
+                  <li>• Forces beyond our reasonable control</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Termination -->
+        <div class="legal-section reveal-section" id="termination">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+            <span class="section-icon">🔚</span>
+            Termination
+          </h2>
+          <div class="section-content prose-like">
+            <div class="termination-policies space-y-6">
+              <div class="termination-section">
+                <h4 class="font-semibold mb-3">Project Termination</h4>
+                <p class="mb-3">Either party may terminate with 30 days written notice. Upon termination:</p>
+                <ul class="list-disc pl-6 mb-4 space-y-1">
+                  <li>Client pays for all work completed to date</li>
+                  <li>We deliver all completed work and source files</li>
+                  <li>Both parties return confidential information</li>
+                </ul>
+              </div>
+
+              <div class="immediate-termination bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                <h4 class="font-semibold mb-2 text-yellow-800 dark:text-yellow-300">Immediate Termination</h4>
+                <p class="text-sm text-yellow-700 dark:text-yellow-400">
+                  We may terminate immediately for non-payment, breach of terms, or unreasonable client behavior.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="legal-section reveal-section" id="contact">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+            <span class="section-icon">📞</span>
+            Questions About These Terms
+          </h2>
+          <div class="section-content prose-like">
+            <p class="mb-4">If you have questions about these Terms of Service, please contact us:</p>
+            <div class="contact-info bg-primary/10 p-6 rounded-lg">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <strong>VeermanDevelopment</strong><br>
+                  Email: <a href="mailto:legal@veermandev.nl" class="text-primary hover:underline">legal@veermandev.nl</a><br>
+                  General: <a href="mailto:contact@veermandev.nl" class="text-primary hover:underline">contact@veermandev.nl</a>
+                </div>
+                <div>
+                  <strong>Legal Department</strong><br>
+                  For contract and terms questions<br>
+                  Response time: 2-3 business days
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scroll for navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId || '');
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Reveal animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50px',
+      threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target as HTMLElement;
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Apply reveal animations
+    const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-meta, .reveal-section');
+    revealElements.forEach((element, index) => {
+      const el = element as HTMLElement;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`;
+      revealObserver.observe(el);
+    });
+
+    // Service card hover effects with proper type assertions
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+      const cardElement = card as HTMLElement;
+      
+      cardElement.addEventListener('mouseenter', () => {
+        cardElement.style.transform = 'translateY(-4px)';
+        cardElement.style.boxShadow = '0 8px 25px rgba(59, 130, 246, 0.15)';
+      });
+      
+      cardElement.addEventListener('mouseleave', () => {
+        cardElement.style.transform = 'translateY(0)';
+        cardElement.style.boxShadow = '';
+      });
+    });
+  });
+</script>
+
+</BaseLayout>

@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  link: string;
+  linkText?: string;
+}
+
+const { title, description, icon, link, linkText = "Learn more →" } = Astro.props;
+---
+
+<div class="service-card bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
+  {icon && <div class="service-icon text-3xl mb-4">{icon}</div>}
+  <h4 class="text-xl font-semibold mb-4">{title}</h4>
+  <p class="opacity-80 mb-6">
+    {description}
+  </p>
+  <a href={link} class="text-primary font-medium hover:underline">
+    {linkText}
+  </a>
+</div>

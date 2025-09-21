@@ -1,47 +1,771 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const pageTitle = "Home | VeermanDevelopment";
-const pageDescription = "Discover blazing-fast, secure websites built in days with modern Jamstack architecture.";
+import { useTranslations } from '../../i18n/utils';
+import HeroSection from '../../components/HeroSection.astro';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const pageTitle = "Your Partner in Digital Growth | VeermanDevelopment";
+const pageDescription = "We're The Small Business Champion. We build more than websites, we build brands. Professional websites that actually work, now accessible for small businesses.";
 ---
+
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero section -->
-  <section class="fade-in text-center py-16 bg-card-light dark:bg-card-dark rounded-xl shadow">
-    <h1 class="font-heading font-bold">
-      <span class="block text-4xl sm:text-5xl md:text-6xl mt-2">
-        <span class="block sm:inline">Live within</span>
-        <span class="block sm:inline text-primary">3 Days</span>
-      </span>
-    </h1>
-    <p class="mt-6 text-lg max-w-2xl mx-auto opacity-80">
-      We build exceptionally fast, secure, and high-converting websites using modern Jamstack technology.
-    </p>
-    <a
-      href="/en/portfolio"
-      class="mt-8 inline-block px-6 py-3 bg-primary text-black rounded-lg shadow hover:bg-primary/90 transition"
-    >
-      View Portfolio
-    </a>
+  <!-- LAUNCH OFFER BANNER -->
+  <section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <p class="text-sm font-medium">
+        🚀 <strong>Launch Offer:</strong> €100 off all packages + brand strategy included | Limited time only!
+      </p>
+    </div>
+    <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
   </section>
 
-  <!-- Features section -->
-  <section class="fade-in grid md:grid-cols-3 gap-8 py-16">
-    <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-semibold">🚀 Instant Speed</h2>
-      <p class="mt-3 opacity-80">
-        Pre-built static pages served from a CDN ensure near-instant load times, better SEO, and fewer bounces.
-      </p>
-    </div>
-    <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-semibold">🔒 Ironclad Security</h2>
-      <p class="mt-3 opacity-80">
-        No server code or databases on each request—dramatically reduced attack surface for peace of mind.
-      </p>
-    </div>
-    <div class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-semibold">💡 Jamstack Technology</h2>
-      <p class="mt-3 opacity-80">
-        Future-proof architecture with Astro and Tailwind ensures scalability, maintainability, and low hosting costs.
-      </p>
+  <!-- SMALL BUSINESS CHAMPION HERO - FIXED TYPEWRITER -->
+  <HeroSection 
+    title="We Don't Just Build Websites,"
+    description="We're The Small Business Champion. Your dedicated partner who understands the hustle. We handle the digital side so you can focus on what you do best."
+    typewriterWords={['We Build Brands', 'We Create Success', 'We Drive Growth', 'We Generate Sales', 'We Build Your Future', 'We Make You Memorable']}
+    primaryCTA={{text: "See Our Packages", href: `/${lang}/services`}}
+    secondaryCTA={{text: "View Success Stories", href: `/${lang}/portfolio`}}
+    trustSignals={["Your Partner in Digital Growth", "Built in 3 days", "Brand strategy included"]}
+    size="large"
+  />
+
+  <!-- BRAND CHAMPION MESSAGE - BETTER SPACING -->
+  <section class="brand-champion-message py-6 px-4 reveal-on-scroll">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="champion-badge inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+        The Small Business Champion
+      </div>
+      <h2 class="font-heading font-bold text-4xl mb-6">In an Age Where Everyone is the Same,<br><span class="text-primary">Dare to be Different</span></h2>
+      
+      <div class="brand-philosophy grid md:grid-cols-2 gap-16 mt-16">
+        <div class="philosophy-left">
+          <h3 class="text-2xl font-semibold mb-4">Everyone has the ability to build a website</h3>
+          <p class="text-lg opacity-80 mb-6">Templates, builders, DIY solutions—they're everywhere. But cookie-cutter websites create cookie-cutter businesses.</p>
+          <div class="problem-list space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="text-red-500 mt-1 text-xl">❌</span>
+              <span>You blend into the crowd</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-500 mt-1 text-xl">❌</span>
+              <span>Customers can't remember you</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-500 mt-1 text-xl">❌</span>
+              <span>Competitors steal your business</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="philosophy-right">
+          <h3 class="text-2xl font-semibold mb-4">Not everyone has the ability to stand out</h3>
+          <p class="text-lg opacity-80 mb-6">That's where we come in. We don't just develop websites—<strong>we develop brands that customers can't ignore.</strong></p>
+          <div class="solution-list space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="text-green-500 mt-1 text-xl">✓</span>
+              <span>Your brand becomes memorable</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-500 mt-1 text-xl">✓</span>
+              <span>Customers choose you over competitors</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-500 mt-1 text-xl">✓</span>
+              <span>You dominate your local market</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="brand-promise mt-16 bg-gradient-to-r from-primary/10 to-primary/5 p-8 rounded-xl">
+        <h3 class="text-2xl font-bold mb-4">Our Promise to You</h3>
+        <p class="text-lg">
+          <strong>Don't just develop a website, develop a brand.</strong> We combine technical expertise with marketing knowledge to create something truly mesmerizing—even if you just want a "simple" website.
+        </p>
+      </div>
     </div>
   </section>
+
+  <!-- PROFESSIONAL VS DIY/CHEAP - FIXED SPACING & HEIGHTS -->
+  <section class="professional-vs-rest py-24 px-4 bg-card-light dark:bg-card-dark reveal-on-scroll">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-heading font-bold text-4xl mb-6">Why Most Small Business Websites Look Amateur</h2>
+        <p class="text-lg mb-8 opacity-80">Everyone uses the same DIY tools and templates. Even many "developers" just install WordPress themes. Your business deserves better.</p>
+        <div class="professional-badge inline-block bg-gradient-to-r from-primary to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+          Professional Website Service - Now Accessible for Small Businesses
+        </div>
+      </div>
+      
+      <!-- FIXED COMPARISON GRID WITH EQUAL HEIGHTS -->
+      <div class="comparison-grid grid lg:grid-cols-3 gap-8 mb-12">
+        <!-- DIY Solutions -->
+        <div class="comparison-column bg-red-50 dark:bg-red-900/20 p-8 rounded-lg border border-red-200 dark:border-red-800 flex flex-col">
+          <div class="column-header text-center mb-6">
+            <div class="text-4xl mb-3">😤</div>
+            <h3 class="text-xl font-semibold text-red-700 dark:text-red-300">DIY Website Builders</h3>
+            <p class="text-sm opacity-60 mt-2">Wix, Squarespace, Strato, etc.</p>
+          </div>
+          <ul class="space-y-4 text-sm flex-grow">
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Same templates everyone uses</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Slow loading times (4-8 seconds)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Limited customization</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Monthly fees forever (€15-50/month)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>No marketing strategy</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
+              <span>Looks like everyone else</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Cheap "Developers" -->
+        <div class="comparison-column bg-orange-50 dark:bg-orange-900/20 p-8 rounded-lg border border-orange-200 dark:border-orange-800 flex flex-col">
+          <div class="column-header text-center mb-6">
+            <div class="text-4xl mb-3">🙄</div>
+            <h3 class="text-xl font-semibold text-orange-700 dark:text-orange-300">Cheap "Developers"</h3>
+            <p class="text-sm opacity-60 mt-2">WordPress theme installers</p>
+          </div>
+          <ul class="space-y-4 text-sm flex-grow">
+            <li class="flex items-start gap-3">
+              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+              <span>Just install WordPress themes</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+              <span>Break randomly from updates</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+              <span>Security problems everywhere</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+              <span>Disappear after delivery</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+              <span>No brand understanding</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+              <span>Same result as everyone else</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Our Professional Service -->
+         
+        <div class="comparison-column bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/40 dark:to-blue-900/40 p-8 rounded-lg border-2 border-primary relative overflow-hidden flex flex-col">
+          <div class="professional-shine absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent transform -skew-x-12 animate-shine"></div>
+          <div class="column-header text-center mb-6 relative z-10">
+            <div class="text-4xl mb-3">✨</div>
+            <h3 class="text-xl font-semibold text-primary dark:text-green-300">Our Professional Service</h3>
+            <p class="text-sm opacity-60 dark:opacity-70 mt-2">What professional agencies deliver</p>
+          </div>
+          <ul class="space-y-4 text-sm relative z-10 flex-grow">
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span><strong>Custom-built for your brand</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span>Lightning fast (under 1 second)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span>Modern, secure technology</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span>True partnership & support</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span>Complete brand strategy</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span><strong>Impossible to ignore</strong></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+
+  <!-- WHAT MAKES US DIFFERENT - BETTER SPACING -->
+  <section class="what-makes-different py-24 px-4 reveal-on-scroll">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-heading font-bold text-4xl mb-4">Professional Service, Small Business Prices</h2>
+        <p class="text-lg opacity-80">What big companies get from expensive agencies, we deliver for small businesses at honest prices</p>
+      </div>
+      
+      <!-- FIXED GRID WITH EQUAL HEIGHTS -->
+      <div class="differences-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="text-xl font-semibold mb-3">Professional Performance</h3>
+          <p class="text-sm opacity-80 flex-grow">While competitors use slow WordPress, we use modern technology. Your customers notice the speed difference immediately.</p>
+        </div>
+        
+        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+          <div class="text-4xl mb-4">🛡️</div>
+          <h3 class="text-xl font-semibold mb-3">Reliable & Secure</h3>
+          <p class="text-sm opacity-80 flex-grow">No WordPress vulnerabilities, no plugin problems, no random breakdowns. We build websites that work reliably for years.</p>
+        </div>
+        
+        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold mb-3">Custom Brand Strategy</h3>
+          <p class="text-sm opacity-80 flex-grow">DIY builders give you templates. We create a unique brand experience that makes you stand out in your market.</p>
+        </div>
+        
+        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+          <div class="text-4xl mb-4">📍</div>
+          <h3 class="text-xl font-semibold mb-3">Complete Brand Visibility</h3>
+          <p class="text-sm opacity-80 flex-grow">Google Maps optimization, social media setup, local SEO—we make sure your community knows you exist and remembers you.</p>
+        </div>
+        
+        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+          <div class="text-4xl mb-4">🤝</div>
+          <h3 class="text-xl font-semibold mb-3">True Partnership</h3>
+          <p class="text-sm opacity-80 flex-grow">We don't disappear after launch. You get ongoing support and strategic guidance—the same service big companies receive.</p>
+        </div>
+        
+        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+          <div class="text-4xl mb-4">🎨</div>
+          <h3 class="text-xl font-semibold mb-3">Mesmerizing Design</h3>
+          <p class="text-sm opacity-80 flex-grow">Even our "simple" websites are crafted to captivate. Every element is designed to reflect your value and make customers choose you.</p>
+        </div>
+      </div>
+      
+      <!-- Quality Promise -->
+      <div class="quality-promise mt-16 text-center bg-gradient-to-r from-primary/5 to-blue-50 dark:from-primary/10 dark:to-blue-900/20 p-8 rounded-xl border border-primary/30">
+        <h3 class="text-2xl font-bold mb-4 text-primary">Our Quality Promise</h3>
+        <p class="text-lg mb-4">
+          <strong>Your website will be professionally built and strategically designed to grow your business.</strong>
+        </p>
+        <p class="text-sm opacity-80">
+          That's our commitment to bringing professional website service to small businesses.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAUNCH PRICING PACKAGES - COMPLETELY FIXED LAYOUT -->
+  <section class="packages-overview py-6 px-4 reveal-on-scroll">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="launch-pricing-badge inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
+          Launch Pricing - Limited Time
+        </div>
+        <h2 class="font-heading font-bold text-4xl mb-4">Choose Your Brand Transformation</h2>
+        <p class="text-lg opacity-80">€100 off all packages + complete brand strategy included. Your partner in digital growth.</p>
+      </div>
+      
+      <!-- COMPLETELY FIXED PACKAGES GRID -->
+      <div class="packages-grid grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Package 1: Foundation -->
+        <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
+          <!-- Launch offer badge -->
+          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
+            €100 OFF
+          </div>
+          <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+          
+          <div class="relative z-10 p-6 flex flex-col flex-grow">
+            <div class="pricing-section mb-4">
+              <div class="original-price text-lg text-gray-500 line-through">€349</div>
+              <div class="package-price text-3xl font-bold text-primary">€249</div>
+              <div class="savings text-sm text-green-600 font-medium">Save €100</div>
+            </div>
+            
+            <h4 class="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">Brand Foundation</h4>
+            <p class="text-sm opacity-60 mb-2">Perfect for</p>
+            <p class="font-medium mb-6">Coaches, consultants, service professionals</p>
+            
+            <ul class="space-y-3 mb-8 text-sm flex-grow">
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Professional website that reflects your expertise</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Brand strategy & positioning</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Lightning-fast performance (under 1 second)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Brand visibility setup (Google, socials)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Mobile-perfect on every device</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span><strong>Hosting & updates included forever</strong></span>
+              </li>
+            </ul>
+            
+            <div class="example-link text-xs text-primary opacity-70 mb-4">
+              Example: Professional portfolio that commands respect
+            </div>
+            
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+              Start Your Transformation
+            </a>
+          </div>
+        </div>
+        
+        <!-- Package 2: Growth (Most Chosen) -->
+        <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative border-2 border-primary flex flex-col">
+          <!-- More visible popular badge -->
+          <div class="popular-badge-container absolute -top-4 left-0 right-0 flex justify-center z-30">
+            <div class="popular-badge bg-primary text-black px-5 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white dark:border-gray-800">
+              ⭐ Most Chosen
+            </div>
+          </div>
+          <!-- Launch offer badge -->
+          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
+            €100 OFF
+          </div>
+          
+          <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+          
+          <div class="relative z-10 p-6 pt-8 flex flex-col flex-grow">
+            <div class="pricing-section mb-4">
+              <div class="original-price text-lg text-gray-500 line-through">€449</div>
+              <div class="package-price text-3xl font-bold text-primary">€349</div>
+              <div class="savings text-sm text-green-600 font-medium">Save €100</div>
+            </div>
+            
+            <h4 class="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">Brand Growth</h4>
+            <p class="text-sm opacity-60 mb-2">Perfect for</p>
+            <p class="font-medium mb-6">Local businesses ready to dominate their market</p>
+            
+            <ul class="space-y-3 mb-8 text-sm flex-grow">
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Everything in Foundation, plus:</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Advanced brand strategy & market positioning</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>5-8 pages designed to convert visitors</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Customer targeting strategy</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Local SEO to dominate your area</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Blog/portfolio system for ongoing engagement</span>
+              </li>
+            </ul>
+            
+            <div class="example-link text-xs text-primary opacity-70 mb-4">
+              Example: waarisniels.nl (from blogger to authority)
+            </div>
+            
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+              Dominate Your Market
+            </a>
+          </div>
+        </div>
+        
+        <!-- Package 3: Complete -->
+        <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
+          <!-- Launch offer badge -->
+          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
+            €100 OFF
+          </div>
+          <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+          
+          <div class="relative z-10 p-6 flex flex-col flex-grow">
+            <div class="pricing-section mb-4">
+              <div class="original-price text-lg text-gray-500 line-through">€549</div>
+              <div class="package-price text-3xl font-bold text-primary">€449</div>
+              <div class="savings text-sm text-green-600 font-medium">Save €100</div>
+            </div>
+            
+            <h4 class="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">Brand Complete</h4>
+            <p class="text-sm opacity-60 mb-2">Perfect for</p>
+            <p class="font-medium mb-6">Ambitious businesses ready to sell online</p>
+            
+            <ul class="space-y-3 mb-8 text-sm flex-grow">
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Everything in Growth, plus:</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Complete e-commerce brand experience</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Payment processing & secure checkout</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Inventory management & order system</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Customer loyalty & retention features</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
+                <span>Advanced marketing automation</span>
+              </li>
+            </ul>
+            
+            <div class="example-link text-xs text-primary opacity-70 mb-4">
+              Example: Coming soon (complete online brand experience)
+            </div>
+            
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+              Build Complete Brand
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Brand strategy details -->
+      <div class="brand-included mt-16 text-center bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+        <h3 class="font-semibold mb-4">Complete brand strategy included with every package:</h3>
+        <div class="grid md:grid-cols-5 gap-4 text-sm">
+          <div>✓ Brand positioning strategy</div>
+          <div>✓ Customer targeting plan</div>
+          <div>✓ Visibility optimization</div>
+          <div>✓ Market differentiation</div>
+          <div>✓ Growth partnership</div>
+        </div>
+        <p class="text-xs opacity-60 mt-4">Launch offer: This comprehensive brand strategy normally costs €400+</p>
+      </div>
+    </div>
+  </section>
+
+ <!-- Success Transformation - Toned Down -->
+<section class="success-example py-20 px-4 bg-card-light dark:bg-card-dark reveal-on-scroll">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="font-heading font-bold text-4xl mb-4">From Traveller to Blogger</h2>
+      <p class="text-lg opacity-80">Niels wanted a unique site to showcase his adventures, so we built him a stylish, feature-rich blog.</p>
+    </div>
+
+    <div class="transformation-grid grid lg:grid-cols-2 gap-12 items-center">
+      <div class="transformation-image">
+        <img src="/src/assets/portfolio/waarisniels-mockup.jpg" alt="Travel Blog Website" class="w-full h-80 object-cover rounded-lg" />
+      </div>
+
+      <div class="transformation-content">
+        <h3 class="text-2xl font-semibold mb-4">About the Blog</h3>
+        <p class="mb-4">A clean and modern design with interactive maps, photo galleries, and social sharing to inspire fellow travellers.</p>
+
+        <div class="transformation-benefits space-y-6 mb-6">
+          <div class="before-after bg-background rounded p-4">
+            <strong>Before:</strong> Basic blog with minimal features and little visibility.
+          </div>
+          <div class="arrow text-center text-primary text-3xl">↓</div>
+          <div class="before-after bg-primary/10 rounded p-4">
+            <strong>After:</strong> Engaging platform with rich media and growing audience.
+          </div>
+        </div>
+
+        <a href="https://waarisniels.nl" target="_blank" class="text-primary font-medium hover:underline inline-flex items-center gap-2">
+          Visit the Blog
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- OUR PARTNERSHIP PROCESS -->
+  <section class="partnership-process py-24 px-4 reveal-on-scroll">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-heading font-bold text-4xl mb-16">Your Partner in Digital Growth</h2>
+      
+      <div class="process-steps grid md:grid-cols-3 gap-12">
+        <div class="step">
+          <div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
+          <h3 class="text-xl font-semibold mb-4">We Understand Your Business</h3>
+          <p class="text-sm opacity-80">Deep conversation about your business, challenges, and goals. We become your dedicated digital partner who truly gets it.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
+          <h3 class="text-xl font-semibold mb-4">We Build Your Brand</h3>
+          <p class="text-sm opacity-80"><strong>Just 3 days</strong> to create a professional brand experience. We combine technical expertise with marketing knowledge for maximum impact.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
+          <h3 class="text-xl font-semibold mb-4">You Stand Out From Competitors</h3>
+          <p class="text-sm opacity-80">Your professional brand goes live and customers choose you over competitors. We provide ongoing partnership support as you grow.</p>
+        </div>
+      </div>
+      
+      <!-- Partnership commitment -->
+      <div class="partnership-commitment mt-16 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800">
+        <p class="font-semibold text-orange-800 dark:text-orange-300">
+          🤝 <strong>Partnership Promise:</strong> We're your dedicated digital growth partner, not just another vendor.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Enhanced scroll reveals
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0) scale(1)';
+            
+            // Stagger children animation
+            const children = element.querySelectorAll('.package-card, .result-item, .step, .difference-card');
+            children.forEach((child, childIndex) => {
+              const childElement = child as HTMLElement;
+              setTimeout(() => {
+                childElement.style.opacity = '1';
+                childElement.style.transform = 'translateY(0)';
+              }, childIndex * 150);
+            });
+          }
+        });
+      }, observerOptions);
+
+      // Apply to sections
+      const sections = document.querySelectorAll('.reveal-on-scroll');
+      sections.forEach(section => {
+        const element = section as HTMLElement;
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px) scale(0.98)';
+        element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(element);
+      });
+
+      // Subtle card effects
+      const subtleCards = document.querySelectorAll('.subtle-card');
+      subtleCards.forEach(card => {
+        const cardElement = card as HTMLElement;
+        
+        cardElement.addEventListener('mousemove', (e) => {
+          const rect = cardElement.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 80;
+          const rotateY = (centerX - x) / 80;
+          
+          cardElement.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(3px)`;
+        });
+        
+        cardElement.addEventListener('mouseleave', () => {
+          cardElement.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        });
+      });
+    });
+  </script>
+
+  <style>
+    /* Launch banner animation */
+    @keyframes shine {
+      0% { transform: translateX(-100%) skewX(-12deg); }
+      100% { transform: translateX(200%) skewX(-12deg); }
+    }
+    
+    .animate-shine {
+      animation: shine 3s ease-in-out infinite;
+    }
+
+    .subtle-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+
+    .subtle-card:hover {
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    }
+
+    /* Fixed popular badge with better visibility */
+    .popular-badge-container {
+      z-index: 30;
+    }
+    
+    .popular-badge {
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+      white-space: nowrap;
+      animation: badgeFloat 3s ease-in-out infinite;
+    }
+
+    /* Add some movement to draw attention */
+    @keyframes badgeFloat {
+      0%, 100% { 
+        transform: translateY(0) scale(1); 
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+      }
+      50% { 
+        transform: translateY(-2px) scale(1.02); 
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+      }
+    }
+
+    /* Launch offer badges */
+    .launch-offer-badge {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+
+    /* Professional shine effect */
+    .professional-shine {
+      animation: professionalShine 4s ease-in-out infinite;
+    }
+    
+    @keyframes professionalShine {
+      0%, 100% { transform: translateX(-100%) skewX(-12deg); opacity: 0; }
+      50% { transform: translateX(100%) skewX(-12deg); opacity: 0.3; }
+    }
+    
+    /* COMPLETELY FIXED COMPARISON COLUMNS */
+    .comparison-column {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .comparison-column:hover {
+      transform: translateY(-5px);
+    }
+    
+    .comparison-column:last-child {
+      background: linear-gradient(135deg, #f0f9ff, #ecfdf5);
+    }
+    
+    .dark .comparison-column:last-child {
+      background: linear-gradient(135deg, rgb(12 74 110 / 0.2), rgb(6 78 59 / 0.2));
+    }
+
+    /* Brand philosophy styling */
+    .philosophy-left, .philosophy-right {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .philosophy-right {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* COMPLETELY FIXED DIFFERENCE CARDS */
+    .difference-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .difference-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* COMPLETELY FIXED PACKAGE GRID */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      align-items: stretch;
+    }
+    
+    .package-card {
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Better mobile responsive grid */
+    @media (max-width: 1024px) {
+      .packages-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .packages-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Fix flex-shrink for icons */
+    .flex-shrink-0 {
+      flex-shrink: 0;
+    }
+    
+    /* Ensure flex-grow works properly */
+    .flex-grow {
+      flex-grow: 1;
+    }
+  </style>
 </BaseLayout>

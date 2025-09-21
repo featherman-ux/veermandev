@@ -1,0 +1,205 @@
+---
+interface Metric {
+  value: string;
+  label: string;
+  description?: string;
+  icon?: string;
+  color?: 'primary' | 'green' | 'blue' | 'purple' | 'orange';
+  suffix?: string;
+  prefix?: string;
+}
+
+interface Props {
+  metrics: Metric[];
+  title?: string;
+  subtitle?: string;
+  layout?: 'grid' | 'row' | 'cards';
+  columns?: 2 | 3 | 4 | 5;
+  background?: 'default' | 'card' | 'gradient';
+  animated?: boolean;
+}
+
+const { 
+  metrics,
+  title,
+  subtitle,
+  layout = 'grid',
+  columns = metrics.length <= 4 ? metrics.length as 2|3|4|5 : 4,
+  background = 'default',
+  animated = true
+} = Astro.props;
+
+const layoutClasses = {
+  grid: `grid gap-8 ${
+    columns === 2 ? 'md:grid-cols-2' :
+    columns === 3 ? 'md:grid-cols-3' :
+    columns === 4 ? 'md:grid-cols-2 lg:grid-cols-4' :
+    'md:grid-cols-3 lg:grid-cols-5'
+  }`,
+  row: 'flex flex-wrap justify-center gap-8',
+  cards: `grid gap-6 ${
+    columns === 2 ? 'md:grid-cols-2' :
+    columns === 3 ? 'md:grid-cols-3' :
+    columns === 4 ? 'md:grid-cols-2 lg:grid-cols-4' :
+    'md:grid-cols-3 lg:grid-cols-5'
+  }`
+};
+
+const bgClasses = {
+  default: '',
+  card: 'bg-card-light dark:bg-card-dark rounded-xl shadow-lg p-8',
+  gradient: 'bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-8'
+};
+
+const colorClasses = {
+  primary: 'text-primary',
+  green: 'text-green-500',
+  blue: 'text-blue-500', 
+  purple: 'text-purple-500',
+  orange: 'text-orange-500'
+};
+---
+
+<section class={`metrics-grid-section py-16 px-4 ${bgClasses[background]}`}>
+  <div class="max-w-6xl mx-auto">
+    {(title || subtitle) && (
+      <div class="text-center mb-12">
+        {title && (
+          <h2 class="font-heading font-bold text-3xl md:text-4xl mb-4">{title}</h2>
+        )}
+        {subtitle && (
+          <p class="text-lg opacity-80 max-w-3xl mx-auto">{subtitle}</p>
+        )}
+      </div>
+    )}
+    
+    <div class={layoutClasses[layout]}>
+      {metrics.map((metric, index) => (
+        <div 
+          class={`metric-item ${layout === 'cards' ? 'bg-background-light dark:bg-background-dark rounded-lg p-6 shadow-lg hover:shadow-xl transition-all' : ''} text-center ${animated ? 'metric-animate' : ''}`}
+          data-index={index}
+        >
+          {metric.icon && (
+            <div class="metric-icon text-3xl mb-3">
+              {metric.icon}
+            </div>
+          )}
+          
+          <div class={`metric-value text-4xl md:text-5xl font-bold mb-2 ${colorClasses[metric.color || 'primary']}`}>
+            <span class="metric-counter" data-target={metric.value.replace(/[^\d.-]/g, '')}>
+              {metric.prefix || ''}{animated ? '0' : metric.value}{metric.suffix || ''}
+            </span>
+          </div>
+          
+          <div class="metric-label font-semibold text-lg mb-1">
+            {metric.label}
+          </div>
+          
+          {metric.description && (
+            <div class="metric-description text-sm opacity-70">
+              {metric.description}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ animated, metrics }}>
+  if (animated) {
+    // Counter animation
+    function animateCounter(element, target, duration = 2000) {
+      const startValue = 0;
+      const startTime = performance.now();
+      const targetNum = parseFloat(target);
+      
+      function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentValue = startValue + (targetNum * easeOutQuart);
+        
+        // Find the original metric data to get formatting
+        const metricIndex = parseInt(element.closest('.metric-item').dataset.index);
+        const originalValue = metrics[metricIndex].value;
+        const prefix = metrics[metricIndex].prefix || '';
+        const suffix = metrics[metricIndex].suffix || '';
+        
+        // Format the number based on original formatting
+        let formattedValue;
+        if (originalValue.includes('.')) {
+          formattedValue = currentValue.toFixed(1);
+        } else if (originalValue.includes('K')) {
+          formattedValue = Math.round(currentValue) + 'K';
+        } else if (originalValue.includes('%')) {
+          formattedValue = Math.round(currentValue) + '%';
+        } else if (originalValue.includes('+')) {
+          formattedValue = Math.round(currentValue) + '+';
+        } else {
+          formattedValue = Math.round(currentValue).toString();
+        }
+        
+        element.textContent = prefix + formattedValue + suffix;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = prefix + originalValue + suffix;
+        }
+      }
+      
+      requestAnimationFrame(updateCounter);
+    }
+
+    // Intersection Observer for animation trigger
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+          const counter = entry.target.querySelector('.metric-counter');
+          const target = counter.dataset.target;
+          
+          // Add staggered delay based on index
+          const index = parseInt(entry.target.dataset.index);
+          setTimeout(() => {
+            animateCounter(counter, target);
+          }, index * 200);
+          
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all metric items
+    document.addEventListener('DOMContentLoaded', () => {
+      const metricItems = document.querySelectorAll('.metric-animate');
+      metricItems.forEach(item => observer.observe(item));
+    });
+  }
+</script>
+
+<style>
+  .metric-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .metric-item.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .metric-counter {
+    display: inline-block;
+    min-width: 1em;
+  }
+</style>

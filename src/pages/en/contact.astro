@@ -1,153 +1,621 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
 
-const pageTitle = "Contact | VeermanDevelopment";
-const pageDescription = "Get in touch with us for inquiries, quotes, or to book a discovery call.";
+const lang = 'en';
+const t = useTranslations(lang);
+
+const pageTitle = "Let's Build Something Great Together | VeermanDevelopment";
+const pageDescription = "Ready to transform your business with a high-performance website? Get in touch for a free discovery call. We'll respond within one business day.";
 ---
+
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero -->
-  <section class="fade-in text-center py-12 md:py-16 bg-card-light dark:bg-card-dark rounded-xl shadow">
-    <h1 class="font-heading font-bold text-5xl md:text-6xl mb-4">
-      <span>Let's </span><span class="text-primary">Build</span>
-    </h1>
-    <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-80">
-      Have a project in mind? Book a free discovery call.
-    </p>
-  </section>
-
-  <!-- Booking & Message Cards with 'or' between -->
-  <section class="fade-in grid lg:grid-cols-2 gap-12 py-16 items-stretch relative">
-    <!-- Discovery Call Card -->
-    <div class="h-full">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow p-6 h-full flex flex-col">
-        <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-4 text-center">
-          Book a Discovery Call
-        </h2>
-        <p class="text-center mb-6 opacity-80">
-          Choose a time that works for you. We'll spend 30 minutes discussing your project goals, no strings attached.
-        </p>
-        <div class="calendly-inline-widget-container flex-grow">
-          <div 
-            class="calendly-inline-widget" 
-            data-url="https://calendly.com/contact-veermandev/30min?hide_event_type_details=1&primary_color=0a84ff&hide_gdpr_banner=1"
-            style="min-width:320px;height:600px;"
-            data-resize="true">
-          </div>
-        </div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <!-- ENHANCED HERO with Terminal Typing Effect -->
+  <section class="contact-hero py-20 px-4 text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
+        Let's Build Something <span class="text-primary terminal-text" data-words='["Great Together", "Revolutionary", "That Converts", "That Performs", "Extraordinary"]'>Great Together</span>
+      </h1>
+      <p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text">
+        Schedule a free discovery call or send us a message below. We'll get back to you within one business day 
+        with insights and next steps for your project.
+      </p>
+      <div class="contact-promise flex justify-center items-center gap-8 text-sm opacity-70 reveal-promise">
+        <span class="promise-item">⚡ 24-hour response</span>
+        <span class="promise-item">💬 No-pressure consultation</span>
+        <span class="promise-item">🎯 Custom strategy included</span>
       </div>
     </div>
-
-    <!-- Small 'or' -->
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-card-light dark:bg-card-dark px-4 py-1 rounded-full shadow">
-      <span class="text-primary font-semibold">or</span>
+    
+    <!-- Animated background grid -->
+    <div class="grid-background absolute inset-0 opacity-5 pointer-events-none">
+      <div class="grid-lines"></div>
     </div>
+    
+    <!-- Floating code symbols -->
+    <div class="code-symbols absolute inset-0 pointer-events-none">
+      <div class="code-symbol absolute top-20 left-10 text-primary/20">{'{'}</div>
+      <div class="code-symbol absolute top-40 right-20 text-primary/20">{'/>'}</div>
+      <div class="code-symbol absolute bottom-32 left-1/4 text-primary/20">{'<>'}</div>
+      <div class="code-symbol absolute bottom-20 right-1/3 text-primary/20">{'</>'}</div>
+    </div>
+  </section>
 
-    <!-- Send Message Card -->
-    <div class="h-full">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow p-6 h-full flex flex-col">
-        <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-4 text-center">
-          Send a Message
-        </h2>
-        <p class="text-center mb-6 opacity-80">
-          We will respond as soon as possible.
-        </p>
-        <form 
-          id="contact-form"
-          action="https://formspree.io/f/xdklqakn" 
-          method="POST" 
-          class="space-y-6 flex-grow flex flex-col"
-          data-sending-text="Sending..."
-          data-success-title="Thank you!"
-          data-success-body="Your message has been sent successfully. I will get back to you as soon as possible."
-          data-error-text="Something went wrong while sending the form. Please try again."
-        >
-          <div>
-            <label for="name" class="block mb-2 text-sm font-medium">
-              Name
-            </label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              placeholder="Your full name" 
-              class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition" 
-              required 
-            />
+  <!-- ENHANCED CONTACT FORM with Realistic Form Interactions -->
+  <section class="contact-form-section py-16 px-4 reveal-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12">
+        
+        <!-- ENHANCED CALENDLY SECTION -->
+        <div class="calendar-section bg-card-light dark:bg-card-dark rounded-xl p-8 shadow-lg hover-lift">
+          <div class="text-center mb-8">
+            <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">📅</div>
+            <h2 class="font-heading font-bold text-2xl mb-4">Schedule Your Call</h2>
+            <p class="opacity-80 mb-6">
+              <strong class="text-primary">30 minutes that could transform your business.</strong><br>
+              We'll analyze your goals and identify possibilities. No sales pressure, just insights
+            </p>  
           </div>
-          <div>
-            <label for="email" class="block mb-2 text-sm font-medium">
-              Email
-            </label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              placeholder="you@example.com" 
-              class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition" 
-              required 
-            />
+          
+          <div class="calendly-container relative overflow-hidden rounded-lg">
+            <div 
+              class="calendly-inline-widget" 
+              data-url="https://calendly.com/contact-veermandev/30min?hide_event_type_details=1&primary_color=0a84ff&hide_gdpr_banner=1"
+              style="min-width:320px;height:600px;"
+            ></div>
+            <div class="calendar-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer pointer-events-none"></div>
           </div>
-          <div>
-            <label for="message" class="block mb-2 text-sm font-medium">
-              Message
-            </label>
-            <textarea 
-              id="message" 
-              name="message" 
-              placeholder="Write your message here..." 
-              class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition" 
-              rows="5" 
-              required>
-            </textarea>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+
+        <!-- ENHANCED CONTACT FORM -->
+        <div class="contact-form bg-card-light dark:bg-card-dark rounded-xl p-8 shadow-lg hover-lift">
+          <div class="text-center mb-8">
+            <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">✉️</div>
+            <h2 class="font-heading font-bold text-2xl mb-4">Send Us a Message</h2>
+            <p class="opacity-80 mb-4">
+              Prefer to email? Tell us about your project and we'll get back to you within 24 hours with a custom proposal.
+            </p>
           </div>
-          <button 
-            type="submit" 
-            class="w-full bg-card-light dark:bg-card-dark text-black font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors mt-auto"
+
+          <form 
+            id="contact-form"
+            action="https://formspree.io/f/xdklqakn" 
+            method="POST" 
+            class="space-y-6"
           >
-            Send Message
-          </button>
-        </form>
-        <div id="success-message" class="hidden text-center p-6 border border-green-500 bg-green-50 dark:bg-green-900/20 rounded-lg mt-6">
-          <h3 class="font-heading text-xl mb-2 text-green-800 dark:text-green-300">
-            Thank you!
-          </h3>
-          <p class="text-green-700 dark:text-green-300">
-            Your message has been sent successfully. We will get back to you as soon as possible.
-          </p>
+            <!-- Enhanced Name Field -->
+            <div class="form-group">
+              <label for="name" class="block text-sm font-medium mb-2 form-label">
+                Full Name *
+              </label>
+              <div class="input-container relative">
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  placeholder="Your full name" 
+                  class="form-input w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
+                  required 
+                />
+                <div class="input-underline absolute bottom-0 left-0 h-0.5 bg-primary transform scale-x-0 transition-transform duration-300"></div>
+              </div>
+            </div>
+            
+            <!-- Enhanced Email Field -->
+            <div class="form-group">
+              <label for="email" class="block text-sm font-medium mb-2 form-label">
+                Email Address *
+              </label>
+              <div class="input-container relative">
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  placeholder="you@company.com" 
+                  class="form-input w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
+                  required 
+                />
+                <div class="input-underline absolute bottom-0 left-0 h-0.5 bg-primary transform scale-x-0 transition-transform duration-300"></div>
+              </div>
+            </div>
+
+            <!-- Enhanced Company Field -->
+            <div class="form-group">
+              <label for="company" class="block text-sm font-medium mb-2 form-label">
+                Company/Business
+              </label>
+              <div class="input-container relative">
+                <input 
+                  type="text" 
+                  id="company" 
+                  name="company" 
+                  placeholder="Your company name" 
+                  class="form-input w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
+                />
+                <div class="input-underline absolute bottom-0 left-0 h-0.5 bg-primary transform scale-x-0 transition-transform duration-300"></div>
+              </div>
+            </div>
+            
+            <!-- Enhanced Message Field -->
+            <div class="form-group">
+              <label for="message" class="block text-sm font-medium mb-2 form-label">
+                Tell Us About Your Project *
+              </label>
+              <div class="input-container relative">
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  placeholder="What are your main business goals? What challenges is your current website causing? What results do you want to see?" 
+                  class="form-input w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
+                  rows="6" 
+                  required
+                ></textarea>
+                <div class="input-underline absolute bottom-0 left-0 h-0.5 bg-primary transform scale-x-0 transition-transform duration-300"></div>
+              </div>
+            </div>
+            
+            <!-- Enhanced Submit Button -->
+            <button 
+              type="submit" 
+              class="submit-btn w-full bg-primary text-black font-semibold px-6 py-4 rounded-lg text-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform hover:scale-[1.02] relative overflow-hidden group"
+            >
+              <span class="relative z-10">Send Project Details</span>
+              <div class="button-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <div class="button-ripple absolute inset-0 bg-white/20 transform scale-0 rounded-full"></div>
+            </button>
+          </form>
+
+          <!-- Enhanced Success Message -->
+          <div id="success-message" class="hidden mt-6 p-6 border border-green-500 bg-green-50 dark:bg-green-900/20 rounded-lg success-animation">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="success-icon w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm">✓</div>
+              <h3 class="font-heading text-xl text-green-800 dark:text-green-300">Message Sent!</h3>
+            </div>
+            <p class="text-green-700 dark:text-green-300">
+              Your message has been sent successfully. We'll get back to you within one business day 
+              with insights and next steps for your project.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Info Cards -->
-  <section class="fade-in py-16">
-    <div class="grid md:grid-cols-3 gap-6 items-stretch">
-      <div class="p-4 bg-card-light dark:bg-card-dark rounded-xl shadow text-center hover:shadow-lg transition flex flex-col">
-        <div class="text-3xl mb-3">📧</div>
-        <h3 class="text-xl font-semibold mb-2">Email</h3>
-        <p class="opacity-80 mt-auto">contact@veermandev.nl</p>
+  <!-- ENHANCED CONTACT INFO with Hover Effects -->
+  <section class="contact-info-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text">Get In Touch</h2>
+        <p class="text-lg opacity-80">Multiple ways to start your journey</p>
       </div>
-      <div class="p-4 bg-card-light dark:bg-card-dark rounded-xl shadow text-center hover:shadow-lg transition flex flex-col">
-        <div class="text-3xl mb-3">⚡</div>
-        <h3 class="text-xl font-semibold mb-2">Quick Response</h3>
-        <p class="opacity-80 mt-auto">Response within 24 hours</p>
-      </div>
-      <div class="p-4 bg-card-light dark:bg-card-dark rounded-xl shadow text-center hover:shadow-lg transition flex flex-col">
-        <div class="text-3xl mb-3">🚀</div>
-        <h3 class="text-xl font-semibold mb-2">No Commitment</h3>
-        <p class="opacity-80 mt-auto">Free consultation</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="contact-method text-center p-6 group hover-lift">
+          <div class="method-icon w-16 h-16 bg-primary/20 text-primary rounded-lg flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:scale-110">
+            📧
+          </div>
+          <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">Email</h3>
+          <p class="opacity-80 mb-2 group-hover:opacity-100 transition-opacity duration-300">contact@veermandev.nl</p>
+          <p class="text-sm opacity-60 group-hover:opacity-80 transition-opacity duration-300">Response within 24 hours</p>
+        </div>
+        
+        <div class="contact-method text-center p-6 group hover-lift">
+          <div class="method-icon w-16 h-16 bg-primary/20 text-primary rounded-lg flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:scale-110">
+            📅
+          </div>
+          <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">Discovery Call</h3>
+          <p class="opacity-80 mb-2 group-hover:opacity-100 transition-opacity duration-300">Free 30-minute consultation</p>
+          <p class="text-sm opacity-60 group-hover:opacity-80 transition-opacity duration-300">Book directly through our calendar</p>
+        </div>
+        
+        <div class="contact-method text-center p-6 group hover-lift">
+          <div class="method-icon w-16 h-16 bg-primary/20 text-primary rounded-lg flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:scale-110">
+            🌍
+          </div>
+          <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">Based in Netherlands</h3>
+          <p class="opacity-80 mb-2 group-hover:opacity-100 transition-opacity duration-300">Serving clients globally</p>
+          <p class="text-sm opacity-60 group-hover:opacity-80 transition-opacity duration-300">Remote-first, results-focused</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ENHANCED WHAT TO EXPECT with Progressive Animation -->
+  <section class="what-to-expect-section py-16 px-4 reveal-section">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text">What to Expect</h2>
+        <p class="text-lg opacity-80">Your journey from first contact to results</p>
+      </div>
+      
+      <div class="expectations-grid grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="expectation-card text-center group timeline-card" data-step="1">
+          <div class="step-number w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">1</div>
+          <h4 class="font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Quick Response</h4>
+          <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">We'll respond within 24 hours with follow-up questions and next steps.</p>
+        </div>
+        
+        <div class="expectation-card text-center group timeline-card" data-step="2">
+          <div class="step-number w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">2</div>
+          <h4 class="font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Discovery Call</h4>
+          <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">30-minute call to understand your goals and explore how we can help.</p>
+        </div>
+        
+        <div class="expectation-card text-center group timeline-card" data-step="3">
+          <div class="step-number w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">3</div>
+          <h4 class="font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Custom Proposal</h4>
+          <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">Detailed proposal with strategy, timeline, and investment options.</p>
+        </div>
+        
+        <div class="expectation-card text-center group timeline-card" data-step="4">
+          <div class="step-number w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">4</div>
+          <h4 class="font-semibold mb-2 group-hover:text-primary transition-colors duration-300"> Partnership</h4>
+          <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">Begin your journey to measurable business growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Continue with other sections... -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Terminal typewriter effect
+      const terminalText = document.querySelector('.terminal-text') as HTMLElement;
+      if (terminalText) {
+        const words = JSON.parse(terminalText.dataset.words || '[]');
+        let currentWordIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let isWaiting = false;
+
+        function typeWriter() {
+          const currentWord = words[currentWordIndex];
+          const shouldDelete = isDeleting;
+          const shouldWait = isWaiting;
+
+          if (shouldWait) {
+            setTimeout(() => {
+              isWaiting = false;
+              typeWriter();
+            }, 2000);
+            return;
+          }
+
+          if (shouldDelete) {
+            if (currentCharIndex > 0) {
+              currentCharIndex--;
+              terminalText.innerHTML = currentWord.substring(0, currentCharIndex) + '<span class="terminal-cursor">|</span>';
+              setTimeout(typeWriter, 75);
+            } else {
+              isDeleting = false;
+              currentWordIndex = (currentWordIndex + 1) % words.length;
+              setTimeout(typeWriter, 200);
+            }
+          } else {
+            if (currentCharIndex < currentWord.length) {
+              currentCharIndex++;
+              terminalText.innerHTML = currentWord.substring(0, currentCharIndex) + '<span class="terminal-cursor">|</span>';
+              setTimeout(typeWriter, 150);
+            } else {
+              isWaiting = true;
+              setTimeout(() => {
+                isDeleting = true;
+                isWaiting = false;
+                typeWriter();
+              }, 3000);
+            }
+          }
+        }
+
+        setTimeout(typeWriter, 1500);
+      }
+
+      // Enhanced form interactions
+      const formInputs = document.querySelectorAll('.form-input');
+      formInputs.forEach(input => {
+        const inputElement = input as HTMLInputElement | HTMLTextAreaElement;
+        const container = inputElement.closest('.input-container') as HTMLElement;
+        const underline = container?.querySelector('.input-underline') as HTMLElement;
+        
+        inputElement.addEventListener('focus', () => {
+          inputElement.style.borderColor = 'var(--color-primary, #3b82f6)';
+          inputElement.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
+          inputElement.style.transform = 'translateY(-2px)';
+          if (underline) {
+            underline.style.transform = 'scaleX(1)';
+          }
+        });
+
+        inputElement.addEventListener('blur', () => {
+          inputElement.style.borderColor = '';
+          inputElement.style.boxShadow = '';
+          inputElement.style.transform = 'translateY(0)';
+          if (underline) {
+            underline.style.transform = 'scaleX(0)';
+          }
+        });
+
+        // Typing animation effect
+        inputElement.addEventListener('input', () => {
+          const label = container?.previousElementSibling?.querySelector('.form-label') as HTMLElement;
+          if (label && inputElement.value.length > 0) {
+            label.style.color = 'var(--color-primary)';
+            label.style.transform = 'scale(0.95)';
+          } else if (label) {
+            label.style.color = '';
+            label.style.transform = 'scale(1)';
+          }
+        });
+      });
+
+      // Enhanced form submission with ripple effect
+      const form = document.getElementById('contact-form') as HTMLFormElement;
+      const successMessage = document.getElementById('success-message') as HTMLElement;
+      const submitBtn = document.querySelector('.submit-btn') as HTMLButtonElement;
+
+      if (form && successMessage && submitBtn) {
+        submitBtn.addEventListener('click', (e) => {
+          // Create ripple effect
+          const ripple = submitBtn.querySelector('.button-ripple') as HTMLElement;
+          const rect = submitBtn.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          if (ripple) {
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.transform = 'scale(1)';
+            
+            setTimeout(() => {
+              ripple.style.transform = 'scale(0)';
+            }, 600);
+          }
+        });
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          const originalText = submitBtn.textContent;
+          submitBtn.innerHTML = `
+            <div class="flex items-center justify-center gap-2">
+              <div class="loading-spinner w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+              <span>Sending...</span>
+            </div>
+          `;
+          submitBtn.disabled = true;
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              form.style.transform = 'scale(0.95)';
+              form.style.opacity = '0';
+              
+              setTimeout(() => {
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                successMessage.style.animation = 'successSlideIn 0.5s ease-out forwards';
+              }, 300);
+            } else {
+              throw new Error('Form submission failed');
+            }
+          } catch (error) {
+            alert('Something went wrong. Please try again or email us directly.');
+            if (originalText) {
+              submitBtn.textContent = originalText;
+            }
+            submitBtn.disabled = false;
+          }
+        });
+      }
+
+      // Reveal animations
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50px',
+        threshold: 0.1
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            
+            if (element.classList.contains('reveal-title')) {
+              element.style.opacity = '1';
+              element.style.transform = 'translateY(0)';
+            } else if (element.classList.contains('reveal-text')) {
+              setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+              }, 300);
+            } else if (element.classList.contains('reveal-promise')) {
+              const promiseItems = element.querySelectorAll('.promise-item');
+              promiseItems.forEach((item, itemIndex) => {
+                const itemElement = item as HTMLElement;
+                setTimeout(() => {
+                  itemElement.style.opacity = '1';
+                  itemElement.style.transform = 'translateY(0)';
+                }, 600 + (itemIndex * 200));
+              });
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Apply reveal animations
+      const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-promise');
+      revealElements.forEach(element => {
+        const el = element as HTMLElement;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        revealObserver.observe(el);
+      });
+
+      // Promise items initial setup
+      const promiseItems = document.querySelectorAll('.promise-item');
+      promiseItems.forEach(item => {
+        const itemElement = item as HTMLElement;
+        itemElement.style.opacity = '0';
+        itemElement.style.transform = 'translateY(10px)';
+        itemElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      });
+
+      // Animate code symbols
+      const codeSymbols = document.querySelectorAll('.code-symbol');
+      codeSymbols.forEach((symbol, index) => {
+        const symbolElement = symbol as HTMLElement;
+        const delay = index * 800;
+        const duration = 4000 + Math.random() * 2000;
+        
+        symbolElement.style.animation = `float ${duration}ms ease-in-out infinite ${delay}ms`;
+      });
+
+      // Timeline cards animation
+      const timelineCards = document.querySelectorAll('.timeline-card');
+      const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const cards = Array.from(timelineCards);
+            cards.forEach((card, index) => {
+              const cardElement = card as HTMLElement;
+              setTimeout(() => {
+                cardElement.style.opacity = '1';
+                cardElement.style.transform = 'translateY(0) scale(1)';
+              }, index * 200);
+            });
+          }
+        });
+      }, observerOptions);
+
+      if (timelineCards.length > 0) {
+        timelineCards.forEach(card => {
+          const cardElement = card as HTMLElement;
+          cardElement.style.opacity = '0';
+          cardElement.style.transform = 'translateY(30px) scale(0.9)';
+          cardElement.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+        timelineObserver.observe(timelineCards[0]);
+      }
+    });
+  </script>
 
   <style>
-    /* Match spacing/font sizes with process page */
-    h1, h2 { line-height: 1.2; }
-    section.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
-    section.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
-    .calendly-inline-widget { border-radius: 8px; }
-    /* Ensure 'or' overlay sits above grid */
-    section.relative { position: relative; }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--color-text-light, #1f2937), var(--color-primary, #3b82f6));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .terminal-cursor {
+      animation: blink 1s infinite;
+      color: var(--color-primary);
+    }
+
+    .hover-lift {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .pulse-animation {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .grid-lines {
+      background-image: 
+        linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      width: 100%;
+      height: 100%;
+      animation: gridMove 20s linear infinite;
+    }
+
+    .calendar-shimmer {
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+      25% { transform: translateY(-10px) rotate(90deg); opacity: 0.4; }
+      50% { transform: translateY(0px) rotate(180deg); opacity: 0.2; }
+      75% { transform: translateY(10px) rotate(270deg); opacity: 0.3; }
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(20px, 20px); }
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) skewX(-12deg); }
+      100% { transform: translateX(200%) skewX(-12deg); }
+    }
+
+    @keyframes successSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .code-symbol {
+      font-size: 2rem;
+      font-family: 'Courier New', monospace;
+    }
+
+    .input-underline {
+      transform-origin: left;
+    }
+
+    .form-label {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .benefit-item {
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideInLeft 0.6s ease-out forwards;
+    }
+
+    .benefit-item:nth-child(1) { animation-delay: 0.5s; }
+    .benefit-item:nth-child(2) { animation-delay: 0.7s; }
+    .benefit-item:nth-child(3) { animation-delay: 0.9s; }
+
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
   </style>
 </BaseLayout>

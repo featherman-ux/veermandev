@@ -1,0 +1,38 @@
+---
+interface TableRow {
+  metric: string;
+  ourSolution: string;
+  competitor: string;
+}
+
+interface Props {
+  title?: string;
+  rows: TableRow[];
+}
+
+const { title = "Performance Comparison", rows } = Astro.props;
+---
+
+<div class="performance-table bg-background-light dark:bg-background-dark rounded-lg p-6">
+  <h4 class="font-semibold mb-6 text-center">{title}</h4>
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-gray-300 dark:border-gray-600">
+          <th class="text-left py-3">Metric</th>
+          <th class="text-left py-3 text-green-600">Our Solution</th>
+          <th class="text-left py-3 text-red-600">WordPress/Traditional</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, index) => (
+          <tr class={index < rows.length - 1 ? "border-b border-gray-200 dark:border-gray-700" : ""}>
+            <td class="py-3 font-medium">{row.metric}</td>
+            <td class="py-3 text-green-600 font-bold">{row.ourSolution}</td>
+            <td class="py-3 text-red-600">{row.competitor}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>

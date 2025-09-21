@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  primaryCTA: {
+    text: string;
+    link: string;
+  };
+  secondaryCTA?: {
+    text: string;
+    link: string;
+  };
+  background?: 'default' | 'card';
+}
+
+const { title, description, primaryCTA, secondaryCTA, background = 'default' } = Astro.props;
+const bgClass = background === 'card' ? 'bg-card-light dark:bg-card-dark' : '';
+---
+
+<section class={`final-cta py-20 px-4 text-center ${bgClass} rounded-xl`}>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-heading font-bold text-3xl md:text-4xl mb-6">{title}</h2>
+    <p class="text-lg opacity-80 mb-8">{description}</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a
+        href={primaryCTA.link}
+        class="bg-primary text-black font-semibold px-10 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105"
+      >
+        {primaryCTA.text}
+      </a>
+      {secondaryCTA && (
+        <a
+          href={secondaryCTA.link}
+          class="border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary hover:text-black transition-all"
+        >
+          {secondaryCTA.text}
+        </a>
+      )}
+    </div>
+  </section>

@@ -1,0 +1,97 @@
+---
+// PageTransition.astro - Add this to your layouts
+---
+
+<div id="page-transition-overlay" class="fixed inset-0 bg-primary z-[9999] pointer-events-none opacity-0 transition-all duration-500">
+  <div class="flex items-center justify-center h-full">
+    <div class="loading-animation">
+      <div class="loading-text font-heading text-2xl text-black font-bold">
+        <span class="loading-char">L</span>
+        <span class="loading-char">o</span>
+        <span class="loading-char">a</span>
+        <span class="loading-char">d</span>
+        <span class="loading-char">i</span>
+        <span class="loading-char">n</span>
+        <span class="loading-char">g</span>
+        <span class="loading-char">.</span>
+        <span class="loading-char">.</span>
+        <span class="loading-char">.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('page-transition-overlay') as HTMLElement;
+    
+    // Page load animation
+    setTimeout(() => {
+      if (overlay) {
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+      }
+    }, 100);
+
+    // Intercept clicks on internal links
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a');
+      
+      if (link && link.href && link.hostname === window.location.hostname && !link.target) {
+        e.preventDefault();
+        
+        if (overlay) {
+          overlay.style.opacity = '1';
+          overlay.style.pointerEvents = 'all';
+          
+          // Animate loading text
+          const chars = overlay.querySelectorAll('.loading-char');
+          chars.forEach((char, index) => {
+            const charElement = char as HTMLElement;
+            setTimeout(() => {
+              charElement.style.transform = 'translateY(-10px)';
+              setTimeout(() => {
+                charElement.style.transform = 'translateY(0)';
+              }, 200);
+            }, index * 100);
+          });
+          
+          setTimeout(() => {
+            window.location.href = link.href;
+          }, 800);
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .loading-char {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .loading-animation {
+    position: relative;
+  }
+
+  .loading-animation::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top: 3px solid #000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+  }
+</style>
