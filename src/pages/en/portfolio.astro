@@ -3,22 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
-const t = useTranslations(lang);
 
 const pageTitle = "Real Websites for Real Businesses | VeermanDevelopment";
 const pageDescription = "See what we build for small businesses across the Netherlands. Professional websites that actually work, now accessible for small businesses.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- LAUNCH OFFER BANNER -->
-  <section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
-    <div class="max-w-4xl mx-auto relative z-10">
-      <p class="text-sm font-medium">
-        🚀 <strong>Launch Offer:</strong> €100 off all packages + brand strategy included | Limited time only!
-      </p>
-    </div>
-    <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
-  </section>
 
   <!-- INTRO -->
   <section class="intro-section py-24 px-4 text-center relative overflow-hidden">
@@ -40,28 +30,8 @@ const pageDescription = "See what we build for small businesses across the Nethe
     </div>
   </section>
 
-  <!-- FILTER SECTION -->
-  <section class="filter-section py-8 px-4 reveal-section">
-    <div class="max-w-6xl mx-auto">
-      <div class="filter-buttons flex flex-wrap justify-center gap-4 mb-12">
-        <button class="filter-btn active bg-primary text-black px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-filter="all">
-          All Examples
-        </button>
-        <button class="filter-btn bg-card-light dark:bg-card-dark px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-black transition-all duration-300" data-filter="foundation">
-          €249 Brand Foundation
-        </button>
-        <button class="filter-btn bg-card-light dark:bg-card-dark px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-black transition-all duration-300" data-filter="growth">
-          €349 Brand Growth
-        </button>
-        <button class="filter-btn bg-card-light dark:bg-card-dark px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-black transition-all duration-300" data-filter="complete">
-          €449 Brand Complete
-        </button>
-      </div>
-    </div>
-  </section>
-
   <!-- PROJECT EXAMPLES -->
-  <section class="projects-grid-section py-16 px-4 reveal-section">
+  <section class="projects-grid-section py-8 px-4 reveal-section">
     <div class="max-w-6xl mx-auto">
       <div class="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         
@@ -108,7 +78,7 @@ const pageDescription = "See what we build for small businesses across the Nethe
               Live Site
             </div>
             <div class="project-image relative overflow-hidden">
-              <img src="/src/assets/portfolio/waarisniels-mockup.jpg" alt="Waar is Niels Travel Blog" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="/portfolio/waarisniels-mockup.jpg" alt="Travel Blog Website" class="w-full h-80 object-cover rounded-lg" />
               <div class="project-overlay absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="overlay-content absolute bottom-4 left-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                   <span class="text-sm font-medium">Visit Live Site →</span>
@@ -194,7 +164,7 @@ const pageDescription = "See what we build for small businesses across the Nethe
 
       <div class="transformation-grid grid lg:grid-cols-2 gap-12 items-center">
         <div class="transformation-image">
-          <img src="/src/assets/portfolio/waarisniels-mockup.jpg" alt="Travel Blog Website" class="w-full h-80 object-cover rounded-lg shadow-lg" />
+          <img src="/portfolio/waarisniels-mockup.jpg" alt="Travel Blog Website" class="w-full h-80 object-cover rounded-lg" />
         </div>
 
         <div class="transformation-content">

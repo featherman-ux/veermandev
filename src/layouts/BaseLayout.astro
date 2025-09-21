@@ -52,7 +52,7 @@ const canonicalUrl = Astro.site
 
     <Footer />
 
-    <script type="module">
+    <script is:inline type="module">
       if (typeof window !== 'undefined') {
         const applyTheme = (theme) => document.documentElement.classList.toggle('dark', theme === 'dark');
 

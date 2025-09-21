@@ -3,14 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
-const t = useTranslations(lang);
 
 const pageTitle = "About VeermanDevelopment | Your Growth Partners";
 const pageDescription = "Meet the team behind high-performance websites. Learn about our philosophy, process, and commitment to building strategic partnerships that drive measurable business growth.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- ENHANCED MISSION/VISION SECTION with Parallax -->
   <section class="mission-section py-20 px-4 text-center relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
       <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
@@ -29,7 +27,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
       </div>
     </div>
     
-    <!-- Animated Background Elements -->
     <div class="floating-elements absolute inset-0 pointer-events-none">
       <div class="floating-circle absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full"></div>
       <div class="floating-square absolute top-40 right-20 w-16 h-16 bg-primary/5 transform rotate-45"></div>
@@ -37,7 +34,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     </div>
   </section>
 
-  <!-- ENHANCED TEAM SECTION with Real Photos -->
   <section class="team-section py-16 px-4 reveal-section">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
@@ -46,13 +42,12 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
       </div>
       
       <div class="team-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Niels - Founder & Lead Developer -->
         <div class="team-member text-center group tilt-card-subtle" data-tilt>
           <div class="member-card bg-card-light dark:bg-card-dark rounded-xl p-6 h-full relative overflow-hidden hover-lift-subtle">
             <div class="card-shine absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="member-photo mb-6 overflow-hidden rounded-lg relative">
-                <img src="/src/assets/Teampictures/Niels-Founder-Lead-Developer.jpeg" alt="Niels Veerman - Founder & Lead Developer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src="/Teampictures/Niels-Founder-Lead-Developer.jpg" alt="Niels Veerman - Founder & Lead Developer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div class="photo-overlay absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Niels Veerman</h3>
@@ -65,13 +60,12 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
           </div>
         </div>
         
-        <!-- Cedric - Brand Success -->
         <div class="team-member text-center group tilt-card-subtle" data-tilt>
           <div class="member-card bg-card-light dark:bg-card-dark rounded-xl p-6 h-full relative overflow-hidden hover-lift-subtle">
             <div class="card-shine absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="member-photo mb-6 overflow-hidden rounded-lg relative">
-                <img src="/src/assets/Teampictures/Cedric-Business-Development.jpeg" alt="Cedric - Brand Success" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src="/Teampictures/Cedric-Business-Development.jpg" alt="Cedric - Brand Success" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div class="photo-overlay absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Cedric Mueller</h3>
@@ -84,13 +78,12 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
           </div>
         </div>
         
-        <!-- Jochem - Frontend Developer -->
         <div class="team-member text-center group tilt-card-subtle" data-tilt>
           <div class="member-card bg-card-light dark:bg-card-dark rounded-xl p-6 h-full relative overflow-hidden hover-lift-subtle">
             <div class="card-shine absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="member-photo mb-6 overflow-hidden rounded-lg relative">
-                <img src="/src/assets/Teampictures/Jochem-Frontend-Developer.jpeg" alt="Jochem - Frontend Developer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src="/Teampictures/Jochem-Frontend-Developer.jpg" alt="Jochem - Frontend Developer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div class="photo-overlay absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Jochem Schreurs</h3>
@@ -106,7 +99,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     </div>
   </section>
 
-  <!-- ENHANCED TECHNOLOGY SECTION with Animated Table -->
   <section class="technology-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
@@ -208,7 +200,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     </div>
   </section>
 
-  <!-- ENHANCED PROCESS SECTION with Real Timeline Images -->
   <section class="process-section py-16 px-4 reveal-section">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
@@ -216,12 +207,10 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
         <p class="text-lg opacity-80 reveal-text">From initial meeting to live website—here's our proven 3-day process</p>
       </div>
       
-      <!-- Enhanced Timeline with Real Images -->
       <div class="timeline-container relative">
         <div class="timeline-line absolute left-1/2 transform -translate-x-1/2 top-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-primary h-full hidden lg:block"></div>
         
         <div class="process-flow space-y-16">
-          <!-- Day 1: Initial Meeting -->
           <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="1">
             <div class="step-content lg:order-1">
               <div class="step-header flex items-center mb-6">
@@ -255,14 +244,13 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
               </ul>
             </div>
             <div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
-              <img src="/src/assets/Pictures_Timeline/day-1.png" alt="Day 1: Initial Meeting" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+              <img src="/Pictures_Timeline/day-1.jpg" alt="Day 1: Initial Meeting" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
             </div>
           </div>
 
-          <!-- Day 2: Prototype -->
           <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="2">
             <div class="step-image lg:order-1 tilt-card-subtle" data-tilt>
-              <img src="/src/assets/Pictures_Timeline/day-2.png" alt="Day 2: Prototype Development" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+              <img src="/Pictures_Timeline/day-2.jpg" alt="Day 2: Prototype Development" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
             </div>
             <div class="step-content lg:order-2">
               <div class="step-header flex items-center mb-6">
@@ -297,7 +285,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
             </div>
           </div>
 
-          <!-- Day 3: Live! -->
           <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="3">
             <div class="step-content lg:order-1">
               <div class="step-header flex items-center mb-6">
@@ -331,7 +318,7 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
               </ul>
             </div>
             <div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
-              <img src="/src/assets/Pictures_Timeline/day-3.png" alt="Day 3: Website Goes Live" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+              <img src="/Pictures_Timeline/day-3.jpg" alt="Day 3: Website Goes Live" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
             </div>
           </div>
         </div>
@@ -339,7 +326,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     </div>
   </section>
 
-  <!-- VALUES & COMMITMENT -->
   <section class="values-section py-16 px-4 bg-card-light dark:bg-card-dark">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="font-heading font-bold text-4xl mb-12 gradient-text">Our Commitment to Your Success</h2>
@@ -366,7 +352,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     </div>
   </section>
 
-  <!-- Enhanced script section -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Advanced scroll reveal system
@@ -444,9 +429,8 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
           
-          // Reduced tilt values for subtler effect
-          const rotateX = (y - centerY) / 40; // Was /15, now /40
-          const rotateY = (centerX - x) / 40; // Was /15, now /40
+          const rotateX = (y - centerY) / 40;
+          const rotateY = (centerX - x) / 40;
           
           cardElement.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
         });
@@ -465,7 +449,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
         
         el.style.animation = `float-${index} ${duration}ms ease-in-out infinite ${delay}ms`;
         
-        // Create unique keyframes
         const keyframes = `
           @keyframes float-${index} {
             0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
@@ -480,42 +463,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
         document.head.appendChild(style);
       });
 
-      // Animated table rows
-      const tableRows = document.querySelectorAll('.table-row');
-      const tableObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const rows = Array.from(tableRows);
-            rows.forEach((row, index) => {
-              const rowElement = row as HTMLElement;
-              setTimeout(() => {
-                rowElement.style.opacity = '1';
-                rowElement.style.transform = 'translateX(0)';
-              }, index * 150);
-            });
-          }
-        });
-      }, observerOptions);
-
-      const table = document.querySelector('.animated-table');
-      if (table) {
-        tableRows.forEach(row => {
-          const rowElement = row as HTMLElement;
-          rowElement.style.opacity = '0';
-          rowElement.style.transform = 'translateX(-20px)';
-          rowElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        });
-        tableObserver.observe(table);
-      }
-
-      // Benefit icons pulse animation
-      const benefitIcons = document.querySelectorAll('.benefit-icon');
-      benefitIcons.forEach((icon, index) => {
-        const iconElement = icon as HTMLElement;
-        setTimeout(() => {
-          iconElement.style.animation = 'pulse 2s ease-in-out infinite';
-        }, index * 200);
-      });
     });
   </script>
 
@@ -533,8 +480,8 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     }
 
     .hover-lift-subtle:hover {
-      transform: translateY(-4px); /* Reduced from -8px */
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Reduced shadow */
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
     .hover-zoom-subtle {
@@ -542,7 +489,7 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     }
 
     .hover-zoom-subtle:hover {
-      transform: scale(1.02); /* Reduced from 1.05 */
+      transform: scale(1.02);
     }
 
     .pulse-animation {
@@ -574,7 +521,7 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); /* Reduced from 1.1 */ }
+      50% { transform: scale(1.05); }
     }
 
     .timeline-line {
