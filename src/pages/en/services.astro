@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
 
 const lang = 'en';
@@ -20,24 +21,16 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
   </section>
 
   <!-- INTRO SECTION -->
-  <section class="intro-section py-24 px-4 text-center relative overflow-hidden">
-    <div class="max-w-4xl mx-auto relative z-10">
-      <div class="champion-badge inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-        The Small Business Champion
-      </div>
-      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-        Pick What Works for <TypewriterText 
-          words={["Your Business", "Your Goals", "Your Budget", "Your Success"]}
-          className="text-primary"
-          initialText="Your Business"
-        />
-      </h1>
-      <p class="text-xl opacity-90 leading-relaxed reveal-text">
-        Clear pricing, no surprises. Professional websites that get you more customers. 
-        Built in 3 days, free hosting & updates included forever.
-      </p>
-    </div>
-  </section>
+  <HeroSection 
+    subtitle="The Small Business Champion"
+    description="Clear pricing, no surprises. Professional websites that get you more customers. Built in 3 days, free hosting & updates included forever."
+  >
+    Pick What Works for <TypewriterText 
+      words={["Your Business", "Your Goals", "Your Budget", "Your Success"]}
+      className="text-primary"
+      initialText="Your Business"
+    />
+  </HeroSection>
 
   <!-- PACKAGE COMPARISON -->
   <section class="packages-section py-16 px-4 reveal-section">

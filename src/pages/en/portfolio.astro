@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
 
 const lang = 'en';
@@ -11,28 +12,16 @@ const pageDescription = "See what we build for small businesses across the Nethe
 <BaseLayout title={pageTitle} description={pageDescription}>
 
   <!-- INTRO -->
-  <section class="intro-section py-24 px-4 text-center relative overflow-hidden">
-    <div class="max-w-4xl mx-auto relative z-10">
-      <div class="champion-badge inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-        The Small Business Champion
-      </div>
-      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-        Real Websites for <TypewriterText 
-          words={["Real Businesses", "Real Results", "Real Success", "Real Growth"]}
-          className="text-primary"
-          initialText="Real Businesses"
-        />
-      </h1>
-      <p class="text-xl opacity-90 leading-relaxed reveal-text">
-        See what we build for small businesses across the Netherlands. Professional websites that actually work, now accessible for small businesses.
-      </p>
-    </div>
-    
-    <!-- Simple background pattern -->
-    <div class="background-pattern absolute inset-0 opacity-5 pointer-events-none">
-      <div class="grid-lines w-full h-full" style="background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
-    </div>
-  </section>
+  <HeroSection 
+    subtitle="The Small Business Champion"
+    description="See what we build for small businesses across the Netherlands. Professional websites that actually work, now accessible for small businesses."
+  >
+    Real Websites for <TypewriterText 
+      words={["Real Businesses", "Real Results", "Real Success", "Real Growth"]}
+      className="text-primary"
+      initialText="Real Businesses"
+    />
+  </HeroSection>
 
   <!-- PROJECT EXAMPLES -->
   <section class="projects-grid-section py-8 px-4 reveal-section">

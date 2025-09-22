@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
 
 const lang = 'nl';
@@ -20,24 +21,16 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
   </section>
 
   <!-- INTRO SECTION -->
-  <section class="intro-section py-24 px-4 text-center relative overflow-hidden">
-    <div class="max-w-4xl mx-auto relative z-10">
-      <div class="champion-badge inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-        De Kleine Bedrijven Kampioen
-      </div>
-      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-        Kies Wat <TypewriterText 
-          words={["Echt Werkt", "Jouw Doelen", "Jouw Budget", "Jouw Succes"]}
-          className="text-primary"
-          initialText="Echt Werkt"
-        /> voor Jouw Bedrijf
-      </h1>
-      <p class="text-xl opacity-90 leading-relaxed reveal-text">
-        Geen verborgen kosten, geen verrassingen. Professionele websites die je meer klanten opleveren. 
-        Gebouwd in slechts 3 dagen, met gratis hosting & updates voor altijd inbegrepen.
-      </p>
-    </div>
-  </section>
+  <HeroSection 
+    subtitle="De Kleine Bedrijven Kampioen"
+    description="Geen verborgen kosten, geen verrassingen. Professionele websites die je meer klanten opleveren. Gebouwd in slechts 3 dagen, met gratis hosting & updates voor altijd inbegrepen."
+  >
+    Kies Wat <TypewriterText 
+      words={["Echt Werkt", "Jouw Doelen", "Jouw Budget", "Jouw Succes"]}
+      className="text-primary"
+      initialText="Echt Werkt"
+    /> voor Jouw Bedrijf
+  </HeroSection>
 
   <!-- PACKAGE COMPARISON -->
   <section class="packages-section py-16 px-4 reveal-section">

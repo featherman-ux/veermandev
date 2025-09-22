@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
 
 const pageTitle = "Let's Build Something Great Together | VeermanDevelopment";
@@ -8,40 +9,17 @@ const pageDescription = "Ready to transform your business with a high-performanc
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <!-- ENHANCED HERO with Terminal Typing Effect -->
-  <section class="contact-hero py-20 px-4 text-center relative overflow-hidden">
-    <div class="max-w-4xl mx-auto relative z-10">
-      <h1 class="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl mb-6 reveal-title text-center lg:text-left min-h-[7rem] sm:min-h-0">
-        Let's Build Something <TypewriterText 
-          words={["Great Together", "Revolutionary", "That Converts", "That Performs", "Extraordinary"]}
-          className="text-primary terminal-text"
-          initialText="Great Together"
-          cursorClass="terminal-cursor"
-        />
-      </h1>
-      <p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text">
-        Schedule a free discovery call or send us a message below. We'll get back to you within one business day 
-        with insights and next steps for your project.
-      </p>
-      <div class="contact-promise flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-sm opacity-70 reveal-promise">
-        <span class="promise-item">⚡ 24-hour response</span>
-        <span class="promise-item">💬 No-pressure consultation</span>
-        <span class="promise-item">🎯 Custom strategy included</span>
-      </div>
-    </div>
-    
-    <!-- Animated background grid -->
-    <div class="grid-background absolute inset-0 opacity-5 pointer-events-none">
-      <div class="grid-lines"></div>
-    </div>
-    
-    <!-- Floating code symbols -->
-    <div class="code-symbols absolute inset-0 pointer-events-none">
-      <div class="code-symbol absolute top-20 left-10 text-primary/20">{'{'}</div>
-      <div class="code-symbol absolute top-40 right-20 text-primary/20">{'/>'}</div>
-      <div class="code-symbol absolute bottom-32 left-1/4 text-primary/20">{'<>'}</div>
-      <div class="code-symbol absolute bottom-20 right-1/3 text-primary/20">{'</>'}</div>
-    </div>
-  </section>
+  <HeroSection 
+    description="Schedule a free discovery call or send us a message below. We'll get back to you within one business day with insights and next steps for your project."
+    trustSignals={["⚡ 24-hour response", "💬 No-pressure consultation", "🎯 Custom strategy included"]}
+  >
+    Let's Build Something <TypewriterText 
+      words={["Great Together", "Revolutionary", "That Converts", "That Performs", "Extraordinary"]}
+      className="text-primary terminal-text"
+      initialText="Great Together"
+      cursorClass="terminal-cursor"
+    />
+  </HeroSection>
 
   <!-- ENHANCED CONTACT FORM with Realistic Form Interactions -->
   <section class="contact-form-section py-16 px-4 reveal-section">

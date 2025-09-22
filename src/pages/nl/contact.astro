@@ -1,53 +1,27 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
 
 const lang = 'nl';
 
 const pageTitle = "Laten We Samen Iets Geweldigs Bouwen | VeermanDevelopment";
 const pageDescription = "Klaar om je bedrijf te transformeren met een hoogwaardige website? Neem contact op voor een gratis oriëntatiegesprek. We reageren binnen één werkdag.";
-
-const title = "Laten We Samen Iets";
-const typewriterWords = ["Geweldigs Bouwen", "Revolutionairs Maken", "Dat Converteert", "Dat Presteert", "Buitengewoons Creëren"];
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
 <!-- ENHANCED HERO with Terminal Typing Effect -->
-<section class="contact-hero py-20 px-4 text-center relative overflow-hidden">
-<div class="max-w-4xl mx-auto relative z-10">
-<h1 class="hero-title font-heading font-bold text-3xl sm:text-5xl lg:text-6xl mb-6 leading-tight min-h-[7rem] sm:min-h-0">
-  <span class="title-static block sm:inline">{title} </span>
-  
-  {/* ---- START WIJZIGING: Verwijder de "text-left" class hieronder ---- */}
-  <span class="typewriter-container relative inline-block mt-2 sm:mt-0"> 
-  {/* ---- EINDE WIJZIGING ---- */}
-  
-    <TypewriterText 
-      words={typewriterWords}
-      className="text-primary"
-      initialText={typewriterWords[0]}
-      cursorClass="cursor"
-    />
-  </span>
-</h1>
-<p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text">
-Plan een gratis oriëntatiegesprek of stuur ons een bericht. We nemen binnen één werkdag
-contact met je op met inzichten en vervolgstappen voor je project.
-</p>
-<div class="contact-promise flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-sm opacity-70 reveal-promise">
-<span class="promise-item">⚡ 24-uur respons</span>
-<span class="promise-item">💬 Vrijblijvend advies</span>
-<span class="promise-item">🎯 Maatstrategie inbegrepen</span>
-</div>
-</div>
-<!-- Animated background grid -->
-<div class="grid-background absolute inset-0 opacity-5 pointer-events-none">
-<div class="grid-lines"></div>
-</div>
-<!-- Floating code symbols -->
-<div class="code-symbols absolute inset-0 pointer-events-none">
-<div class="code-symbol absolute top-20 left-10 text-primary/20">{'{'}</div>
-<div class="code-symbol absolute top-40 right-20 text-primary/20">{'/>'}</div>
+<HeroSection 
+  description="Plan een gratis oriëntatiegesprek of stuur ons een bericht. We nemen binnen één werkdag contact met je op met inzichten en vervolgstappen voor je project."
+  trustSignals={["⚡ 24-uur respons", "💬 Vrijblijvend advies", "🎯 Maatstrategie inbegrepen"]}
+>
+  Laten We Samen Iets <TypewriterText 
+    words={["Geweldigs Bouwen", "Revolutionairs Maken", "Dat Converteert", "Dat Presteert", "Buitengewoons Creëren"]}
+    className="text-primary"
+    initialText="Geweldigs Bouwen"
+    cursorClass="cursor"
+  />
+</HeroSection>
 <div class="code-symbol absolute bottom-32 left-1/4 text-primary/20">{'<>'}</div>
 <div class="code-symbol absolute bottom-20 right-1/3 text-primary/20">{'</>'}</div>
 </div>
