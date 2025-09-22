@@ -27,7 +27,7 @@ jobs:
         run: npm run build  # Astro build output goes to /dist
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v3
+        uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 41e06ef76f253fc7135939d93e4e12df
