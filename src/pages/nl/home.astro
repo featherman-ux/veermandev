@@ -1,0 +1,743 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+import HeroSection from '../../components/HeroSection.astro';
+
+const lang = 'nl';
+
+const pageTitle = "Jouw Partner in Digitale Groei | VeermanDevelopment";
+const pageDescription = "Wij zijn De Kleine Bedrijven Kampioen. We bouwen meer dan websites, we bouwen merken. Professionele websites die daadwerkelijk werken, nu toegankelijk voor kleine bedrijven.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+<!-- LAUNCH OFFER BANNER -->
+<section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
+<div class="max-w-4xl mx-auto relative z-10">
+<p class="text-sm font-medium">
+🚀 <strong>Lanceringsaanbieding:</strong> €100 korting op alle pakketten + merkstrategie inbegrepen | Beperkte tijd!
+</p>
+</div>
+<div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
+</section>
+
+<!-- SMALL BUSINESS CHAMPION HERO - FIXED TYPEWRITER -->
+<HeroSection
+title="We Bouwen Niet Alleen Websites,"
+description="Wij zijn De Kleine Bedrijven Kampioen. Jouw toegewijde partner die de strijd begrijpt. We verzorgen de digitale kant zodat jij je kunt richten op waar je het beste in bent."
+typewriterWords={['We Bouwen Merken', 'We Creëren Succes', 'We Stimuleren Groei', 'We Genereren Verkoop', 'We Bouwen Je Toekomst', 'We Maken Je Onvergetelijk']}
+primaryCTA={{text: "Bekijk Onze Pakketten", href: `/${lang}/services`}}
+secondaryCTA={{text: "Zie Succesverhalen", href: `/${lang}/portfolio`}}
+trustSignals={["Jouw Partner in Digitale Groei", "Gebouwd in 3 dagen", "Merkstrategie inbegrepen"]}
+size="large"
+/>
+
+<!-- BRAND CHAMPION MESSAGE - BETTER SPACING -->
+<section class="brand-champion-message py-6 px-4 reveal-on-scroll">
+<div class="max-w-4xl mx-auto text-center">
+<div class="champion-badge inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+De Kleine Bedrijven Kampioen
+</div>
+<h2 class="font-heading font-bold text-3xl sm:text-4xl mb-6">In een Tijdperk Waar Iedereen Hetzelfde Is,<br><span class="text-primary">Durf Anders te Zijn</span></h2>
+<div class="brand-philosophy grid md:grid-cols-2 gap-8 md:gap-16 mt-12 md:mt-16">
+<div class="philosophy-left text-left">
+<h3 class="text-xl sm:text-2xl font-semibold mb-4">Iedereen kan een website bouwen</h3>
+<p class="text-base sm:text-lg opacity-80 mb-6">Sjablonen, bouwers, doe-het-zelf oplossingen—ze zijn overal. Maar standaard websites creëren standaard bedrijven.</p>
+<div class="problem-list space-y-4 w-fit mx-auto">
+<div class="flex items-start gap-3">
+<span class="text-red-500 mt-1 text-xl">❌</span>
+<span>Je verdwijnt in de massa</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="text-red-500 mt-1 text-xl">❌</span>
+<span>Klanten kunnen je niet onthouden</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="text-red-500 mt-1 text-xl">❌</span>
+<span>Concurrenten stelen je klanten</span>
+</div>
+</div>
+</div>
+<div class="philosophy-right text-left">
+<h3 class="text-xl sm:text-2xl font-semibold mb-4">Niet iedereen kan opvallen</h3>
+<p class="text-base sm:text-lg opacity-80 mb-6">Daar komen wij om de hoek kijken. We ontwikkelen niet alleen websites—<strong>we ontwikkelen merken die klanten niet kunnen negeren.</strong></p>
+<div class="solution-list space-y-4 w-fit mx-auto">
+<div class="flex items-start gap-3">
+<span class="text-green-500 mt-1 text-xl">✓</span>
+<span>Je merk wordt onvergetelijk</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="text-green-500 mt-1 text-xl">✓</span>
+<span>Klanten kiezen jou boven concurrenten</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="text-green-500 mt-1 text-xl">✓</span>
+<span>Je domineert je lokale markt</span>
+</div>
+</div>
+</div>
+</div>
+<div class="brand-promise mt-12 md:mt-16 bg-gradient-to-r from-primary/10 to-primary/5 p-6 md:p-8 rounded-xl">
+<h3 class="text-xl sm:text-2xl font-bold mb-4">Onze Belofte aan Jou</h3>
+<p class="text-base sm:text-lg">
+<strong>Ontwikkel niet alleen een website, ontwikkel een merk.</strong> We combineren technische expertise met marketingkennis om iets echt betoverends te creëren—zelfs als je alleen een "eenvoudige" website wilt.
+</p>
+</div>
+</div>
+</section>
+
+<!-- PROFESSIONAL VS DIY/CHEAP - FIXED SPACING & HEIGHTS -->
+<section class="professional-vs-rest py-16 md:py-24 px-4 bg-card-light dark:bg-card-dark reveal-on-scroll">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-12 md:mb-16">
+<h2 class="font-heading font-bold text-3xl sm:text-4xl mb-6">Waarom De Meeste KMB Websites Er Amateur Uitzien</h2>
+<p class="text-base sm:text-lg mb-8 opacity-80">Iedereen gebruikt dezelfde DIY-tools en sjablonen. Zelfs veel "ontwikkelaars" installeren alleen WordPress-thema's. Je bedrijf verdient beter.</p>
+<div class="professional-badge inline-block bg-gradient-to-r from-primary to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+Professionele Website Service - Nu Toegankelijk voor Kleine Bedrijven
+</div>
+</div>
+<!-- FIXED COMPARISON GRID WITH EQUAL HEIGHTS -->
+<div class="comparison-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
+<!-- DIY Solutions -->
+<div class="comparison-column bg-red-50 dark:bg-red-900/20 p-6 md:p-8 rounded-lg border border-red-200 dark:border-red-800 flex flex-col">
+<div class="column-header text-center mb-6">
+<div class="text-3xl md:text-4xl mb-3">😤</div>
+<h3 class="text-lg md:text-xl font-semibold text-red-700 dark:text-red-300">DIY Website Bouwers</h3>
+<p class="text-sm opacity-60 mt-2">Wix, Squarespace, Strato, etc.</p>
+</div>
+<ul class="space-y-4 text-sm flex-grow">
+<li class="flex items-start gap-3">
+<span class="text-red-500 text-lg flex-shrink-0">❌</span>
+<span>Dezelfde sjablonen die iedereen gebruikt</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-red-500 text-lg flex-shrink-0">❌</span>
+<span>Langzame laadtijden (4-8 seconden)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-red-500 text-lg flex-shrink-0">❌</span>
+<span>Beperkte aanpassingsmogelijkheden</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-red-500 text-lg flex-shrink-0">❌</span>
+<span>Maandelijkse kosten voor altijd (€15-50/maand)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-red-500 text-lg flex-shrink-0">❌</span>
+<span>Geen marketingstrategie</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-red-500 text-lg flex-shrink-0">❌</span>
+<span>Ziet eruit zoals alle anderen</span>
+</li>
+</ul>
+</div>
+
+<!-- Cheap "Developers" -->
+<div class="comparison-column bg-orange-50 dark:bg-orange-900/20 p-6 md:p-8 rounded-lg border border-orange-200 dark:border-orange-800 flex flex-col">
+<div class="column-header text-center mb-6">
+<div class="text-3xl md:text-4xl mb-3">🙄</div>
+<h3 class="text-lg md:text-xl font-semibold text-orange-700 dark:text-orange-300">Goedkope "Ontwikkelaars"</h3>
+<p class="text-sm opacity-60 mt-2">WordPress thema installateurs</p>
+</div>
+<ul class="space-y-4 text-sm flex-grow">
+<li class="flex items-start gap-3">
+<span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+<span>Installeren alleen WordPress thema's</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+<span>Breken willekeurig door updates</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+<span>Beveiligingsproblemen overal</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+<span>Verdwijnen na oplevering</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+<span>Geen merkbegrip</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-orange-500 text-lg flex-shrink-0">❌</span>
+<span>Hetzelfde resultaat als alle anderen</span>
+</li>
+</ul>
+</div>
+
+<!-- Our Professional Service -->
+<div class="comparison-column bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/40 dark:to-blue-900/40 p-6 md:p-8 rounded-lg border-2 border-primary relative overflow-hidden flex flex-col">
+<div class="professional-shine absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent transform -skew-x-12 animate-shine"></div>
+<div class="column-header text-center mb-6 relative z-10">
+<div class="text-3xl md:text-4xl mb-3">✨</div>
+<h3 class="text-lg md:text-xl font-semibold text-primary dark:text-green-300">Onze Professionele Service</h3>
+<p class="text-gray-600 dark:text-gray-400 mt-2">Wat professionele bureaus leveren</p>
+</div>
+<ul class="space-y-4 text-sm relative z-10 flex-grow text-gray-700 dark:text-gray-300">
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+<span><strong>Op maat gebouwd voor je merk</strong></span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+<span>Bliksemsnelle prestaties (onder 1 seconde)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+<span>Moderne, veilige technologie</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+<span>Echt partnerschap & ondersteuning</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+<span>Complete merkstrategie</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+<span><strong>Onmogelijk te negeren</strong></span>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- WHAT MAKES US DIFFERENT - BETTER SPACING -->
+<section class="what-makes-different py-24 px-4 reveal-on-scroll">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-heading font-bold text-4xl mb-4">Professionele Service, KMB Prijzen</h2>
+<p class="text-lg opacity-80">Wat grote bedrijven krijgen van dure bureaus, leveren wij voor kleine bedrijven tegen eerlijke prijzen</p>
+</div>
+<!-- FIXED GRID WITH EQUAL HEIGHTS -->
+<div class="differences-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+<div class="text-4xl mb-4">⚡</div>
+<h3 class="text-xl font-semibold mb-3">Professionele Prestaties</h3>
+<p class="text-sm opacity-80 flex-grow">Terwijl concurrenten traag WordPress gebruiken, gebruiken wij moderne technologie. Je klanten merken het snelheidsverschil direct.</p>
+</div>
+<div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+<div class="text-4xl mb-4">🛡️</div>
+<h3 class="text-xl font-semibold mb-3">Betrouwbaar & Veilig</h3>
+<p class="text-sm opacity-80 flex-grow">Geen WordPress kwetsbaarheden, geen plugin problemen, geen willekeurige storingen. We bouwen websites die jaren betrouwbaar werken.</p>
+</div>
+<div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+<div class="text-4xl mb-4">🎯</div>
+<h3 class="text-xl font-semibold mb-3">Maatwerk Merkstrategie</h3>
+<p class="text-sm opacity-80 flex-grow">DIY-bouwers geven je sjablonen. Wij creëren een unieke merkervaring die je doet opvallen in je markt.</p>
+</div>
+<div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+<div class="text-4xl mb-4">📍</div>
+<h3 class="text-xl font-semibold mb-3">Complete Merkzichtbaarheid</h3>
+<p class="text-sm opacity-80 flex-grow">Google Maps optimalisatie, social media setup, lokale SEO—we zorgen dat je gemeenschap weet dat je bestaat en je onthoudt.</p>
+</div>
+<div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+<div class="text-4xl mb-4">🤝</div>
+<h3 class="text-xl font-semibold mb-3">Echt Partnerschap</h3>
+<p class="text-sm opacity-80 flex-grow">We verdwijnen niet na de lancering. Je krijgt doorlopende ondersteuning en strategische begeleiding—dezelfde service die grote bedrijven ontvangen.</p>
+</div>
+<div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
+<div class="text-4xl mb-4">🎨</div>
+<h3 class="text-xl font-semibold mb-3">Betoverend Design</h3>
+<p class="text-sm opacity-80 flex-grow">Zelfs onze "eenvoudige" websites zijn ontworpen om te boeien. Elk element is ontworpen om je waarde te reflecteren en klanten jou te laten kiezen.</p>
+</div>
+</div>
+<!-- Quality Promise -->
+<div class="quality-promise mt-16 text-center bg-gradient-to-r from-primary/5 to-blue-50 dark:from-primary/10 dark:to-blue-900/20 p-8 rounded-xl border border-primary/30">
+<h3 class="text-2xl font-bold mb-4 text-primary">Onze Kwaliteitsbelofte</h3>
+<p class="text-lg mb-4">
+<strong>Je website wordt professioneel gebouwd en strategisch ontworpen om je bedrijf te laten groeien.</strong>
+</p>
+<p class="text-sm opacity-80">
+Dat is onze toezegging om professionele website service naar kleine bedrijven te brengen.
+</p>
+</div>
+</div>
+</section>
+
+<!-- LAUNCH PRICING PACKAGES - COMPLETELY FIXED LAYOUT -->
+<section class="packages-overview py-6 px-4 reveal-on-scroll">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<div class="launch-pricing-badge inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
+Lanceringsprijzen - Beperkte Tijd
+</div>
+<h2 class="font-heading font-bold text-4xl mb-4">Kies Je Merktransformatie</h2>
+<p class="text-lg opacity-80">€100 korting op alle pakketten + complete merkstrategie inbegrepen. Jouw partner in digitale groei.</p>
+</div>
+<!-- COMPLETELY FIXED PACKAGES GRID -->
+<div class="packages-grid grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<!-- Package 1: Foundation -->
+<div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
+<!-- Launch offer badge -->
+<div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
+€100 KORTING
+</div>
+<div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+<div class="relative z-10 p-6 flex flex-col flex-grow">
+<div class="pricing-section mb-4">
+<div class="original-price text-lg text-gray-500 line-through">€349</div>
+<div class="package-price text-3xl font-bold text-primary">€249</div>
+<div class="savings text-sm text-green-600 font-medium">Bespaar €100</div>
+</div>
+<h4 class="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">Merk Fundament</h4>
+<p class="text-sm opacity-60 mb-2">Perfect voor</p>
+<p class="font-medium mb-6">Coaches, consultants, serviceprofessionals</p>
+<ul class="space-y-3 mb-8 text-sm flex-grow">
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Professionele website die je expertise weergeeft</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Merkstrategie & positionering</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Bliksemsnelle prestaties (onder 1 seconde)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Merkzichtbaarheid setup (Google, socials)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Mobiel-perfect op elk apparaat</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span><strong>Hosting & updates voor altijd inbegrepen</strong></span>
+</li>
+</ul>
+<div class="example-link text-xs text-primary opacity-70 mb-4">
+Voorbeeld: Professionele portfolio die respect afdwingt
+</div>
+<a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+Start Je Transformatie
+</a>
+</div>
+</div>
+
+<!-- Package 2: Growth (Most Chosen) -->
+<div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative border-2 border-primary flex flex-col">
+<!-- More visible popular badge -->
+<div class="popular-badge-container absolute -top-4 left-0 right-0 flex justify-center z-30">
+<div class="popular-badge bg-primary text-black px-5 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white dark:border-gray-800">
+⭐ Meest Gekozen
+</div>
+</div>
+<!-- Launch offer badge -->
+<div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
+€100 KORTING
+</div>
+<div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+<div class="relative z-10 p-6 pt-8 flex flex-col flex-grow">
+<div class="pricing-section mb-4">
+<div class="original-price text-lg text-gray-500 line-through">€449</div>
+<div class="package-price text-3xl font-bold text-primary">€349</div>
+<div class="savings text-sm text-green-600 font-medium">Bespaar €100</div>
+</div>
+<h4 class="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">Merk Groei</h4>
+<p class="text-sm opacity-60 mb-2">Perfect voor</p>
+<p class="font-medium mb-6">Lokale bedrijven klaar om hun markt te domineren</p>
+<ul class="space-y-3 mb-8 text-sm flex-grow">
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Alles uit Fundament, plus:</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Geavanceerde merkstrategie & marktpositionering</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>5-8 pagina's ontworpen om bezoekers te converteren</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Klantgerichte doelgroepensstrategie</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Lokale SEO om je gebied te domineren</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Blog/portfolio systeem voor doorlopende betrokkenheid</span>
+</li>
+</ul>
+<div class="example-link text-xs text-primary opacity-70 mb-4">
+Voorbeeld: waarisniels.nl (van blogger naar autoriteit)
+</div>
+<a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+Domineer Je Markt
+</a>
+</div>
+</div>
+
+<!-- Package 3: Complete -->
+<div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
+<!-- Launch offer badge -->
+<div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
+€100 KORTING
+</div>
+<div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+<div class="relative z-10 p-6 flex flex-col flex-grow">
+<div class="pricing-section mb-4">
+<div class="original-price text-lg text-gray-500 line-through">€549</div>
+<div class="package-price text-3xl font-bold text-primary">€449</div>
+<div class="savings text-sm text-green-600 font-medium">Bespaar €100</div>
+</div>
+<h4 class="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">Merk Compleet</h4>
+<p class="text-sm opacity-60 mb-2">Perfect voor</p>
+<p class="font-medium mb-6">Ambitieuze bedrijven klaar om online te verkopen</p>
+<ul class="space-y-3 mb-8 text-sm flex-grow">
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Alles uit Groei, plus:</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Complete e-commerce merkervaring</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Betalingsverwerking & veilige checkout</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Voorraadbeheer & bestelsysteem</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Klantloyaliteit & retentiefuncties</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="text-green-500 text-lg flex-shrink-0">✓</span>
+<span>Geavanceerde marketingautomatisering</span>
+</li>
+</ul>
+<div class="example-link text-xs text-primary opacity-70 mb-4">
+Voorbeeld: Binnenkort beschikbaar (complete online merkervaring)
+</div>
+<a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+Bouw Compleet Merk
+</a>
+</div>
+</div>
+</div>
+<!-- Brand strategy details -->
+<div class="brand-included mt-16 text-center bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+<h3 class="font-semibold mb-4">Complete merkstrategie inbegrepen bij elk pakket:</h3>
+<div class="grid md:grid-cols-5 gap-4 text-sm">
+<div>✓ Merkpositioneringsstrategie</div>
+<div>✓ Klantgerichte doelgroepplan</div>
+<div>✓ Zichtbaarheidsoptimalisatie</div>
+<div>✓ Marktdifferentiatie</div>
+<div>✓ Groeipartnerschap</div>
+</div>
+<p class="text-xs opacity-60 mt-4">Lanceringsaanbieding: Deze uitgebreide merkstrategie kost normaal €400+</p>
+</div>
+</div>
+</section>
+
+<!-- Success Transformation - Toned Down -->
+<section class="success-example py-20 px-4 bg-card-light dark:bg-card-dark reveal-on-scroll">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-heading font-bold text-4xl mb-4">Van Reiziger naar Blogger</h2>
+<p class="text-lg opacity-80">Niels wilde een unieke site om zijn avonturen te showcasen, dus bouwden we hem een stijlvolle, functierijke blog.</p>
+</div>
+
+<div class="transformation-grid grid lg:grid-cols-2 gap-12 items-center">
+<div class="transformation-image">
+<img src="/portfolio/waarisniels-mockup.jpg" alt="Reisblog Website" class="w-full h-80 object-cover rounded-lg" />
+</div>
+
+<div class="transformation-content">
+<h3 class="text-2xl font-semibold mb-4">Over de Blog</h3>
+<p class="mb-4">Een schoon en modern design met interactieve kaarten, fotogalerijen en social sharing om medereizigers te inspireren.</p>
+
+<div class="transformation-benefits space-y-6 mb-6">
+<div class="before-after bg-background rounded p-4">
+<strong>Voorheen:</strong> Basis blog met minimale functies en weinig zichtbaarheid.
+</div>
+<div class="arrow text-center text-primary text-3xl">↓</div>
+<div class="before-after bg-primary/10 rounded p-4">
+<strong>Nu:</strong> Boeiend platform met rijke media en groeiend publiek.
+</div>
+</div>
+
+<a href="https://waarisniels.nl" target="_blank" class="text-primary font-medium hover:underline inline-flex items-center gap-2">
+Bezoek de Blog
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- OUR PARTNERSHIP PROCESS -->
+<section class="partnership-process py-24 px-4 reveal-on-scroll">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-heading font-bold text-4xl mb-16">Jouw Partner in Digitale Groei</h2>
+<div class="process-steps grid md:grid-cols-3 gap-12">
+<div class="step">
+<div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
+<h3 class="text-xl font-semibold mb-4">We Begrijpen Je Bedrijf</h3>
+<p class="text-sm opacity-80">Diepgaand gesprek over je bedrijf, uitdagingen en doelen. We worden je toegewijde digitale partner die het echt snapt.</p>
+</div>
+<div class="step">
+<div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
+<h3 class="text-xl font-semibold mb-4">We Bouwen Je Merk</h3>
+<p class="text-sm opacity-80"><strong>Slechts 3 dagen</strong> om een professionele merkervaring te creëren. We combineren technische expertise met marketingkennis voor maximale impact.</p>
+</div>
+<div class="step">
+<div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
+<h3 class="text-xl font-semibold mb-4">Je Valt Op Tussen Concurrenten</h3>
+<p class="text-sm opacity-80">Je professionele merk gaat live en klanten kiezen jou boven concurrenten. We bieden doorlopende partnerschapsondersteuning terwijl je groeit.</p>
+</div>
+</div>
+<!-- Partnership commitment -->
+<div class="partnership-commitment mt-16 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800">
+<p class="font-semibold text-orange-800 dark:text-orange-300">
+🤝 <strong>Partnerschapsbelofte:</strong> We zijn je toegewijde digitale groeipartner, niet zomaar een leverancier.
+</p>
+</div>
+</div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+// Enhanced scroll reveals
+const observerOptions = {
+root: null,
+rootMargin: '-50px',
+threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry, index) => {
+if (entry.isIntersecting) {
+const element = entry.target as HTMLElement;
+element.style.opacity = '1';
+element.style.transform = 'translateY(0) scale(1)';
+// Stagger children animation
+const children = element.querySelectorAll('.package-card, .result-item, .step, .difference-card');
+children.forEach((child, childIndex) => {
+const childElement = child as HTMLElement;
+setTimeout(() => {
+childElement.style.opacity = '1';
+childElement.style.transform = 'translateY(0)';
+}, childIndex * 150);
+});
+}
+});
+}, observerOptions);
+
+// Apply to sections
+const sections = document.querySelectorAll('.reveal-on-scroll');
+sections.forEach(section => {
+const element = section as HTMLElement;
+element.style.opacity = '0';
+element.style.transform = 'translateY(30px) scale(0.98)';
+element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+observer.observe(element);
+});
+
+// Subtle card effects
+const subtleCards = document.querySelectorAll('.subtle-card');
+subtleCards.forEach(card => {
+const cardElement = card as HTMLElement;
+cardElement.addEventListener('mousemove', (e) => {
+const rect = cardElement.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+const centerX = rect.width / 2;
+const centerY = rect.height / 2;
+const rotateX = (y - centerY) / 80;
+const rotateY = (centerX - x) / 80;
+cardElement.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(3px)`;
+});
+cardElement.addEventListener('mouseleave', () => {
+cardElement.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+});
+});
+});
+</script>
+
+<style>
+/* Launch banner animation */
+@keyframes shine {
+0% { transform: translateX(-100%) skewX(-12deg); }
+100% { transform: translateX(200%) skewX(-12deg); }
+}
+.animate-shine {
+animation: shine 3s ease-in-out infinite;
+}
+
+.subtle-card {
+transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+transform-style: preserve-3d;
+}
+
+.subtle-card:hover {
+box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+}
+
+/* Fixed popular badge with better visibility */
+.popular-badge-container {
+z-index: 30;
+}
+.popular-badge {
+box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+white-space: nowrap;
+animation: badgeFloat 3s ease-in-out infinite;
+}
+
+/* Add some movement to draw attention */
+@keyframes badgeFloat {
+0%, 100% {
+transform: translateY(0) scale(1);
+box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+}
+50% {
+transform: translateY(-2px) scale(1.02);
+box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+}
+}
+
+/* Launch offer badges */
+.launch-offer-badge {
+animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; transform: scale(1); }
+50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* Professional shine effect */
+.professional-shine {
+animation: professionalShine 4s ease-in-out infinite;
+}
+@keyframes professionalShine {
+0%, 100% { transform: translateX(-100%) skewX(-12deg); opacity: 0; }
+50% { transform: translateX(100%) skewX(-12deg); opacity: 0.3; }
+}
+
+/* COMPLETELY FIXED COMPARISON COLUMNS */
+.comparison-column {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+min-height: 450px;
+display: flex;
+flex-direction: column;
+}
+.comparison-column:hover {
+transform: translateY(-5px);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .comparison-column {
+    min-height: auto;
+  }
+  
+  /* Better touch targets for mobile */
+  .hero-ctas a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Improve text readability on mobile */
+  .problem-list, .solution-list {
+    text-align: left;
+  }
+  
+  /* Better spacing for mobile lists */
+  .problem-list li, .solution-list li {
+    padding: 0.5rem 0;
+  }
+}
+.comparison-column:last-child {
+background: linear-gradient(135deg, #f0f9ff, #ecfdf5);
+}
+.dark .comparison-column:last-child {
+background: linear-gradient(135deg, rgb(12 74 110 / 0.2), rgb(6 78 59 / 0.2));
+}
+
+/* Brand philosophy styling */
+.philosophy-left, .philosophy-right {
+animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.philosophy-right {
+animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* COMPLETELY FIXED DIFFERENCE CARDS */
+.difference-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+min-height: 280px;
+display: flex;
+flex-direction: column;
+}
+
+.difference-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* COMPLETELY FIXED PACKAGE GRID */
+.packages-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 2rem;
+align-items: stretch;
+}
+.package-card {
+min-height: 600px;
+display: flex;
+flex-direction: column;
+}
+/* Better mobile responsive grid */
+@media (max-width: 1024px) {
+.packages-grid {
+grid-template-columns: 1fr;
+max-width: 400px;
+margin: 0 auto;
+}
+}
+@media (min-width: 1024px) {
+.packages-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+
+/* Fix flex-shrink for icons */
+.flex-shrink-0 {
+flex-shrink: 0;
+}
+/* Ensure flex-grow works properly */
+.flex-grow {
+flex-grow: 1;
+}
+</style>
+</BaseLayout>

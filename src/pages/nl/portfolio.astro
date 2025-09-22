@@ -1,0 +1,638 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'nl';
+
+const pageTitle = "Echte Websites voor Echte Bedrijven | VeermanDevelopment";
+const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. Professionele websites die daadwerkelijk werken, nu toegankelijk voor kleine bedrijven.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+
+<!-- INTRO -->
+<section class="intro-section py-24 px-4 text-center relative overflow-hidden">
+<div class="max-w-4xl mx-auto relative z-10">
+<div class="champion-badge inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+De Kleine Bedrijven Kampioen
+</div>
+<h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
+Echte Websites voor <span class="text-primary">Echte Bedrijven</span>
+</h1>
+<p class="text-xl opacity-90 leading-relaxed reveal-text">
+Zie wat we bouwen voor kleine bedrijven in Nederland. Professionele websites die daadwerkelijk werken, nu toegankelijk voor kleine bedrijven.
+</p>
+</div>
+<!-- Simple background pattern -->
+<div class="background-pattern absolute inset-0 opacity-5 pointer-events-none">
+<div class="grid-lines w-full h-full" style="background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+</div>
+</section>
+
+<!-- PROJECT EXAMPLES -->
+<section class="projects-grid-section py-8 px-4 reveal-section">
+<div class="max-w-6xl mx-auto">
+<div class="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Example 1: Foundation - Coming Soon -->
+<div class="project-item group cursor-pointer subtle-card" data-category="foundation">
+<div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 flex flex-col">
+<div class="project-image relative overflow-hidden">
+<div class="coming-soon-placeholder w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 flex items-center justify-center">
+<div class="text-center">
+<div class="text-4xl mb-2">📝</div>
+<div class="font-semibold text-blue-800 dark:text-blue-200">Binnenkort Beschikbaar</div>
+<div class="text-sm text-blue-600 dark:text-blue-300">pienvandenboom.nl</div>
+</div>
+</div>
+<div class="launch-offer-badge absolute top-3 right-3 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
+€100 KORTING
+</div>
+</div>
+<div class="project-content p-6 flex-grow flex flex-col">
+<div class="package-info flex justify-between items-start mb-3">
+<span class="text-xs bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full font-medium">Merk Fundament - €249</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">Wordt gebouwd</span>
+</div>
+<h3 class="text-xl font-semibold mb-2">Professionele Portfolio</h3>
+<p class="text-sm opacity-80 mb-4 flex-grow">Schone, professionele portfolio website voor het showcasen van werk en expertise. Perfect voor consultants en serviceprofessionals.</p>
+<div class="features-list text-xs opacity-60 space-y-2">
+<div>• Professionele website die expertise weergeeft</div>
+<div>• Merkstrategie & positionering</div>
+<div>• Bliksemsnelle prestaties</div>
+<div>• Merkzichtbaarheid setup</div>
+<div>• Hosting & updates voor altijd inbegrepen</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Example 2: Growth - Live Success -->
+<div class="project-item group cursor-pointer subtle-card" data-category="growth">
+<div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 border-2 border-green-200 dark:border-green-800 flex flex-col">
+<div class="success-badge absolute top-4 right-4 z-10 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+Live Site
+</div>
+<div class="project-image relative overflow-hidden">
+<img src="/portfolio/waarisniels-mockup.jpg" alt="Reisblog Website" class="w-full h-80 object-cover rounded-lg" />
+<div class="project-overlay absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="overlay-content absolute bottom-4 left-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+<span class="text-sm font-medium">Bezoek Live Site →</span>
+</div>
+</div>
+</div>
+<div class="project-content p-6 flex-grow flex flex-col">
+<div class="package-info flex justify-between items-start mb-3">
+<span class="text-xs bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 px-3 py-1 rounded-full font-medium">Merk Groei - €349</span>
+<span class="text-xs text-green-500 font-medium">Live Voorbeeld</span>
+</div>
+<h3 class="text-xl font-semibold mb-2">Reisblog</h3>
+<p class="text-sm opacity-80 mb-4 flex-grow">Functierijke reisblog met interactieve kaarten, fotogalerijen en social sharing. Niels wilde iets coolers dan basis blogplatforms.</p>
+<div class="features-list text-xs opacity-60 space-y-2 mb-4">
+<div>• Geavanceerde merkstrategie & positionering</div>
+<div>• 8+ pagina's ontworpen om te converteren</div>
+<div>• Blog systeem voor doorlopende betrokkenheid</div>
+<div>• Interactieve kaarten & galerijen</div>
+<div>• Social media integratie</div>
+<div>• Complete merkzichtbaarheid setup</div>
+</div>
+<a href="https://waarisniels.nl" target="_blank" class="text-primary text-sm font-medium hover:underline inline-flex items-center gap-1 mt-auto">
+Bezoek waarisniels.nl
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+</svg>
+</a>
+</div>
+</div>
+</div>
+
+<!-- Example 3: Complete - Coming Soon -->
+<div class="project-item group cursor-pointer subtle-card" data-category="complete">
+<div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 flex flex-col">
+<div class="project-image relative overflow-hidden">
+<div class="coming-soon-placeholder w-full h-48 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 flex items-center justify-center">
+<div class="text-center">
+<div class="text-4xl mb-2">🛍️</div>
+<div class="font-semibold text-purple-800 dark:text-purple-200">Binnenkort Beschikbaar</div>
+<div class="text-sm text-purple-600 dark:text-purple-300">vrmn.shop</div>
+</div>
+</div>
+<div class="launch-offer-badge absolute top-3 right-3 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
+€100 KORTING
+</div>
+</div>
+<div class="project-content p-6 flex-grow flex flex-col">
+<div class="package-info flex justify-between items-start mb-3">
+<span class="text-xs bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full font-medium">Merk Compleet - €449</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">Wordt gebouwd</span>
+</div>
+<h3 class="text-xl font-semibold mb-2">Online Winkel</h3>
+<p class="text-sm opacity-80 mb-4 flex-grow">Complete e-commerce oplossing met productcatalogus, winkelwagen en veilige betalingen. Alles wat nodig is om professioneel online te verkopen.</p>
+<div class="features-list text-xs opacity-60 space-y-2">
+<div>• Complete e-commerce merkervaring</div>
+<div>• Betalingsverwerking & veilige checkout</div>
+<div>• Productcatalogus & voorraadbeheer</div>
+<div>• Klantaccounts & bestelsysteem</div>
+<div>• Geavanceerde marketingautomatisering</div>
+<div>• Complete merkstrategie</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FROM TRAVELLER TO BLOGGER -->
+<section class="success-example py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-heading font-bold text-4xl mb-4">Van Reiziger naar Blogger</h2>
+<p class="text-lg opacity-80">Niels wilde een unieke site om zijn avonturen te showcasen, dus bouwden we hem een stijlvolle, functierijke blog.</p>
+</div>
+
+<div class="transformation-grid grid lg:grid-cols-2 gap-12 items-center">
+<div class="transformation-image">
+<img src="/portfolio/waarisniels-mockup.jpg" alt="Reisblog Website" class="w-full h-80 object-cover rounded-lg" />
+</div>
+
+<div class="transformation-content">
+<h3 class="text-2xl font-semibold mb-4">Over de Blog</h3>
+<p class="text-lg mb-6">Een schoon en modern design met interactieve kaarten, fotogalerijen en social sharing om medereizigers te inspireren.</p>
+
+<div class="transformation-benefits space-y-6 mb-8">
+<div class="before-after bg-background-light dark:bg-background-dark rounded-lg p-4">
+<div class="text-sm font-semibold mb-2">Voorheen: Basis Blog</div>
+<div class="text-sm opacity-70">Generiek platform met minimale functies en weinig zichtbaarheid</div>
+</div>
+<div class="arrow text-center text-primary text-3xl">↓</div>
+<div class="before-after bg-primary/10 rounded-lg p-4">
+<div class="text-sm font-semibold mb-2 text-primary">Nu: Functierijk Platform</div>
+<div class="text-sm">Maatwerk design met interactieve kaarten, galerijen en groeiend publiek</div>
+</div>
+</div>
+
+<a href="https://waarisniels.nl" target="_blank" class="text-primary font-medium hover:underline inline-flex items-center gap-2">
+Bezoek de Blog
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="whats-included py-16 px-4 reveal-section">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-heading font-bold text-4xl mb-12">Wat Elk Pakket Bevat</h2>
+<div class="included-grid grid md:grid-cols-3 gap-8">
+<div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+<div class="text-3xl mb-4">⚡</div>
+<h3 class="font-semibold mb-3">Bliksemsnelle</h3>
+<p class="text-sm opacity-80">Al onze websites laden in minder dan 1 seconde. Je klanten wachten niet.</p>
+</div>
+<div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+<div class="text-3xl mb-4">📱</div>
+<h3 class="font-semibold mb-3">Mobiel Perfect</h3>
+<p class="text-sm opacity-80">Ziet er perfect uit op telefoons, tablets en computers. De meeste van je klanten gebruiken telefoons.</p>
+</div>
+<div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+<div class="text-3xl mb-4">🔍</div>
+<h3 class="font-semibold mb-3">Google Klaar</h3>
+<p class="text-sm opacity-80">Gebouwd om goed te ranken op Google vanaf dag één. Geen extra SEO kosten nodig.</p>
+</div>
+<div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+<div class="text-3xl mb-4">🛡️</div>
+<h3 class="font-semibold mb-3">Super Veilig</h3>
+<p class="text-sm opacity-80">Geen WordPress kwetsbaarheden. Je site wordt niet gehackt of breekt niet willekeurig.</p>
+</div>
+<div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+<div class="text-3xl mb-4">💚</div>
+<h3 class="font-semibold mb-3">Gratis Voor Altijd</h3>
+<p class="text-sm opacity-80">Gratis hosting & updates voor altijd inbegrepen. Geen maandelijkse rekeningen of verrassingskosten.</p>
+</div>
+<div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
+<div class="text-3xl mb-4">📚</div>
+<h3 class="font-semibold mb-3">Makkelijke Updates</h3>
+<p class="text-sm opacity-80">We leren je hoe je content zelf kunt updaten. Geen maandelijkse kosten om tekst te wijzigen.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TECHNOLOGY SECTION -->
+<section class="technology-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Ons Technologie Voordeel</h2>
+<p class="text-lg opacity-80 reveal-text">Waarom we moderne Jamstack kiezen boven traditionele platforms</p>
+</div>
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="technology-content reveal-card">
+<h3 class="text-2xl font-semibold mb-6">Strategische Keuze voor Astro/Jamstack Architectuur</h3>
+<p class="text-lg mb-6 opacity-90">
+Onze technologie keuzes zijn niet willekeurig—het zijn strategische beslissingen gebaseerd op wat
+de beste zakelijke resultaten oplevert voor onze klanten. Elk framework en tool dat we gebruiken wordt gekozen
+om prestaties, veiligheid en jouw return on investment te maximaliseren.
+</p>
+<div class="technology-benefits space-y-4">
+<div class="benefit flex items-start gap-3 hover-slide">
+<span class="text-primary text-xl benefit-icon">⚡</span>
+<div>
+<h4 class="font-semibold mb-1">Compromisloze Prestaties</h4>
+<p class="text-sm opacity-80">Laadtijden onder 1 seconde die 2-3x beter converteren dan langzame sites</p>
+</div>
+</div>
+<div class="benefit flex items-start gap-3 hover-slide">
+<span class="text-primary text-xl benefit-icon">🛡️</span>
+<div>
+<h4 class="font-semibold mb-1">Enterprise-Grade Beveiliging</h4>
+<p class="text-sm opacity-80">Nul database kwetsbaarheden, virtueel onhackbare architectuur</p>
+</div>
+</div>
+<div class="benefit flex items-start gap-3 hover-slide">
+<span class="text-primary text-xl benefit-icon">💰</span>
+<div>
+<h4 class="font-semibold mb-1">Lagere Totale Eigendomskosten</h4>
+<p class="text-sm opacity-80">Geen doorlopende onderhoudskosten, 60-99% lagere hosting kosten</p>
+</div>
+</div>
+<div class="benefit flex items-start gap-3 hover-slide">
+<span class="text-primary text-xl benefit-icon">📈</span>
+<div>
+<h4 class="font-semibold mb-1">SEO Excellentie</h4>
+<p class="text-sm opacity-80">Perfecte PageSpeed scores en technische SEO uit de doos</p>
+</div>
+</div>
+</div>
+</div>
+<div class="performance-comparison bg-background-light dark:bg-background-dark rounded-lg p-6 hover-lift-subtle reveal-card">
+<h4 class="font-semibold mb-6 text-center">Vergelijkende Prestatie & Beveiligingsanalyse</h4>
+<div class="overflow-x-auto">
+<table class="w-full text-sm animated-table">
+<thead>
+<tr class="border-b border-gray-300 dark:border-gray-600">
+<th class="text-left py-3">Metriek</th>
+<th class="text-left py-3 text-green-600">Onze Astro Oplossing</th>
+<th class="text-left py-3 text-red-600">WordPress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+<td class="py-3 font-medium">PageSpeed Score</td>
+<td class="py-3 text-green-600 font-bold">95-100 (Uitstekend)</td>
+<td class="py-3 text-red-600">40-80 (Slecht tot Redelijk)</td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+<td class="py-3 font-medium">Laadtijd</td>
+<td class="py-3 text-green-600 font-bold">&lt;1 seconde</td>
+<td class="py-3 text-red-600">3-5 seconden</td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+<td class="py-3 font-medium">Kwetsbaarheden (Jaarlijks)</td>
+<td class="py-3 text-green-600 font-bold">Bijna Nul</td>
+<td class="py-3 text-red-600">8.000+ (96% plugins)</td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+<td class="py-3 font-medium">Onderhoud</td>
+<td class="py-3 text-green-600 font-bold">Niet Nodig</td>
+<td class="py-3 text-red-600">Constante Updates</td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+<td class="py-3 font-medium">Hosting Kosten</td>
+<td class="py-3 text-green-600 font-bold">€1-20/jaar</td>
+<td class="py-3 text-red-600">€10-200/maand</td>
+</tr>
+<tr class="table-row">
+<td class="py-3 font-medium">Conversie Impact</td>
+<td class="py-3 text-green-600 font-bold">+200-400%</td>
+<td class="py-3 text-red-600">Baseline</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="process-section py-16 px-4 reveal-section">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Onze Partnerschap Tijdlijn</h2>
+<p class="text-lg opacity-80 reveal-text">Van eerste ontmoeting tot live website—hier is ons bewezen 3-dagen proces</p>
+</div>
+<div class="timeline-container relative">
+<div class="timeline-line absolute left-1/2 transform -translate-x-1/2 top-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-primary h-full hidden lg:block"></div>
+<div class="process-flow space-y-16">
+<div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="1">
+<div class="step-content lg:order-1">
+<div class="step-header flex items-center mb-6">
+<div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">1</div>
+<div>
+<h3 class="text-2xl font-semibold">Dag 1: Eerste Ontmoeting</h3>
+<p class="text-primary font-medium">Ontdekking & Strategiesessie</p>
+</div>
+</div>
+<p class="text-lg mb-6 opacity-90">
+We beginnen met een uitgebreide ontdekkingssessie om je bedrijfsdoelen, doelgroep,
+en groeiopjectieven te begrijpen. Deze samenwerkende ontmoeting legt de basis voor het succes van je website.
+</p>
+<ul class="space-y-3 checklist">
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Bedrijfsdoelen en KPI analyse</span>
+</li>
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Doelgroep onderzoek en persona ontwikkeling</span>
+</li>
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Concurrentieanalyse en marktpositionering</span>
+</li>
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Technische vereisten en functie planning</span>
+</li>
+</ul>
+</div>
+<div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
+<img src="/Pictures_Timeline/day-1.jpg" alt="Dag 1: Eerste Ontmoeting" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+</div>
+</div>
+
+<div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="2">
+<div class="step-content">
+<div class="step-header flex items-center mb-6">
+<div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">2</div>
+<div>
+<h3 class="text-2xl font-semibold">Dag 2: Design & Ontwikkeling</h3>
+<p class="text-primary font-medium">Creatief Proces & Bouw</p>
+</div>
+</div>
+<p class="text-lg mb-6 opacity-90">
+Op dag twee transformeren we inzichten in actie. Ons team creëert je merkidentiteit
+en begint met de ontwikkeling van je website met moderne technologie.
+</p>
+<ul class="space-y-3 checklist">
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Merkidentiteit en visuele stijl creatie</span>
+</li>
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Responsief design voor alle apparaten</span>
+</li>
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Content strategie en SEO optimalisatie</span>
+</li>
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Performance optimalisatie en testen</span>
+</li>
+</ul>
+</div>
+<div class="step-image tilt-card-subtle" data-tilt>
+<img src="/Pictures_Timeline/day-2.jpg" alt="Dag 2: Design & Ontwikkeling" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+</div>
+</div>
+
+<div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="3">
+<div class="step-content lg:order-1">
+<div class="step-header flex items-center mb-6">
+<div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">3</div>
+<div>
+<h3 class="text-2xl font-semibold">Dag 3: Lancering & Groei</h3>
+<p class="text-primary font-medium">Live Gaan & Doorlopende Ondersteuning</p>
+</div>
+</div>
+<p class="text-lg mb-6 opacity-90">
+De laatste dag richt zich op een succesvolle lancering en het opzetten van systemen
+voor continue groei. Je website gaat live met alle systemen voor conversie optimalisatie.
+</p>
+<ul class="space-y-3 checklist">
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Finale kwaliteitscontrole en testing</span>
+</li>
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Live implementatie en DNS configuratie</span>
+</li>
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Analytics en tracking setup</span>
+</li>
+<li class="flex items-start gap-3 checklist-item">
+<span class="text-primary text-xl">✓</span>
+<span>Training en doorlopende ondersteuningsplan</span>
+</li>
+</ul>
+</div>
+<div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
+<img src="/Pictures_Timeline/day-3.jpg" alt="Dag 3: Lancering & Groei" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+// Smooth scroll for navigation links
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+link.addEventListener('click', (e) => {
+e.preventDefault();
+const targetId = link.getAttribute('href')?.substring(1);
+const targetElement = document.getElementById(targetId || '');
+if (targetElement) {
+targetElement.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+});
+});
+
+// Reveal animations
+const observerOptions = {
+root: null,
+rootMargin: '-50px',
+threshold: 0.1
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const element = entry.target as HTMLElement;
+element.style.opacity = '1';
+element.style.transform = 'translateY(0)';
+}
+});
+}, observerOptions);
+
+// Apply reveal animations with proper type assertions
+const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-meta, .reveal-section');
+revealElements.forEach((element, index) => {
+const el = element as HTMLElement;
+el.style.opacity = '0';
+el.style.transform = 'translateY(30px)';
+el.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`;
+revealObserver.observe(el);
+});
+});
+</script>
+
+<style>
+.gradient-text {
+background: linear-gradient(135deg, var(--color-text-light, #1f2937), var(--color-primary, #3b82f6));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+.subtle-card {
+transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+transform-style: preserve-3d;
+min-height: 600px;
+}
+
+.subtle-card:hover {
+box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+}
+
+.hover-scale-102:hover {
+transform: scale(1.02);
+}
+
+.reveal-card {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-card.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+.benefit {
+transition: transform 0.3s ease;
+}
+
+.benefit:hover {
+transform: translateX(5px);
+}
+
+.animated-table tbody tr {
+opacity: 0;
+transform: translateX(-20px);
+transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.animated-table tbody tr:nth-child(1) { transition-delay: 0.1s; }
+.animated-table tbody tr:nth-child(2) { transition-delay: 0.2s; }
+.animated-table tbody tr:nth-child(3) { transition-delay: 0.3s; }
+.animated-table tbody tr:nth-child(4) { transition-delay: 0.4s; }
+.animated-table tbody tr:nth-child(5) { transition-delay: 0.5s; }
+.animated-table tbody tr:nth-child(6) { transition-delay: 0.6s; }
+
+.animated-table.visible tbody tr {
+opacity: 1;
+transform: translateX(0);
+}
+
+.hover-lift-subtle {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift-subtle:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.pulse-animation {
+animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+}
+
+.step-reveal {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.step-reveal.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+.checklist-item {
+opacity: 0;
+transform: translateX(-20px);
+transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.checklist-item:nth-child(1) { transition-delay: 0.1s; }
+.checklist-item:nth-child(2) { transition-delay: 0.2s; }
+.checklist-item:nth-child(3) { transition-delay: 0.3s; }
+.checklist-item:nth-child(4) { transition-delay: 0.4s; }
+
+.step-reveal.visible .checklist-item {
+opacity: 1;
+transform: translateX(0);
+}
+
+.tilt-card-subtle {
+transition: transform 0.3s ease;
+}
+
+.hover-zoom-subtle {
+transition: transform 0.3s ease;
+}
+
+.hover-zoom-subtle:hover {
+transform: scale(1.02);
+}
+
+.packages-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 2rem;
+align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+.packages-grid {
+grid-template-columns: 1fr;
+max-width: 400px;
+margin: 0 auto;
+}
+}
+
+@media (min-width: 1024px) {
+.packages-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+
+.flex-shrink-0 {
+flex-shrink: 0;
+}
+
+.flex-grow {
+flex-grow: 1;
+}
+</style>
+
+</BaseLayout>
