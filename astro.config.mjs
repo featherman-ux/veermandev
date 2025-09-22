@@ -12,6 +12,13 @@ export default defineConfig({
     tailwind(),
     sitemap(),
   ],
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+    },
+    domains: [],
+    remotePatterns: [],
+  },
   i18n: {
     defaultLocale: 'nl',
     locales: ['nl', 'en'],

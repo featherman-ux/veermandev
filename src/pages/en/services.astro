@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TypewriterText from '../../components/ui/TypewriterText.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
@@ -26,7 +27,11 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
         The Small Business Champion
       </div>
       <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-        Pick What Works for <span class="text-primary">Your Business</span>
+        Pick What Works for <TypewriterText 
+          words={["Your Business", "Your Goals", "Your Budget", "Your Success"]}
+          className="text-primary"
+          initialText="Your Business"
+        />
       </h1>
       <p class="text-xl opacity-90 leading-relaxed reveal-text">
         Clear pricing, no surprises. Professional websites that get you more customers. 
@@ -43,7 +48,7 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
         <p class="text-lg opacity-80">€100 off all packages + complete brand strategy included</p>
       </div>
       
-      <div class="packages-grid grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="packages-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <!-- Package 1: Foundation -->
         <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
           <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TypewriterText from '../../components/ui/TypewriterText.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
@@ -11,8 +12,14 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
 <BaseLayout title={pageTitle} description={pageDescription}>
   <section class="mission-section py-20 px-4 text-center relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
-      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-        Your Strategic <span class="text-primary typewriter-highlight" data-text="Growth Partners">Growth Partners</span>
+      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title text-left">
+        Your Strategic <span class="inline-block">
+          <TypewriterText 
+            words={["Growth Partners", "Success Team", "Digital Allies", "Business Champions"]}
+            className="text-primary"
+            initialText="Growth Partners"
+          />
+        </span>
       </h1>
       <p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text">
         We believe every business deserves a website that works as hard as they do. Our mission is to transform 
@@ -243,14 +250,14 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
                 </li>
               </ul>
             </div>
-            <div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
-              <img src="/Pictures_Timeline/day-1.jpg" alt="Day 1: Initial Meeting" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+            <div class="step-content-spacer lg:order-2">
+              <!-- Timeline image removed as requested -->
             </div>
           </div>
 
           <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="2">
-            <div class="step-image lg:order-1 tilt-card-subtle" data-tilt>
-              <img src="/Pictures_Timeline/day-2.jpg" alt="Day 2: Prototype Development" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+            <div class="step-content-spacer lg:order-1">
+              <!-- Timeline image removed as requested -->
             </div>
             <div class="step-content lg:order-2">
               <div class="step-header flex items-center mb-6">
@@ -317,8 +324,8 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
                 </li>
               </ul>
             </div>
-            <div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
-              <img src="/Pictures_Timeline/day-3.jpg" alt="Day 3: Website Goes Live" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
+            <div class="step-content-spacer lg:order-2">
+              <!-- Timeline image removed as requested -->
             </div>
           </div>
         </div>
@@ -370,27 +377,6 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
             if (element.classList.contains('reveal-title')) {
               element.style.opacity = '1';
               element.style.transform = 'translateY(0)';
-              
-              // Typewriter effect for highlights
-              const highlight = element.querySelector('.typewriter-highlight') as HTMLElement;
-              if (highlight) {
-                const text = highlight.dataset.text || '';
-                let currentText = '';
-                let i = 0;
-                
-                const typeWriter = () => {
-                  if (i < text.length) {
-                    currentText += text.charAt(i);
-                    highlight.textContent = currentText + '|';
-                    i++;
-                    setTimeout(typeWriter, 100);
-                  } else {
-                    highlight.textContent = text;
-                  }
-                };
-                
-                setTimeout(typeWriter, 800);
-              }
             } else if (element.classList.contains('reveal-text')) {
               setTimeout(() => {
                 element.style.opacity = '1';
@@ -469,6 +455,13 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
   <style>
     .gradient-text {
       background: linear-gradient(135deg, var(--color-text-light, #1f2937), var(--color-primary, #3b82f6));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .dark .gradient-text {
+      background: linear-gradient(135deg, #e5e7eb, #0A84FF);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;

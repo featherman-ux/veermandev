@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TypewriterText from '../../components/ui/TypewriterText.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'nl';
@@ -26,7 +27,11 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
         De Kleine Bedrijven Kampioen
       </div>
       <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-        Kies Wat <span class="text-primary">Echt Werkt</span> voor Jouw Bedrijf
+        Kies Wat <TypewriterText 
+          words={["Echt Werkt", "Jouw Doelen", "Jouw Budget", "Jouw Succes"]}
+          className="text-primary"
+          initialText="Echt Werkt"
+        /> voor Jouw Bedrijf
       </h1>
       <p class="text-xl opacity-90 leading-relaxed reveal-text">
         Geen verborgen kosten, geen verrassingen. Professionele websites die je meer klanten opleveren. 
@@ -43,7 +48,7 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
         <p class="text-lg opacity-80">€100 korting op alle pakketten + complete merkstrategie inbegrepen</p>
       </div>
       
-      <div class="packages-grid grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="packages-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <!-- Package 1: Foundation -->
         <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
           <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">

@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TypewriterText from '../../components/ui/TypewriterText.astro';
 import { useTranslations } from '../../i18n/utils';
-import HeroSection from '../../components/HeroSection.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
 
 const lang = 'en';
 
 const pageTitle = "Your Partner in Digital Growth | VeermanDevelopment";
-const pageDescription = "We're The Small Business Champion. We build more than websites, we build brands. Professional websites that actually work, now accessible for small businesses.";
+const pageDescription = "We build more than websites, we build brands. Professional websites that actually work, now accessible for small businesses.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -23,7 +24,7 @@ const pageDescription = "We're The Small Business Champion. We build more than w
   <!-- SMALL BUSINESS CHAMPION HERO - FIXED TYPEWRITER -->
   <HeroSection 
     title="We Don't Just Build Websites,"
-    description="We're The Small Business Champion. Your dedicated partner who understands the hustle. We handle the digital side so you can focus on what you do best."
+    description="Your dedicated partner who understands the hustle. We handle the digital side so you can focus on what you do best."
     typewriterWords={['We Build Brands', 'We Create Success', 'We Drive Growth', 'We Generate Sales', 'We Build Your Future', 'We Make You Memorable']}
     primaryCTA={{text: "See Our Packages", href: `/${lang}/services`}}
     secondaryCTA={{text: "View Success Stories", href: `/${lang}/portfolio`}}
@@ -79,7 +80,7 @@ const pageDescription = "We're The Small Business Champion. We build more than w
     
     <div class="brand-promise mt-16 bg-gradient-to-r from-primary/10 to-primary/5 p-8 rounded-xl">
       <h3 class="text-2xl font-bold mb-4">Our Promise to You</h3>
-      <p class="text-lg">
+      <p class="text-lg max-w-3xl mx-auto">
         <strong>Don't just develop a website, develop a brand.</strong> We combine technical expertise with marketing knowledge to create something truly mesmerizing—even if you just want a "simple" website.
       </p>
     </div>
@@ -98,9 +99,9 @@ const pageDescription = "We're The Small Business Champion. We build more than w
       </div>
       
       <!-- FIXED COMPARISON GRID WITH EQUAL HEIGHTS -->
-      <div class="comparison-grid grid lg:grid-cols-3 gap-8 mb-12">
+      <div class="comparison-grid grid sm:grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         <!-- DIY Solutions -->
-        <div class="comparison-column bg-red-50 dark:bg-red-900/20 p-8 rounded-lg border border-red-200 dark:border-red-800 flex flex-col">
+        <div class="comparison-column bg-red-50 dark:bg-red-900/20 p-8 rounded-lg border border-red-200 dark:border-red-800 flex flex-col h-full">
           <div class="column-header text-center mb-6">
             <div class="text-4xl mb-3">😤</div>
             <h3 class="text-xl font-semibold text-red-700 dark:text-red-300">DIY Website Builders</h3>
@@ -170,43 +171,43 @@ const pageDescription = "We're The Small Business Champion. We build more than w
         </div>
 
         <!-- Our Professional Service -->
-         
-        <div class="comparison-column bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/40 dark:to-blue-900/40 p-8 rounded-lg border-2 border-primary relative overflow-hidden flex flex-col">
-          <div class="professional-shine absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent transform -skew-x-12 animate-shine"></div>
+        <div class="comparison-column bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/20 p-8 rounded-lg border-2 border-green-300 dark:border-green-500 relative overflow-hidden flex flex-col shadow-lg">
+          <div class="professional-shine absolute inset-0 bg-gradient-to-r from-transparent via-green-200/30 dark:via-green-400/20 to-transparent transform -skew-x-12 animate-shine"></div>
           <div class="column-header text-center mb-6 relative z-10">
             <div class="text-4xl mb-3">✨</div>
-            <h3 class="text-xl font-semibold text-primary dark:text-green-300">Our Professional Service</h3>
-            <p class="text-gray-600 dark:text-gray-400 mt-2">What professional agencies deliver</p>
+            <h3 class="text-xl font-semibold text-green-700 dark:text-green-300">Our Professional Service</h3>
+            <p class="text-green-600 dark:text-green-200 mt-2">What professional agencies deliver</p>
           </div>
-          <ul class="space-y-4 text-sm relative z-10 flex-grow text-gray-700 dark:text-gray-300">
+          <ul class="space-y-4 text-sm relative z-10 flex-grow text-green-800 dark:text-green-100">
             <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-              <span><strong>Custom-built for your brand</strong></span>
+              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span><strong class="text-green-900 dark:text-green-100">Custom-built for your brand</strong></span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
               <span>Lightning fast (under 1 second)</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
               <span>Modern, secure technology</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
               <span>True partnership & support</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
               <span>Complete brand strategy</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-              <span><strong>Impossible to ignore</strong></span>
+              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
+              <span><strong class="text-green-900 dark:text-green-100">Impossible to ignore</strong></span>
             </li>
           </ul>
         </div>
       </div>
-      
+    </div>
+  </section>
 
   <!-- WHAT MAKES US DIFFERENT - BETTER SPACING -->
   <section class="what-makes-different py-24 px-4 reveal-on-scroll">
@@ -683,14 +684,6 @@ const pageDescription = "We're The Small Business Champion. We build more than w
     
     .comparison-column:hover {
       transform: translateY(-5px);
-    }
-    
-    .comparison-column:last-child {
-      background: linear-gradient(135deg, #f0f9ff, #ecfdf5);
-    }
-    
-    .dark .comparison-column:last-child {
-      background: linear-gradient(135deg, rgb(12 74 110 / 0.2), rgb(6 78 59 / 0.2));
     }
 
     /* Brand philosophy styling */

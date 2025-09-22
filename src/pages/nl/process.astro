@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TypewriterText from '../../components/ui/TypewriterText.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'nl';
@@ -11,8 +12,14 @@ const pageDescription = "Ontmoet het team achter hoogwaardige websites. Leer ove
 <BaseLayout title={pageTitle} description={pageDescription}>
   <section class="mission-section py-20 px-4 text-center relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
-      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-        Jouw Strategische <span class="text-primary typewriter-highlight" data-text="Groeipartners">Groeipartners</span>
+      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title text-left">
+        Jouw Strategische <span class="inline-block">
+          <TypewriterText 
+            words={["Groeipartners", "Succesteam", "Digitale Bondgenoten", "Bedrijfskampioenen"]}
+            className="text-primary"
+            initialText="Groeipartners"
+          />
+        </span>
       </h1>
       <p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text">
         We geloven dat elk bedrijf een website verdient die net zo hard werkt als zijzelf. Onze missie is om 
@@ -385,27 +392,6 @@ const pageDescription = "Ontmoet het team achter hoogwaardige websites. Leer ove
             if (element.classList.contains('reveal-title')) {
               element.style.opacity = '1';
               element.style.transform = 'translateY(0)';
-              
-              // Typewriter effect for highlights
-              const highlight = element.querySelector('.typewriter-highlight') as HTMLElement;
-              if (highlight) {
-                const text = highlight.dataset.text || '';
-                let currentText = '';
-                let i = 0;
-                
-                const typeWriter = () => {
-                  if (i < text.length) {
-                    currentText += text.charAt(i);
-                    highlight.textContent = currentText + '|';
-                    i++;
-                    setTimeout(typeWriter, 100);
-                  } else {
-                    highlight.textContent = text;
-                  }
-                };
-                
-                setTimeout(typeWriter, 800);
-              }
             } else if (element.classList.contains('reveal-text')) {
               setTimeout(() => {
                 element.style.opacity = '1';
@@ -488,6 +474,13 @@ const pageDescription = "Ontmoet het team achter hoogwaardige websites. Leer ove
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
+    .dark .gradient-text {
+       background: linear-gradient(135deg, #e5e7eb, #0A84FF);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       background-clip: text;
+     }
 
     /* Subtle hover effects */
     .hover-lift-subtle {

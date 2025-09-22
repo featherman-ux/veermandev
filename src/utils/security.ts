@@ -1,4 +1,4 @@
-import { randomBytes } from 'crypto';
+import { randomBytes, timingSafeEqual } from 'crypto';
 
 // CSRF Token Management
 export function generateCSRFToken(): string {
@@ -7,20 +7,33 @@ export function generateCSRFToken(): string {
 
 export function validateCSRFToken(token: string, sessionToken: string): boolean {
   if (!token || !sessionToken) return false;
-  return token === sessionToken;
+  if (token.length !== sessionToken.length) return false;
+  
+  // Use timing-safe comparison to prevent timing attacks
+  try {
+    return timingSafeEqual(Buffer.from(token), Buffer.from(sessionToken));
+  } catch (error) {
+    console.error('CSRF validation error:', error);
+    return false;
+  }
 }
 
 // Input Sanitization
 export function sanitizeInput(input: string): string {
+  if (!input || typeof input !== 'string') return '';
+  
   return input
     .trim()
-    .replace(/[<>]/g, '') // Remove potential HTML tags
-    .replace(/javascript:/gi, '') // Remove javascript: protocol
-    .replace(/on\w+\s*=/gi, '') // Remove event handlers
+    .replace(/<[^>]*>/g, '') // Better HTML tag removal
+    .replace(/javascript:/gi, 'blocked:') // Replace javascript: protocol
+    .replace(/data:/gi, 'blocked:') // Block data: URIs
+    .replace(/on\w+\s*=/gi, 'data-blocked=') // Replace event handlers
     .substring(0, 1000); // Limit length
 }
 
 export function sanitizeEmail(email: string): string {
+  if (!email || typeof email !== 'string') return '';
+  
   return email
     .trim()
     .toLowerCase()
@@ -28,10 +41,39 @@ export function sanitizeEmail(email: string): string {
     .substring(0, 254); // RFC 5321 limit
 }
 
+// Content Security Policy helper
+export function getCSPHeader(): string {
+  return [
+    "default-src 'self'",
+    "script-src 'self'",
+    "style-src 'self' 'unsafe-inline'", // Allow inline styles for now
+    "img-src 'self' data: https:",
+    "font-src 'self'",
+    "connect-src 'self'",
+    "frame-ancestors 'none'",
+    "form-action 'self'",
+    "base-uri 'self'",
+    "object-src 'none'"
+  ].join('; ');
+}
+
 // Rate Limiting (simple in-memory store for demo)
+// In production, use Redis or another persistent store
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
+// Clean up expired rate limit entries periodically
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, value] of rateLimitStore.entries()) {
+    if (now > value.resetTime) {
+      rateLimitStore.delete(key);
+    }
+  }
+}, 60000); // Clean up every minute
+
 export function checkRateLimit(ip: string, maxRequests: number = 10, windowMs: number = 60000): boolean {
+  if (!ip) return false;
+  
   const now = Date.now();
   const key = ip;
   const record = rateLimitStore.get(key);

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TypewriterText from '../../components/ui/TypewriterText.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
@@ -17,7 +18,11 @@ const pageDescription = "See what we build for small businesses across the Nethe
         The Small Business Champion
       </div>
       <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-        Real Websites for <span class="text-primary">Real Businesses</span>
+        Real Websites for <TypewriterText 
+          words={["Real Businesses", "Real Results", "Real Success", "Real Growth"]}
+          className="text-primary"
+          initialText="Real Businesses"
+        />
       </h1>
       <p class="text-xl opacity-90 leading-relaxed reveal-text">
         See what we build for small businesses across the Netherlands. Professional websites that actually work, now accessible for small businesses.

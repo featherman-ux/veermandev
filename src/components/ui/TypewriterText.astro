@@ -1,0 +1,103 @@
+---
+export interface Props {
+  words: string[];
+  className?: string;
+  initialText?: string;
+  cursorClass?: string;
+}
+
+const { words, className = "text-primary", initialText, cursorClass = "terminal-cursor" } = Astro.props;
+---
+
+<span 
+  class={`typewriter-text ${className}`} 
+  data-words={JSON.stringify(words)}
+  data-cursor-class={cursorClass}
+>
+  {initialText || words[0]}
+</span>
+
+<style>
+  .terminal-cursor {
+    animation: blink 1s infinite;
+    color: currentColor;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Enhanced typewriter effect based on terminal implementation
+    const typewriterElements = document.querySelectorAll('.typewriter-text') as NodeListOf<HTMLElement>;
+    
+    typewriterElements.forEach((typewriterElement) => {
+      if (typewriterElement) {
+        const words = JSON.parse(typewriterElement.dataset.words || '[]');
+        const cursorClass = typewriterElement.dataset.cursorClass || 'terminal-cursor';
+        let currentWordIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let isWaiting = false;
+
+        // Set initial width to prevent jumping - improved calculation
+        const longestWord = words.reduce((a: string, b: string) => a.length > b.length ? a : b, '');
+        const containerElement = typewriterElement.parentElement;
+        
+        // Set fixed width on container to prevent layout shifts
+        if (containerElement) {
+          containerElement.style.minWidth = (longestWord.length * 0.6) + 'em';
+          containerElement.style.display = 'inline-block';
+        }
+        
+        typewriterElement.style.minWidth = longestWord.length + 'ch';
+        typewriterElement.style.display = 'inline-block';
+
+        function typeWriter() {
+          const currentWord = words[currentWordIndex];
+          const shouldDelete = isDeleting;
+          const shouldWait = isWaiting;
+
+          if (shouldWait) {
+            setTimeout(() => {
+              isWaiting = false;
+              typeWriter();
+            }, 2000);
+            return;
+          }
+
+          if (shouldDelete) {
+            if (currentCharIndex > 0) {
+              currentCharIndex--;
+              typewriterElement.innerHTML = currentWord.substring(0, currentCharIndex) + `<span class="${cursorClass}">|</span>`;
+              setTimeout(typeWriter, 75);
+            } else {
+              isDeleting = false;
+              currentWordIndex = (currentWordIndex + 1) % words.length;
+              setTimeout(typeWriter, 200);
+            }
+          } else {
+            if (currentCharIndex < currentWord.length) {
+              currentCharIndex++;
+              typewriterElement.innerHTML = currentWord.substring(0, currentCharIndex) + `<span class="${cursorClass}">|</span>`;
+              setTimeout(typeWriter, 150);
+            } else {
+              isWaiting = true;
+              setTimeout(() => {
+                isDeleting = true;
+                isWaiting = false;
+                typeWriter();
+              }, 3000);
+            }
+          }
+        }
+
+        // Start typewriter effect after a delay
+        setTimeout(typeWriter, 1500);
+      }
+    });
+  });
+</script>

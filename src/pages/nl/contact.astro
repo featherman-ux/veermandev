@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TypewriterText from '../../components/ui/TypewriterText.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'nl';
@@ -13,7 +14,12 @@ const pageDescription = "Klaar om je bedrijf te transformeren met een hoogwaardi
 <section class="contact-hero py-20 px-4 text-center relative overflow-hidden">
 <div class="max-w-4xl mx-auto relative z-10">
 <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-Laten We Samen Iets <span class="text-primary terminal-text" data-words='["Geweldigs Bouwen", "Revolutionairs", "Dat Converteert", "Dat Presteert", "Buitengewoons"]'>Geweldigs Bouwen</span>
+Laten We Samen Iets <TypewriterText 
+          words={["Geweldigs Bouwen", "Revolutionairs", "Dat Converteert", "Dat Presteert", "Buitengewoons"]}
+          className="text-primary terminal-text"
+          initialText="Geweldigs Bouwen"
+          cursorClass="terminal-cursor"
+        />
 </h1>
 <p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text">
 Plan een gratis oriëntatiegesprek of stuur ons een bericht. We nemen binnen één werkdag
@@ -257,57 +263,6 @@ met inzichten en vervolgstappen voor je project.
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-// Terminal typewriter effect
-const terminalText = document.querySelector('.terminal-text') as HTMLElement;
-if (terminalText) {
-const words = JSON.parse(terminalText.dataset.words || '[]');
-let currentWordIndex = 0;
-let currentCharIndex = 0;
-let isDeleting = false;
-let isWaiting = false;
-
-function typeWriter() {
-const currentWord = words[currentWordIndex];
-const shouldDelete = isDeleting;
-const shouldWait = isWaiting;
-
-if (shouldWait) {
-setTimeout(() => {
-isWaiting = false;
-typeWriter();
-}, 2000);
-return;
-}
-
-if (shouldDelete) {
-if (currentCharIndex > 0) {
-currentCharIndex--;
-terminalText.innerHTML = currentWord.substring(0, currentCharIndex) + '<span class="terminal-cursor">|</span>';
-setTimeout(typeWriter, 75);
-} else {
-isDeleting = false;
-currentWordIndex = (currentWordIndex + 1) % words.length;
-setTimeout(typeWriter, 200);
-}
-} else {
-if (currentCharIndex < currentWord.length) {
-currentCharIndex++;
-terminalText.innerHTML = currentWord.substring(0, currentCharIndex) + '<span class="terminal-cursor">|</span>';
-setTimeout(typeWriter, 150);
-} else {
-isWaiting = true;
-setTimeout(() => {
-isDeleting = true;
-isWaiting = false;
-typeWriter();
-}, 3000);
-}
-}
-}
-
-setTimeout(typeWriter, 1500);
-}
-
 // Enhanced form interactions
 const formInputs = document.querySelectorAll('.form-input');
 formInputs.forEach(input => {

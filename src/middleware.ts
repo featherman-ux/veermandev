@@ -47,6 +47,7 @@ export const onRequest = defineMiddleware((context, next) => {
       return redirect(`/${targetLang}/home`, 307);
     }
   }
-
+  
+  // If we reach here, continue with the request
   return next();
 });

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TypewriterText from '../../components/ui/TypewriterText.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'nl';
@@ -17,8 +18,12 @@ const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. P
 De Kleine Bedrijven Kampioen
 </div>
 <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-Echte Websites voor <span class="text-primary">Echte Bedrijven</span>
-</h1>
+        Echte Websites voor <TypewriterText 
+          words={["Echte Bedrijven", "Echte Resultaten", "Echte Groei", "Echte Succes"]}
+          className="text-primary"
+          initialText="Echte Bedrijven"
+        />
+      </h1>
 <p class="text-xl opacity-90 leading-relaxed reveal-text">
 Zie wat we bouwen voor kleine bedrijven in Nederland. Professionele websites die daadwerkelijk werken, nu toegankelijk voor kleine bedrijven.
 </p>
@@ -444,48 +449,78 @@ voor continue groei. Je website gaat live met alle systemen voor conversie optim
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-// Smooth scroll for navigation links
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-link.addEventListener('click', (e) => {
-e.preventDefault();
-const targetId = link.getAttribute('href')?.substring(1);
-const targetElement = document.getElementById(targetId || '');
-if (targetElement) {
-targetElement.scrollIntoView({
-behavior: 'smooth',
-block: 'start'
-});
-}
-});
-});
+  // Smooth scroll for navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href')?.substring(1);
+      const targetElement = document.getElementById(targetId || '');
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
 
-// Reveal animations
-const observerOptions = {
-root: null,
-rootMargin: '-50px',
-threshold: 0.1
-};
+  // Enhanced scroll reveals
+  const observerOptions = {
+    root: null,
+    rootMargin: '-50px',
+    threshold: 0.1
+  };
 
-const revealObserver = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-const element = entry.target as HTMLElement;
-element.style.opacity = '1';
-element.style.transform = 'translateY(0)';
-}
-});
-}, observerOptions);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        const element = entry.target as HTMLElement;
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0) scale(1)';
+        
+        // Stagger children animation
+        const children = element.querySelectorAll('.project-card, .included-item') as NodeListOf<HTMLElement>;
+        children.forEach((child, childIndex) => {
+          setTimeout(() => {
+            child.style.opacity = '1';
+            child.style.transform = 'translateY(0)';
+          }, childIndex * 150);
+        });
+      }
+    });
+  }, observerOptions);
 
-// Apply reveal animations with proper type assertions
-const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-meta, .reveal-section');
-revealElements.forEach((element, index) => {
-const el = element as HTMLElement;
-el.style.opacity = '0';
-el.style.transform = 'translateY(30px)';
-el.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`;
-revealObserver.observe(el);
-});
+  // Apply to sections with proper casting
+  const sections = document.querySelectorAll('.reveal-section') as NodeListOf<HTMLElement>;
+  sections.forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px) scale(0.98)';
+    section.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    observer.observe(section);
+  });
+
+  // Subtle card effects
+  const subtleCards = document.querySelectorAll('.subtle-card') as NodeListOf<HTMLElement>;
+  subtleCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 80;
+      const rotateY = (centerX - x) / 80;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(3px)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+    });
+  });
 });
 </script>
 

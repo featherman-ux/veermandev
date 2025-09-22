@@ -1,11 +1,7 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  icon?: string;
-  link: string;
-  linkText?: string;
-}
+import type { ServiceCardProps } from '../../types/components';
+
+interface Props extends ServiceCardProps {}
 
 const { title, description, icon, link, linkText = "Learn more →" } = Astro.props;
 ---

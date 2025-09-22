@@ -1,43 +1,73 @@
-# Astro Starter Kit: Minimal
+# Veerman Web Development
 
-```sh
-npm create astro@latest -- --template minimal
+A modern, multilingual website built with Astro, Tailwind CSS, and deployed on Cloudflare Pages.
+
+## 🚀 Features
+
+- **Multilingual Support**: Dutch and English language support with automatic language detection
+- **Server-Side Rendering**: Using Astro's SSR capabilities with Cloudflare adapter
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Security**: CSRF protection, input sanitization, and rate limiting
+- **Performance Optimized**: Image optimization, minimal JavaScript
+
+## 📁 Project Structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
+├── .github/workflows/   # GitHub Actions workflows for CI/CD
+├── public/              # Static assets
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── actions/         # Form actions and API endpoints
+│   ├── components/      # Reusable UI components
+│   ├── i18n/            # Internationalization utilities
+│   ├── layouts/         # Page layouts
+│   ├── pages/           # Page components and routes
+│   │   ├── en/          # English pages
+│   │   └── nl/          # Dutch pages
+│   ├── styles/          # Global styles
+│   └── utils/           # Utility functions
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
 ## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm install`             | Install dependencies                             |
+| `npm run dev`             | Start local dev server at `localhost:4321`       |
 | `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run preview`         | Preview your build locally before deploying      |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 🌐 Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project is configured to deploy automatically to Cloudflare Pages via GitHub Actions when changes are pushed to the main branch.
+
+### Manual Deployment
+
+1. Build the project: `npm run build`
+2. Deploy using the Cloudflare Pages GitHub Action
+
+## 🔧 Development
+
+### Adding a New Page
+
+1. Create a new `.astro` file in the appropriate language folder (`src/pages/en/` or `src/pages/nl/`)
+2. Add translations to the i18n files if needed
+
+### Adding a New Component
+
+1. Create a new component in `src/components/`
+2. Import and use it in your pages
+
+## 🛡️ Security
+
+The project implements several security best practices:
+- CSRF token protection
+- Input sanitization
+- Rate limiting
+- Content Security Policy headers
+
+## 📝 License
+
+All rights reserved. This codebase is proprietary and confidential.
