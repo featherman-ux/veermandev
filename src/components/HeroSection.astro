@@ -255,11 +255,28 @@ const sizeClasses = {
   .typewriter-container {
     min-height: 1.2em;
     display: inline-block;
+    width: 100%;
+    text-align: center;
   }
   
   .typewriter-text {
     display: inline-block;
-    text-align: center; /* CHANGED FROM left TO center */
+    text-align: center;
+  }
+
+  /* Mobile centering fix */
+  @media (max-width: 640px) {
+    .typewriter-container {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .typewriter-text {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
   }
 
   .particles {
