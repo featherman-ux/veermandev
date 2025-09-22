@@ -255,7 +255,7 @@ const sizeClasses = {
   .typewriter-container {
     min-height: 1.2em;
     display: inline-block;
-    width: 100%;
+    width: auto;
     text-align: center;
   }
   
@@ -270,12 +270,25 @@ const sizeClasses = {
       display: block;
       width: 100%;
       text-align: center;
+      margin: 0 auto;
     }
     
     .typewriter-text {
-      display: block;
+      display: inline-block;
       text-align: center;
-      width: 100%;
+      width: auto;
+      margin: 0 auto;
+    }
+    
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .title-static {
+      margin-bottom: 0.5rem;
     }
   }
 
