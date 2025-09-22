@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
+import TypewriterText from '../../components/ui/TypewriterText.astro';
 
 const lang = 'nl';
 
@@ -28,19 +29,21 @@ const pageDescription = "We bouwen meer dan websites, we bouwen merken. Professi
     trustSignals={["Your Partner in Digital Growth", "Built in 3 days", "Brand strategy included"]}
     size="large"
   >
-    We Don't Just Build Websites,
+    We Don't Just Build Websites, <TypewriterText 
+      words={['We Build Brands', 'We Create Success', 'We Drive Growth', 'We Generate Sales', 'We Build Your Future', 'We Make You Memorable']}
+      className="text-primary"
+      initialText="We Build Brands"
+      cursorClass="cursor"
+    />
   </HeroSection>
 
   <!-- BRAND CHAMPION MESSAGE - BETTER SPACING -->
   <section class="brand-champion-message py-6 px-4 reveal-on-scroll">
   <div class="max-w-4xl mx-auto text-center">
-    <div class="champion-badge inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-      De Kleine Bedrijven Kampioen
-    </div>
     <h2 class="font-heading font-bold text-4xl mb-6">In een Tijdperk Waar Iedereen Hetzelfde Is,<br><span class="text-primary">Durf Anders te Zijn</span></h2>
     
     <div class="brand-philosophy grid md:grid-cols-2 gap-16 mt-16">
-      <div class="philosophy-left text-left">
+      <div class="philosophy-left text-center">
         <h3 class="text-2xl font-semibold mb-4">Iedereen kan een website bouwen</h3>
         <p class="text-lg opacity-80 mb-6">Sjablonen, bouwers, doe-het-zelf oplossingen—ze zijn overal. Maar standaard websites creëren standaard bedrijven.</p>
         <div class="problem-list space-y-4 w-fit mx-auto">
@@ -59,7 +62,7 @@ const pageDescription = "We bouwen meer dan websites, we bouwen merken. Professi
         </div>
       </div>
       
-      <div class="philosophy-right text-left">
+      <div class="philosophy-right text-center">
         <h3 class="text-2xl font-semibold mb-4">Niet iedereen kan opvallen</h3>
         <p class="text-lg opacity-80 mb-6">Daar komen wij om de hoek kijken. We ontwikkelen niet alleen websites—<strong>we ontwikkelen merken die klanten niet kunnen negeren.</strong></p>
         <div class="solution-list space-y-4 w-fit mx-auto">
@@ -82,7 +85,7 @@ const pageDescription = "We bouwen meer dan websites, we bouwen merken. Professi
     <div class="brand-promise mt-16 bg-gradient-to-r from-primary/10 to-primary/5 p-8 rounded-xl">
       <h3 class="text-2xl font-bold mb-4">Onze Belofte aan Jou</h3>
       <p class="text-lg max-w-3xl mx-auto">
-        <strong>Ontwikkel niet alleen een website, ontwikkel een merk.</strong> We combineren technische expertise met marketingkennis om iets echt betoverends te creëren—zelfs als je alleen een "eenvoudige" website wilt.
+        <strong>Ontwikkel niet alleen een website, ontwikkel een merk.</strong> We combineren technische expertise met marketingkennis om iets echt betoverends te creëren. Zelfs als je alleen een "eenvoudige" website wilt.
       </p>
     </div>
   </div>
@@ -92,7 +95,7 @@ const pageDescription = "We bouwen meer dan websites, we bouwen merken. Professi
   <section class="professional-vs-rest py-24 px-4 bg-card-light dark:bg-card-dark reveal-on-scroll">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="font-heading font-bold text-4xl mb-6">Waarom De Meeste MKB Websites Er Amateur Uitzien</h2>
+        <h2 class="font-heading font-bold text-4xl mb-6">Waarom de meeste simpele websites er amateuristisch uitzien</h2>
         <p class="text-lg mb-8 opacity-80">Iedereen gebruikt dezelfde DIY-tools en sjablonen. Zelfs veel "ontwikkelaars" installeren alleen WordPress-thema's. Je bedrijf verdient beter.</p>
         <div class="professional-badge inline-block bg-gradient-to-r from-primary to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
           Professionele Website Service - Nu Toegankelijk voor Kleine Bedrijven
@@ -214,7 +217,7 @@ const pageDescription = "We bouwen meer dan websites, we bouwen merken. Professi
   <section class="what-makes-different py-24 px-4 reveal-on-scroll">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="font-heading font-bold text-4xl mb-4">Professionele Service, MKB Prijzen</h2>
+        <h2 class="font-heading font-bold text-4xl mb-4">Professionele Service, Toegankelijke Prijzen</h2>
         <p class="text-lg opacity-80">Wat grote bedrijven krijgen van dure bureaus, leveren wij voor kleine bedrijven tegen eerlijke prijzen</p>
       </div>
       

@@ -9,7 +9,6 @@ const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. P
 
 <BaseLayout title={pageTitle} description={pageDescription}>
 
-<!-- INTRO -->
 <HeroSection 
   subtitle="De Kleine Bedrijven Kampioen"
   description="Zie wat we bouwen voor kleine bedrijven in Nederland. Professionele websites die daadwerkelijk werken, nu toegankelijk voor kleine bedrijven."
@@ -21,11 +20,9 @@ const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. P
   />
 </HeroSection>
 
-<!-- PROJECT EXAMPLES -->
 <section class="projects-grid-section py-8 px-4 reveal-section">
 <div class="max-w-6xl mx-auto">
 <div class="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Example 1: Foundation - Coming Soon -->
 <div class="project-item group cursor-pointer subtle-card" data-category="foundation">
 <div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 flex flex-col">
 <div class="project-image relative overflow-hidden">
@@ -58,7 +55,6 @@ const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. P
 </div>
 </div>
 
-<!-- Example 2: Growth - Live Success -->
 <div class="project-item group cursor-pointer subtle-card" data-category="growth">
 <div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 border-2 border-green-200 dark:border-green-800 flex flex-col">
 <div class="success-badge absolute top-4 right-4 z-10 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
@@ -97,7 +93,6 @@ Bezoek waarisniels.nl
 </div>
 </div>
 
-<!-- Example 3: Complete - Coming Soon -->
 <div class="project-item group cursor-pointer subtle-card" data-category="complete">
 <div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 flex flex-col">
 <div class="project-image relative overflow-hidden">
@@ -134,7 +129,6 @@ Bezoek waarisniels.nl
 </div>
 </section>
 
-<!-- FROM TRAVELLER TO BLOGGER -->
 <section class="success-example py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
 <div class="max-w-6xl mx-auto">
 <div class="text-center mb-12">
@@ -174,7 +168,6 @@ Bezoek de Blog
 </div>
 </section>
 
-<!-- WHAT'S INCLUDED -->
 <section class="whats-included py-16 px-4 reveal-section">
 <div class="max-w-4xl mx-auto text-center">
 <h2 class="font-heading font-bold text-4xl mb-12">Wat Elk Pakket Bevat</h2>
@@ -212,449 +205,201 @@ Bezoek de Blog
 </div>
 </div>
 </section>
-
-<!-- TECHNOLOGY SECTION -->
-<section class="technology-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
-<div class="max-w-6xl mx-auto">
-<div class="text-center mb-12">
-<h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Ons Technologisch Voordeel</h2>
-<p class="text-lg opacity-80 reveal-text">Waarom we moderne Jamstack kiezen boven traditionele platforms</p>
-</div>
-<div class="grid lg:grid-cols-2 gap-12 items-center">
-<div class="technology-content reveal-card">
-<h3 class="text-2xl font-semibold mb-6">Strategische Keuze voor Astro/Jamstack Architectuur</h3>
-<p class="text-lg mb-6 opacity-90">
-Onze technologie keuzes zijn niet willekeurig—het zijn strategische beslissingen gebaseerd op wat
-de beste zakelijke resultaten oplevert voor onze klanten. Elk framework en tool dat we gebruiken wordt gekozen
-om prestaties, veiligheid en jouw return on investment te maximaliseren.
+<section class="simple-cta py-16 px-4 text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-heading font-bold text-4xl mb-6">Ready to Get Started?</h2>
+<p class="text-lg opacity-80 mb-8">
+Pick your package and let's build you a website that actually gets you customers. Free hosting & updates included forever.
 </p>
-<div class="technology-benefits space-y-4">
-<div class="benefit flex items-start gap-3 hover-slide">
-<span class="text-primary text-xl benefit-icon">⚡</span>
-<div>
-<h4 class="font-semibold mb-1">Compromisloze Prestaties</h4>
-<p class="text-sm opacity-80">Laadtijden onder 1 seconde die 2-3x beter converteren dan langzame sites</p>
+<div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
+<a
+href={`/en/services`}
+class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary/90 transition-all inline-block"
+>
+See Packages & Pricing
+</a>
+<a
+href={`/en/contact`}
+class="bg-card-light dark:bg-card-dark border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary hover:text-black transition-all inline-block"
+>
+Ask Questions First
+</a>
 </div>
-</div>
-<div class="benefit flex items-start gap-3 hover-slide">
-<span class="text-primary text-xl benefit-icon">🛡️</span>
-<div>
-<h4 class="font-semibold mb-1">Enterprise-Grade Beveiliging</h4>
-<p class="text-sm opacity-80">Nul database kwetsbaarheden, virtueel onhackbare architectuur</p>
-</div>
-</div>
-<div class="benefit flex items-start gap-3 hover-slide">
-<span class="text-primary text-xl benefit-icon">💰</span>
-<div>
-<h4 class="font-semibold mb-1">Lagere Totale Eigendomskosten</h4>
-<p class="text-sm opacity-80">Geen doorlopende onderhoudskosten, 60-99% lagere hosting kosten</p>
-</div>
-</div>
-<div class="benefit flex items-start gap-3 hover-slide">
-<span class="text-primary text-xl benefit-icon">📈</span>
-<div>
-<h4 class="font-semibold mb-1">SEO Excellentie</h4>
-<p class="text-sm opacity-80">Perfecte PageSpeed scores en technische SEO uit de doos</p>
-</div>
-</div>
-</div>
-</div>
-<div class="performance-comparison bg-background-light dark:bg-background-dark rounded-lg p-6 hover-lift-subtle reveal-card">
-<h4 class="font-semibold mb-6 text-center">Vergelijkende Prestatie & Beveiligingsanalyse</h4>
-<div class="overflow-x-auto">
-<table class="w-full text-sm animated-table">
-<thead>
-<tr class="border-b border-gray-300 dark:border-gray-600">
-<th class="text-left py-3">Metriek</th>
-<th class="text-left py-3 text-green-600">Onze Astro Oplossing</th>
-<th class="text-left py-3 text-red-600">WordPress</th>
-</tr>
-</thead>
-<tbody>
-<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-<td class="py-3 font-medium">PageSpeed Score</td>
-<td class="py-3 text-green-600 font-bold">95-100 (Uitstekend)</td>
-<td class="py-3 text-red-600">40-80 (Slecht tot Redelijk)</td>
-</tr>
-<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-<td class="py-3 font-medium">Laadtijd</td>
-<td class="py-3 text-green-600 font-bold">&lt;1 seconde</td>
-<td class="py-3 text-red-600">3-5 seconden</td>
-</tr>
-<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-<td class="py-3 font-medium">Kwetsbaarheden (Jaarlijks)</td>
-<td class="py-3 text-green-600 font-bold">Bijna Nul</td>
-<td class="py-3 text-red-600">8.000+ (96% plugins)</td>
-</tr>
-<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-<td class="py-3 font-medium">Onderhoud</td>
-<td class="py-3 text-green-600 font-bold">Niet Nodig</td>
-<td class="py-3 text-red-600">Constante Updates</td>
-</tr>
-<tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-<td class="py-3 font-medium">Hosting Kosten</td>
-<td class="py-3 text-green-600 font-bold">€1-20/jaar</td>
-<td class="py-3 text-red-600">€10-200/maand</td>
-</tr>
-<tr class="table-row">
-<td class="py-3 font-medium">Conversie Impact</td>
-<td class="py-3 text-green-600 font-bold">+200-400%</td>
-<td class="py-3 text-red-600">Baseline</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- PROCESS SECTION -->
-<section class="process-section py-16 px-4 reveal-section">
-<div class="max-w-6xl mx-auto">
-<div class="text-center mb-12">
-<h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Onze Partnerschap Tijdlijn</h2>
-<p class="text-lg opacity-80 reveal-text">Van eerste ontmoeting tot live website—hier is ons bewezen 3-dagen proces</p>
-</div>
-<div class="timeline-container relative">
-<div class="timeline-line absolute left-1/2 transform -translate-x-1/2 top-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-primary h-full hidden lg:block"></div>
-<div class="process-flow space-y-16">
-<div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="1">
-<div class="step-content lg:order-1">
-<div class="step-header flex items-center mb-6">
-<div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">1</div>
-<div>
-<h3 class="text-2xl font-semibold">Dag 1: Eerste Ontmoeting</h3>
-<p class="text-primary font-medium">Ontdekking & Strategiesessie</p>
-</div>
-</div>
-<p class="text-lg mb-6 opacity-90">
-We beginnen met een uitgebreide ontdekkingssessie om je bedrijfsdoelen, doelgroep,
-en groeiopjectieven te begrijpen. Deze samenwerkende ontmoeting legt de basis voor het succes van je website.
+<div class="launch-urgency mt-8 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-4 rounded-lg border border-orange-200 dark:border-orange-800">
+<p class="font-semibold text-orange-800 dark:text-orange-300">
+🚀 <strong>Launch offer:</strong> €100 off + complete brand strategy included. Limited to first 20 clients.
 </p>
-<ul class="space-y-3 checklist">
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Bedrijfsdoelen en KPI analyse</span>
-</li>
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Doelgroep onderzoek en persona ontwikkeling</span>
-</li>
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Concurrentieanalyse en marktpositionering</span>
-</li>
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Technische vereisten en functie planning</span>
-</li>
-</ul>
-</div>
-<div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
-<img src="/Pictures_Timeline/day-1.jpg" alt="Dag 1: Eerste Ontmoeting" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
-</div>
-</div>
-
-<div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="2">
-<div class="step-content">
-<div class="step-header flex items-center mb-6">
-<div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">2</div>
-<div>
-<h3 class="text-2xl font-semibold">Dag 2: Design & Ontwikkeling</h3>
-<p class="text-primary font-medium">Creatief Proces & Bouw</p>
-</div>
-</div>
-<p class="text-lg mb-6 opacity-90">
-Op dag twee transformeren we inzichten in actie. Ons team creëert je merkidentiteit
-en begint met de ontwikkeling van je website met moderne technologie.
-</p>
-<ul class="space-y-3 checklist">
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Merkidentiteit en visuele stijl creatie</span>
-</li>
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Responsief design voor alle apparaten</span>
-</li>
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Content strategie en SEO optimalisatie</span>
-</li>
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Performance optimalisatie en testen</span>
-</li>
-</ul>
-</div>
-<div class="step-image tilt-card-subtle" data-tilt>
-<img src="/Pictures_Timeline/day-2.jpg" alt="Dag 2: Design & Ontwikkeling" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
-</div>
-</div>
-
-<div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="3">
-<div class="step-content lg:order-1">
-<div class="step-header flex items-center mb-6">
-<div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">3</div>
-<div>
-<h3 class="text-2xl font-semibold">Dag 3: Lancering & Groei</h3>
-<p class="text-primary font-medium">Live Gaan & Doorlopende Ondersteuning</p>
-</div>
-</div>
-<p class="text-lg mb-6 opacity-90">
-De laatste dag richt zich op een succesvolle lancering en het opzetten van systemen
-voor continue groei. Je website gaat live met alle systemen voor conversie optimalisatie.
-</p>
-<ul class="space-y-3 checklist">
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Finale kwaliteitscontrole en testing</span>
-</li>
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Live implementatie en DNS configuratie</span>
-</li>
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Analytics en tracking setup</span>
-</li>
-<li class="flex items-start gap-3 checklist-item">
-<span class="text-primary text-xl">✓</span>
-<span>Training en doorlopende ondersteuningsplan</span>
-</li>
-</ul>
-</div>
-<div class="step-image lg:order-2 tilt-card-subtle" data-tilt>
-<img src="/Pictures_Timeline/day-3.jpg" alt="Dag 3: Lancering & Groei" class="w-full rounded-lg shadow-lg hover-zoom-subtle" />
-</div>
-</div>
-</div>
 </div>
 </div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Smooth scroll for navigation links
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href')?.substring(1);
-      const targetElement = document.getElementById(targetId || '');
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+    document.addEventListener('DOMContentLoaded', () => {
+      // Filter functionality
+      const filterButtons = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
+      const projectItems = document.querySelectorAll('.project-item') as NodeListOf<HTMLElement>;
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.getAttribute('data-filter');
+          
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-black'));
+          button.classList.add('active', 'bg-primary', 'text-black');
+          
+          // Filter projects
+          projectItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
         });
-      }
-    });
-  });
+      });
 
-  // Enhanced scroll reveals
-  const observerOptions = {
-    root: null,
-    rootMargin: '-50px',
-    threshold: 0.1
-  };
+      // Enhanced scroll reveals
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50px',
+        threshold: 0.1
+      };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const element = entry.target as HTMLElement;
-        element.style.opacity = '1';
-        element.style.transform = 'translateY(0) scale(1)';
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0) scale(1)';
+            
+            // Stagger children animation
+            const children = element.querySelectorAll('.project-card, .included-item') as NodeListOf<HTMLElement>;
+            children.forEach((child, childIndex) => {
+              setTimeout(() => {
+                child.style.opacity = '1';
+                child.style.transform = 'translateY(0)';
+              }, childIndex * 150);
+            });
+          }
+        });
+      }, observerOptions);
+
+      // Apply to sections with proper casting
+      const sections = document.querySelectorAll('.reveal-section') as NodeListOf<HTMLElement>;
+      sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px) scale(0.98)';
+        section.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(section);
+      });
+
+      // Subtle card effects
+      const subtleCards = document.querySelectorAll('.subtle-card') as NodeListOf<HTMLElement>;
+      subtleCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 80;
+          const rotateY = (centerX - x) / 80;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(3px)`;
+        });
         
-        // Stagger children animation
-        const children = element.querySelectorAll('.project-card, .included-item') as NodeListOf<HTMLElement>;
-        children.forEach((child, childIndex) => {
-          setTimeout(() => {
-            child.style.opacity = '1';
-            child.style.transform = 'translateY(0)';
-          }, childIndex * 150);
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
         });
-      }
+      });
     });
-  }, observerOptions);
+  </script>
 
-  // Apply to sections with proper casting
-  const sections = document.querySelectorAll('.reveal-section') as NodeListOf<HTMLElement>;
-  sections.forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px) scale(0.98)';
-    section.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-    observer.observe(section);
-  });
-
-  // Subtle card effects
-  const subtleCards = document.querySelectorAll('.subtle-card') as NodeListOf<HTMLElement>;
-  subtleCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = (y - centerY) / 80;
-      const rotateY = (centerX - x) / 80;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(3px)`;
-    });
+  <style>
+    /* Launch banner animation */
+    @keyframes shine {
+      0% { transform: translateX(-100%) skewX(-12deg); }
+      100% { transform: translateX(200%) skewX(-12deg); }
+    }
     
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-    });
-  });
-});
-</script>
+    .animate-shine {
+      animation: shine 3s ease-in-out infinite;
+    }
 
-<style>
-.gradient-text {
-background: linear-gradient(135deg, var(--color-text-light, #1f2937), var(--color-primary, #3b82f6));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
+    .subtle-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+      min-height: 500px;
+    }
 
-.subtle-card {
-transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-transform-style: preserve-3d;
-min-height: 600px;
-}
+    .subtle-card:hover {
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    }
 
-.subtle-card:hover {
-box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
-}
+    .hover\:scale-102:hover {
+      transform: scale(1.02);
+    }
 
-.hover-scale-102:hover {
-transform: scale(1.02);
-}
+    .coming-soon-placeholder {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    }
 
-.reveal-card {
-opacity: 0;
-transform: translateY(20px);
-transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
+    .dark .coming-soon-placeholder {
+      background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+    }
 
-.reveal-card.visible {
-opacity: 1;
-transform: translateY(0);
-}
+    .success-badge {
+      animation: pulse 2s ease-in-out infinite;
+    }
 
-.benefit {
-transition: transform 0.3s ease;
-}
+    .launch-offer-badge {
+      animation: pulse 2s ease-in-out infinite;
+    }
 
-.benefit:hover {
-transform: translateX(5px);
-}
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
 
-.animated-table tbody tr {
-opacity: 0;
-transform: translateX(-20px);
-transition: opacity 0.4s ease, transform 0.4s ease;
-}
+    .grid-lines {
+      animation: gridMove 20s linear infinite;
+    }
 
-.animated-table tbody tr:nth-child(1) { transition-delay: 0.1s; }
-.animated-table tbody tr:nth-child(2) { transition-delay: 0.2s; }
-.animated-table tbody tr:nth-child(3) { transition-delay: 0.3s; }
-.animated-table tbody tr:nth-child(4) { transition-delay: 0.4s; }
-.animated-table tbody tr:nth-child(5) { transition-delay: 0.5s; }
-.animated-table tbody tr:nth-child(6) { transition-delay: 0.6s; }
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(20px, 20px); }
+    }
 
-.animated-table.visible tbody tr {
-opacity: 1;
-transform: translateX(0);
-}
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      align-items: stretch;
+    }
 
-.hover-lift-subtle {
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .project-card {
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
 
-.hover-lift-subtle:hover {
-transform: translateY(-2px);
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
 
-.pulse-animation {
-animation: pulse 2s ease-in-out infinite;
-}
+    .included-item {
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
 
-@keyframes pulse {
-0%, 100% { transform: scale(1); }
-50% { transform: scale(1.05); }
-}
-
-.step-reveal {
-opacity: 0;
-transform: translateY(30px);
-transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.step-reveal.visible {
-opacity: 1;
-transform: translateY(0);
-}
-
-.checklist-item {
-opacity: 0;
-transform: translateX(-20px);
-transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.checklist-item:nth-child(1) { transition-delay: 0.1s; }
-.checklist-item:nth-child(2) { transition-delay: 0.2s; }
-.checklist-item:nth-child(3) { transition-delay: 0.3s; }
-.checklist-item:nth-child(4) { transition-delay: 0.4s; }
-
-.step-reveal.visible .checklist-item {
-opacity: 1;
-transform: translateX(0);
-}
-
-.tilt-card-subtle {
-transition: transform 0.3s ease;
-}
-
-.hover-zoom-subtle {
-transition: transform 0.3s ease;
-}
-
-.hover-zoom-subtle:hover {
-transform: scale(1.02);
-}
-
-.packages-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-gap: 2rem;
-align-items: stretch;
-}
-
-@media (max-width: 1024px) {
-.packages-grid {
-grid-template-columns: 1fr;
-max-width: 400px;
-margin: 0 auto;
-}
-}
-
-@media (min-width: 1024px) {
-.packages-grid {
-grid-template-columns: repeat(3, 1fr);
-}
-}
-
-.flex-shrink-0 {
-flex-shrink: 0;
-}
-
-.flex-grow {
-flex-grow: 1;
-}
-</style>
-
+    .flex-grow {
+      flex-grow: 1;
+    }
+  </style>
 </BaseLayout>
