@@ -3,10 +3,10 @@ import { ui, defaultLang } from '../i18n/ui';
 
 const supportedLangs = Object.keys(ui);
 const acceptHeader = Astro.request.headers.get('accept-language') ?? '';
-const userLang = acceptHeader
+const detectedLang = acceptHeader
   .split(',')
   .map(l => l.split(';')[0].trim())
   .find(l => supportedLangs.includes(l)) ?? defaultLang;
 
-return Astro.redirect(`/${userLang}/home`, 307);
+return Astro.redirect(`/${detectedLang}/home`, 307);
 ---

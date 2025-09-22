@@ -51,9 +51,9 @@ const sizeClasses = {
       </div>
     )}
     
-    <h1 class="hero-title font-heading font-bold text-3xl sm:text-5xl lg:text-6xl mb-6 leading-tight">
+    <h1 class="hero-title font-heading font-bold text-3xl sm:text-5xl lg:text-6xl mb-6 leading-tight min-h-[7rem] sm:min-h-0">
       <span class="title-static block sm:inline">{title} </span>
-      <span class="typewriter-container relative inline-block mt-2 sm:mt-0 text-left">
+      <span class="typewriter-container relative inline-block mt-2 sm:mt-0">
         <TypewriterText 
           words={typewriterWords}
           className="text-primary"
@@ -196,10 +196,8 @@ const sizeClasses = {
   }
 
   .typewriter-container {
-    min-height: 1.2em;
-    display: inline-block;
-    width: auto;
-    text-align: center;
+    min-height: 1.2em; /* Prevents height change */
+    vertical-align: middle;
   }
   
   .typewriter-text {
@@ -209,45 +207,25 @@ const sizeClasses = {
 
   /* Mobile centering fix */
   @media (max-width: 640px) {
-    .typewriter-container {
-      display: block;
-      width: 100%;
-      text-align: center;
-      margin: 0 auto;
-    }
-    
-    .typewriter-text {
-      display: inline-block;
-      text-align: center;
-      width: auto;
-      margin: 0 auto;
-    }
-    
     .hero-title {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
     }
     
     .title-static {
       margin-bottom: 0.5rem;
-      text-align: center;
+    }
+
+    .typewriter-container {
+      /* This ensures the container behaves predictably within the flex column */
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
   }
   
-  /* Ensure centering on all screen sizes */
-  .typewriter-container {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .typewriter-text {
-    text-align: center;
-  }
-
   .particles {
     z-index: -1;
   }

@@ -16,8 +16,24 @@ export default defineConfig({
     service: {
       entrypoint: 'astro/assets/services/sharp',
     },
-    domains: [],
-    remotePatterns: [],
+    domains: ['veermandev.nl', 'www.veermandev.nl'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.veermandev.nl',
+      },
+    ],
+    // Enable image optimization for better performance
+    formats: ['avif', 'webp', 'jpeg'],
+    quality: 80,
+    // Define responsive image sizes
+    sizes: {
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      '2xl': 1536,
+    },
   },
   i18n: {
     defaultLocale: 'nl',

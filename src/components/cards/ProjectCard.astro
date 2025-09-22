@@ -8,7 +8,7 @@ interface Props {
   link?: string;
 }
 
-const { title, category, description, image, metrics, link = '#' } = Astro.props;
+const { title, category, description, image, metrics } = Astro.props;
 ---
 
 <div class="project-item group cursor-pointer" data-category={category.toLowerCase().replace(/\s+/g, '-')}>

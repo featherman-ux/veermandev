@@ -1,9 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
-import { useTranslations } from '../../i18n/utils';
-
-const lang = 'en';
 
 const pageTitle = "Let's Build Something Great Together | VeermanDevelopment";
 const pageDescription = "Ready to transform your business with a high-performance website? Get in touch for a free discovery call. We'll respond within one business day.";
@@ -13,7 +10,7 @@ const pageDescription = "Ready to transform your business with a high-performanc
   <!-- ENHANCED HERO with Terminal Typing Effect -->
   <section class="contact-hero py-20 px-4 text-center relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
-      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
+      <h1 class="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl mb-6 reveal-title text-center lg:text-left min-h-[7rem] sm:min-h-0">
         Let's Build Something <TypewriterText 
           words={["Great Together", "Revolutionary", "That Converts", "That Performs", "Extraordinary"]}
           className="text-primary terminal-text"
@@ -49,10 +46,10 @@ const pageDescription = "Ready to transform your business with a high-performanc
   <!-- ENHANCED CONTACT FORM with Realistic Form Interactions -->
   <section class="contact-form-section py-16 px-4 reveal-section">
     <div class="max-w-6xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-12">
+      <div class="grid md:grid-cols-2 gap-12">
         
         <!-- ENHANCED CALENDLY SECTION -->
-        <div class="calendar-section bg-card-light dark:bg-card-dark rounded-xl p-8 shadow-lg hover-lift">
+        <div class="calendar-section bg-card-light dark:bg-card-dark rounded-xl p-4 sm:p-8 shadow-lg hover-lift">
           <div class="text-center mb-8">
             <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">📅</div>
             <h2 class="font-heading font-bold text-2xl mb-4">Schedule Your Call</h2>
@@ -66,15 +63,15 @@ const pageDescription = "Ready to transform your business with a high-performanc
             <div 
               class="calendly-inline-widget" 
               data-url="https://calendly.com/contact-veermandev/30min?hide_event_type_details=1&primary_color=0a84ff&hide_gdpr_banner=1"
-              style="min-width:320px;height:600px;"
+              style="width:100%;height:600px;"
             ></div>
             <div class="calendar-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer pointer-events-none"></div>
           </div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <script is:inline type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
 
         <!-- ENHANCED CONTACT FORM -->
-        <div class="contact-form bg-card-light dark:bg-card-dark rounded-xl p-8 shadow-lg hover-lift">
+        <div class="contact-form bg-card-light dark:bg-card-dark rounded-xl p-4 sm:p-8 shadow-lg hover-lift">
           <div class="text-center mb-8">
             <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">✉️</div>
             <h2 class="font-heading font-bold text-2xl mb-4">Send Us a Message</h2>
@@ -380,7 +377,7 @@ const pageDescription = "Ready to transform your business with a high-performanc
       };
 
       const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const element = entry.target as HTMLElement;
             

@@ -110,16 +110,49 @@ class PerformanceMonitor {
   }
 
   private sendToAnalytics(name: string, value: number) {
-    // In production, integrate with your analytics service
-    // Example: Google Analytics, Mixpanel, etc.
-    if (typeof window !== 'undefined' && 'gtag' in window) {
-      (window as any).gtag('event', 'performance_metric', {
-        metric_name: name,
-        metric_value: value,
-        custom_map: {
-          metric_name: 'metric_name',
-          metric_value: 'metric_value'
-        }
+    // Veerman Web Development specific analytics configuration
+    if (typeof window !== 'undefined') {
+      // Send to Google Analytics 4 if available
+      if ('gtag' in window) {
+        (window as any).gtag('event', 'web_vital', {
+          event_category: 'Performance',
+          event_label: name,
+          value: Math.round(value),
+          custom_parameter_1: 'veerman_webdev',
+          page_location: window.location.href,
+          page_title: document.title
+        });
+      }
+
+      // Custom analytics for Veerman Web Development
+      // Track specific business metrics
+      if (name === 'LCP' && value > 2500) {
+        console.warn('LCP is above 2.5s threshold - consider optimizing images and critical resources');
+      }
+      
+      if (name === 'CLS' && value > 0.1) {
+        console.warn('CLS is above 0.1 threshold - check for layout shifts in hero sections');
+      }
+
+      // Send to custom endpoint for detailed analysis
+      fetch('/api/analytics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          metric: name,
+          value: value,
+          timestamp: Date.now(),
+          url: window.location.href,
+          userAgent: navigator.userAgent,
+          viewport: {
+            width: window.innerWidth,
+            height: window.innerHeight
+          }
+        })
+      }).catch(() => {
+        // Silently fail - analytics shouldn't break the site
       });
     }
   }
@@ -141,7 +174,7 @@ class PerformanceMonitor {
 // Singleton instance
 export const performanceMonitor = new PerformanceMonitor();
 
-// Utility functions
+// Utility functions for Veerman Web Development
 export function measurePageLoad() {
   if (typeof window === 'undefined') return;
 
@@ -151,6 +184,12 @@ export function measurePageLoad() {
     if (navigation) {
       performanceMonitor['recordMetric']('DOMContentLoaded', navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart);
       performanceMonitor['recordMetric']('LoadComplete', navigation.loadEventEnd - navigation.loadEventStart);
+      
+      // Track specific metrics for web development business
+      const totalLoadTime = navigation.loadEventEnd - navigation.fetchStart;
+      if (totalLoadTime > 3000) {
+        console.warn('Page load time exceeds 3s - this may impact client satisfaction');
+      }
     }
   });
 }
@@ -160,11 +199,59 @@ export function measureUserInteraction(element: HTMLElement, eventName: string) 
   
   element.addEventListener(eventName, () => {
     const endTime = performance.now();
-    performanceMonitor['recordMetric'](`UserInteraction_${eventName}`, endTime - startTime);
+    const interactionTime = endTime - startTime;
+    performanceMonitor['recordMetric'](`UserInteraction_${eventName}`, interactionTime);
+    
+    // Track business-critical interactions
+    if (element.id === 'contact-form' && eventName === 'submit') {
+      performanceMonitor['recordMetric']('ContactFormSubmission', interactionTime);
+    }
+    
+    if (element.classList.contains('cta-button')) {
+      performanceMonitor['recordMetric']('CTAClick', interactionTime);
+    }
   }, { once: true });
 }
 
-// Initialize performance monitoring
+// Track conversion-focused metrics for Veerman Web Development
+export function trackBusinessMetrics() {
+  if (typeof window === 'undefined') return;
+
+  // Track contact form interactions
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    measureUserInteraction(contactForm, 'submit');
+  }
+
+  // Track CTA button clicks
+  const ctaButtons = document.querySelectorAll('.cta-button, [data-cta]');
+  ctaButtons.forEach(button => {
+    measureUserInteraction(button as HTMLElement, 'click');
+  });
+
+  // Track portfolio item views
+  const portfolioItems = document.querySelectorAll('[data-portfolio-item]');
+  portfolioItems.forEach(item => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          performanceMonitor['recordMetric']('PortfolioItemView', performance.now());
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    observer.observe(item);
+  });
+}
+
+// Initialize performance monitoring for Veerman Web Development
 if (typeof window !== 'undefined') {
   measurePageLoad();
+  
+  // Initialize business metrics tracking when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', trackBusinessMetrics);
+  } else {
+    trackBusinessMetrics();
+  }
 }

@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TypewriterText from '../../components/ui/TypewriterText.astro';
-import { useTranslations } from '../../i18n/utils';
 import HeroSection from '../../components/sections/HeroSection.astro';
 
 const lang = 'en';
@@ -556,7 +554,7 @@ const pageDescription = "We build more than websites, we build brands. Professio
       };
 
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const element = entry.target as HTMLElement;
             element.style.opacity = '1';

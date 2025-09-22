@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
-import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
 
@@ -308,7 +307,7 @@ const pageDescription = "See what we build for small businesses across the Nethe
       };
 
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const element = entry.target as HTMLElement;
             element.style.opacity = '1';

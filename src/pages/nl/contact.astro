@@ -1,25 +1,34 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
-import { useTranslations } from '../../i18n/utils';
 
 const lang = 'nl';
 
 const pageTitle = "Laten We Samen Iets Geweldigs Bouwen | VeermanDevelopment";
 const pageDescription = "Klaar om je bedrijf te transformeren met een hoogwaardige website? Neem contact op voor een gratis oriëntatiegesprek. We reageren binnen één werkdag.";
+
+const title = "Laten We Samen Iets";
+const typewriterWords = ["Geweldigs Bouwen", "Revolutionairs Maken", "Dat Converteert", "Dat Presteert", "Buitengewoons Creëren"];
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
 <!-- ENHANCED HERO with Terminal Typing Effect -->
 <section class="contact-hero py-20 px-4 text-center relative overflow-hidden">
 <div class="max-w-4xl mx-auto relative z-10">
-<h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title">
-Laten We Samen Iets <TypewriterText 
-          words={["Geweldigs Bouwen", "Revolutionairs", "Dat Converteert", "Dat Presteert", "Buitengewoons"]}
-          className="text-primary terminal-text"
-          initialText="Geweldigs Bouwen"
-          cursorClass="terminal-cursor"
-        />
+<h1 class="hero-title font-heading font-bold text-3xl sm:text-5xl lg:text-6xl mb-6 leading-tight min-h-[7rem] sm:min-h-0">
+  <span class="title-static block sm:inline">{title} </span>
+  
+  {/* ---- START WIJZIGING: Verwijder de "text-left" class hieronder ---- */}
+  <span class="typewriter-container relative inline-block mt-2 sm:mt-0"> 
+  {/* ---- EINDE WIJZIGING ---- */}
+  
+    <TypewriterText 
+      words={typewriterWords}
+      className="text-primary"
+      initialText={typewriterWords[0]}
+      cursorClass="cursor"
+    />
+  </span>
 </h1>
 <p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text">
 Plan een gratis oriëntatiegesprek of stuur ons een bericht. We nemen binnen één werkdag
@@ -47,9 +56,9 @@ contact met je op met inzichten en vervolgstappen voor je project.
 <!-- ENHANCED CONTACT FORM with Realistic Form Interactions -->
 <section class="contact-form-section py-16 px-4 reveal-section">
 <div class="max-w-6xl mx-auto">
-<div class="grid lg:grid-cols-2 gap-12">
+<div class="grid md:grid-cols-2 gap-12">
 <!-- ENHANCED CALENDLY SECTION -->
-<div class="calendar-section bg-card-light dark:bg-card-dark rounded-xl p-8 shadow-lg hover-lift">
+<div class="calendar-section bg-card-light dark:bg-card-dark rounded-xl p-4 sm:p-8 shadow-lg hover-lift">
 <div class="text-center mb-8">
 <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">📅</div>
 <h2 class="font-heading font-bold text-2xl mb-4 text-center">Plan Je Gesprek</h2>
@@ -62,15 +71,15 @@ We analyseren je doelen en identificeren mogelijkheden. Geen verkoopdruk, alleen
 <div
 class="calendly-inline-widget"
 data-url="https://calendly.com/contact-veermandev/30min?hide_event_type_details=1&primary_color=0a84ff&hide_gdpr_banner=1"
-style="min-width:320px;height:600px;"
+style="width:100%;height:600px;"
 ></div>
 <div class="calendar-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer pointer-events-none"></div>
 </div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
+<script is:inline type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
 </div>
 
 <!-- ENHANCED CONTACT FORM -->
-<div class="contact-form bg-card-light dark:bg-card-dark rounded-xl p-8 shadow-lg hover-lift">
+<div class="contact-form bg-card-light dark:bg-card-dark rounded-xl p-4 sm:p-8 shadow-lg hover-lift">
 <div class="text-center mb-8">
 <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">✉️</div>
 <h2 class="font-heading font-bold text-2xl mb-4 text-center">Stuur Ons een Bericht</h2>
@@ -305,13 +314,18 @@ const form = document.getElementById('contact-form') as HTMLFormElement;
 const successMessage = document.getElementById('success-message') as HTMLElement;
 const submitBtn = document.querySelector('.submit-btn') as HTMLButtonElement;
 
-// Input sanitization function
+// Input sanitization function - less aggressive to preserve valid characters
 function sanitizeInput(input: string): string {
   return input
     .trim()
-    .replace(/[<>]/g, '')
+    // Only escape HTML tags, don't remove < > completely (they might be valid in math expressions)
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    // Remove dangerous script patterns
     .replace(/javascript:/gi, '')
     .replace(/on\w+\s*=/gi, '')
+    // Remove script tags entirely
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
     .substring(0, 1000);
 }
 
@@ -376,13 +390,11 @@ form.addEventListener('submit', (e) => {
   // Create ripple effect
   const ripple = submitBtn.querySelector('.button-ripple') as HTMLElement;
   const rect = submitBtn.getBoundingClientRect();
-  const x = rect.width / 2; // Center the ripple effect
-  const y = rect.height / 2;
-const centerX = rect.width / 2;
-const centerY = rect.height / 2;
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
 if (ripple) {
-ripple.style.left = x + 'px';
-ripple.style.top = y + 'px';
+ripple.style.left = centerX + 'px';
+ripple.style.top = centerY + 'px';
 ripple.style.transform = 'scale(1)';
 setTimeout(() => {
 ripple.style.transform = 'scale(0)';
@@ -423,7 +435,7 @@ successMessage.style.animation = 'successSlideIn 0.5s ease-out forwards';
 throw new Error('Form submission failed');
 }
 } catch (error) {
-alert('Er is iets misgegaan. Probeer het opnieuw of mail ons direct.');
+alert('Er is iets misgegaan. Probeer het opnieuw of mail ons direct op contact@veermandev.nl.');
 if (originalText) {
 submitBtn.textContent = originalText;
 }
@@ -440,7 +452,7 @@ threshold: 0.1
 };
 
 const revealObserver = new IntersectionObserver((entries) => {
-entries.forEach((entry, index) => {
+entries.forEach((entry) => {
 if (entry.isIntersecting) {
 const element = entry.target as HTMLElement;
 if (element.classList.contains('reveal-title')) {
