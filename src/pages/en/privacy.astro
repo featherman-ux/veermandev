@@ -265,7 +265,9 @@ const pageDescription = "Learn how VeermanDevelopment protects your privacy and 
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const element = entry.target as HTMLElement;
+            const element = entry.target;
+
+            if (!(element instanceof HTMLElement)) return;
             element.style.opacity = '1';
             element.style.transform = 'translateY(0)';
           }
@@ -275,7 +277,9 @@ const pageDescription = "Learn how VeermanDevelopment protects your privacy and 
       // Apply reveal animations
       const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-meta, .reveal-section');
       revealElements.forEach((element, index) => {
-        const el = element as HTMLElement;
+        if (!(element instanceof HTMLElement)) return;
+
+        const el = element;
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`;
@@ -312,7 +316,9 @@ const pageDescription = "Learn how VeermanDevelopment protects your privacy and 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const element = entry.target as HTMLElement;
+          const element = entry.target;
+
+          if (!(element instanceof HTMLElement)) return;
           element.style.opacity = '1';
           element.style.transform = 'translateY(0)';
         }
@@ -322,7 +328,9 @@ const pageDescription = "Learn how VeermanDevelopment protects your privacy and 
     // Apply reveal animations with proper type assertions
     const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-meta, .reveal-section');
     revealElements.forEach((element, index) => {
-      const el = element as HTMLElement;
+      if (!(element instanceof HTMLElement)) return;
+
+      const el = element;
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px)';
       el.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`;

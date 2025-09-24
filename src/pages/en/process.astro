@@ -13,7 +13,7 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
         Your strategic <span class="inline-block">
           <TypewriterText 
             words={["growth partner"]}
-            className="text-primary"
+            className="text-primary text-5xl sm:text-6xl lg:text-7xl"
             initialText="growth partner"
           />
         </span>
@@ -370,7 +370,9 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const element = entry.target as HTMLElement;
+            const element = entry.target;
+
+            if (!(element instanceof HTMLElement)) return;
             
             // Apply different animations based on class
             if (element.classList.contains('reveal-title')) {
@@ -394,7 +396,9 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
       // Apply reveal animations to elements
       const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-card');
       revealElements.forEach(element => {
-        const el = element as HTMLElement;
+        if (!(element instanceof HTMLElement)) return;
+
+        const el = element;
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px) scale(0.95)';
         el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
@@ -404,7 +408,9 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
       // Subtle 3D Tilt effect for cards (reduced movement)
       const tiltCards = document.querySelectorAll('.tilt-card-subtle');
       tiltCards.forEach(card => {
-        const cardElement = card as HTMLElement;
+        if (!(card instanceof HTMLElement)) return;
+
+        const cardElement = card;
         
         cardElement.addEventListener('mousemove', (e) => {
           const rect = cardElement.getBoundingClientRect();
@@ -428,7 +434,9 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
       // Floating elements animation
       const floatingElements = document.querySelectorAll('.floating-circle, .floating-square, .floating-triangle');
       floatingElements.forEach((element, index) => {
-        const el = element as HTMLElement;
+        if (!(element instanceof HTMLElement)) return;
+
+        const el = element;
         const duration = 4000 + Math.random() * 2000;
         const delay = index * 800;
         

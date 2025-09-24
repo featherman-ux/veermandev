@@ -15,11 +15,14 @@ const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. P
   subtitle="Geloofwaardigheid zonder poespas"
   description="Zo helpen wij ondernemers met het ontwikkelen van een unieke website die klanten aanspreekt en leads oplevert."
 >
-  Samen bouwen we aan <TypewriterText 
-    words={["een herkenbare uitstraling", "meer aanvragen", "websites die klanten vertrouwen"]}
-    className="text-primary"
-    initialText="een herkenbare uitstraling"
-  />
+  <span class="typewriter-heading">
+    <span class="typewriter-heading__label">Samen bouwen we aan</span>
+    <TypewriterText 
+      words={["een herkenbare uitstraling", "meer aanvragen", "websites die klanten vertrouwen"]}
+      className="typewriter-heading__text text-primary"
+      initialText="een herkenbare uitstraling"
+    />
+  </span>
 </HeroSection>
 
 <section class="projects-grid-section py-8 px-4 reveal-section">
@@ -296,19 +299,25 @@ Stel eerst je vragen
 <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Filter functionality
-      const filterButtons = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
-      const projectItems = document.querySelectorAll('.project-item') as NodeListOf<HTMLElement>;
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projectItems = document.querySelectorAll('.project-item');
 
-      filterButtons.forEach(button => {
+      filterButtons.forEach((button) => {
+        if (!(button instanceof HTMLButtonElement)) return;
         button.addEventListener('click', () => {
           const filter = button.getAttribute('data-filter');
           
           // Update active button
-          filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-black'));
+          filterButtons.forEach((btn) => {
+            if (btn instanceof HTMLElement) {
+              btn.classList.remove('active', 'bg-primary', 'text-black');
+            }
+          });
           button.classList.add('active', 'bg-primary', 'text-black');
           
           // Filter projects
-          projectItems.forEach(item => {
+          projectItems.forEach((item) => {
+            if (!(item instanceof HTMLElement)) return;
             if (filter === 'all' || item.getAttribute('data-category') === filter) {
               item.style.display = 'block';
             } else {
@@ -328,13 +337,16 @@ Stel eerst je vragen
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const element = entry.target as HTMLElement;
+            const element = entry.target;
+
+            if (!(element instanceof HTMLElement)) return;
             element.style.opacity = '1';
             element.style.transform = 'translateY(0) scale(1)';
             
             // Stagger children animation
-            const children = element.querySelectorAll('.project-card, .included-item') as NodeListOf<HTMLElement>;
+            const children = element.querySelectorAll('.project-card, .included-item');
             children.forEach((child, childIndex) => {
+              if (!(child instanceof HTMLElement)) return;
               setTimeout(() => {
                 child.style.opacity = '1';
                 child.style.transform = 'translateY(0)';
@@ -345,8 +357,9 @@ Stel eerst je vragen
       }, observerOptions);
 
       // Apply to sections with proper casting
-      const sections = document.querySelectorAll('.reveal-section') as NodeListOf<HTMLElement>;
-      sections.forEach(section => {
+      const sections = document.querySelectorAll('.reveal-section');
+      sections.forEach((section) => {
+        if (!(section instanceof HTMLElement)) return;
         section.style.opacity = '0';
         section.style.transform = 'translateY(30px) scale(0.98)';
         section.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
@@ -354,8 +367,9 @@ Stel eerst je vragen
       });
 
       // Subtle card effects
-      const subtleCards = document.querySelectorAll('.subtle-card') as NodeListOf<HTMLElement>;
-      subtleCards.forEach(card => {
+      const subtleCards = document.querySelectorAll('.subtle-card');
+      subtleCards.forEach((card) => {
+        if (!(card instanceof HTMLElement)) return;
         card.addEventListener('mousemove', (e) => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
@@ -437,6 +451,23 @@ Stel eerst je vragen
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
       align-items: stretch;
+    }
+
+    .typewriter-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .typewriter-heading__label {
+      display: block;
+    }
+
+    .typewriter-heading__text .typewriter-text {
+      display: inline-block;
+      text-align: center;
     }
 
     .project-card {

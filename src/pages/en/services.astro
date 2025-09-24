@@ -450,19 +450,20 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
       // FAQ functionality
       const faqQuestions = document.querySelectorAll('.faq-question');
       
-      faqQuestions.forEach(question => {
+      faqQuestions.forEach((question) => {
         question.addEventListener('click', () => {
-          const answer = question.nextElementSibling as HTMLElement;
-          const toggle = question.querySelector('.faq-toggle') as HTMLElement;
-          
-          if (answer && toggle) {
-            if (answer.classList.contains('hidden')) {
-              answer.classList.remove('hidden');
-              toggle.textContent = '−';
-            } else {
-              answer.classList.add('hidden');
-              toggle.textContent = '+';
-            }
+          const answer = question.nextElementSibling;
+          if (!(answer instanceof HTMLElement)) return;
+
+          const toggle = question.querySelector('.faq-toggle');
+          if (!(toggle instanceof HTMLElement)) return;
+
+          if (answer.classList.contains('hidden')) {
+            answer.classList.remove('hidden');
+            toggle.textContent = '−';
+          } else {
+            answer.classList.add('hidden');
+            toggle.textContent = '+';
           }
         });
       });
@@ -477,14 +478,18 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const element = entry.target as HTMLElement;
+            const element = entry.target;
+
+            if (!(element instanceof HTMLElement)) return;
             element.style.opacity = '1';
             element.style.transform = 'translateY(0) scale(1)';
             
             // Stagger children animation
             const children = element.querySelectorAll('.package-card, .step, .faq-item');
             children.forEach((child, childIndex) => {
-              const childElement = child as HTMLElement;
+              if (!(child instanceof HTMLElement)) return;
+
+              const childElement = child;
               setTimeout(() => {
                 childElement.style.opacity = '1';
                 childElement.style.transform = 'translateY(0)';
@@ -497,7 +502,9 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
       // Apply to sections
       const sections = document.querySelectorAll('.reveal-section');
       sections.forEach(section => {
-        const element = section as HTMLElement;
+        if (!(section instanceof HTMLElement)) return;
+
+        const element = section;
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px) scale(0.98)';
         element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
@@ -507,7 +514,9 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
       // Subtle card effects
       const subtleCards = document.querySelectorAll('.subtle-card');
       subtleCards.forEach(card => {
-        const cardElement = card as HTMLElement;
+        if (!(card instanceof HTMLElement)) return;
+
+        const cardElement = card;
         
         cardElement.addEventListener('mousemove', (e) => {
           const rect = cardElement.getBoundingClientRect();

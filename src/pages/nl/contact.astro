@@ -287,267 +287,281 @@ met inzichten en vervolgstappen voor je project.
 <!-- Continue with other sections... -->
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-// Enhanced form interactions
-const formInputs = document.querySelectorAll('.form-input');
-formInputs.forEach(input => {
-const inputElement = input as HTMLInputElement | HTMLTextAreaElement;
-const container = inputElement.closest('.input-container') as HTMLElement;
-const underline = container?.querySelector('.input-underline') as HTMLElement;
-inputElement.addEventListener('focus', () => {
-inputElement.style.borderColor = 'var(--color-primary, #3b82f6)';
-inputElement.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
-inputElement.style.transform = 'translateY(-2px)';
-if (underline) {
-underline.style.transform = 'scaleX(1)';
-}
-});
+  document.addEventListener('DOMContentLoaded', () => {
+    const formInputs = document.querySelectorAll('.form-input');
+    formInputs.forEach((input) => {
+      if (!(input instanceof HTMLInputElement) && !(input instanceof HTMLTextAreaElement)) return;
 
-inputElement.addEventListener('blur', () => {
-inputElement.style.borderColor = '';
-inputElement.style.boxShadow = '';
-inputElement.style.transform = 'translateY(0)';
-if (underline) {
-underline.style.transform = 'scaleX(0)';
-}
-});
+      const container = input.closest('.input-container');
+      const underline = container?.querySelector('.input-underline');
 
-// Typing animation effect
-inputElement.addEventListener('input', () => {
-const label = container?.previousElementSibling?.querySelector('.form-label') as HTMLElement;
-if (label && inputElement.value.length > 0) {
-label.style.color = 'var(--color-primary)';
-label.style.transform = 'scale(0.95)';
-} else if (label) {
-label.style.color = '';
-label.style.transform = 'scale(1)';
-}
-});
-});
+      input.addEventListener('focus', () => {
+        input.style.borderColor = 'var(--color-primary, #3b82f6)';
+        input.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
+        input.style.transform = 'translateY(-2px)';
+        if (underline instanceof HTMLElement) {
+          underline.style.transform = 'scaleX(1)';
+        }
+      });
 
-// Enhanced form submission with security and ripple effect
-const form = document.getElementById('contact-form') as HTMLFormElement;
-const successMessage = document.getElementById('success-message') as HTMLElement;
-const submitBtn = document.querySelector('.submit-btn') as HTMLButtonElement;
+      input.addEventListener('blur', () => {
+        input.style.borderColor = '';
+        input.style.boxShadow = '';
+        input.style.transform = 'translateY(0)';
+        if (underline instanceof HTMLElement) {
+          underline.style.transform = 'scaleX(0)';
+        }
+      });
 
-// Input sanitization function - less aggressive to preserve valid characters
-function sanitizeInput(input: string): string {
-  return input
-    .trim()
-    // Only escape HTML tags, don't remove < > completely (they might be valid in math expressions)
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    // Remove dangerous script patterns
-    .replace(/javascript:/gi, '')
-    .replace(/on\w+\s*=/gi, '')
-    // Remove script tags entirely
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-    .substring(0, 1000);
-}
+      input.addEventListener('input', () => {
+        const label = container?.previousElementSibling?.querySelector('.form-label');
+        if (!(label instanceof HTMLElement)) return;
 
-// Enhanced form validation with better error handling
-function validateAndSanitizeForm(formData: FormData): boolean {
-  const name = sanitizeInput(formData.get('name') as string || '');
-  const email = sanitizeInput(formData.get('email') as string || '');
-  const message = sanitizeInput(formData.get('message') as string || '');
-  
-  let isValid = true;
-  
-  // Clear previous errors
-  document.querySelectorAll('.error-message').forEach(el => {
-    el.classList.add('hidden');
-    el.textContent = '';
+        if (input.value.length > 0) {
+          label.style.color = 'var(--color-primary)';
+          label.style.transform = 'scale(0.95)';
+        } else {
+          label.style.color = '';
+          label.style.transform = 'scale(1)';
+        }
+      });
+    });
+
+    const form = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+    const submitBtn = document.querySelector('.submit-btn');
+
+    /**
+     * @param {string} value
+     * @returns {string}
+     */
+    function sanitizeInput(value) {
+      if (typeof value !== 'string') return '';
+      return value
+        .trim()
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/javascript:/gi, '')
+        .replace(/on\w+\s*=/gi, '')
+        .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+        .slice(0, 1000);
+    }
+
+    /** @returns {void} */
+    function clearErrors() {
+      document.querySelectorAll('.error-message').forEach((el) => {
+        if (el instanceof HTMLElement) {
+          el.classList.add('hidden');
+          el.textContent = '';
+        }
+      });
+    }
+
+    /**
+     * @param {string} id
+     * @param {string} message
+     * @returns {void}
+     */
+    function showError(id, message) {
+      const element = document.getElementById(id);
+      if (element instanceof HTMLElement) {
+        element.textContent = message;
+        element.classList.remove('hidden');
+      }
+    }
+
+    /** @returns {boolean} */
+    function validateForm() {
+      if (!(form instanceof HTMLFormElement)) return false;
+
+      const controls = {
+        name: document.getElementById('name'),
+        email: document.getElementById('email'),
+        message: document.getElementById('message'),
+      };
+
+      if (
+        !(controls.name instanceof HTMLInputElement) ||
+        !(controls.email instanceof HTMLInputElement) ||
+        !(controls.message instanceof HTMLTextAreaElement)
+      ) {
+        return false;
+      }
+
+      clearErrors();
+
+      controls.name.value = sanitizeInput(controls.name.value);
+      controls.email.value = controls.email.value.trim();
+      controls.message.value = sanitizeInput(controls.message.value);
+
+      let isValid = true;
+
+      if (controls.name.value.length < 2) {
+        showError('name-error', 'Naam moet minimaal 2 karakters bevatten');
+        isValid = false;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(controls.email.value)) {
+        showError('email-error', 'Voer een geldig e-mailadres in');
+        isValid = false;
+      }
+
+      if (controls.message.value.length < 10) {
+        showError('message-error', 'Bericht moet minimaal 10 karakters bevatten');
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    if (
+      form instanceof HTMLFormElement &&
+      successMessage instanceof HTMLElement &&
+      submitBtn instanceof HTMLButtonElement
+    ) {
+      submitBtn.addEventListener('click', () => {
+        const ripple = submitBtn.querySelector('.button-ripple');
+        if (!(ripple instanceof HTMLElement)) return;
+
+        const rect = submitBtn.getBoundingClientRect();
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        ripple.style.left = `${centerX}px`;
+        ripple.style.top = `${centerY}px`;
+        ripple.style.transform = 'scale(1)';
+
+        setTimeout(() => {
+          ripple.style.transform = 'scale(0)';
+        }, 600);
+      });
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!validateForm()) return;
+
+        const originalText = submitBtn.textContent;
+        submitBtn.innerHTML = `<div class="flex items-center justify-center gap-2">
+          <div class="loading-spinner w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+          <span>Verzenden...</span>
+        </div>`;
+        submitBtn.disabled = true;
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+
+          if (response.ok) {
+            form.style.transform = 'scale(0.95)';
+            form.style.opacity = '0';
+
+            setTimeout(() => {
+              form.classList.add('hidden');
+              successMessage.classList.remove('hidden');
+              successMessage.style.animation = 'successSlideIn 0.5s ease-out forwards';
+            }, 300);
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (error) {
+          alert('Er is iets misgegaan. Probeer het opnieuw of mail ons direct op contact@veermandev.nl.');
+          if (originalText) submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50px',
+      threshold: 0.1,
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || !(entry.target instanceof HTMLElement)) return;
+
+        const element = entry.target;
+
+        if (element.classList.contains('reveal-title')) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        } else if (element.classList.contains('reveal-text')) {
+          setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+          }, 300);
+        } else if (element.classList.contains('reveal-promise')) {
+          const promiseItems = element.querySelectorAll('.promise-item');
+          promiseItems.forEach((item, itemIndex) => {
+            if (!(item instanceof HTMLElement)) return;
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 600 + itemIndex * 200);
+          });
+        }
+      });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-promise');
+    revealElements.forEach((element) => {
+      if (!(element instanceof HTMLElement)) return;
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition =
+        'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      revealObserver.observe(element);
+    });
+
+    const promiseItems = document.querySelectorAll('.promise-item');
+    promiseItems.forEach((item) => {
+      if (!(item instanceof HTMLElement)) return;
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(10px)';
+      item.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    });
+
+    const codeSymbols = document.querySelectorAll('.code-symbol');
+    codeSymbols.forEach((symbol, index) => {
+      if (!(symbol instanceof HTMLElement)) return;
+      const delay = index * 800;
+      const duration = 4000 + Math.random() * 2000;
+      symbol.style.animation = `float ${duration}ms ease-in-out infinite ${delay}ms`;
+    });
+
+    const timelineCards = document.querySelectorAll('.timeline-card');
+    const timelineElements = Array.from(timelineCards).filter(
+      (card) => card instanceof HTMLElement
+    );
+
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        timelineElements.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+          }, index * 200);
+        });
+      });
+    }, observerOptions);
+
+    if (timelineElements.length > 0) {
+      timelineElements.forEach((card) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px) scale(0.9)';
+        card.style.transition =
+          'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      });
+      timelineObserver.observe(timelineElements[0]);
+    }
   });
-  
-  // Name validation
-  if (name.length < 2) {
-    const nameError = document.getElementById('name-error');
-    if (nameError) {
-      nameError.textContent = 'Naam moet minimaal 2 karakters bevatten';
-      nameError.classList.remove('hidden');
-    }
-    isValid = false;
-  }
-  
-  // Email validation
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    const emailError = document.getElementById('email-error');
-    if (emailError) {
-      emailError.textContent = 'Voer een geldig e-mailadres in';
-      emailError.classList.remove('hidden');
-    }
-    isValid = false;
-  }
-  
-  // Message validation
-  if (message.length < 10) {
-    const messageError = document.getElementById('message-error');
-    if (messageError) {
-      messageError.textContent = 'Bericht moet minimaal 10 karakters bevatten';
-      messageError.classList.remove('hidden');
-    }
-    isValid = false;
-  }
-  
-  return isValid;
-}
-
-if (form && successMessage && submitBtn) {
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  const formData = new FormData(form);
-  
-  // Validate and sanitize form data
-  if (!validateAndSanitizeForm(formData)) {
-    return;
-  }
-  
-  // Create ripple effect
-  const ripple = submitBtn.querySelector('.button-ripple') as HTMLElement;
-  const rect = submitBtn.getBoundingClientRect();
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
-if (ripple) {
-ripple.style.left = centerX + 'px';
-ripple.style.top = centerY + 'px';
-ripple.style.transform = 'scale(1)';
-setTimeout(() => {
-ripple.style.transform = 'scale(0)';
-}, 600);
-}
-});
-
-form.addEventListener('submit', async (e) => {
-e.preventDefault();
-const originalText = submitBtn.textContent;
-submitBtn.innerHTML = `
-<div class="flex items-center justify-center gap-2">
-<div class="loading-spinner w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
-<span>Verzenden...</span>
-</div>
-`;
-submitBtn.disabled = true;
-
-try {
-const formData = new FormData(form);
-const response = await fetch(form.action, {
-method: 'POST',
-body: formData,
-headers: {
-'Accept': 'application/json'
-}
-});
-
-if (response.ok) {
-form.style.transform = 'scale(0.95)';
-form.style.opacity = '0';
-setTimeout(() => {
-form.classList.add('hidden');
-successMessage.classList.remove('hidden');
-successMessage.style.animation = 'successSlideIn 0.5s ease-out forwards';
-}, 300);
-} else {
-throw new Error('Form submission failed');
-}
-} catch (error) {
-alert('Er is iets misgegaan. Probeer het opnieuw of mail ons direct op contact@veermandev.nl.');
-if (originalText) {
-submitBtn.textContent = originalText;
-}
-submitBtn.disabled = false;
-}
-});
-}
-
-// Reveal animations
-const observerOptions = {
-root: null,
-rootMargin: '-50px',
-threshold: 0.1
-};
-
-const revealObserver = new IntersectionObserver((entries) => {
-entries.forEach((entry) => {
-if (entry.isIntersecting) {
-const element = entry.target as HTMLElement;
-if (element.classList.contains('reveal-title')) {
-element.style.opacity = '1';
-element.style.transform = 'translateY(0)';
-} else if (element.classList.contains('reveal-text')) {
-setTimeout(() => {
-element.style.opacity = '1';
-element.style.transform = 'translateY(0)';
-}, 300);
-} else if (element.classList.contains('reveal-promise')) {
-const promiseItems = element.querySelectorAll('.promise-item');
-promiseItems.forEach((item, itemIndex) => {
-const itemElement = item as HTMLElement;
-setTimeout(() => {
-itemElement.style.opacity = '1';
-itemElement.style.transform = 'translateY(0)';
-}, 600 + (itemIndex * 200));
-});
-}
-}
-});
-}, observerOptions);
-
-// Apply reveal animations
-const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-promise');
-revealElements.forEach(element => {
-const el = element as HTMLElement;
-el.style.opacity = '0';
-el.style.transform = 'translateY(30px)';
-el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-revealObserver.observe(el);
-});
-
-// Promise items initial setup
-const promiseItems = document.querySelectorAll('.promise-item');
-promiseItems.forEach(item => {
-const itemElement = item as HTMLElement;
-itemElement.style.opacity = '0';
-itemElement.style.transform = 'translateY(10px)';
-itemElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-});
-
-// Animate code symbols
-const codeSymbols = document.querySelectorAll('.code-symbol');
-codeSymbols.forEach((symbol, index) => {
-const symbolElement = symbol as HTMLElement;
-const delay = index * 800;
-const duration = 4000 + Math.random() * 2000;
-symbolElement.style.animation = `float ${duration}ms ease-in-out infinite ${delay}ms`;
-});
-
-// Timeline cards animation
-const timelineCards = document.querySelectorAll('.timeline-card');
-const timelineObserver = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-const cards = Array.from(timelineCards);
-cards.forEach((card, index) => {
-const cardElement = card as HTMLElement;
-setTimeout(() => {
-cardElement.style.opacity = '1';
-cardElement.style.transform = 'translateY(0) scale(1)';
-}, index * 200);
-});
-}
-});
-}, observerOptions);
-
-if (timelineCards.length > 0) {
-timelineCards.forEach(card => {
-const cardElement = card as HTMLElement;
-cardElement.style.opacity = '0';
-cardElement.style.transform = 'translateY(30px) scale(0.9)';
-cardElement.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-});
-      timelineCards.forEach(card => timelineObserver.observe(card));
-}
-});
 </script>
 
 <style>

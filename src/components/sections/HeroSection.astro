@@ -106,7 +106,8 @@ const sizeClasses = {
     // Hero stagger-fade animation
     const heroElements = document.querySelectorAll('.hero-subtitle, .title-static, .hero-description, .hero-ctas');
     heroElements.forEach((el, index) => {
-      const element = el as HTMLElement;
+      if (!(el instanceof HTMLElement)) return;
+      const element = el;
       element.style.opacity = '0';
       element.style.transform = 'translateY(20px)';
       
@@ -120,7 +121,8 @@ const sizeClasses = {
     // Trust signals animation
     const trustSignals = document.querySelectorAll('.trust-signal');
     trustSignals.forEach((signal, index) => {
-      const element = signal as HTMLElement;
+      if (!(signal instanceof HTMLElement)) return;
+      const element = signal;
       element.style.opacity = '0';
       element.style.transform = 'translateY(10px)';
       
@@ -134,7 +136,8 @@ const sizeClasses = {
     // Floating particles animation
     const particles = document.querySelectorAll('.particle');
     particles.forEach((particle, index) => {
-      const element = particle as HTMLElement;
+      if (!(particle instanceof HTMLElement)) return;
+      const element = particle;
       const delay = Math.random() * 2000;
       const duration = 4000 + Math.random() * 4000;
       const xMovement = (Math.random() - 0.5) * 200;

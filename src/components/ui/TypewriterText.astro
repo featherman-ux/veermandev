@@ -71,10 +71,10 @@ const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), '');
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const typewriterElements = document.querySelectorAll('.typewriter-text') as NodeListOf<HTMLElement>;
+    const typewriterElements = document.querySelectorAll('.typewriter-text');
     
     typewriterElements.forEach((typewriterElement) => {
-      if (typewriterElement) {
+      if (typewriterElement instanceof HTMLElement) {
         const words = JSON.parse(typewriterElement.dataset.words || '[]');
         const cursorClass = typewriterElement.dataset.cursorClass || 'terminal-cursor';
         let currentWordIndex = 0;

@@ -37,17 +37,17 @@ const { faqs } = Astro.props;
         const index = button.getAttribute('data-faq-toggle');
         if (!index) return;
         
-        const answer = document.querySelector(`[data-faq-content="${index}"]`) as HTMLElement;
-        const toggle = button.querySelector('.faq-toggle') as HTMLElement;
-        
-        if (answer && toggle) {
-          if (answer.classList.contains('hidden')) {
-            answer.classList.remove('hidden');
-            toggle.textContent = '−';
-          } else {
-            answer.classList.add('hidden');
-            toggle.textContent = '+';
-          }
+        const answer = document.querySelector(`[data-faq-content="${index}"]`);
+        const toggle = button.querySelector('.faq-toggle');
+
+        if (!(answer instanceof HTMLElement) || !(toggle instanceof HTMLElement)) return;
+
+        if (answer.classList.contains('hidden')) {
+          answer.classList.remove('hidden');
+          toggle.textContent = '−';
+        } else {
+          answer.classList.add('hidden');
+          toggle.textContent = '+';
         }
       });
     });

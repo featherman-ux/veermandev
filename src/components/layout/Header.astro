@@ -146,18 +146,25 @@ const currentPath = Astro.url.pathname;
               lastFocused = document.activeElement;
               // Focus first link
               const firstLink = mobileMenu.querySelector('a, button');
-              if (firstLink) (firstLink as HTMLElement).focus();
+              if (firstLink instanceof HTMLElement) firstLink.focus();
               // Basic focus trap
-              const focusable = mobileMenu.querySelectorAll('a, button');
-              const first = focusable[0] as HTMLElement;
-              const last = focusable[focusable.length - 1] as HTMLElement;
+              const focusable = Array.from(mobileMenu.querySelectorAll('a, button')).filter(
+                (element) => element instanceof HTMLElement
+              );
+              const first = focusable[0];
+              const last = focusable[focusable.length - 1];
               mobileMenu.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                   closeMenu();
                 }
                 if (e.key === 'Tab') {
-                  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-                  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+                  if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    if (last) last.focus();
+                  } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    if (first) first.focus();
+                  }
                 }
               });
             } else {
@@ -172,7 +179,7 @@ const currentPath = Astro.url.pathname;
             mobileMenu.classList.add('hidden');
           }, 250);
           menuButton.setAttribute('aria-expanded', 'false');
-          if (lastFocused && (lastFocused as HTMLElement).focus) (lastFocused as HTMLElement).focus();
+          if (lastFocused instanceof HTMLElement) lastFocused.focus();
         }
 
         // Theme toggle functionality

@@ -100,7 +100,7 @@ const canonicalUrl = Astro.site
         };
       }
       return json ? (
-        <script type="application/ld+json" set:html={JSON.stringify(json)}></script>
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(json)}></script>
       ) : null;
     })()}
   </head>

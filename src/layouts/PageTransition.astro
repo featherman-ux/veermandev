@@ -23,11 +23,11 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('page-transition-overlay') as HTMLElement;
+    const overlay = document.getElementById('page-transition-overlay');
     
     // Page load animation
     setTimeout(() => {
-      if (overlay) {
+      if (overlay instanceof HTMLElement) {
         overlay.style.opacity = '0';
         overlay.style.pointerEvents = 'none';
       }
@@ -35,20 +35,22 @@
 
     // Intercept clicks on internal links
     document.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
+      const target = e.target;
+      if (!(target instanceof HTMLElement)) return;
       const link = target.closest('a');
       
       if (link && link.href && link.hostname === window.location.hostname && !link.target) {
         e.preventDefault();
         
-        if (overlay) {
+        if (overlay instanceof HTMLElement) {
           overlay.style.opacity = '1';
           overlay.style.pointerEvents = 'all';
           
           // Animate loading text
           const chars = overlay.querySelectorAll('.loading-char');
           chars.forEach((char, index) => {
-            const charElement = char as HTMLElement;
+            if (!(char instanceof HTMLElement)) return;
+            const charElement = char;
             setTimeout(() => {
               charElement.style.transform = 'translateY(-10px)';
               setTimeout(() => {

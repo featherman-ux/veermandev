@@ -152,27 +152,44 @@ novalidate
 <script is:inline>
   (function () {
     const form = document.getElementById('contact-form');
-    if (!form) return;
-    form.addEventListener('submit', (e) => {
-      const name = (document.getElementById('name') as HTMLInputElement);
-      const email = (document.getElementById('email') as HTMLInputElement);
-      const message = (document.getElementById('message') as HTMLTextAreaElement);
-      const errors: string[] = [];
+    if (!(form instanceof HTMLFormElement)) return;
+
+    form.addEventListener('submit', (event) => {
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+
+      if (!(nameInput instanceof HTMLInputElement)) return;
+      if (!(emailInput instanceof HTMLInputElement)) return;
+      if (!(messageInput instanceof HTMLTextAreaElement)) return;
+
+      const controls = {
+        name: nameInput,
+        email: emailInput,
+        message: messageInput
+      };
+
+      Object.values(controls).forEach((control) => control.removeAttribute('aria-invalid'));
+
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const sanitize = (s: string) => s.replace(/<[^>]*>/g, '').replace(/javascript:/gi, '').trim();
-      if (!name.value || name.value.trim().length < 2) errors.push('name');
-      if (!emailRe.test(email.value)) errors.push('email');
-      if (!message.value || sanitize(message.value).length < 10) errors.push('message');
+      const sanitize = (value) => value.replace(/<[^>]*>/g, '').replace(/javascript:/gi, '').trim();
+
+      const errors = [];
+      if (!controls.name.value || controls.name.value.trim().length < 2) errors.push('name');
+      if (!emailRe.test(controls.email.value)) errors.push('email');
+      if (!controls.message.value || sanitize(controls.message.value).length < 10) errors.push('message');
+
       if (errors.length) {
-        e.preventDefault();
-        errors.forEach((id) => {
-          const el = document.getElementById(id) as HTMLElement;
-          if (el) el.setAttribute('aria-invalid', 'true');
+        event.preventDefault();
+        errors.forEach((key) => {
+          const control = controls[key];
+          if (control) control.setAttribute('aria-invalid', 'true');
         });
-        return false;
+        return;
       }
-      name.value = sanitize(name.value);
-      message.value = sanitize(message.value);
+
+      controls.name.value = sanitize(controls.name.value);
+      controls.message.value = sanitize(controls.message.value);
     });
   })();
 </script>
@@ -279,96 +296,179 @@ novalidate
 
   <!-- Continue with other sections... -->
 
-  <script>
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Enhanced form interactions
       const formInputs = document.querySelectorAll('.form-input');
-      formInputs.forEach(input => {
-        const inputElement = input as HTMLInputElement | HTMLTextAreaElement;
-        const container = inputElement.closest('.input-container') as HTMLElement;
-        const underline = container?.querySelector('.input-underline') as HTMLElement;
-        
-        inputElement.addEventListener('focus', () => {
-          inputElement.style.borderColor = 'var(--color-primary, #3b82f6)';
-          inputElement.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
-          inputElement.style.transform = 'translateY(-2px)';
-          if (underline) {
+      formInputs.forEach((input) => {
+        if (!(input instanceof HTMLInputElement) && !(input instanceof HTMLTextAreaElement)) return;
+
+        const container = input.closest('.input-container');
+        const underline = container?.querySelector('.input-underline');
+
+        input.addEventListener('focus', () => {
+          input.style.borderColor = 'var(--color-primary, #3b82f6)';
+          input.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
+          input.style.transform = 'translateY(-2px)';
+          if (underline instanceof HTMLElement) {
             underline.style.transform = 'scaleX(1)';
           }
         });
 
-        inputElement.addEventListener('blur', () => {
-          inputElement.style.borderColor = '';
-          inputElement.style.boxShadow = '';
-          inputElement.style.transform = 'translateY(0)';
-          if (underline) {
+        input.addEventListener('blur', () => {
+          input.style.borderColor = '';
+          input.style.boxShadow = '';
+          input.style.transform = 'translateY(0)';
+          if (underline instanceof HTMLElement) {
             underline.style.transform = 'scaleX(0)';
           }
         });
 
-        // Typing animation effect
-        inputElement.addEventListener('input', () => {
-          const label = container?.previousElementSibling?.querySelector('.form-label') as HTMLElement;
-          if (label && inputElement.value.length > 0) {
+        input.addEventListener('input', () => {
+          const label = container?.previousElementSibling?.querySelector('.form-label');
+          if (!(label instanceof HTMLElement)) return;
+
+          if (input.value.length > 0) {
             label.style.color = 'var(--color-primary)';
             label.style.transform = 'scale(0.95)';
-          } else if (label) {
+          } else {
             label.style.color = '';
             label.style.transform = 'scale(1)';
           }
         });
       });
 
-      // Enhanced form submission with ripple effect
-      const form = document.getElementById('contact-form') as HTMLFormElement;
-      const successMessage = document.getElementById('success-message') as HTMLElement;
-      const submitBtn = document.querySelector('.submit-btn') as HTMLButtonElement;
+      const form = document.getElementById('contact-form');
+      const successMessage = document.getElementById('success-message');
+      const submitBtn = document.querySelector('.submit-btn');
 
-      if (form && successMessage && submitBtn) {
-        submitBtn.addEventListener('click', (e) => {
-          // Create ripple effect
-          const ripple = submitBtn.querySelector('.button-ripple') as HTMLElement;
-          const rect = submitBtn.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          if (ripple) {
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.style.transform = 'scale(1)';
-            
-            setTimeout(() => {
-              ripple.style.transform = 'scale(0)';
-            }, 600);
+      /**
+       * @param {string} value
+       * @returns {string}
+       */
+      function sanitizeInput(value) {
+        if (typeof value !== 'string') return '';
+        return value
+          .trim()
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/javascript:/gi, '')
+          .replace(/on\w+\s*=/gi, '')
+          .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+          .slice(0, 1000);
+      }
+
+      /** @returns {void} */
+      const clearErrors = () => {
+        document.querySelectorAll('.error-message').forEach((el) => {
+          if (el instanceof HTMLElement) {
+            el.classList.add('hidden');
+            el.textContent = '';
           }
         });
+      };
 
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          
+      /**
+       * @param {string} id
+       * @param {string} message
+       * @returns {void}
+       */
+      function showError(id, message) {
+        const element = document.getElementById(id);
+        if (element instanceof HTMLElement) {
+          element.textContent = message;
+          element.classList.remove('hidden');
+        }
+      }
+
+      /** @returns {boolean} */
+      const validateForm = () => {
+        if (!(form instanceof HTMLFormElement)) return false;
+
+        const controls = {
+          name: document.getElementById('name'),
+          email: document.getElementById('email'),
+          message: document.getElementById('message'),
+        };
+
+        if (
+          !(controls.name instanceof HTMLInputElement) ||
+          !(controls.email instanceof HTMLInputElement) ||
+          !(controls.message instanceof HTMLTextAreaElement)
+        ) {
+          return false;
+        }
+
+        clearErrors();
+
+        controls.name.value = sanitizeInput(controls.name.value);
+        controls.email.value = controls.email.value.trim();
+        controls.message.value = sanitizeInput(controls.message.value);
+
+        let isValid = true;
+
+        if (controls.name.value.length < 2) {
+          showError('name-error', 'Name must be at least 2 characters');
+          isValid = false;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(controls.email.value)) {
+          showError('email-error', 'Enter a valid email address');
+          isValid = false;
+        }
+
+        if (controls.message.value.length < 10) {
+          showError('message-error', 'Message must be at least 10 characters');
+          isValid = false;
+        }
+
+        return isValid;
+      };
+
+      if (
+        form instanceof HTMLFormElement &&
+        successMessage instanceof HTMLElement &&
+        submitBtn instanceof HTMLButtonElement
+      ) {
+        submitBtn.addEventListener('click', () => {
+          const ripple = submitBtn.querySelector('.button-ripple');
+          if (!(ripple instanceof HTMLElement)) return;
+
+          const rect = submitBtn.getBoundingClientRect();
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          ripple.style.left = `${centerX}px`;
+          ripple.style.top = `${centerY}px`;
+          ripple.style.transform = 'scale(1)';
+
+          setTimeout(() => {
+            ripple.style.transform = 'scale(0)';
+          }, 600);
+        });
+
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+
+          if (!validateForm()) return;
+
           const originalText = submitBtn.textContent;
-          submitBtn.innerHTML = `
-            <div class="flex items-center justify-center gap-2">
-              <div class="loading-spinner w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
-              <span>Sending...</span>
-            </div>
-          `;
+          submitBtn.innerHTML = `<div class="flex items-center justify-center gap-2">
+            <div class="loading-spinner w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+            <span>Sending...</span>
+          </div>`;
           submitBtn.disabled = true;
 
           try {
-            const formData = new FormData(form);
             const response = await fetch(form.action, {
               method: 'POST',
-              body: formData,
-              headers: {
-                'Accept': 'application/json'
-              }
+              body: new FormData(form),
+              headers: { Accept: 'application/json' },
             });
 
             if (response.ok) {
               form.style.transform = 'scale(0.95)';
               form.style.opacity = '0';
-              
+
               setTimeout(() => {
                 form.classList.add('hidden');
                 successMessage.classList.remove('hidden');
@@ -379,102 +479,97 @@ novalidate
             }
           } catch (error) {
             alert('Something went wrong. Please try again or email us directly.');
-            if (originalText) {
-              submitBtn.textContent = originalText;
-            }
+            if (originalText) submitBtn.textContent = originalText;
             submitBtn.disabled = false;
           }
         });
       }
 
-      // Reveal animations
       const observerOptions = {
         root: null,
         rootMargin: '-50px',
-        threshold: 0.1
+        threshold: 0.1,
       };
 
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const element = entry.target as HTMLElement;
-            
-            if (element.classList.contains('reveal-title')) {
+          if (!entry.isIntersecting || !(entry.target instanceof HTMLElement)) return;
+
+          const element = entry.target;
+
+          if (element.classList.contains('reveal-title')) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+          } else if (element.classList.contains('reveal-text')) {
+            setTimeout(() => {
               element.style.opacity = '1';
               element.style.transform = 'translateY(0)';
-            } else if (element.classList.contains('reveal-text')) {
+            }, 300);
+          } else if (element.classList.contains('reveal-promise')) {
+            const promiseItems = element.querySelectorAll('.promise-item');
+            promiseItems.forEach((item, itemIndex) => {
+              if (!(item instanceof HTMLElement)) return;
               setTimeout(() => {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-              }, 300);
-            } else if (element.classList.contains('reveal-promise')) {
-              const promiseItems = element.querySelectorAll('.promise-item');
-              promiseItems.forEach((item, itemIndex) => {
-                const itemElement = item as HTMLElement;
-                setTimeout(() => {
-                  itemElement.style.opacity = '1';
-                  itemElement.style.transform = 'translateY(0)';
-                }, 600 + (itemIndex * 200));
-              });
-            }
-          }
-        });
-      }, observerOptions);
-
-      // Apply reveal animations
-      const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-promise');
-      revealElements.forEach(element => {
-        const el = element as HTMLElement;
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-        revealObserver.observe(el);
-      });
-
-      // Promise items initial setup
-      const promiseItems = document.querySelectorAll('.promise-item');
-      promiseItems.forEach(item => {
-        const itemElement = item as HTMLElement;
-        itemElement.style.opacity = '0';
-        itemElement.style.transform = 'translateY(10px)';
-        itemElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-      });
-
-      // Animate code symbols
-      const codeSymbols = document.querySelectorAll('.code-symbol');
-      codeSymbols.forEach((symbol, index) => {
-        const symbolElement = symbol as HTMLElement;
-        const delay = index * 800;
-        const duration = 4000 + Math.random() * 2000;
-        
-        symbolElement.style.animation = `float ${duration}ms ease-in-out infinite ${delay}ms`;
-      });
-
-      // Timeline cards animation
-      const timelineCards = document.querySelectorAll('.timeline-card');
-      const timelineObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const cards = Array.from(timelineCards);
-            cards.forEach((card, index) => {
-              const cardElement = card as HTMLElement;
-              setTimeout(() => {
-                cardElement.style.opacity = '1';
-                cardElement.style.transform = 'translateY(0) scale(1)';
-              }, index * 200);
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              }, 600 + itemIndex * 200);
             });
           }
         });
       }, observerOptions);
 
-      if (timelineCards.length > 0) {
-        timelineCards.forEach(card => {
-          const cardElement = card as HTMLElement;
-          cardElement.style.opacity = '0';
-          cardElement.style.transform = 'translateY(30px) scale(0.9)';
-          cardElement.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-promise');
+      revealElements.forEach((element) => {
+        if (!(element instanceof HTMLElement)) return;
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition =
+          'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        revealObserver.observe(element);
+      });
+
+      const promiseItems = document.querySelectorAll('.promise-item');
+      promiseItems.forEach((item) => {
+        if (!(item instanceof HTMLElement)) return;
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(10px)';
+        item.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      });
+
+      const codeSymbols = document.querySelectorAll('.code-symbol');
+      codeSymbols.forEach((symbol, index) => {
+        if (!(symbol instanceof HTMLElement)) return;
+        const delay = index * 800;
+        const duration = 4000 + Math.random() * 2000;
+        symbol.style.animation = `float ${duration}ms ease-in-out infinite ${delay}ms`;
+      });
+
+      const timelineCards = document.querySelectorAll('.timeline-card');
+      const timelineElements = Array.from(timelineCards).filter(
+        (card) => card instanceof HTMLElement
+      );
+
+      const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          timelineElements.forEach((card, index) => {
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0) scale(1)';
+            }, index * 200);
+          });
         });
-        timelineObserver.observe(timelineCards[0]);
+      }, observerOptions);
+
+      if (timelineElements.length > 0) {
+        timelineElements.forEach((card) => {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(30px) scale(0.9)';
+          card.style.transition =
+            'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+        timelineObserver.observe(timelineElements[0]);
       }
     });
   </script>

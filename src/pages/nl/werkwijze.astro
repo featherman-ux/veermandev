@@ -12,11 +12,12 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
   <section class="mission-section py-20 px-4 text-center relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
       <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title text-center">
-        Jouw strategische <span class="inline-block">
+        <span class="typewriter-heading">
+          <span class="typewriter-heading__label">Jouw strategische</span>
           <TypewriterText 
-            words={["groeipartner"]}
-            className="text-primary"
-            initialText="groeipartner"
+            words={["Groeipartners"]}
+            className="typewriter-heading__text text-primary text-5xl sm:text-6xl lg:text-7xl"
+            initialText="Groeipartners"
           />
         </span>
       </h1>
@@ -404,7 +405,9 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const element = entry.target as HTMLElement;
+            const element = entry.target;
+
+            if (!(element instanceof HTMLElement)) return;
             
             // Apply different animations based on class
             if (element.classList.contains('reveal-title')) {
@@ -428,7 +431,9 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
       // Apply reveal animations to elements
       const revealElements = document.querySelectorAll('.reveal-title, .reveal-text, .reveal-card');
       revealElements.forEach(element => {
-        const el = element as HTMLElement;
+        if (!(element instanceof HTMLElement)) return;
+
+        const el = element;
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px) scale(0.95)';
         el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
@@ -438,7 +443,9 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
       // Subtle 3D Tilt effect for cards (reduced movement)
       const tiltCards = document.querySelectorAll('.tilt-card-subtle');
       tiltCards.forEach(card => {
-        const cardElement = card as HTMLElement;
+        if (!(card instanceof HTMLElement)) return;
+
+        const cardElement = card;
         
         cardElement.addEventListener('mousemove', (e) => {
           const rect = cardElement.getBoundingClientRect();
@@ -462,7 +469,9 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
       // Floating elements animation
       const floatingElements = document.querySelectorAll('.floating-circle, .floating-square, .floating-triangle');
       floatingElements.forEach((element, index) => {
-        const el = element as HTMLElement;
+        if (!(element instanceof HTMLElement)) return;
+
+        const el = element;
         const duration = 4000 + Math.random() * 2000;
         const delay = index * 800;
         
@@ -499,6 +508,19 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
       -webkit-text-fill-color: initial !important;
       -webkit-background-clip: initial !important;
       background-clip: initial !important;
+    }
+
+    .typewriter-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .typewriter-heading__text .typewriter-text {
+      display: inline-block;
+      text-align: center;
     }
 
     /* Subtle hover effects */
