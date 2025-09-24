@@ -335,7 +335,8 @@ met inzichten en vervolgstappen voor je project.
      * @param {string} value
      * @returns {string}
      */
-    function sanitizeInput(value) {
+    function sanitizeInput(value: string) {
+      
       if (typeof value !== 'string') return '';
       return value
         .trim()
@@ -362,7 +363,7 @@ met inzichten en vervolgstappen voor je project.
      * @param {string} message
      * @returns {void}
      */
-    function showError(id, message) {
+    function showError(id: string, message: string) {
       const element = document.getElementById(id);
       if (element instanceof HTMLElement) {
         element.textContent = message;
