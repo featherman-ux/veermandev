@@ -125,8 +125,8 @@ const sizeClasses = {
       let isDeleting = false;
       let isWaiting = false;
 
-      // Set initial width to prevent jumping
-      const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), '');
+      // Set initial width to prevent jumping - FIXED TYPE ANNOTATIONS
+      const longestWord = words.reduce((a: string, b: string) => (a.length > b.length ? a : b), '');
       typewriterElement.style.minWidth = longestWord.length + 'ch';
 
       function typeWriter() {
@@ -145,7 +145,10 @@ const sizeClasses = {
         if (shouldDelete) {
           if (currentCharIndex > 0) {
             currentCharIndex--;
-            typewriterElement.textContent = currentWord.substring(0, currentCharIndex);
+            // FIXED NULL CHECK
+            if (typewriterElement) {
+              typewriterElement.textContent = currentWord.substring(0, currentCharIndex);
+            }
             setTimeout(typeWriter, 50);
           } else {
             isDeleting = false;
@@ -155,7 +158,10 @@ const sizeClasses = {
         } else {
           if (currentCharIndex < currentWord.length) {
             currentCharIndex++;
-            typewriterElement.textContent = currentWord.substring(0, currentCharIndex);
+            // FIXED NULL CHECK
+            if (typewriterElement) {
+              typewriterElement.textContent = currentWord.substring(0, currentCharIndex);
+            }
             setTimeout(typeWriter, 100);
           } else {
             isWaiting = true;
