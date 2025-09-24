@@ -37,7 +37,7 @@ const { stepNumber, title, subtitle, description, features, image, reversed = fa
   </div>
   {image && (
     <div class={`step-image ${reversed ? 'lg:order-1' : ''}`}>
-      <img src={image} alt={title} class="w-full rounded-lg shadow-lg" loading="lazy" decoding="async" />
+      <img src={image} alt={title} class="w-full rounded-lg shadow-lg" />
     </div>
   )}
 </div>

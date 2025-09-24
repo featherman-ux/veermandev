@@ -31,46 +31,42 @@ export const routes = {
 
 export const ui = {
   en: {
-    //
     // SHARED
-    //
-    'site.title': 'VeermanDevelopment | Websites Engineered for Growth',
+    'site.title': 'VeermanDevelopment | Websites That Bring Customers',
     'site.description':
-      "We build blazingly fast, unbreakably secure websites that convert visitors into loyal customers. Stop settling for a digital brochure—invest in a performance asset.",
-    'launch.offer': 'Launch Offer: €100 off all packages + brand strategy included | Limited time only!',
-    'small.business.champion': 'The Small Business Champion',
+      'We build fast, reliable websites for small businesses. Clear advice, no jargon, and sites that turn visits into customers.',
+    'launch.offer': 'Launch offer: €100 off every package + brand strategy included | Limited time only!',
+    'small.business.champion': 'Your small business partner',
 
-    //
     // NAVIGATION
-    //
     'nav.home': 'Home',
     'nav.services': 'Services',
     'nav.portfolio': 'Portfolio',
     'nav.process': 'Process',
+    'nav.blog': 'Blog',
     'nav.contact': 'Contact',
-    'nav.cta': 'Start Your Project',
+    'nav.cta': 'Plan Your Free Call',
 
-    //
     // FOOTER
-    //
-    'footer.tagline': 'Websites Engineered for Growth',
+    'footer.tagline': 'Websites That Bring Customers',
     'footer.description':
-      'We build high-performance websites that convert visitors into customers using modern Jamstack technology. Your strategic growth partners for measurable business results.',
+      "We build fast, reliable websites so small businesses like yours get found and trusted online. No jargon, just practical results.",
     'footer.services': 'Services',
-    'footer.service.design': 'Growth-Driven Design',
-    'footer.service.jamstack': 'Jamstack Development',
-    'footer.service.optimization': 'Performance Optimization',
+    'footer.resources': 'Resources',
+    'footer.service.design': 'Website Design',
+    'footer.service.jamstack': 'Modern Development',
+    'footer.service.optimization': 'Speed Improvements',
     'footer.get.started': 'Get Started',
-    'footer.discovery.call': 'Free Discovery Call',
-    'footer.our.process': 'Our Process',
-    'footer.based.in': 'Based in Netherlands',
+    'footer.discovery.call': 'Free Advice Call',
+    'footer.our.process': 'How We Work',
+    'footer.based.in': 'Based in the Netherlands',
     'footer.copyright': `© ${new Date().getFullYear()} Veerman Development. All rights reserved.`,
-    'footer.privacy': 'Privacy Policy',
-    'footer.terms': 'Terms of Service',
+    'footer.privacy': 'Privacy',
+    'footer.terms': 'Terms',
     'footer.built.with': 'Built with Astro ⚡',
     'footer.performance.load': 'This site loads in',
     'footer.performance.time': '0.8 seconds',
-    'footer.performance.tech': '• 100% Jamstack • Zero maintenance required',
+    'footer.performance.tech': '• 100% Jamstack • No maintenance headaches',
     'footer.metric1.value': '340%',
     'footer.metric1.label': 'Average lead increase',
     'footer.metric2.value': '<1s',
@@ -78,183 +74,163 @@ export const ui = {
     'footer.metric3.value': '24h',
     'footer.metric3.label': 'Response time',
 
-
-    //
     // HOME PAGE
-    //
-    'home.page.title': 'Your Partner in Digital Growth | VeermanDevelopment',
+    'home.page.title': 'Your Partner in Online Growth | VeermanDevelopment',
     'home.page.description':
-      "We're The Small Business Champion. We build more than websites, we build brands. Professional websites that actually work, now accessible for small businesses.",
-    'home.hero.title': "We Don't Just Build Websites,",
+      'We help small businesses stand out online with fast, clear websites and personal guidance from start to finish.',
+    'home.hero.title': 'We Build Websites That Grow With You',
     'home.hero.description':
-      "We're The Small Business Champion. Your dedicated partner who understands the hustle. We handle the digital side so you can focus on what you do best.",
-    'home.hero.typewriter1': 'We Build Brands',
-    'home.hero.typewriter2': 'We Create Success',
-    'home.hero.typewriter3': 'We Drive Growth',
-    'home.hero.typewriter4': 'We Generate Sales',
-    'home.hero.typewriter5': 'We Build Your Future',
-    'home.hero.typewriter6': 'We Make You Memorable',
-    'home.hero.cta.primary': 'See Our Packages',
-    'home.hero.cta.secondary': 'View Success Stories',
-    'home.trust.signal1': 'Your Partner in Digital Growth',
-    'home.trust.signal2': 'Built in 3 days',
-    'home.trust.signal3': 'Brand strategy included',
-    'home.philosophy.title': 'In an Age Where Everyone is the Same, Dare to be Different',
-    'home.philosophy.subtitle1': 'Everyone has the ability to build a website',
-    'home.philosophy.text1': "Templates, builders, DIY solutions—they're everywhere. But cookie-cutter websites create cookie-cutter businesses.",
+      'Running a business is already a lot. We handle the tech, keep it simple, and give you a website that brings in customers.',
+    'home.hero.typewriter1': 'More customers',
+    'home.hero.typewriter2': 'Fast load times',
+    'home.hero.typewriter3': 'No jargon',
+    'home.hero.typewriter4': 'Easy updates',
+    'home.hero.typewriter5': 'Local leads',
+    'home.hero.typewriter6': 'Proud brand',
+    'home.hero.cta.primary': 'See Packages & Pricing',
+    'home.hero.cta.secondary': 'View Real Projects',
+    'home.trust.signal1': 'Personal guidance from first chat to launch',
+    'home.trust.signal2': 'Built in 3 days with clear pricing',
+    'home.trust.signal3': 'Brand story and SEO basics included',
+    'home.philosophy.title': 'Everyone has a website, you want to stand out',
+    'home.philosophy.subtitle1': 'Templates make everything look the same',
+    'home.philosophy.text1': 'DIY tools are everywhere, but copy-paste sites make it hard for customers to remember you.',
     'home.philosophy.problem1': 'You blend into the crowd',
-    'home.philosophy.problem2': "Customers can't remember you",
-    'home.philosophy.problem3': 'Competitors steal your business',
-    'home.philosophy.subtitle2': 'Not everyone has the ability to stand out',
+    'home.philosophy.problem2': "Customers don't know what makes you different",
+    'home.philosophy.problem3': 'Competitors get the call',
+    'home.philosophy.subtitle2': 'We help you show your personality',
     'home.philosophy.text2':
-      "That's where we come in. We don't just develop websites—we develop brands that customers can't ignore.",
-    'home.philosophy.solution1': 'Your brand becomes memorable',
-    'home.philosophy.solution2': 'Customers choose you over competitors',
-    'home.philosophy.solution3': 'You dominate your local market',
-    'home.promise.title': 'Our Promise to You',
+      "We combine design, copy, and tech so your website feels like your business and delivers clear next steps for customers.",
+    'home.philosophy.solution1': 'Your brand feels familiar and trustworthy',
+    'home.philosophy.solution2': 'Customers choose you over bigger players',
+    'home.philosophy.solution3': 'You keep growing in your local market',
+    'home.promise.title': 'Our Promise',
     'home.promise.text':
-      'Don\'t just develop a website, develop a brand. We combine technical expertise with marketing knowledge to create something truly mesmerizing—even if you just want a "simple" website.',
-    'home.comparison.title': 'Why Most Small Business Websites Look Amateur',
+      'We translate your story into a fast, easy-to-manage website that wins customers. No ongoing contracts, just a reliable partner when you need us.',
+    'home.comparison.title': 'Why most small business websites feel generic',
     'home.comparison.text':
-      'Everyone uses the same DIY tools and templates. Even many "developers" just install WordPress themes. Your business deserves better.',
-    'home.comparison.badge': 'Professional Website Service - Now Accessible for Small Businesses',
-    'home.packages.title': 'Choose Your Brand Transformation',
-    'home.packages.subtitle': '€100 off all packages + complete brand strategy included. Your partner in digital growth.',
+      'Most are built with the same tools and rushed updates. We build something you can proudly share with customers.',
+    'home.comparison.badge': 'Professional websites, now within reach for small businesses',
+    'home.packages.title': 'Choose Your Package',
+    'home.packages.subtitle': '€100 off all packages + complete brand strategy included. Your partner in online growth.',
     'home.blog.transformation.title': 'From Traveller to Blogger',
-    'home.blog.transformation.text': 'Niels wanted a unique site to showcase his adventures, so we built him a stylish, feature-rich blog.',
-    'home.blog.transformation.about': 'About the Blog',
-    'home.blog.transformation.about.text': 'A clean and modern design with interactive maps, photo galleries, and social sharing to inspire fellow travellers.',
-    'home.blog.transformation.before': 'Before: Basic blog with minimal features and little visibility.',
-    'home.blog.transformation.after': 'After: Engaging platform with rich media and growing audience.',
-    'home.blog.transformation.cta': 'Visit the Blog',
-    'home.process.title': 'Your Partner in Digital Growth',
-    'home.process.step1.title': 'We Understand Your Business',
-    'home.process.step1.text': 'Deep conversation about your business, challenges, and goals. We become your dedicated digital partner who truly gets it.',
-    'home.process.step2.title': 'We Build Your Brand',
-    'home.process.step2.text': 'Just 3 days to create a professional brand experience. We combine technical expertise with marketing knowledge for maximum impact.',
-    'home.process.step3.title': 'You Stand Out From Competitors',
-    'home.process.step3.text': 'Your professional brand goes live and customers choose you over competitors. We provide ongoing partnership support as you grow.',
-    'home.process.promise': "Partnership Promise: We're your dedicated digital growth partner, not just another vendor.",
+    'home.blog.transformation.text':
+      'Niels wanted more than another travel template, so we built him a custom platform with interactive maps and smart content tools.',
+    'home.blog.transformation.about': 'About the project',
+    'home.blog.transformation.about.text': 'Clean layout, AI-assisted summaries, and reusable components to keep stories fresh.',
+    'home.blog.transformation.before': 'Before: Generic blog with little insight or SEO power.',
+    'home.blog.transformation.after': 'After: A unique platform with dashboards, maps, and a growing audience.',
+    'home.blog.transformation.cta': 'Visit the blog',
+    'home.process.title': 'How we work together',
+    'home.process.step1.title': 'We learn about your business',
+    'home.process.step1.text': 'Quick call about your goals, customers, and the problems your website should solve.',
+    'home.process.step2.title': 'We build and refine',
+    'home.process.step2.text': 'In just 3 days you see real pages, words, and tools that fit your business.',
+    'home.process.step3.title': 'You launch with confidence',
+    'home.process.step3.text': 'We go live, set up tracking, and stay available for tweaks and new ideas.',
+    'home.process.promise': 'Partnership promise: you always talk to the same person after launch.',
 
-    //
     // PORTFOLIO PAGE
-    //
     'portfolio.page.title': 'Real Websites for Real Businesses | VeermanDevelopment',
     'portfolio.page.description':
-      'See what we build for small businesses across the Netherlands. Professional websites that actually work, now accessible for small businesses.',
-    'portfolio.hero.title': 'Real Websites for Real Businesses',
+      'See the projects we create for small businesses across the Netherlands. Websites that are fast, clear, and ready to bring in customers.',
+    'portfolio.hero.title': 'Real websites, built together',
     'portfolio.hero.text':
-      'See what we build for small businesses across the Netherlands. Professional websites that actually work, now accessible for small businesses.',
-    'portfolio.filter.all': 'All Examples',
+      'We co-create websites with entrepreneurs so their personality shows and customers know what to do next.',
+    'portfolio.filter.all': 'All examples',
     'portfolio.filter.foundation': '€249 Brand Foundation',
     'portfolio.filter.growth': '€349 Brand Growth',
     'portfolio.filter.complete': '€449 Brand Complete',
-    'portfolio.cta.title': 'Ready to Get Started?',
-    'portfolio.cta.text': "Pick your package and let's build you a website that actually gets you customers. Free hosting & updates included forever.",
-    'portfolio.cta.primary': 'See Packages & Pricing',
+    'portfolio.cta.title': 'Ready to start together?',
+    'portfolio.cta.text': "Pick the package that fits you and let's build a website that actually wins customers. Free hosting and updates included forever.",
+    'portfolio.cta.primary': 'Plan Your Free Call',
     'portfolio.cta.secondary': 'Ask Questions First',
-    'portfolio.launch.urgency': 'Launch offer: €100 off + complete brand strategy included. Limited to first 20 clients.',
-    
-    //
-    // PROCESS PAGE
-    //
-    'process.page.title': 'About VeermanDevelopment | Your Growth Partners',
-    'process.page.description':
-      'Meet the team behind high-performance websites. Learn about our philosophy, process, and commitment to building strategic partnerships that drive measurable business growth.',
-    'process.hero.title': 'Your Strategic Growth Partners',
-    'process.hero.text':
-      'We believe every business deserves a website that works as hard as they do. Our mission is to transform traditional web development from a one-time transaction into a strategic partnership that drives continuous growth.',
-    'process.philosophy.title': 'Our Philosophy',
-    'process.philosophy.text':
-      "Technology isn't just about code—it's about enabling business success. We combine cutting-edge development with strategic thinking to create digital assets that generate measurable results, not just pretty interfaces.",
+    'portfolio.launch.urgency': 'Launch offer: €100 off + complete brand strategy included. Limited to the first 20 projects.',
 
-    //
+    // PROCESS PAGE
+    'process.page.title': 'About VeermanDevelopment | Your Growth Partner',
+    'process.page.description':
+      'Meet the people behind the websites. Learn how we keep things simple, personal, and focused on results for small businesses.',
+    'process.hero.title': 'Your dedicated partner for online growth',
+    'process.hero.text':
+      'We make sure your website is not a cost line but a tool that attracts customers and grows with your business.',
+    'process.philosophy.title': 'Our philosophy',
+    'process.philosophy.text':
+      "Good tech should feel invisible. We handle performance, security, and strategy so you can focus on your clients.",
+
     // SERVICES PAGE
-    //
     'services.page.title': 'Website Packages for Small Businesses | VeermanDevelopment',
     'services.page.description':
-      'Clear pricing, no surprises. Professional websites that get you more customers. Built in 3 days, free hosting & updates included forever.',
-    'services.hero.title': 'Pick What Works for Your Business',
+      'Clear pricing, no surprises. Fast, secure websites that help you grow. Built in 3 days with hosting and updates included forever.',
+    'services.hero.title': 'Choose what fits your business',
     'services.hero.text':
-      'Clear pricing, no surprises. Professional websites that get you more customers. Built in 3 days, free hosting & updates included forever.',
-      
-    //
+      'Pick the package that matches your goals. We keep the process simple and deliver a website you can rely on.',
+
     // CONTACT PAGE
-    //
-    'contact.page.title': "Let's Build Something Great Together | VeermanDevelopment",
+    'contact.page.title': "Let's Talk About Your Website | VeermanDevelopment",
     'contact.page.description':
-      "Ready to transform your business with a high-performance website? Get in touch for a free discovery call. We'll respond within one business day.",
-    'contact.hero.title': "Let's Build Something Great Together",
+      'Ready for a fast, reliable website? Book a free call or send a message. We respond within one business day with honest advice.',
+    'contact.hero.title': "Let's talk about your website",
     'contact.hero.text':
-      "Schedule a free discovery call or send us a message below. We'll get back to you within one business day with insights and next steps for your project.",
-      
-    //
+      'Plan a free advice call or email us the basics. We respond within 24 hours with clear next steps.',
+
     // TERMS PAGE
-    //
     'terms.page.title': 'Terms of Service | VeermanDevelopment',
     'terms.page.description':
-      'Terms and conditions for VeermanDevelopment web development services. Clear agreements for our partnership-focused approach to building high-performance websites.',
+      'Simple, transparent terms so you know exactly how we work and what to expect.',
     'terms.hero.title': 'Terms of Service',
-    'terms.hero.text': 'Clear terms and conditions that govern our partnership and service delivery approach.',
+    'terms.hero.text': 'Clear agreements that protect our collaboration.',
 
-    //
     // PRIVACY PAGE
-    //
     'privacy.page.title': 'Privacy Policy | VeermanDevelopment',
     'privacy.page.description':
-      'Learn how VeermanDevelopment protects your privacy and handles your personal information. Transparent data practices for our web development services.',
+      'Find out how we handle your data respectfully and keep your information safe.',
     'privacy.hero.title': 'Privacy Policy',
-    'privacy.hero.text': 'Your privacy is important to us. This policy explains how we collect, use, and protect your information.',
+    'privacy.hero.text': 'We only collect what we need to help you and we never sell your data.',
 
-    //
     // 404 PAGE
-    //
     '404.title': 'Page Not Found',
-    '404.heading': 'Oops! This Page is Lost in Cyberspace',
-    '404.message': "We can't seem to find the page you're looking for. It might have been moved, deleted, or maybe it never existed.",
-    '404.back_home': 'Go Back Home',
+    '404.heading': 'This page is missing',
+    '404.message': "We couldn't find the page you're after. It might have moved or never existed.",
+    '404.back_home': 'Go back home',
   },
   nl: {
-    //
     // SHARED
-    //
-    'site.title': 'VeermanDevelopment | Websites Ontworpen voor Groei',
+    'site.title': 'VeermanDevelopment | Websites die klanten opleveren',
     'site.description':
-      'Wij bouwen razendsnelle, onbreekbaar veilige websites die bezoekers omzetten in trouwe klanten. Neem geen genoegen meer met een digitale brochure—investeer in een prestatiegericht bedrijfsmiddel.',
-    'launch.offer': 'Lanceringsaanbieding: €100 korting op alle pakketten + merkstrategie inbegrepen | Tijdelijke aanbieding!',
-    'small.business.champion': 'De Kampioen voor het MKB',
-    
-    //
+      'We bouwen snelle, veilige websites die werken op elke telefoon en klanten opleveren. Geen ingewikkeld gedoe, maar een site waar je trots op bent.',
+    'launch.offer': 'Lanceringsaanbieding: €100 korting op alle pakketten + merkstrategie inbegrepen | Tijdelijk beschikbaar!',
+    'small.business.champion': 'Jouw partner voor het mkb',
+
     // NAVIGATION
-    //
     'nav.home': 'Home',
     'nav.services': 'Diensten',
     'nav.portfolio': 'Portfolio',
     'nav.process': 'Werkwijze',
+    'nav.blog': 'Blog',
     'nav.contact': 'Contact',
-    'nav.cta': 'Start Uw Project',
+    'nav.cta': 'Plan je gratis adviesgesprek',
 
-    //
     // FOOTER
-    //
-    'footer.tagline': 'Websites Ontworpen voor Groei',
+    'footer.tagline': 'Websites die klanten opleveren',
     'footer.description':
-      'Wij bouwen hoog presterende websites die bezoekers omzetten in klanten met moderne Jamstack-technologie. Uw strategische groeipartners voor meetbare bedrijfsresultaten.',
+      'We bouwen snelle, betrouwbare websites zodat ondernemers zoals jij online gevonden worden en vertrouwen uitstralen.',
     'footer.services': 'Diensten',
-    'footer.service.design': 'Groeigedreven Ontwerp',
-    'footer.service.jamstack': 'Jamstack Ontwikkeling',
-    'footer.service.optimization': 'Prestatieoptimalisatie',
-    'footer.get.started': 'Begin Nu',
-    'footer.discovery.call': 'Gratis Kennismakingsgesprek',
-    'footer.our.process': 'Onze Werkwijze',
+    'footer.resources': 'Hulpbronnen',
+    'footer.service.design': 'Website ontwerp',
+    'footer.service.jamstack': 'Moderne ontwikkeling',
+    'footer.service.optimization': 'Snelheidsverbetering',
+    'footer.get.started': 'Aan de slag',
+    'footer.discovery.call': 'Gratis adviesgesprek',
+    'footer.our.process': 'Onze werkwijze',
     'footer.based.in': 'Gevestigd in Nederland',
     'footer.copyright': `© ${new Date().getFullYear()} Veerman Development. Alle rechten voorbehouden.`,
     'footer.privacy': 'Privacybeleid',
-    'footer.terms': 'Servicevoorwaarden',
+    'footer.terms': 'Voorwaarden',
     'footer.built.with': 'Gebouwd met Astro ⚡',
     'footer.performance.load': 'Deze site laadt in',
     'footer.performance.time': '0,8 seconden',
-    'footer.performance.tech': '• 100% Jamstack • Geen onderhoud nodig',
+    'footer.performance.tech': '• 100% Jamstack • Geen onderhoudszorgen',
     'footer.metric1.value': '340%',
     'footer.metric1.label': 'Gemiddelde leadstoename',
     'footer.metric2.value': '<1s',
@@ -262,140 +238,124 @@ export const ui = {
     'footer.metric3.value': '24u',
     'footer.metric3.label': 'Responstijd',
 
-    //
     // HOME PAGE
-    //
-    'home.page.title': 'Uw Partner in Digitale Groei | VeermanDevelopment',
+    'home.page.title': 'Jouw partner in online groei | VeermanDevelopment',
     'home.page.description':
-      'Wij zijn de Kampioen voor het MKB. We bouwen meer dan websites, we bouwen merken. Professionele websites die echt werken, nu toegankelijk voor kleine bedrijven.',
-    'home.hero.title': 'We Bouwen Niet Alleen Websites,',
+      'We helpen ondernemers in het mkb om op te vallen met snelle, duidelijke websites en persoonlijk advies.',
+    'home.hero.title': 'We bouwen websites die met je meegroeien',
     'home.hero.description':
-      'Wij zijn de Kampioen voor het MKB. Uw toegewijde partner die de drukte begrijpt. Wij regelen de digitale kant, zodat u zich kunt richten op waar u het beste in bent.',
-    'home.hero.typewriter1': 'We Bouwen Merken',
-    'home.hero.typewriter2': 'We Creëren Succes',
-    'home.hero.typewriter3': 'We Stimuleren Groei',
-    'home.hero.typewriter4': 'We Genereren Verkoop',
-    'home.hero.typewriter5': 'We Bouwen Uw Toekomst',
-    'home.hero.typewriter6': 'We Maken U Onvergetelijk',
-    'home.hero.cta.primary': 'Bekijk Onze Pakketten',
-    'home.hero.cta.secondary': 'Bekijk Succesverhalen',
-    'home.trust.signal1': 'Uw Partner in Digitale Groei',
-    'home.trust.signal2': 'Gebouwd in 3 dagen',
-    'home.trust.signal3': 'Merkstrategie inbegrepen',
-    'home.philosophy.title': 'In een Tijdperk Waarin Iedereen Hetzelfde is, Durf Anders te Zijn',
-    'home.philosophy.subtitle1': 'Iedereen kan een website bouwen',
-    'home.philosophy.text1': 'Sjablonen, bouwers, doe-het-zelf-oplossingen—ze zijn overal. Maar standaard websites creëren standaard bedrijven.',
-    'home.philosophy.problem1': 'U gaat op in de menigte',
-    'home.philosophy.problem2': 'Klanten kunnen u niet herinneren',
-    'home.philosophy.problem3': 'Concurrenten nemen uw bedrijf over',
-    'home.philosophy.subtitle2': 'Niet iedereen kan opvallen',
+      'Ondernemen is druk genoeg. Wij regelen de techniek, houden het simpel en leveren een website die klanten oplevert.',
+    'home.hero.typewriter1': 'Meer klanten',
+    'home.hero.typewriter2': 'Snelle laadtijden',
+    'home.hero.typewriter3': 'Geen jargon',
+    'home.hero.typewriter4': 'Makkelijk bij te houden',
+    'home.hero.typewriter5': 'Lokale zichtbaarheid',
+    'home.hero.typewriter6': 'Trots op je merk',
+    'home.hero.cta.primary': 'Bekijk pakketten & prijzen',
+    'home.hero.cta.secondary': 'Bekijk echte projecten',
+    'home.trust.signal1': 'Persoonlijk contact van eerste gesprek tot livegang',
+    'home.trust.signal2': 'Gerealiseerd in 3 dagen met heldere prijzen',
+    'home.trust.signal3': 'Merkverhaal en SEO-basis inbegrepen',
+    'home.philosophy.title': 'Iedereen heeft een website, jij wilt opvallen',
+    'home.philosophy.subtitle1': 'Templates maken alles hetzelfde',
+    'home.philosophy.text1': 'Doe-het-zelf tools zijn handig, maar zorgen vaak voor eenheidsworst. Klanten onthouden je dan niet.',
+    'home.philosophy.problem1': 'Je verdwijnt tussen concurrenten',
+    'home.philosophy.problem2': 'Klanten weten niet waarom ze jou moeten kiezen',
+    'home.philosophy.problem3': 'Nieuwe opdrachten gaan naar anderen',
+    'home.philosophy.subtitle2': 'Wij brengen jouw verhaal naar voren',
     'home.philosophy.text2':
-      'Daar komen wij in beeld. Wij ontwikkelen niet alleen websites—wij ontwikkelen merken die klanten niet kunnen negeren.',
-    'home.philosophy.solution1': 'Uw merk wordt onvergetelijk',
-    'home.philosophy.solution2': 'Klanten kiezen u boven concurrenten',
-    'home.philosophy.solution3': 'U domineert uw lokale markt',
-    'home.promise.title': 'Onze Belofte aan U',
+      'We combineren design, tekst en techniek zodat je website echt voelt als jouw bedrijf en duidelijke acties laat zien.',
+    'home.philosophy.solution1': 'Je merk voelt herkenbaar en betrouwbaar',
+    'home.philosophy.solution2': 'Klanten kiezen sneller voor jou',
+    'home.philosophy.solution3': 'Je groeit door in je regio',
+    'home.promise.title': 'Onze belofte',
     'home.promise.text':
-      'Ontwikkel niet zomaar een website, ontwikkel een merk. We combineren technische expertise met marketingkennis om iets echt betoverends te creëren—zelfs als u alleen een "eenvoudige" website wilt.',
-    'home.comparison.title': 'Waarom de Meeste Websites van Kleine Bedrijven er Amateuristisch Uitzien',
+      'We vertalen jouw verhaal naar een snelle website die makkelijk bij te houden is. Geen abonnementen, wel een vaste partner als je iets wilt aanpassen.',
+    'home.comparison.title': 'Waarom veel mkb-websites zo gemiddeld voelen',
     'home.comparison.text':
-      'Iedereen gebruikt dezelfde doe-het-zelf-tools en sjablonen. Zelfs veel "ontwikkelaars" installeren alleen WordPress-thema\'s. Uw bedrijf verdient beter.',
-    'home.comparison.badge': 'Professionele Website Service - Nu Toegankelijk voor Kleine Bedrijven',
-    'home.packages.title': 'Kies Uw Merktransformatie',
-    'home.packages.subtitle': '€100 korting op alle pakketten + complete merkstrategie inbegrepen. Uw partner in digitale groei.',
-    'home.blog.transformation.title': 'Van Reiziger tot Blogger',
-    'home.blog.transformation.text': 'Niels wilde een unieke site om zijn avonturen te laten zien, dus bouwden we een stijlvolle, feature-rijke blog voor hem.',
-    'home.blog.transformation.about': 'Over de Blog',
-    'home.blog.transformation.about.text': 'Een strak en modern ontwerp met interactieve kaarten, fotogalerijen en sociale deelmogelijkheden om medereizigers te inspireren.',
-    'home.blog.transformation.before': 'Voorheen: Eenvoudige blog met minimale functies en weinig zichtbaarheid.',
-    'home.blog.transformation.after': 'Na: Een boeiend platform met rijke media en een groeiend publiek.',
-    'home.blog.transformation.cta': 'Bezoek de Blog',
-    'home.process.title': 'Uw Partner in Digitale Groei',
-    'home.process.step1.title': 'We Begrijpen Uw Bedrijf',
-    'home.process.step1.text': 'Diepgaand gesprek over uw bedrijf, uitdagingen en doelen. Wij worden uw toegewijde digitale partner die het echt begrijpt.',
-    'home.process.step2.title': 'We Bouwen Uw Merk',
-    'home.process.step2.text': 'Slechts 3 dagen om een professionele merkervaring te creëren. We combineren technische expertise met marketingkennis voor maximale impact.',
-    'home.process.step3.title': 'U Onderscheidt Zich van Concurrenten',
-    'home.process.step3.text': 'Uw professionele merk gaat live en klanten kiezen u boven concurrenten. We bieden doorlopende partnerschapsondersteuning terwijl u groeit.',
-    'home.process.promise': 'Partnerschapsbelofte: Wij zijn uw toegewijde partner voor digitale groei, niet zomaar een leverancier.',
+      'Ze worden vaak snel in elkaar gezet met dezelfde tools. Wij bouwen iets waar jij en je klanten trots op zijn.',
+    'home.comparison.badge': 'Professionele websites, nu bereikbaar voor het mkb',
+    'home.packages.title': 'Kies het pakket dat bij je past',
+    'home.packages.subtitle': '€100 korting op alle pakketten + complete merkstrategie inbegrepen. Jouw partner in online groei.',
+    'home.blog.transformation.title': 'Van reiziger naar blogger',
+    'home.blog.transformation.text':
+      'Niels wilde meer dan een standaard reisblog. We bouwden een eigen platform met interactieve kaarten en slimme contenttools.',
+    'home.blog.transformation.about': 'Over dit project',
+    'home.blog.transformation.about.text': 'Strak ontwerp, AI-samenvattingen en blokken die makkelijk opnieuw te gebruiken zijn.',
+    'home.blog.transformation.before': 'Voorheen: Algemene blog zonder inzicht of goede vindbaarheid.',
+    'home.blog.transformation.after': 'Nu: Een uniek platform met dashboards, kaarten en een groeiend publiek.',
+    'home.blog.transformation.cta': 'Bekijk de blog',
+    'home.process.title': 'Zo werken we samen',
+    'home.process.step1.title': 'We leren je bedrijf kennen',
+    'home.process.step1.text': 'Een kort gesprek over je doelen, klanten en wat je website moet oplossen.',
+    'home.process.step2.title': 'We bouwen en finetunen',
+    'home.process.step2.text': "Binnen 3 dagen laten we echte pagina's en teksten zien die bij je passen.",
+    'home.process.step3.title': 'Je lanceert met vertrouwen',
+    'home.process.step3.text': 'We gaan live, zetten metingen klaar en blijven beschikbaar voor ideeën.',
+    'home.process.promise': 'Partnerschapsbelofte: je houdt na livegang één vast aanspreekpunt.',
 
-    //
     // PORTFOLIO PAGE
-    //
-    'portfolio.page.title': 'Echte Websites voor Echte Bedrijven | VeermanDevelopment',
+    'portfolio.page.title': 'Echte websites voor echte bedrijven | VeermanDevelopment',
     'portfolio.page.description':
-      'Bekijk wat we bouwen voor kleine bedrijven in heel Nederland. Professionele websites die echt werken, nu toegankelijk voor het MKB.',
-    'portfolio.hero.title': 'Echte Websites voor Echte Bedrijven',
+      'Bekijk projecten voor ondernemers in heel Nederland. Websites die snel laden, duidelijk zijn en klaar staan om klanten binnen te halen.',
+    'portfolio.hero.title': 'Echte websites, samen gebouwd',
     'portfolio.hero.text':
-      'Bekijk wat we bouwen voor kleine bedrijven in heel Nederland. Professionele websites die echt werken, nu toegankelijk voor het MKB.',
-    'portfolio.filter.all': 'Alle Voorbeelden',
+      'We bouwen websites samen met ondernemers zodat je persoonlijkheid zichtbaar wordt en klanten weten wat ze moeten doen.',
+    'portfolio.filter.all': 'Alle voorbeelden',
     'portfolio.filter.foundation': '€249 Merk Fundament',
     'portfolio.filter.growth': '€349 Merk Groei',
     'portfolio.filter.complete': '€449 Merk Compleet',
-    'portfolio.cta.title': 'Klaar om te Beginnen?',
-    'portfolio.cta.text': 'Kies uw pakket en laat ons een website voor u bouwen die daadwerkelijk klanten oplevert. Gratis hosting & updates voor altijd inbegrepen.',
-    'portfolio.cta.primary': 'Bekijk Pakketten & Prijzen',
-    'portfolio.cta.secondary': 'Stel Eerst Vragen',
-    'portfolio.launch.urgency': 'Lanceringsaanbieding: €100 korting + complete merkstrategie inbegrepen. Beperkt tot de eerste 20 klanten.',
+    'portfolio.cta.title': 'Klaar om samen te starten?',
+    'portfolio.cta.text': 'Kies het pakket dat bij je past en laten we een website bouwen die klanten oplevert. Hosting en updates zijn inbegrepen.',
+    'portfolio.cta.primary': 'Plan je gratis adviesgesprek',
+    'portfolio.cta.secondary': 'Stel eerst je vragen',
+    'portfolio.launch.urgency': 'Lanceringsaanbieding: €100 korting + complete merkstrategie inbegrepen. Voor de eerste 20 projecten.',
 
-    //
     // PROCESS PAGE
-    //
-    'process.page.title': 'Over VeermanDevelopment | Uw Groeipartners',
+    'process.page.title': 'Over VeermanDevelopment | Jouw groeipartner',
     'process.page.description':
-      'Maak kennis met het team achter hoog presterende websites. Leer over onze filosofie, ons proces en onze toewijding aan het opbouwen van strategische partnerschappen die meetbare bedrijfsgroei stimuleren.',
-    'process.hero.title': 'Uw Strategische Groeipartners',
+      'Leer wie er achter je website zit en hoe we het voor mkb-ondernemers simpel, persoonlijk en resultaatgericht houden.',
+    'process.hero.title': 'Jouw vaste partner voor online groei',
     'process.hero.text':
-      'Wij geloven dat elk bedrijf een website verdient die net zo hard werkt als zij. Onze missie is om traditionele webontwikkeling te transformeren van een eenmalige transactie naar een strategisch partnerschap dat continue groei stimuleert.',
-    'process.philosophy.title': 'Onze Filosofie',
+      'We zorgen dat je website geen kostenpost is, maar een investering die klanten aantrekt en met je bedrijf meegroeit.',
+    'process.philosophy.title': 'Onze filosofie',
     'process.philosophy.text':
-      "Technologie gaat niet alleen over code—het gaat over het mogelijk maken van zakelijk succes. We combineren geavanceerde ontwikkeling met strategisch denken om digitale bedrijfsmiddelen te creëren die meetbare resultaten genereren, niet alleen mooie interfaces.",
+      'Goede techniek hoort vanzelfsprekend te werken. Wij regelen snelheid, veiligheid en verhaal, jij focust op je klanten.',
 
-    //
     // SERVICES PAGE
-    //
-    'services.page.title': 'Websitepakketten voor het MKB | VeermanDevelopment',
+    'services.page.title': 'Websitepakketten voor het mkb | VeermanDevelopment',
     'services.page.description':
-      'Duidelijke prijzen, geen verrassingen. Professionele websites die u meer klanten opleveren. Gebouwd in 3 dagen, gratis hosting & updates voor altijd inbegrepen.',
-    'services.hero.title': 'Kies Wat Werkt voor Uw Bedrijf',
+      'Heldere prijzen, geen verrassingen. Snelle, veilige websites die je laten groeien. Gebouwd in 3 dagen, hosting en updates inbegrepen.',
+    'services.hero.title': 'Kies wat bij jouw bedrijf past',
     'services.hero.text':
-      'Duidelijke prijzen, geen verrassingen. Professionele websites die u meer klanten opleveren. Gebouwd in 3 dagen, gratis hosting & updates voor altijd inbegrepen.',
-      
-    //
-    // CONTACT PAGE
-    //
-    'contact.page.title': "Laten We Samen Iets Geweldigs Bouwen | VeermanDevelopment",
-    'contact.page.description':
-      "Klaar om uw bedrijf te transformeren met een hoog presterende website? Neem contact op voor een gratis kennismakingsgesprek. We reageren binnen één werkdag.",
-    'contact.hero.title': "Laten We Samen Iets Geweldigs Bouwen",
-    'contact.hero.text':
-      "Plan een gratis kennismakingsgesprek of stuur ons hieronder een bericht. We nemen binnen één werkdag contact met u op met inzichten en volgende stappen voor uw project.",
+      'Selecteer het pakket dat bij je doelen past. Wij houden het proces overzichtelijk en leveren een website waar je op kunt bouwen.',
 
-    //
+    // CONTACT PAGE
+    'contact.page.title': "Laten we praten over je website | VeermanDevelopment",
+    'contact.page.description':
+      'Klaar voor een snelle, betrouwbare website? Plan een gratis gesprek of stuur een bericht. We reageren binnen één werkdag met eerlijk advies.',
+    'contact.hero.title': 'Laten we praten over je website',
+    'contact.hero.text':
+      'Plan een gratis adviesgesprek of mail de basisinfo. Je hoort binnen 24 uur van ons met concrete vervolgstappen.',
+
     // TERMS PAGE
-    //
-    'terms.page.title': 'Servicevoorwaarden | VeermanDevelopment',
+    'terms.page.title': 'Voorwaarden | VeermanDevelopment',
     'terms.page.description':
-      'Algemene voorwaarden voor de webontwikkelingsdiensten van VeermanDevelopment. Duidelijke afspraken voor onze op partnerschap gerichte aanpak voor het bouwen van hoog presterende websites.',
-    'terms.hero.title': 'Servicevoorwaarden',
-    'terms.hero.text': 'Duidelijke voorwaarden die onze partnerschap en dienstverlening regelen.',
-    
-    //
+      'Eerlijke, duidelijke afspraken zodat je precies weet hoe we samenwerken.',
+    'terms.hero.title': 'Voorwaarden',
+    'terms.hero.text': 'Heldere afspraken die onze samenwerking beschermen.',
+
     // PRIVACY PAGE
-    //
     'privacy.page.title': 'Privacybeleid | VeermanDevelopment',
     'privacy.page.description':
-      'Lees hoe VeermanDevelopment uw privacy beschermt en uw persoonlijke informatie behandelt. Transparante gegevenspraktijken voor onze webontwikkelingsdiensten.',
+      'Lees hoe we zorgvuldig met je gegevens omgaan en ze veilig bewaren.',
     'privacy.hero.title': 'Privacybeleid',
-    'privacy.hero.text': 'Uw privacy is belangrijk voor ons. Dit beleid legt uit hoe we uw informatie verzamelen, gebruiken en beschermen.',
-    
-    //
+    'privacy.hero.text': 'We verzamelen alleen wat nodig is om je te helpen en delen je gegevens nooit.',
+
     // 404 PAGE
-    //
-    '404.title': 'Pagina Niet Gevonden',
-    '404.heading': 'Oeps! Deze Pagina is Verdwaald',
-    '404.message': "We kunnen de pagina die je zoekt niet vinden. Mogelijk is deze verplaatst, verwijderd of heeft deze nooit bestaan.",
-    '404.back_home': 'Ga Terug Naar Home',
+    '404.title': 'Pagina niet gevonden',
+    '404.heading': 'Deze pagina bestaat niet',
+    '404.message': 'We kunnen de pagina die je zoekt niet vinden. Misschien is hij verplaatst of nooit aangemaakt.',
+    '404.back_home': 'Terug naar home',
   },
 } as const;
-

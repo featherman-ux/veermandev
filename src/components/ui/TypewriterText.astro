@@ -7,21 +7,50 @@ export interface Props {
 }
 
 const { words, className = "text-primary", initialText, cursorClass = "terminal-cursor" } = Astro.props;
+
+// Find the longest word to use as a sizer
+const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), '');
 ---
 
-<span 
-  class={`typewriter-text ${className} inline-block text-center`} 
-  data-words={JSON.stringify(words)}
-  data-cursor-class={cursorClass}
->
-  {initialText || words[0]}
-</span>
+<div class="typewriter-wrapper">
+  <!-- Ghost element to set the container size based on the longest word -->
+  <span class="typewriter-sizer" aria-hidden="true">{longestWord}</span>
+
+  <!-- The actual typewriter element, positioned on top of the sizer -->
+  <span 
+    class={`typewriter-text ${className}`} 
+    data-words={JSON.stringify(words)}
+    data-cursor-class={cursorClass}
+  >
+    {initialText || words[0]}
+  </span>
+</div>
 
 <style>
-  .typewriter-text {
-    min-height: 1.2em;
+  .typewriter-wrapper {
+    position: relative;
     display: inline-block;
-    vertical-align: top;
+    text-align: center;
+    width: auto; /* Size to content (sizer) to prevent odd wraps */
+  }
+
+  .typewriter-sizer {
+    opacity: 0;
+    min-height: 1.2em; /* Ensure it has height even if empty */
+    display: block;
+    white-space: nowrap;
+  }
+
+  .typewriter-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    white-space: nowrap; /* Keep phrase together */
+    word-break: keep-all;
+    hyphens: none;
   }
   
   .terminal-cursor {
@@ -34,14 +63,9 @@ const { words, className = "text-primary", initialText, cursorClass = "terminal-
     51%, 100% { opacity: 0; }
   }
   
-  /* Mobile responsive styles */
+  /* Mobile responsive styles can be removed as this approach is fully responsive */
   @media (max-width: 640px) {
-    .typewriter-text {
-      max-width: 100%;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      hyphens: auto;
-    }
+    /* This block can now be safely removed */
   }
 </style>
 

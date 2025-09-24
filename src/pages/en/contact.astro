@@ -13,10 +13,12 @@ const pageDescription = "Ready to transform your business with a high-performanc
     description="Schedule a free discovery call or send us a message below. We'll get back to you within one business day with insights and next steps for your project."
     trustSignals={["⚡ 24-hour response", "💬 No-pressure consultation", "🎯 Custom strategy included"]}
   >
-    Let's Build Something <TypewriterText 
-      words={["Great Together", "Revolutionary", "That Converts", "That Performs", "Extraordinary"]}
+    Book your call
+    <br class="hidden sm:block" />
+    <TypewriterText 
+      words={["within 24 hours","with Niels","no pressure"]}
       className="text-primary terminal-text"
-      initialText="Great Together"
+      initialText="within 24 hours"
       cursorClass="terminal-cursor"
     />
   </HeroSection>
@@ -29,7 +31,7 @@ const pageDescription = "Ready to transform your business with a high-performanc
         <!-- ENHANCED CALENDLY SECTION -->
         <div class="calendar-section bg-card-light dark:bg-card-dark rounded-xl p-4 sm:p-8 shadow-lg hover-lift">
           <div class="text-center mb-8">
-            <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">📅</div>
+            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">📅</div>
             <h2 class="font-heading font-bold text-2xl mb-4">Schedule Your Call</h2>
             <p class="opacity-80 mb-6">
               <strong class="text-primary">30 minutes that could transform your business.</strong><br>
@@ -51,19 +53,20 @@ const pageDescription = "Ready to transform your business with a high-performanc
         <!-- ENHANCED CONTACT FORM -->
         <div class="contact-form bg-card-light dark:bg-card-dark rounded-xl p-4 sm:p-8 shadow-lg hover-lift">
           <div class="text-center mb-8">
-            <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">✉️</div>
+            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">✉️</div>
             <h2 class="font-heading font-bold text-2xl mb-4">Send Us a Message</h2>
             <p class="opacity-80 mb-4">
               Prefer to email? Tell us about your project and we'll get back to you within 24 hours with a custom proposal.
             </p>
           </div>
 
-          <form 
-            id="contact-form"
-            action="https://formspree.io/f/xdklqakn" 
-            method="POST" 
-            class="space-y-6"
-          >
+<form
+id="contact-form"
+action="https://formspree.io/f/xdklqakn"
+method="POST"
+class="space-y-6"
+novalidate
+>
             <!-- Enhanced Name Field -->
             <div class="form-group">
               <label for="name" class="block text-sm font-medium mb-2 form-label">
@@ -138,13 +141,41 @@ const pageDescription = "Ready to transform your business with a high-performanc
             <!-- Enhanced Submit Button -->
             <button 
               type="submit" 
-              class="submit-btn w-full bg-primary text-black font-semibold px-6 py-4 rounded-lg text-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform hover:scale-[1.02] relative overflow-hidden group"
+            class="submit-btn w-full bg-primary text-white font-semibold px-6 py-4 rounded-lg text-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform hover:scale-[1.02] relative overflow-hidden group"
             >
               <span class="relative z-10">Send Project Details</span>
               <div class="button-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               <div class="button-ripple absolute inset-0 bg-white/20 transform scale-0 rounded-full"></div>
             </button>
-          </form>
+</form>
+
+<script is:inline>
+  (function () {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', (e) => {
+      const name = (document.getElementById('name') as HTMLInputElement);
+      const email = (document.getElementById('email') as HTMLInputElement);
+      const message = (document.getElementById('message') as HTMLTextAreaElement);
+      const errors: string[] = [];
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const sanitize = (s: string) => s.replace(/<[^>]*>/g, '').replace(/javascript:/gi, '').trim();
+      if (!name.value || name.value.trim().length < 2) errors.push('name');
+      if (!emailRe.test(email.value)) errors.push('email');
+      if (!message.value || sanitize(message.value).length < 10) errors.push('message');
+      if (errors.length) {
+        e.preventDefault();
+        errors.forEach((id) => {
+          const el = document.getElementById(id) as HTMLElement;
+          if (el) el.setAttribute('aria-invalid', 'true');
+        });
+        return false;
+      }
+      name.value = sanitize(name.value);
+      message.value = sanitize(message.value);
+    });
+  })();
+</script>
 
           <!-- Enhanced Success Message -->
           <div id="success-message" class="hidden mt-6 p-6 border border-green-500 bg-green-50 dark:bg-green-900/20 rounded-lg success-animation">
@@ -159,6 +190,15 @@ const pageDescription = "Ready to transform your business with a high-performanc
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FREE AUDIT CTA -->
+  <section class="py-8 px-4">
+    <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 rounded-xl p-6 text-center">
+      <h3 class="text-2xl font-semibold mb-2">Free Website Audit</h3>
+      <p class="opacity-80 mb-4">Get a quick review of speed, mobile UX, and findability. No obligations.</p>
+    <a href={`/${'en'}/contact`} class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-all">Request My Audit</a>
     </div>
   </section>
 
@@ -211,25 +251,25 @@ const pageDescription = "Ready to transform your business with a high-performanc
       
       <div class="expectations-grid grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="expectation-card text-center group timeline-card" data-step="1">
-          <div class="step-number w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">1</div>
+          <div class="step-number w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">1</div>
           <h4 class="font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Quick Response</h4>
           <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">We'll respond within 24 hours with follow-up questions and next steps.</p>
         </div>
         
         <div class="expectation-card text-center group timeline-card" data-step="2">
-          <div class="step-number w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">2</div>
+          <div class="step-number w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">2</div>
           <h4 class="font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Discovery Call</h4>
           <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">30-minute call to understand your goals and explore how we can help.</p>
         </div>
         
         <div class="expectation-card text-center group timeline-card" data-step="3">
-          <div class="step-number w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">3</div>
+          <div class="step-number w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">3</div>
           <h4 class="font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Custom Proposal</h4>
           <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">Detailed proposal with strategy, timeline, and investment options.</p>
         </div>
         
         <div class="expectation-card text-center group timeline-card" data-step="4">
-          <div class="step-number w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">4</div>
+          <div class="step-number w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">4</div>
           <h4 class="font-semibold mb-2 group-hover:text-primary transition-colors duration-300"> Partnership</h4>
           <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">Begin your journey to measurable business growth.</p>
         </div>

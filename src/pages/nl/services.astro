@@ -22,20 +22,38 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
 
   <!-- INTRO SECTION -->
   <HeroSection 
-    description="Geen verborgen kosten, geen verrassingen. Professionele websites die je meer klanten opleveren. Gebouwd in slechts 3 dagen, met gratis hosting & updates voor altijd inbegrepen."
+    description="Een trage, verouderde website kost je klanten. Wij bouwen snel, persoonlijk en met een duidelijk plan — in 3 dagen live, met gratis hosting & updates."
+    primaryCTA={{ text: "Plan je gratis adviesgesprek", href: `/${lang}/contact` }}
+    trustSignals={[
+      "Astro framework – sneller dan WordPress",
+      "Mobiel‑eerst design – 70% via telefoon",
+      "Lokale SEO geoptimaliseerd – word gevonden",
+      "Geen maandelijkse kosten – jij bent eigenaar"
+    ]}
   >
-    Kies Wat <TypewriterText 
-      words={["Echt Werkt", "Jouw Doelen", "Jouw Budget", "Jouw Succes"]}
+    Kies je pakket
+    <br class="hidden sm:block" />
+    <TypewriterText 
+      words={["Live in 3 dagen","heldere prijzen","geen gedoe"]}
       className="text-primary"
-      initialText="Echt Werkt"
-    /> voor Jouw Bedrijf
+      initialText="Live in 3 dagen"
+    />
   </HeroSection>
+  <!-- PERSONAL INTRO -->
+  <section class="personal-intro py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center bg-background-light dark:bg-background-dark border border-primary/10 rounded-xl p-8 shadow-sm">
+      <h3 class="text-3xl font-semibold mb-4">Samen bouwen we aan jouw volgende stap online</h3>
+      <p class="text-lg opacity-80">
+        Wij werken met iedere klant mee, zodat jij niet verdwaalt in technisch jargon. Ons doel is dat jij trots bent op je website én er klanten uithaalt.
+      </p>
+    </div>
+  </section>
 
   <!-- PACKAGE COMPARISON -->
   <section class="packages-section py-16 px-4 reveal-section">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="font-heading font-bold text-4xl mb-4">Kies Je Digitale Transformatie</h2>
+        <h2 class="font-heading font-bold text-4xl mb-4">Kies het pakket dat bij je past</h2>
         <p class="text-lg opacity-80">€100 korting op alle pakketten + complete merkstrategie inbegrepen</p>
       </div>
       
@@ -61,23 +79,23 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
             <div class="package-features space-y-4 mb-8 flex-grow">
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Professionele website die je expertise weergeeft</span>
+                <span>Website die klanten vertrouwen en begrijpen</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Merkstrategie & positionering</span>
+                <span>Merkverhaal en tone of voice die bij je past</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Bliksemsnelle prestaties (onder 1 seconde)</span>
+                <span>Supersnel laden (onder 1 seconde)</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Merkzichtbaarheid setup (Google, socials)</span>
+                <span>Google- en social-profielen netjes ingericht</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Mobiel perfect op elk apparaat</span>
+                <span>Goed leesbaar op mobiel en desktop</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
@@ -86,12 +104,12 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
             </div>
             
             <div class="example-info bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-6">
-              <p class="text-sm"><strong>Voorbeeld:</strong> Professionele portfolio die respect afdwingt</p>
+              <p class="text-sm"><strong>Voorbeeld:</strong> Website die klanten vertrouwen</p>
               <p class="text-xs opacity-60 mt-1">Perfect voor het showcasen van je werk en contact krijgen</p>
             </div>
             
             <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
-              Start Je Transformatie
+              Plan je gratis adviesgesprek
             </a>
           </div>
         </div>
@@ -116,33 +134,33 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
                 <div class="savings text-sm text-green-600 font-medium">Bespaar €100</div>
               </div>
               <h3 class="text-2xl font-semibold mb-2">Growth</h3>
-              <p class="text-sm opacity-60">Perfect voor lokale bedrijven die hun markt willen domineren</p>
+              <p class="text-sm opacity-60">Perfect voor lokale bedrijven die willen groeien in hun regio</p>
             </div>
             
             <div class="package-features space-y-4 mb-8 flex-grow">
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Alles in Fundament, plus:</span>
+                <span>Alles uit Foundation, plus:</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Geavanceerde merkstrategie & marktpositionering</span>
+                <span>Uitgebreid merkplan met concrete acties</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>5-8 pagina's ontworpen om bezoekers te converteren</span>
+                <span>5-8 pagina's die bezoekers naar contact of verkoop leiden</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Klanttargeting strategie</span>
+                <span>Duidelijke content voor je belangrijkste doelgroepen</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Lokale SEO om je gebied te domineren</span>
+                <span>Lokale SEO zodat mensen in jouw omgeving je vinden</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Blog/portfolio systeem voor doorlopende betrokkenheid</span>
+                <span>Blog- of portfoliosectie om verhalen te delen</span>
               </div>
             </div>
             
@@ -152,7 +170,7 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
             </div>
             
             <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
-              Domineer Je Markt
+              Plan je gratis adviesgesprek
             </a>
           </div>
         </div>
@@ -172,33 +190,33 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
                 <div class="savings text-sm text-green-600 font-medium">Bespaar €100</div>
               </div>
               <h3 class="text-2xl font-semibold mb-2">Complete</h3>
-              <p class="text-sm opacity-60">Perfect voor ambitieuze bedrijven die online willen verkopen</p>
+              <p class="text-sm opacity-60">Perfect voor bedrijven die online willen verkopen</p>
             </div>
             
             <div class="package-features space-y-4 mb-8 flex-grow">
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Alles in Groei, plus:</span>
+                <span>Alles uit Growth, plus:</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Complete e-commerce merkervaring</span>
+                <span>Webshop met een vertrouwd gevoel voor je klant</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Betalingsverwerking & veilige checkout</span>
+                <span>Veilige betalingen en eenvoudig afrekenen</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Voorraadbeheer & bestelsysteem</span>
+                <span>Voorraad- en bestelproces inzichtelijk</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Klantloyaliteit & retentie functies</span>
+                <span>Herhaalbestellingen en klantloyaliteit geregeld</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Geavanceerde marketingautomatisering</span>
+                <span>Automatische e-mails en opvolging</span>
               </div>
             </div>
             
@@ -208,7 +226,7 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
             </div>
             
             <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
-              Bouw Complete Merk
+              Plan je gratis adviesgesprek
             </a>
           </div>
         </div>
@@ -216,13 +234,13 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
       
       <!-- All packages include -->
       <div class="all-packages-include mt-16 text-center bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-        <h3 class="font-semibold mb-4">Complete merkstrategie inbegrepen bij elk pakket:</h3>
+        <h3 class="font-semibold mb-4">Bij elk pakket krijg je dit er standaard bij:</h3>
         <div class="grid md:grid-cols-5 gap-4 text-sm">
-          <div>✓ Merkpositionering strategie</div>
-          <div>✓ Klanttargeting plan</div>
-          <div>✓ Zichtbaarheid optimalisatie</div>
-          <div>✓ Marktdifferentiatie</div>
-          <div>✓ Groeipartnerschap</div>
+          <div>✓ Duidelijke merkboodschap</div>
+          <div>✓ Plan voor je ideale klant</div>
+          <div>✓ Verbeterde zichtbaarheid online</div>
+          <div>✓ Jouw unieke verhaal helder</div>
+          <div>✓ Betrokken partner na livegang</div>
         </div>
         <p class="text-xs opacity-60 mt-4">Lanceringsaanbieding: Deze uitgebreide merkstrategie kost normaal €400+</p>
       </div>
@@ -234,73 +252,35 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="font-heading font-bold text-4xl mb-4">Waarom Niet Gewoon WordPress?</h2>
-        <p class="text-lg opacity-80">Hier is waarom de meeste kleine bedrijfswebsites traag en duur zijn</p>
+        <p class="text-lg opacity-80">Dit zijn de drie grootste verschillen voor kleine bedrijven</p>
       </div>
       
-      <div class="comparison-cards grid md:grid-cols-2 gap-8">
-        <div class="wordpress-card bg-red-50 dark:bg-red-900/20 p-8 rounded-lg border border-red-200 dark:border-red-800 flex flex-col">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="text-4xl">😰</div>
-            <h3 class="text-xl font-semibold text-red-700 dark:text-red-300">Meeste WordPress Sites</h3>
-          </div>
-          <ul class="space-y-4 text-sm flex-grow">
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Laden in 4-8 seconden (klanten vertrekken na 3)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Breken willekeurig wanneer plugins updaten</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Worden regelmatig gehackt (96% door plugins)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Kosten €20-50/maand voor hosting & onderhoud</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Ranken slecht op Google door trage snelheid</span>
-            </li>
-          </ul>
+      <div class="comparison-cards grid md:grid-cols-3 gap-8">
+        <div class="highlight-card bg-background-light dark:bg-background-dark p-8 rounded-lg border border-primary/10 flex flex-col">
+          <h3 class="text-xl font-semibold mb-4">⏱️ Sneller</h3>
+          <p class="text-sm opacity-80 mb-2"><strong>Onze websites:</strong> laden onder 1 seconde dankzij statische hosting.</p>
+          <p class="text-sm opacity-70"><strong>Veel WordPress-sites:</strong> 4–8 seconden door zware thema's en plugins.</p>
         </div>
-        
-        <div class="our-card bg-green-50 dark:bg-green-900/20 p-8 rounded-lg border border-green-200 dark:border-green-800 flex flex-col">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="text-4xl">😊</div>
-            <h3 class="text-xl font-semibold text-green-700 dark:text-green-300">Onze Moderne Websites</h3>
-          </div>
-          <ul class="space-y-4 text-sm flex-grow">
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span>Laden in minder dan 1 seconde (klanten blijven & kopen)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span>Breken nooit - gebouwd om jaren mee te gaan</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span>Virtueel onhackbaar (geen database om aan te vallen)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span><strong>Gratis hosting & updates voor altijd inbegrepen</strong></span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span>Perfecte Google scores = meer klanten vinden je</span>
-            </li>
-          </ul>
+        <div class="highlight-card bg-background-light dark:bg-background-dark p-8 rounded-lg border border-primary/10 flex flex-col">
+          <h3 class="text-xl font-semibold mb-4">💸 Goedkoper</h3>
+          <p class="text-sm opacity-80 mb-2"><strong>Onze websites:</strong> geen maandelijkse kosten voor hosting of onderhoud.</p>
+          <p class="text-sm opacity-70"><strong>Veel WordPress-sites:</strong> €20–50 per maand aan hosting, onderhoud en plugin-licenties.</p>
+        </div>
+        <div class="highlight-card bg-background-light dark:bg-background-dark p-8 rounded-lg border border-primary/10 flex flex-col">
+          <h3 class="text-xl font-semibold mb-4">🛡️ Veiliger</h3>
+          <p class="text-sm opacity-80 mb-2"><strong>Onze websites:</strong> geen plugins die kunnen breken of gehackt worden.</p>
+          <p class="text-sm opacity-70"><strong>Veel WordPress-sites:</strong> gevoelig voor hacks en kapotte updates.</p>
         </div>
       </div>
-      
-      <div class="bottom-line text-center mt-8 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-        <p class="text-lg font-semibold text-blue-800 dark:text-blue-300">
-          Simpele rekensom: Snelle website = Meer klanten. Trage website = Klanten gaan naar concurrenten.
-        </p>
+
+      <div class="text-center mt-10">
+        <a
+          href={`/${lang}/werkwijze#performance-comparison`}
+          class="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
+        >
+          Bekijk onze PageSpeed-vergelijking
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -313,7 +293,7 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
       <div class="process-steps grid md:grid-cols-3 gap-12">
         <div class="step group">
           <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">1</div>
-          <h3 class="text-xl font-semibold mb-4">Vertel Ons Wat Je Nodig Hebt</h3>
+          <h3 class="text-xl font-semibold mb-4">Vertel Ons Je Wensen</h3>
           <p class="text-sm opacity-80">Snelle oproep of bericht over je bedrijf. We bevelen het juiste pakket aan en leggen alles duidelijk uit.</p>
         </div>
         
@@ -412,7 +392,7 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
           href={`/${lang}/contact`}
           class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105 inline-block"
         >
-          Begin Vandaag
+          Plan je gratis adviesgesprek
         </a>
         <a
           href={`/${lang}/portfolio`}
@@ -581,9 +561,8 @@ const pageDescription = "Duidelijke prijzen, geen verrassingen. Professionele we
       }
     }
 
-    .comparison-cards .wordpress-card,
-    .comparison-cards .our-card {
-      min-height: 400px;
+    .comparison-cards .highlight-card {
+      min-height: 220px;
     }
     
     .faq-question:hover .faq-toggle {

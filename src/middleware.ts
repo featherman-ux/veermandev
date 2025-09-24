@@ -1,9 +1,10 @@
 import { defineMiddleware } from 'astro:middleware';
 import { defaultLang, ui } from './i18n/ui';
+import { getCSPHeader } from './utils/security';
 
 const supportedLangs = Object.keys(ui);
 
-export const onRequest = defineMiddleware((context, next) => {
+export const onRequest = defineMiddleware(async (context, next) => {
   const { url, cookies, request, redirect } = context;
 
   // Note: Security headers will be set at the server level (Cloudflare)
@@ -48,6 +49,19 @@ export const onRequest = defineMiddleware((context, next) => {
     }
   }
   
-  // If we reach here, continue with the request
-  return next();
+  // If we reach here, continue with the request and set security headers
+  const response = await next();
+  try {
+    response.headers.set('Content-Security-Policy', getCSPHeader());
+    response.headers.set('X-Frame-Options', 'DENY');
+    response.headers.set('X-Content-Type-Options', 'nosniff');
+    response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+    response.headers.set('Permissions-Policy', [
+      'geolocation=()',
+      'camera=()',
+      'microphone=()',
+      'payment=()'
+    ].join(', '));
+  } catch {}
+  return response;
 });

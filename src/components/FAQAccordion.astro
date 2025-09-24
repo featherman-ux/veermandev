@@ -1,0 +1,55 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs: FAQ[];
+}
+
+const { faqs } = Astro.props;
+---
+
+<div class="faq-list space-y-4">
+  {faqs.map((faq, index) => (
+    <div class="faq-item bg-card-light dark:bg-card-dark rounded-lg">
+      <button 
+        class="faq-question w-full text-left p-6 font-semibold flex justify-between items-center"
+        data-faq-toggle={index}
+      >
+        {faq.question}
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer hidden p-6 pt-0 opacity-80" data-faq-content={index}>
+        {faq.answer}
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll('[data-faq-toggle]');
+    
+    faqButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const index = button.getAttribute('data-faq-toggle');
+        if (!index) return;
+        
+        const answer = document.querySelector(`[data-faq-content="${index}"]`) as HTMLElement;
+        const toggle = button.querySelector('.faq-toggle') as HTMLElement;
+        
+        if (answer && toggle) {
+          if (answer.classList.contains('hidden')) {
+            answer.classList.remove('hidden');
+            toggle.textContent = '−';
+          } else {
+            answer.classList.add('hidden');
+            toggle.textContent = '+';
+          }
+        }
+      });
+    });
+  });
+</script>

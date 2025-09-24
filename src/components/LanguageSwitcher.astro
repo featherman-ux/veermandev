@@ -1,6 +1,6 @@
 ---
-import { languages, routes } from '../../i18n/ui';
-import { getLangFromUrl } from '../../i18n/utils';
+import { languages, routes } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
 
 const { pathname } = Astro.url;
 const lang = getLangFromUrl(Astro.url);
@@ -13,16 +13,17 @@ function getTranslatedPath(targetLang: string, route: string) {
   const translatedRoute = routes[targetLang as keyof typeof routes]?.[route as keyof typeof routes['en']] || route;
   return `/${targetLang}/${translatedRoute}`;
 }
-
-const languageOptions = Object.entries(languages).filter(([code]) => code !== lang);
 ---
 
 <div class="language-switcher">
-  {languageOptions.map(([langCode, label]) => (
+  {Object.entries(languages).map(([langCode, label]) => (
     <a 
       href={getTranslatedPath(langCode, currentRoute)}
-      class="lang-link"
-      aria-label={`Switch to ${label}`}
+      class:list={[
+        "lang-link",
+        lang === langCode ? "is-active" : ""
+      ]}
+      aria-current={lang === langCode ? "page" : undefined}
     >
       {label}
     </a>
@@ -32,23 +33,24 @@ const languageOptions = Object.entries(languages).filter(([code]) => code !== la
 <style>
   .language-switcher {
     display: flex;
-    gap: 0.25rem;
+    gap: 0.5rem;
   }
   
   .lang-link {
     text-decoration: none;
     color: var(--color-text-muted, #6b7280);
-    padding: 0.125rem 0.4rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 4px;
-    border: 1px solid rgba(148, 163, 184, 0.4);
-    font-size: 0.75rem;
-    line-height: 1;
-    transition: all 0.2s ease;
+    transition: all 0.2s;
   }
   
   .lang-link:hover {
-    background-color: var(--color-primary-light, rgba(59, 130, 246, 0.15));
-    color: var(--color-primary, #0a84ff);
-    border-color: var(--color-primary, #0a84ff);
+    background-color: var(--color-primary-light, rgba(59, 130, 246, 0.1));
+  }
+  
+  .lang-link.is-active {
+    font-weight: bold;
+    color: var(--color-primary, #3b82f6);
+    background-color: var(--color-primary-light, rgba(59, 130, 246, 0.1));
   }
 </style>

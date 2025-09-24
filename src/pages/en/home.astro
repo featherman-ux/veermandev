@@ -20,20 +20,24 @@ const pageDescription = "We build more than websites, we build brands. Professio
     <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
   </section>
 
-  <!-- SMALL BUSINESS CHAMPION HERO - FIXED TYPEWRITER -->
+  <!-- PROBLEM-FOCUSED HERO -->
   <HeroSection 
-    description="Your dedicated partner who understands the hustle. We handle the digital side so you can focus on what you do best."
-    typewriterWords={['We Build Brands', 'We Create Success', 'We Drive Growth', 'We Generate Sales', 'We Build Your Future', 'We Make You Memorable']}
-    primaryCTA={{text: "See Our Packages", href: `/${lang}/services`}}
-    secondaryCTA={{text: "View Success Stories", href: `/${lang}/portfolio`}}
-    trustSignals={["Your Partner in Digital Growth", "Built in 3 days", "Brand strategy included"]}
+    description="A slow, outdated website makes visitors bounce. We build ultra-fast, modern websites that turn visitors into customers — for business owners who want to grow online."
+    primaryCTA={{text: "Let's transform your website", href: `/${lang}/contact`}}
+    trustSignals={[
+      "Astro framework – faster than WordPress",
+      "Mobile-first design – 70% visits on phone",
+      "Local SEO optimized – get found",
+      "No monthly fees – you own it"
+    ]}
     size="large"
   >
-    We Don't Just Build Websites, <TypewriterText 
-      words={['We Build Brands', 'We Create Success', 'We Drive Growth', 'We Generate Sales', 'We Build Your Future', 'We Make You Memorable']}
+    Your website makes people bounce instead of win them over
+    <br class="hidden sm:block" />
+    <TypewriterText 
+      words={["We build for speed","We think with you","Your brand. Unforgettable."]}
       className="text-primary"
-      initialText="We Build Brands"
-      cursorClass="cursor"
+      initialText="We build for speed"
     />
   </HeroSection>
 
@@ -485,7 +489,7 @@ const pageDescription = "We build more than websites, we build brands. Professio
 
     <div class="transformation-grid grid lg:grid-cols-2 gap-12 items-center">
       <div class="transformation-image">
-        <img src="/portfolio/waarisniels-mockup.jpg" alt="Travel Blog Website" class="w-full h-80 object-cover rounded-lg" />
+        <img src="/portfolio/waarisniels-mockup.jpg" alt="Travel Blog Website" class="w-full h-80 object-cover rounded-lg" loading="lazy" decoding="async" />
       </div>
 
       <div class="transformation-content">

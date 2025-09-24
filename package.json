@@ -10,7 +10,8 @@
     "astro": "astro",
     "check": "astro check",
     "lint": "eslint src/**/*.{js,ts,astro}",
-    "format": "prettier --write src/**/*.{js,ts,astro,css}"
+    "format": "prettier --write src/**/*.{js,ts,astro,css}",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.5",

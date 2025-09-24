@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
 
+const lang = 'nl';
+
 const pageTitle = "Echte Websites voor Echte Bedrijven | VeermanDevelopment";
 const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. Professionele websites die daadwerkelijk werken, nu toegankelijk voor kleine bedrijven.";
 ---
@@ -10,13 +12,13 @@ const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. P
 <BaseLayout title={pageTitle} description={pageDescription}>
 
 <HeroSection 
-  subtitle="De Kleine Bedrijven Kampioen"
-  description="Zie wat we bouwen voor kleine bedrijven in Nederland. Professionele websites die daadwerkelijk werken, nu toegankelijk voor kleine bedrijven."
+  subtitle="Geloofwaardigheid zonder poespas"
+  description="Zo helpen wij ondernemers met het ontwikkelen van een unieke website die klanten aanspreekt en leads oplevert."
 >
-  Echte Websites voor <TypewriterText 
-    words={["Echte Bedrijven", "Echte Resultaten", "Echte Groei", "Echte Succes"]}
+  Samen bouwen we aan <TypewriterText 
+    words={["een herkenbare uitstraling", "meer aanvragen", "websites die klanten vertrouwen"]}
     className="text-primary"
-    initialText="Echte Bedrijven"
+    initialText="een herkenbare uitstraling"
   />
 </HeroSection>
 
@@ -56,12 +58,41 @@ const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. P
 </div>
 
 <div class="project-item group cursor-pointer subtle-card" data-category="growth">
+<div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 flex flex-col">
+<div class="project-image relative overflow-hidden">
+<div class="coming-soon-placeholder w-full h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 dark:from-emerald-900 dark:to-emerald-800 flex items-center justify-center">
+<div class="text-center">
+<div class="text-4xl mb-2">💇‍♀️</div>
+<div class="font-semibold text-emerald-800 dark:text-emerald-200">Case: Haarstudio Luna</div>
+<div class="text-sm text-emerald-600 dark:text-emerald-300">lokale kapper</div>
+</div>
+</div>
+</div>
+<div class="project-content p-6 flex-grow flex flex-col">
+<div class="package-info flex justify-between items-start mb-3">
+<span class="text-xs bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full font-medium">Merk Groei - €349</span>
+<span class="text-xs text-emerald-600 dark:text-emerald-300">Mockup • servicebedrijf</span>
+</div>
+<h3 class="text-xl font-semibold mb-2">Lokale Kapper & Beauty Salon</h3>
+<p class="text-sm opacity-80 mb-4 flex-grow">Warm design met online afspraken, review-highlights en fotogalerij zodat buurtklanten direct vertrouwen voelen.</p>
+<div class="features-list text-xs opacity-60 space-y-2">
+<div>• Online afspraken en automatische bevestigingen</div>
+<div>• Dienstenoverzicht met heldere prijzen</div>
+<div>• Fotogalerij voor kapsels en salon sfeer</div>
+<div>• Google Reviews geïntegreerd op de homepage</div>
+<div>• Lokale SEO optimalisatie voor "kapper + plaats"</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="project-item group cursor-pointer subtle-card" data-category="growth">
 <div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 border-2 border-green-200 dark:border-green-800 flex flex-col">
 <div class="success-badge absolute top-4 right-4 z-10 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
 Live Site
 </div>
 <div class="project-image relative overflow-hidden">
-<img src="/portfolio/waarisniels-mockup.jpg" alt="Reisblog Website" class="w-full h-80 object-cover rounded-lg" />
+<img src="/portfolio/waarisniels-mockup.jpg" alt="Reisblog Website" class="w-full h-80 object-cover rounded-lg" loading="lazy" decoding="async" />
 <div class="project-overlay absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 <div class="overlay-content absolute bottom-4 left-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
 <span class="text-sm font-medium">Bezoek Live Site →</span>
@@ -129,31 +160,60 @@ Bezoek waarisniels.nl
 </div>
 </section>
 
+<section class="approach-standards py-16 px-4 reveal-section">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="font-heading font-bold text-4xl mb-4">Onze Aanpak & Standaarden</h2>
+      <p class="text-lg opacity-80">Zonder testimonials bouwen we vertrouwen met transparantie en bewezen principes.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+        <h3 class="text-xl font-semibold mb-4">Wat we garanderen</h3>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li>✓ Je site laadt sneller dan je concurrent (meestal onder 2 seconden).</li>
+          <li>✓ Werkt altijd soepel op mobiel – 70% van je klanten kijkt via de telefoon.</li>
+          <li>✓ Direct vindbaar via Google en Maps met de juiste basisinstellingen.</li>
+          <li>✓ Geen maandelijkse kosten of gedoe: jij blijft 100% eigenaar.</li>
+        </ul>
+      </div>
+      <div class="bg-card-light dark:bg-card-dark rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+        <h3 class="text-xl font-semibold mb-4">Waarom dit telt</h3>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li>• Klanten klikken door bij snelle sites; bij 3 seconden haakt 40% al af.</li>
+          <li>• Eerste indruk telt: 75% beoordeelt je bedrijf op het design van je website.</li>
+          <li>• Sterke lokale vindbaarheid levert meer winkel- en belafspraken op.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="success-example py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
 <div class="max-w-6xl mx-auto">
 <div class="text-center mb-12">
 <h2 class="font-heading font-bold text-4xl mb-4">Van Reiziger naar Blogger</h2>
-<p class="text-lg opacity-80">Niels wilde een unieke site om zijn avonturen te showcasen, dus bouwden we hem een stijlvolle, functierijke blog.</p>
+<p class="text-lg opacity-80">Niels wilde geen generieke Polarsteps-pagina maar een eigen platform. We bouwden een interactieve blog met AI-hulpmiddelen en een dashboard voor contentanalyse.</p>
 </div>
 
 <div class="transformation-grid grid lg:grid-cols-2 gap-12 items-center">
 <div class="transformation-image">
-<img src="/portfolio/waarisniels-mockup.jpg" alt="Reisblog Website" class="w-full h-80 object-cover rounded-lg" />
+<img src="/portfolio/waarisniels-mockup.jpg" alt="Reisblog Website" class="w-full h-80 object-cover rounded-lg" loading="lazy" decoding="async" />
 </div>
 
 <div class="transformation-content">
 <h3 class="text-2xl font-semibold mb-4">Over de Blog</h3>
-<p class="text-lg mb-6">Een schoon en modern design met interactieve kaarten, fotogalerijen en social sharing om medereizigers te inspireren.</p>
+<p class="text-lg mb-6">Een schoon en modern design met interactieve kaarten, fotogalerijen en AI-gegenereerde samenvattingen die zowel volgers als partners direct meenemen in het verhaal.</p>
 
 <div class="transformation-benefits space-y-6 mb-8">
 <div class="before-after bg-background-light dark:bg-background-dark rounded-lg p-4">
-<div class="text-sm font-semibold mb-2">Voorheen: Basis Blog</div>
-<div class="text-sm opacity-70">Generiek platform met minimale functies en weinig zichtbaarheid</div>
+<div class="text-sm font-semibold mb-2">Voorheen: Basis reisblog</div>
+<div class="text-sm opacity-70">Generieke template zonder data-inzicht of onderscheidend verhaal</div>
 </div>
 <div class="arrow text-center text-primary text-3xl">↓</div>
 <div class="before-after bg-primary/10 rounded-lg p-4">
-<div class="text-sm font-semibold mb-2 text-primary">Nu: Functierijk Platform</div>
-<div class="text-sm">Maatwerk design met interactieve kaarten, galerijen en groeiend publiek</div>
+<div class="text-sm font-semibold mb-2 text-primary">Nu: Functierijk platform</div>
+<div class="text-sm">Eigen merkbeleving met AI-contentvoorstellen, dashboards en snelle performance</div>
 </div>
 </div>
 
@@ -174,60 +234,60 @@ Bezoek de Blog
 <div class="included-grid grid md:grid-cols-3 gap-8">
 <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
 <div class="text-3xl mb-4">⚡</div>
-<h3 class="font-semibold mb-3">Bliksemsnelle</h3>
-<p class="text-sm opacity-80">Al onze websites laden in minder dan 1 seconde. Je klanten wachten niet.</p>
+<h3 class="font-semibold mb-3">Supersnel online</h3>
+<p class="text-sm opacity-80">Minder wachten, meer klanten: we mikken op laadtijden onder één seconde.</p>
 </div>
 <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
 <div class="text-3xl mb-4">📱</div>
-<h3 class="font-semibold mb-3">Mobiel Perfect</h3>
-<p class="text-sm opacity-80">Ziet er perfect uit op telefoons, tablets en computers. De meeste van je klanten gebruiken telefoons.</p>
+<h3 class="font-semibold mb-3">Mobiel perfect</h3>
+<p class="text-sm opacity-80">Je website voelt net zo goed op mobiel als op desktop, precies waar jouw bezoekers zijn.</p>
 </div>
 <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
 <div class="text-3xl mb-4">🔍</div>
-<h3 class="font-semibold mb-3">Google Klaar</h3>
-<p class="text-sm opacity-80">Gebouwd om goed te ranken op Google vanaf dag één. Geen extra SEO kosten nodig.</p>
+<h3 class="font-semibold mb-3">Google klaar</h3>
+<p class="text-sm opacity-80">We leveren je site op met de juiste SEO-basis, zodat je meteen gevonden wordt.</p>
 </div>
 <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
 <div class="text-3xl mb-4">🛡️</div>
-<h3 class="font-semibold mb-3">Super Veilig</h3>
-<p class="text-sm opacity-80">Geen WordPress kwetsbaarheden. Je site wordt niet gehackt of breekt niet willekeurig.</p>
+<h3 class="font-semibold mb-3">Stabiel en veilig</h3>
+<p class="text-sm opacity-80">Geen plugins die stuklopen; je site blijft veilig draaien zonder onderhoudsstress.</p>
 </div>
 <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
 <div class="text-3xl mb-4">💚</div>
-<h3 class="font-semibold mb-3">Gratis Voor Altijd</h3>
-<p class="text-sm opacity-80">Gratis hosting & updates voor altijd inbegrepen. Geen maandelijkse rekeningen of verrassingskosten.</p>
+<h3 class="font-semibold mb-3">Geen vaste kosten</h3>
+<p class="text-sm opacity-80">Hosting en updates zijn inbegrepen, dus geen vaste maandlasten of kleine lettertjes.</p>
 </div>
 <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
 <div class="text-3xl mb-4">📚</div>
-<h3 class="font-semibold mb-3">Makkelijke Updates</h3>
-<p class="text-sm opacity-80">We leren je hoe je content zelf kunt updaten. Geen maandelijkse kosten om tekst te wijzigen.</p>
+<h3 class="font-semibold mb-3">Makkelijk bij te werken</h3>
+<p class="text-sm opacity-80">Je krijgt uitleg zodat je teksten en foto’s zelf kunt aanpassen wanneer je wilt.</p>
 </div>
 </div>
 </div>
 </section>
 <section class="simple-cta py-16 px-4 text-center">
 <div class="max-w-3xl mx-auto">
-<h2 class="font-heading font-bold text-4xl mb-6">Ready to Get Started?</h2>
+<h2 class="font-heading font-bold text-4xl mb-6">Klaar om samen te bouwen?</h2>
 <p class="text-lg opacity-80 mb-8">
-Pick your package and let's build you a website that actually gets you customers. Free hosting & updates included forever.
+Kies het pakket dat bij je past en laten we jouw website bouwen die echt klanten oplevert. Gratis hosting en updates zijn inbegrepen.
 </p>
 <div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
 <a
-href={`/en/services`}
+href={`/${lang}/services`}
 class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary/90 transition-all inline-block"
 >
-See Packages & Pricing
+Plan je gratis adviesgesprek
 </a>
 <a
-href={`/en/contact`}
+href={`/${lang}/contact`}
 class="bg-card-light dark:bg-card-dark border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary hover:text-black transition-all inline-block"
 >
-Ask Questions First
+Stel eerst je vragen
 </a>
 </div>
 <div class="launch-urgency mt-8 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-4 rounded-lg border border-orange-200 dark:border-orange-800">
 <p class="font-semibold text-orange-800 dark:text-orange-300">
-🚀 <strong>Launch offer:</strong> €100 off + complete brand strategy included. Limited to first 20 clients.
+🚀 <strong>Lanceringsaanbieding:</strong> €100 korting + complete merkstrategie inbegrepen. Geldt voor de eerste 20 projecten.
 </p>
 </div>
 </div>

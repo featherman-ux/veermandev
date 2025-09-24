@@ -1,0 +1,37 @@
+---
+import TypewriterText from '../ui/TypewriterText.astro';
+
+interface Props {
+  lang?: 'nl' | 'en';
+  authorName?: string;
+}
+
+const { lang = 'nl', authorName = 'Niels' } = Astro.props as Props;
+
+const summaryText = lang === 'nl'
+  ? `Heeee meiden — ${authorName} hier. Deze post is voor iedereen die z’n site net even strakker wil trekken. Gaat er iets mis? Ken gebeuren. Ik laat je zien hoe je ’t fixt en waar je wél tijd in moet steken. Zie je iets dat gasten facking mooi is? Deel ’t vooral. Wil je dat ik even meekijk? Stuur me gerust een bericht.`
+  : `Hey — ${authorName} here. Wrote this for small business owners who want quick wins without fluff. If something breaks… it happens. I’ll show you how to fix it and what actually matters. Want a quick personal look at your site? Ping me anytime.`;
+---
+
+<section class="mx-auto mb-8 -mt-2">
+  <div class="bg-white text-gray-900 border border-gray-200 rounded-xl p-5 sm:p-6 shadow-sm">
+    <div class="flex items-start gap-3 mb-2">
+      <div class="text-primary text-xl leading-none">✍️</div>
+      <h2 class="font-heading font-semibold text-lg sm:text-xl m-0">
+        <TypewriterText 
+          words={lang === 'nl' ? ["Korte persoonlijke samenvatting", "Waarom ik dit schreef"] : ["Short personal summary", "Why I wrote this"]}
+          className="text-primary"
+          initialText={lang === 'nl' ? 'Korte persoonlijke samenvatting' : 'Short personal summary'}
+        />
+      </h2>
+    </div>
+    <p class="text-sm sm:text-base opacity-90">
+      {summaryText}
+    </p>
+  </div>
+  <style>
+    @media (max-width: 640px) {
+      section { margin-left: 0; margin-right: 0; }
+    }
+  </style>
+</section>

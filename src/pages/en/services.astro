@@ -22,14 +22,35 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
 
   <!-- INTRO SECTION -->
   <HeroSection 
-    description="Clear pricing, no surprises. Professional websites that get you more customers. Built in 3 days, free hosting & updates included forever."
+    description="A slow, outdated website costs you customers. Choose a package with clear pricing — built in 3 days, free hosting & updates forever."
+    primaryCTA={{ text: "Plan a free website audit", href: `/${lang}/contact` }}
+    trustSignals={[
+      "Astro framework – faster than WordPress",
+      "Mobile‑first design – 70% visits on phone",
+      "Local SEO optimized – get found",
+      "No monthly fees – you own it"
+    ]}
   >
-    Pick What Works for <TypewriterText 
-      words={["Your Business", "Your Goals", "Your Budget", "Your Success"]}
+    Choose your package
+    <br class="hidden sm:block" />
+    <TypewriterText 
+      words={["grow in 3 days","clear pricing","no hassle"]}
       className="text-primary"
-      initialText="Your Business"
+      initialText="grow in 3 days"
     />
   </HeroSection>
+
+  <!-- TRANSPARENCY BLOCK -->
+  <section class="py-6 px-4">
+    <div class="max-w-4xl mx-auto bg-card-light dark:bg-card-dark rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+      <h3 class="text-2xl font-semibold mb-3">No surprises</h3>
+      <ul class="space-y-2 text-sm opacity-90">
+        <li>✓ Fixed price agreed upfront</li>
+        <li>✓ No extra costs during the project</li>
+        <li>✓ You own your website after delivery</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- PACKAGE COMPARISON -->
   <section class="packages-section py-16 px-4 reveal-section">
@@ -90,7 +111,7 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
               <p class="text-xs opacity-60 mt-1">Perfect for showcasing your work and getting contacted</p>
             </div>
             
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-white font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Start Your Transformation
             </a>
           </div>
@@ -99,7 +120,7 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
         <!-- Package 2: Growth (Most Popular) -->
         <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative border-2 border-primary flex flex-col">
           <div class="popular-badge-container absolute -top-4 left-0 right-0 flex justify-center z-30">
-            <div class="popular-badge bg-primary text-black px-5 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white dark:border-gray-800">
+            <div class="popular-badge bg-primary text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white dark:border-gray-800">
               ⭐ Most Chosen
             </div>
           </div>
@@ -151,7 +172,7 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
               <p class="text-xs opacity-60 mt-1">Full-featured site with blog, galleries, and maps</p>
             </div>
             
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-white font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Dominate Your Market
             </a>
           </div>
@@ -207,7 +228,7 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
               <p class="text-xs opacity-60 mt-1">Complete e-commerce solution for online sales</p>
             </div>
             
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-white font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Build Complete Brand
             </a>
           </div>
@@ -312,19 +333,19 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
       
       <div class="process-steps grid md:grid-cols-3 gap-12">
         <div class="step group">
-          <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">1</div>
+          <div class="step-number w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">1</div>
           <h3 class="text-xl font-semibold mb-4">Tell Us What You Need</h3>
           <p class="text-sm opacity-80">Quick call or message about your business. We'll recommend the right package and explain everything clearly.</p>
         </div>
         
         <div class="step group">
-          <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">2</div>
+          <div class="step-number w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">2</div>
           <h3 class="text-xl font-semibold mb-4">We Build Your Website</h3>
           <p class="text-sm opacity-80"><strong>Just 3 days</strong> to design and build. We send updates and ask for feedback. No surprises or hidden costs.</p>
         </div>
         
         <div class="step group">
-          <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">3</div>
+          <div class="step-number w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">3</div>
           <h3 class="text-xl font-semibold mb-4">You Get More Customers</h3>
           <p class="text-sm opacity-80">Fast, professional website goes live with <strong>free hosting & updates forever</strong>. We teach you how to update it.</p>
         </div>
@@ -410,7 +431,7 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
       <div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href={`/${lang}/contact`}
-          class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105 inline-block"
+          class="bg-primary text-white font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105 inline-block"
         >
           Get Started Today
         </a>

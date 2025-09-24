@@ -2,8 +2,8 @@
 // src/layouts/BaseLayout.astro
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import { getLangFromUrl } from '../i18n/utils';  // This will now correctly import from ui.ts via utils
-import globalStyles from '../styles/global.css?raw';
+import { getLangFromUrl } from '../i18n/utils';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -42,8 +42,20 @@ const canonicalUrl = Astro.site
     <link rel="dns-prefetch" href="https://assets.calendly.com" />
     <link rel="dns-prefetch" href="https://formspree.io" />
 
-    {/* 2. Inlined the styles to prevent render-blocking */}
-    <style is:inline set:html={globalStyles}></style>
+    {/* Critical CSS: minimal base to prevent FOUC */}
+    <style is:inline>
+      :root { --bg-dark: #0B0C10; --text-dark: #E5E7EB; --bg-light: #F9FAFB; --text-light: #111827; }
+      html { scroll-behavior: smooth; }
+      body { background: var(--bg-light); color: var(--text-light); }
+      .dark body, body.dark { background: var(--bg-dark); color: var(--text-dark); }
+      a { text-decoration: none; }
+    </style>
+    <!-- Preload fonts -->
+    <link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/inter-v20-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/inter-v20-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/poppins-v23-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/poppins-v23-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -64,6 +76,33 @@ const canonicalUrl = Astro.site
     <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+    {/* Structured Data (basic) */}
+    {(() => {
+      const path = Astro.url.pathname;
+      let json: any = null;
+      if (path.includes('/services')) {
+        json = {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: 'Website packages',
+          provider: { '@type': 'Organization', name: 'VeermanDevelopment' },
+          areaServed: 'Netherlands',
+          offers: { '@type': 'Offer', priceCurrency: 'EUR' }
+        };
+      } else if (path.includes('/portfolio')) {
+        json = {
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'Portfolio',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, url: canonicalUrl }
+          ]
+        };
+      }
+      return json ? (
+        <script type="application/ld+json" set:html={JSON.stringify(json)}></script>
+      ) : null;
+    })()}
   </head>
   <body class="bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark font-sans leading-relaxed">
     <Header />

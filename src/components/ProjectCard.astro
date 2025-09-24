@@ -8,13 +8,13 @@ interface Props {
   link?: string;
 }
 
-const { title, category, description, image, metrics } = Astro.props;
+const { title, category, description, image, metrics, link = '#' } = Astro.props;
 ---
 
 <div class="project-item group cursor-pointer" data-category={category.toLowerCase().replace(/\s+/g, '-')}>
   <div class="project-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2">
     <div class="project-image relative overflow-hidden">
-      <img src={image} alt={title} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+      <img src={image} alt={title} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
       <div class="project-overlay absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <span class="text-black font-semibold">View Case Study</span>
       </div>

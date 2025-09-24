@@ -1,0 +1,37 @@
+---
+interface Props {
+  lang?: 'nl' | 'en';
+}
+
+const { lang = 'nl' } = Astro.props as Props;
+const t = (key: string) => {
+  const dict: Record<string, Record<string, string>> = {
+    nl: {
+      title: 'Reacties',
+      soon: 'Reacties komen binnenkort beschikbaar.',
+      invite: 'Heb je een vraag of inzicht? Stuur me gerust een bericht.',
+      cta: 'Stuur bericht',
+    },
+    en: {
+      title: 'Comments',
+      soon: 'Comments are coming soon.',
+      invite: 'Got a question or insight? Feel free to reach out.',
+      cta: 'Send a message',
+    },
+  };
+  return dict[lang][key];
+};
+---
+
+<section class="comments-section mt-12">
+  <div class="bg-white text-gray-900 border border-gray-200 rounded-xl p-5 sm:p-6 shadow-sm">
+    <h2 class="font-heading font-bold text-xl sm:text-2xl mb-2">{t('title')}</h2>
+    <p class="text-sm sm:text-base text-gray-600 mb-4">{t('soon')}</p>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <p class="text-sm text-gray-700">{t('invite')}</p>
+      <a href={`/${lang}/contact`} class="inline-block bg-primary text-black font-semibold px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+        {t('cta')}
+      </a>
+    </div>
+  </div>
+</section>

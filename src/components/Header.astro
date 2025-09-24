@@ -1,17 +1,16 @@
 ---
-import LanguageSwitcher from '../ui/LanguageSwitcher.astro';
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const tp = useTranslatedPath(lang);
 
 // Updated navigation to match your exact current file structure
 const navLinks = [
-  { href: tp('services'), text: t('nav.services') },
-  { href: tp('portfolio'), text: t('nav.portfolio') },
-  { href: tp('process'), text: t('nav.process') },
-  { href: tp('contact'), text: t('nav.contact') },
+  { href: `/${lang}/services`, text: t('nav.services') },        
+  { href: `/${lang}/portfolio`, text: t('nav.portfolio') },      
+  { href: `/${lang}/process`, text: t('nav.process') },          // New process page
+  { href: `/${lang}/contact`, text: t('nav.contact') },
 ];
 const currentPath = Astro.url.pathname;
 ---
@@ -19,15 +18,21 @@ const currentPath = Astro.url.pathname;
 <header class="h-16 sm:h-20 bg-background-light dark:bg-background-dark sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700 shadow-sm">
   <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 h-full flex items-center justify-between">
     
-    <!-- LOGO: single-line to keep header compact -->
+    <!-- LOGO: Enhanced with tagline - Mobile optimized -->
     <div class="flex items-center min-w-0 flex-1">
-      <a href={`/${lang}/home`} class="font-heading text-lg sm:text-xl lg:text-2xl font-bold text-text-light dark:text-text-dark tracking-wide hover:text-primary transition group min-w-0 whitespace-nowrap mr-6 lg:mr-8">
-        Veerman<span class="text-primary">Development</span>
+      <a href={`/${lang}/home`} class="font-heading text-lg sm:text-xl lg:text-2xl font-bold text-text-light dark:text-text-dark tracking-wide hover:text-primary transition group min-w-0">
+        <span class="block sm:inline">Veerman<span class="text-primary">Development</span></span>
+        <div class="text-xs font-normal opacity-60 group-hover:opacity-80 transition -mt-0.5 sm:-mt-1 hidden sm:block">
+          Websites Engineered for Growth
+        </div>
+        <div class="text-xs font-normal opacity-60 group-hover:opacity-80 transition -mt-0.5 sm:hidden">
+          Web Development
+        </div>
       </a>
     </div>
 
     <!-- DESKTOP NAVIGATION -->
-    <nav class="hidden lg:flex items-center gap-7 h-full flex-nowrap ml-4 lg:ml-8">
+    <nav class="hidden lg:flex items-center gap-8 h-full">
       {navLinks.map(link => (
         <a
           href={link.href}
@@ -45,7 +50,7 @@ const currentPath = Astro.url.pathname;
       <!-- CTA BUTTON -->
       <a
         href={`/${lang}/contact`}
-        class="bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-all transform hover:scale-105 whitespace-nowrap shrink-0"
+        class="bg-primary text-black font-semibold px-6 py-2.5 rounded-lg hover:bg-primary/90 transition-all transform hover:scale-105 whitespace-nowrap"
       >
         {t('nav.cta')}
       </a>
@@ -55,14 +60,14 @@ const currentPath = Astro.url.pathname;
         id="theme-toggler-desktop"
         type="button"
         aria-label="Toggle dark mode"
-        class="p-2 rounded-lg hover:bg-card-light dark:hover:bg-card-dark transition-all shrink-0"
+        class="p-2 rounded-lg hover:bg-card-light dark:hover:bg-card-dark transition-all"
       >
         <span class="dark:hidden">🌙</span>
         <span class="hidden dark:inline">☀️</span>
       </button>
 
       <!-- LANGUAGE SWITCHER -->
-      <div class="shrink-0"><LanguageSwitcher /></div>
+      <LanguageSwitcher />
     </nav>
 
     <!-- MOBILE MENU BUTTON -->
@@ -95,8 +100,8 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700 shadow-lg" role="dialog" aria-modal="true">
-    <nav class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6" aria-label="Mobile navigation">
+  <div id="mobile-menu" class="hidden lg:hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700 shadow-lg">
+    <nav class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
       <div class="flex flex-col space-y-2 sm:space-y-3">
         {navLinks.map(link => (
           <a
@@ -115,7 +120,7 @@ const currentPath = Astro.url.pathname;
         <!-- MOBILE CTA -->
         <a
           href={`/${lang}/contact`}
-          class="bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-all text-center mt-4 touch-manipulation active:scale-95"
+          class="bg-primary text-black font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-all text-center mt-4 touch-manipulation active:scale-95"
         >
           {t('nav.cta')}
         </a>
@@ -133,7 +138,6 @@ const currentPath = Astro.url.pathname;
       const init = () => {
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        let lastFocused = null;
         
         if (menuButton && mobileMenu) {
           menuButton.addEventListener('click', () => {
@@ -143,36 +147,14 @@ const currentPath = Astro.url.pathname;
               mobileMenu.classList.remove('hidden');
               mobileMenu.style.animation = 'slideDown 0.3s ease-out';
               menuButton.setAttribute('aria-expanded', 'true');
-              lastFocused = document.activeElement;
-              // Focus first link
-              const firstLink = mobileMenu.querySelector('a, button');
-              if (firstLink) (firstLink as HTMLElement).focus();
-              // Basic focus trap
-              const focusable = mobileMenu.querySelectorAll('a, button');
-              const first = focusable[0] as HTMLElement;
-              const last = focusable[focusable.length - 1] as HTMLElement;
-              mobileMenu.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                  closeMenu();
-                }
-                if (e.key === 'Tab') {
-                  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-                  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-                }
-              });
             } else {
-              closeMenu();
+              mobileMenu.style.animation = 'slideUp 0.3s ease-out';
+              setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+              }, 250);
+              menuButton.setAttribute('aria-expanded', 'false');
             }
           });
-        }
-
-        function closeMenu() {
-          mobileMenu.style.animation = 'slideUp 0.3s ease-out';
-          setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-          }, 250);
-          menuButton.setAttribute('aria-expanded', 'false');
-          if (lastFocused && (lastFocused as HTMLElement).focus) (lastFocused as HTMLElement).focus();
         }
 
         // Theme toggle functionality
@@ -195,7 +177,10 @@ const currentPath = Astro.url.pathname;
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
           if (!menuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-            if (!mobileMenu.classList.contains('hidden')) closeMenu();
+            if (!mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+              menuButton.setAttribute('aria-expanded', 'false');
+            }
           }
         });
       };
