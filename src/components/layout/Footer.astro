@@ -33,16 +33,19 @@ const currentYear = new Date().getFullYear();
         <h4 class="font-semibold text-text-light dark:text-text-dark mb-4">{t('footer.services')}</h4>
         <ul class="space-y-2">
           <li>
-            <a href={tp('services')} class="text-sm opacity-80 hover:text-primary hover:opacity-100 transition-all">{t('footer.service.design')}</a>
+            <a href={tp('home')} class="text-sm opacity-80 hover:text-primary hover:opacity-100 transition-all">{t('nav.home')}</a>
           </li>
           <li>
-            <a href={tp('services')} class="text-sm opacity-80 hover:text-primary hover:opacity-100 transition-all">{t('footer.service.jamstack')}</a>
-          </li>
-          <li>
-            <a href={tp('services')} class="text-sm opacity-80 hover:text-primary hover:opacity-100 transition-all">{t('footer.service.optimization')}</a>
+            <a href={tp('services')} class="text-sm opacity-80 hover:text-primary hover:opacity-100 transition-all">{t('nav.services')}</a>
           </li>
           <li>
             <a href={tp('portfolio')} class="text-sm opacity-80 hover:text-primary hover:opacity-100 transition-all">{t('nav.portfolio')}</a>
+          </li>
+          <li>
+            <a href={tp('process')} class="text-sm opacity-80 hover:text-primary hover:opacity-100 transition-all">{t('nav.process')}</a>
+          </li>
+          <li>
+            <a href={tp('contact')} class="text-sm opacity-80 hover:text-primary hover:opacity-100 transition-all">{t('nav.contact')}</a>
           </li>
         </ul>
       </div>

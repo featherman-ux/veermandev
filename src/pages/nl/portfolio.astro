@@ -2,28 +2,42 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-const lang = 'nl';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
-const pageTitle = "Echte Websites voor Echte Bedrijven | VeermanDevelopment";
-const pageDescription = "Zie wat we bouwen voor kleine bedrijven in Nederland. Professionele websites die daadwerkelijk werken, nu toegankelijk voor kleine bedrijven.";
+const pageTitle = t('portfolio.page.title');
+const pageDescription = t('portfolio.page.description');
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
 
+
+  <!-- LAUNCH OFFER BANNER -->
+  <section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <p class="text-sm font-medium">
+        🤝 <strong>Kennismakingsaanbieding:</strong> €100 korting op je eerste project & gratis merkcheck.
+      </p>
+    </div>
+    <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
+  </section>
+
 <HeroSection 
-  subtitle="Geloofwaardigheid zonder poespas"
-  description="Zo helpen wij ondernemers met het ontwikkelen van een unieke website die klanten aanspreekt en leads oplevert."
+  subtitle="Resultaten die spreken"
+  description="Van reisblog tot webshop: onze projecten laten zien hoe snelheid, design en strategie samen zorgen voor echte impact. Bekijk wat we ook voor jou kunnen doen."
 >
-  <span class="typewriter-heading">
+  <span class="typewriter-heading text-center">
     <span class="typewriter-heading__label">Samen bouwen we aan</span>
     <TypewriterText 
-      words={["een herkenbare uitstraling", "meer aanvragen", "websites die klanten vertrouwen"]}
+      words={["zichtbare successen", "verhalen die overtuigen", "een blijvende indruk"]}
       className="typewriter-heading__text text-primary"
-      initialText="een herkenbare uitstraling"
+      initialText="zichtbare successen"
     />
   </span>
 </HeroSection>
+
 
 <section class="projects-grid-section py-8 px-4 reveal-section">
 <div class="max-w-6xl mx-auto">
@@ -166,7 +180,7 @@ Bezoek waarisniels.nl
 <section class="approach-standards py-16 px-4 reveal-section">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-10">
-      <h2 class="font-heading font-bold text-4xl mb-4">Onze Aanpak & Standaarden</h2>
+      <h2 class="font-heading font-bold text-4xl mb-4">Onze aanpak & <span class="text-primary">standaarden</span></h2>
       <p class="text-lg opacity-80">Zonder testimonials bouwen we vertrouwen met transparantie en bewezen principes.</p>
     </div>
 
@@ -195,7 +209,7 @@ Bezoek waarisniels.nl
 <section class="success-example py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
 <div class="max-w-6xl mx-auto">
 <div class="text-center mb-12">
-<h2 class="font-heading font-bold text-4xl mb-4">Van Reiziger naar Blogger</h2>
+<h2 class="font-heading font-bold text-4xl mb-4">Van Reiziger naar <span class="text-primary">Blogger</span></h2>
 <p class="text-lg opacity-80">Niels wilde geen generieke Polarsteps-pagina maar een eigen platform. We bouwden een interactieve blog met AI-hulpmiddelen en een dashboard voor contentanalyse.</p>
 </div>
 
@@ -233,7 +247,7 @@ Bezoek de Blog
 
 <section class="whats-included py-16 px-4 reveal-section">
 <div class="max-w-4xl mx-auto text-center">
-<h2 class="font-heading font-bold text-4xl mb-12">Wat Elk Pakket Bevat</h2>
+<h2 class="font-heading font-bold text-4xl mb-12">Wat elk <span class="text-primary">pakket</span> bevat</h2>
 <div class="included-grid grid md:grid-cols-3 gap-8">
 <div class="included-item bg-background-light dark:bg-background-dark p-6 rounded-lg">
 <div class="text-3xl mb-4">⚡</div>
@@ -270,7 +284,7 @@ Bezoek de Blog
 </section>
 <section class="simple-cta py-16 px-4 text-center">
 <div class="max-w-3xl mx-auto">
-<h2 class="font-heading font-bold text-4xl mb-6">Klaar om samen te bouwen?</h2>
+<h2 class="font-heading font-bold text-4xl mb-6">Klaar om <span class="text-primary">samen</span> te bouwen?</h2>
 <p class="text-lg opacity-80 mb-8">
 Kies het pakket dat bij je past en laten we jouw website bouwen die echt klanten oplevert. Gratis hosting en updates zijn inbegrepen.
 </p>

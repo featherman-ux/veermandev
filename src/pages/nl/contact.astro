@@ -1,27 +1,45 @@
+
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-const pageTitle = "Laten We Samen Iets Geweldigs Bouwen | VeermanDevelopment";
-const pageDescription = "Klaar om je bedrijf te transformeren met een hoogwaardige website? Neem contact op voor een gratis oriëntatiegesprek. We reageren binnen één werkdag.";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const pageTitle = t('contact.page.title');
+const pageDescription = t('contact.page.description');
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-<!-- ENHANCED HERO with Terminal Typing Effect -->
+
+  <!-- LAUNCH OFFER BANNER -->
+  <section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <p class="text-sm font-medium">
+        🤝 <strong>Kennismakingsaanbieding:</strong> €100 korting op je eerste project & gratis merkcheck.
+      </p>
+    </div>
+    <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
+  </section>
+
+
 <HeroSection 
-  description="Plan een gratis oriëntatiegesprek of stuur ons een bericht. We nemen binnen één werkdag contact met je op met inzichten en vervolgstappen voor je project."
-  trustSignals={["⚡ 24-uur respons", "💬 Vrijblijvend advies", "🎯 Maatstrategie inbegrepen"]}
+  subtitle="Samen aan de slag"
+  description="Heb je een vraag of wil je jouw project starten? We horen graag van je. Plan een gratis gesprek of stuur ons een bericht — geheel vrijblijvend."
 >
-  Plan je gesprek
-  <br class="hidden sm:block" />
-  <TypewriterText 
-    words={["Binnen 24 uur reactie", "Persoonlijk contact", "Geen verplichtingen"]}
-    className="text-primary"
-    initialText="Binnen 24 uur reactie"
-    cursorClass="cursor"
-  />
+  <span class="typewriter-heading text-center">
+    <span class="typewriter-heading__label">Samen bouwen we aan</span>
+    <TypewriterText 
+      words={["een helder plan", "een website die werkt", "jouw online groei"]}
+      className="typewriter-heading__text text-primary"
+      initialText="een helder plan"
+    />
+  </span>
 </HeroSection>
+
+
 
 <!-- ENHANCED CONTACT FORM with Realistic Form Interactions -->
 <section class="contact-form-section py-16 px-4 reveal-section">
@@ -31,7 +49,7 @@ const pageDescription = "Klaar om je bedrijf te transformeren met een hoogwaardi
 <div class="calendar-section bg-card-light dark:bg-card-dark rounded-xl p-4 sm:p-8 shadow-lg hover-lift">
 <div class="text-center mb-8">
 <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">📅</div>
-<h2 class="font-heading font-bold text-2xl mb-4 text-center">Plan Je Gesprek</h2>
+<h2 class="font-heading font-bold text-4xl mb-4 text-center">Plan je <span class="text-primary">gesprek</span></h2>
 <p class="opacity-80 mb-6 text-center">
 <strong class="text-primary">30 minuten die je bedrijf kunnen transformeren.</strong><br>
 We analyseren je doelen en identificeren mogelijkheden. Geen verkoopdruk, alleen inzichten
@@ -52,7 +70,7 @@ style="width:100%;height:600px;"
 <div class="contact-form bg-card-light dark:bg-card-dark rounded-xl p-4 sm:p-8 shadow-lg hover-lift">
 <div class="text-center mb-8">
 <div class="w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl mx-auto mb-4 pulse-animation">✉️</div>
-<h2 class="font-heading font-bold text-2xl mb-4 text-center">Stuur Ons een Bericht</h2>
+<h2 class="font-heading font-bold text-4xl mb-4 text-center">Stuur ons een <span class="text-primary">bericht</span></h2>
 <p class="opacity-80 mb-4 text-center">
 Voorkeur voor e-mail? Vertel ons over je project en we nemen binnen 24 uur contact op met een maatvorstel.
 </p>
@@ -220,7 +238,7 @@ met inzichten en vervolgstappen voor je project.
 <section class="contact-info-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
 <div class="max-w-4xl mx-auto">
 <div class="text-center mb-12">
-<h2 class="font-heading font-bold text-4xl mb-4 gradient-text">Neem Contact Op</h2>
+<h2 class="font-heading font-bold text-4xl mb-4">Neem <span class="text-primary">contact</span> op</h2>
 <p class="text-lg opacity-80">Meerdere manieren om je reis te beginnen</p>
 </div>
 <div class="grid md:grid-cols-3 gap-8">
@@ -256,7 +274,7 @@ met inzichten en vervolgstappen voor je project.
 <section class="what-to-expect-section py-16 px-4 reveal-section">
 <div class="max-w-4xl mx-auto">
 <div class="text-center mb-12">
-<h2 class="font-heading font-bold text-4xl mb-4 gradient-text">Wat Je Kunt Verwachten</h2>
+<h2 class="font-heading font-bold text-4xl mb-4">Wat je kunt <span class="text-primary">verwachten</span></h2>
 <p class="text-lg opacity-80">Je reis van eerste contact tot resultaten</p>
 </div>
 <div class="expectations-grid grid md:grid-cols-2 lg:grid-cols-4 gap-8">

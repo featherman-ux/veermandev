@@ -45,16 +45,46 @@ export function sanitizeEmail(email: string): string {
 export function getCSPHeader(): string {
   return [
     "default-src 'self'",
-    "script-src 'self'",
+    // Allow inline scripts and scripts from Calendly
+    "script-src 'self' 'unsafe-inline' https://assets.calendly.com",
     "style-src 'self' 'unsafe-inline'", // Allow inline styles for now
     "img-src 'self' data: https:",
     "font-src 'self'",
-    "connect-src 'self'",
+    // Allow connections to Calendly and its analytics service (Datadog)
+    "connect-src 'self' https://calendly.com https://*.datadoghq.com",
+    // Allow Calendly to be embedded as a frame
+    "frame-src 'self' https://calendly.com",
     "frame-ancestors 'none'",
     "form-action 'self'",
     "base-uri 'self'",
     "object-src 'none'"
   ].join('; ');
+}
+
+// Permissions Policy helper
+export function getPermissionsPolicyHeader(): string {
+  return [
+    'accelerometer=()',
+    'autoplay=()',
+    'camera=()',
+    'display-capture=()',
+    'encrypted-media=()',
+    'fullscreen=()',
+    'gamepad=()',
+    'geolocation=()',
+    'gyroscope=()',
+    'magnetometer=()',
+    'microphone=()',
+    'midi=()',
+    'payment=()', // Explicitly disable payment
+    'picture-in-picture=()',
+    'publickey-credentials-get=()',
+    'sync-xhr=()',
+    'usb=()',
+    'screen-wake-lock=()',
+    'web-share=()',
+    'xr-spatial-tracking=()'
+  ].join(', ');
 }
 
 // Rate Limiting (simple in-memory store for demo)

@@ -1,8 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-const pageTitle = "Privacybeleid | VeermanDevelopment";
-const pageDescription = "Lees ons privacybeleid om te begrijpen hoe we uw persoonlijke gegevens verzamelen, gebruiken en beschermen.";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const pageTitle = t('privacy.page.title');
+const pageDescription = t('privacy.page.description');
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -39,9 +43,9 @@ const pageDescription = "Lees ons privacybeleid om te begrijpen hoe we uw persoo
       <div class="legal-sections space-y-12">
         <!-- Introduction -->
         <div class="legal-section reveal-section" id="introduction">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">🔒</span>
-            Introductie
+            <span class="text-primary">Introductie</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-4">
@@ -55,9 +59,9 @@ const pageDescription = "Lees ons privacybeleid om te begrijpen hoe we uw persoo
 
         <!-- Information We Collect -->
         <div class="legal-section reveal-section" id="information-collection">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">📊</span>
-            Informatie Die We Verzamelen
+            Informatie die we <span class="text-primary">verzamelen</span>
           </h2>
           <div class="section-content prose-like">
             <h3 class="text-lg font-semibold mb-3">Persoonlijke Informatie</h3>
@@ -89,9 +93,9 @@ const pageDescription = "Lees ons privacybeleid om te begrijpen hoe we uw persoo
 
         <!-- How We Use Information -->
         <div class="legal-section reveal-section" id="information-use">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">🎯</span>
-            Hoe We Je Informatie Gebruiken
+            Hoe we je informatie <span class="text-primary">gebruiken</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-4">We gebruiken de informatie die we verzamelen om:</p>
@@ -120,9 +124,9 @@ const pageDescription = "Lees ons privacybeleid om te begrijpen hoe we uw persoo
 
         <!-- Information Sharing -->
         <div class="legal-section reveal-section" id="information-sharing">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">🤝</span>
-            Informatie Delen en Onthullen
+            Informatie delen en <span class="text-primary">onthullen</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-4">We verkopen, verhandelen of verhuren je persoonlijke informatie niet aan derden. We delen je informatie alleen in de volgende omstandigheden:</p>
@@ -146,9 +150,9 @@ const pageDescription = "Lees ons privacybeleid om te begrijpen hoe we uw persoo
 
         <!-- Data Security -->
         <div class="legal-section reveal-section" id="data-security">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">🛡️</span>
-            Gegevensbeveiliging
+            <span class="text-primary">Gegevensbeveiliging</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-4">We implementeren passende technische en organisatorische beveiligingsmaatregelen om je persoonlijke informatie te beschermen:</p>
@@ -173,9 +177,9 @@ const pageDescription = "Lees ons privacybeleid om te begrijpen hoe we uw persoo
 
         <!-- Cookies & Tracking -->
         <div class="legal-section reveal-section" id="cookies">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">🍪</span>
-            Cookies en Tracking Technologieën
+            Cookies en tracking <span class="text-primary">technologieën</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-4">Onze website gebruikt cookies en vergelijkbare technologieën om:</p>
@@ -207,9 +211,9 @@ const pageDescription = "Lees ons privacybeleid om te begrijpen hoe we uw persoo
 
         <!-- Your Rights -->
         <div class="legal-section reveal-section" id="your-rights">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">⚖️</span>
-            Je Privacyrechten
+            Je privacy<span class="text-primary">rechten</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-4">Je hebt de volgende rechten met betrekking tot je persoonlijke informatie:</p>

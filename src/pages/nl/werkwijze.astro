@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
 
 const lang = 'nl';
 
@@ -9,28 +10,20 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <section class="mission-section py-20 px-4 text-center relative overflow-hidden">
-    <div class="max-w-4xl mx-auto relative z-10">
-      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title text-center">
-        <span class="typewriter-heading">
-          <span class="typewriter-heading__label">Jouw strategische</span>
-          <TypewriterText 
-            words={["Groeipartners"]}
-            className="typewriter-heading__text text-primary text-5xl sm:text-6xl lg:text-7xl"
-            initialText="Groeipartners"
-          />
-        </span>
-      </h1>
-      <p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text text-center">
-        Elk bedrijf verdient een website die net zo hard werkt als jij. Wij veranderen webontwikkeling van een eenmalig project naar een strategisch partnerschap dat met je meegroeit.
-      </p>
-      <div class="mission-statement bg-card-light dark:bg-card-dark rounded-xl p-8 reveal-card hover-lift-subtle">
-        <h2 class="font-heading font-bold text-2xl mb-4 gradient-text">Onze filosofie</h2>
-        <p class="text-lg opacity-90">
-          Technologie is geen doel op zich, maar een middel om zakelijk succes mogelijk te maken. We combineren moderne ontwikkeling met strategisch denken om digitale middelen te bouwen die resultaat opleveren—niet alleen mooie schermen.
-        </p>
-      </div>
-    </div>
+
+<HeroSection 
+  subtitle="Samen een mooie website"
+  description="Elk bedrijf verdient een website die net zo hard werkt als jij. Wij veranderen webontwikkeling van een eenmalig project naar een strategisch partnerschap dat met je meegroeit."
+>
+  <span class="typewriter-heading">
+    <span class="typewriter-heading__label">Samen bouwen we aan</span>
+    <TypewriterText 
+      words={["een herkenbare uitstraling", "meer aanvragen", "websites die klanten vertrouwen"]}
+      className="typewriter-heading__text text-primary"
+      initialText="een herkenbare uitstraling"
+    />
+  </span>
+</HeroSection>
     
     <div class="floating-elements absolute inset-0 pointer-events-none">
       <div class="floating-circle absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full"></div>
@@ -42,7 +35,7 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
   <section class="team-section py-16 px-4 reveal-section">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Ontmoet Ons Team</h2>
+        <h2 class="font-heading font-bold text-4xl mb-4 text-text-light dark:text-text-dark reveal-title">Ontmoet ons <span class="text-primary">team</span></h2>
         <p class="text-lg opacity-80 reveal-text">Gepassioneerde experts, vers afgestudeerd—uitgerust met de nieuwste vaardigheden en technologieën, volledig toegewijd aan jouw succes.</p>
       </div>
       
@@ -131,7 +124,7 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
   <section class="process-section py-16 px-4 reveal-section">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Onze Partnerschap Tijdlijn</h2>
+        <h2 class="font-heading font-bold text-4xl mb-4 text-text-light dark:text-text-dark reveal-title">Onze <span class="text-primary">partnerschap<wbr>stijdlijn</span></h2>
         <p class="text-lg opacity-80 reveal-text">Van eerste ontmoeting tot live website—hier is ons bewezen 3-dagen proces</p>
       </div>
       
@@ -248,7 +241,7 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
     <section class="technology-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Onze Technologie</h2>
+        <h2 class="font-heading font-bold text-4xl mb-4 text-text-light dark:text-text-dark reveal-title">Onze <span class="text-primary">technologie</span></h2>
         <p class="text-lg opacity-80 reveal-text">Waarom we moderne Jamstack kiezen boven traditionele platforms</p>
       </div>
       
@@ -295,49 +288,91 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
         </div>
         
         <div id="performance-comparison" class="performance-comparison bg-background-light dark:bg-background-dark rounded-lg p-6 hover-lift-subtle reveal-card">
-          <h4 class="font-semibold mb-6 text-center">Vergelijkende Prestatie & Beveiligingsanalyse</h4>
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm animated-table">
-              <thead>
-                <tr class="border-b border-gray-300 dark:border-gray-600">
-                  <th class="text-left py-3">Metriek</th>
-                  <th class="text-left py-3 text-green-600">Onze Astro Oplossing</th>
-                  <th class="text-left py-3 text-red-600">WordPress</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-                  <td class="py-3 font-medium">PageSpeed Score</td>
-                  <td class="py-3 text-green-600 font-bold">95-100 (heel goed)</td>
-                  <td class="py-3 text-red-600">40-80 (wisselend)</td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-                  <td class="py-3 font-medium">Laadtijd</td>
-                  <td class="py-3 text-green-600 font-bold">± 1 seconde</td>
-                  <td class="py-3 text-red-600">3-5 seconden</td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-                  <td class="py-3 font-medium">Kwetsbaarheden (Jaarlijks)</td>
-                  <td class="py-3 text-green-600 font-bold">Zeer laag risico</td>
-                  <td class="py-3 text-red-600">Veel meldingen (vaak via plugins)</td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-                  <td class="py-3 font-medium">Onderhoud</td>
-                  <td class="py-3 text-green-600 font-bold">Geen vaste onderhoudsrondes</td>
-                  <td class="py-3 text-red-600">Regelmatige plugin-updates</td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-                  <td class="py-3 font-medium">Hosting Kosten</td>
-                  <td class="py-3 text-green-600 font-bold">€1-20 per jaar</td>
-                  <td class="py-3 text-red-600">€10-200 per maand</td>
-                </tr>
-                <tr class="table-row">
-                  <td class="py-3 font-medium">Conversie Impact</td>
-                  <td class="py-3 text-green-600 font-bold">Meer aanvragen door snelheid</td>
-                  <td class="py-3 text-red-600">Ongewijzigd</td>
-                </tr>
-              </tbody>
-            </table>
+          <h4 class="font-semibold mb-6 text-center">Prestatie- & beveiligingssnapshot</h4>
+          <div class="comparison-grid grid gap-4 sm:grid-cols-2">
+            <div class="comparison-card">
+              <span class="comparison-label">PageSpeed Score</span>
+              <div class="comparison-columns">
+                <div class="comparison-column">
+                  <span class="badge badge-good">Onze Astro-oplossing</span>
+                  <p class="value value-good">95-100 (heel goed)</p>
+                </div>
+                <div class="comparison-column">
+                  <span class="badge badge-bad">WordPress</span>
+                  <p class="value value-bad">40-80 (wisselend)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <span class="comparison-label">Laadtijd</span>
+              <div class="comparison-columns">
+                <div class="comparison-column">
+                  <span class="badge badge-good">Onze Astro-oplossing</span>
+                  <p class="value value-good">0,8 - 1,2s</p>
+                </div>
+                <div class="comparison-column">
+                  <span class="badge badge-bad">WordPress</span>
+                  <p class="value value-bad">3 - 7s</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <span class="comparison-label">Kwetsbaarheden (jaarlijks)</span>
+              <div class="comparison-columns">
+                <div class="comparison-column">
+                  <span class="badge badge-good">Onze Astro-oplossing</span>
+                  <p class="value value-good">Zeer laag risico</p>
+                </div>
+                <div class="comparison-column">
+                  <span class="badge badge-bad">WordPress</span>
+                  <p class="value value-bad">Veel meldingen (via plugins)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <span class="comparison-label">Onderhoud</span>
+              <div class="comparison-columns">
+                <div class="comparison-column">
+                  <span class="badge badge-good">Onze Astro-oplossing</span>
+                  <p class="value value-good">Geen vaste onderhoudsrondes</p>
+                </div>
+                <div class="comparison-column">
+                  <span class="badge badge-bad">WordPress</span>
+                  <p class="value value-bad">Regelmatige plugin-updates</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <span class="comparison-label">Hostingkosten</span>
+              <div class="comparison-columns">
+                <div class="comparison-column">
+                  <span class="badge badge-good">Onze Astro-oplossing</span>
+                  <p class="value value-good">€1-20 per jaar</p>
+                </div>
+                <div class="comparison-column">
+                  <span class="badge badge-bad">WordPress</span>
+                  <p class="value value-bad">€10-200 per maand</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-card">
+              <span class="comparison-label">Conversie-impact</span>
+              <div class="comparison-columns">
+                <div class="comparison-column">
+                  <span class="badge badge-good">Onze Astro-oplossing</span>
+                  <p class="value value-good">Meer aanvragen door snelheid</p>
+                </div>
+                <div class="comparison-column">
+                  <span class="badge badge-bad">WordPress</span>
+                  <p class="value value-bad">Vaak onveranderd</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -346,7 +381,7 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
 
   <section class="values-section py-16 px-4 bg-card-light dark:bg-card-dark">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-heading font-bold text-4xl mb-12 gradient-text">Onze Toewijding aan Jouw Succes</h2>
+      <h2 class="font-heading font-bold text-4xl mb-12 text-text-light dark:text-text-dark">Onze toewijding aan jouw <span class="text-primary">succes</span></h2>
       
       <div class="values-grid grid md:grid-cols-3 gap-8">
         <div class="value-item hover-lift-subtle">
@@ -372,7 +407,7 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
 
   <section class="final-cta py-16 px-4 text-center">
     <div class="max-w-3xl mx-auto">
-      <h2 class="font-heading font-bold text-4xl mb-6">Plan je gratis adviesgesprek</h2>
+      <h2 class="font-heading font-bold text-4xl mb-6 text-text-light dark:text-text-dark">Plan je gratis <span class="text-primary">adviesgesprek</span></h2>
       <p class="text-lg opacity-80 mb-8">
         Laten we samen kijken waar jouw website nu staat en welke stappen je kunt zetten voor meer klanten.
       </p>
@@ -521,6 +556,102 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
     .typewriter-heading__text .typewriter-text {
       display: inline-block;
       text-align: center;
+    }
+
+    .comparison-grid {
+      width: 100%;
+    }
+
+    .comparison-card {
+      background-color: rgba(59, 130, 246, 0.05);
+      border: 1px solid rgba(59, 130, 246, 0.12);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      height: 100%;
+    }
+
+    .dark .comparison-card {
+      background-color: rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .comparison-label {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .comparison-columns {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 480px) {
+      .comparison-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .comparison-column {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      text-align: left;
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .dark .comparison-column {
+      background-color: rgba(15, 23, 42, 0.35);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    .badge-good {
+      background-color: rgba(34, 197, 94, 0.15);
+      color: rgba(21, 128, 61, 1);
+    }
+
+    .dark .badge-good {
+      background-color: rgba(34, 197, 94, 0.3);
+      color: rgba(190, 242, 100, 1);
+    }
+
+    .badge-bad {
+      background-color: rgba(248, 113, 113, 0.15);
+      color: rgba(220, 38, 38, 1);
+    }
+
+    .dark .badge-bad {
+      background-color: rgba(248, 113, 113, 0.3);
+      color: rgba(252, 165, 165, 1);
+    }
+
+    .value {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .value-good {
+      color: rgba(21, 128, 61, 1);
+    }
+
+    .value-bad {
+      color: rgba(220, 38, 38, 1);
     }
 
     /* Subtle hover effects */

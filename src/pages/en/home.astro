@@ -1,12 +1,15 @@
+
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-const lang = 'en';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
-const pageTitle = "Your Partner in Digital Growth | VeermanDevelopment";
-const pageDescription = "We build more than websites, we build brands. Professional websites that actually work, now accessible for small businesses.";
+const pageTitle = t('home.page.title');
+const pageDescription = t('home.page.description');
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -14,263 +17,167 @@ const pageDescription = "We build more than websites, we build brands. Professio
   <section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
       <p class="text-sm font-medium">
-        🚀 <strong>Launch Offer:</strong> €100 off all packages + brand strategy included | Limited time only!
+        🤝 <strong>Intro offer:</strong> €100 off your first project + a complimentary brand check.
       </p>
     </div>
     <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
   </section>
 
-  <!-- PROBLEM-FOCUSED HERO -->
-  <HeroSection 
-    description="A slow, outdated website makes visitors bounce. We build ultra-fast, modern websites that turn visitors into customers — for business owners who want to grow online."
-    primaryCTA={{text: "Let's transform your website", href: `/${lang}/contact`}}
-    trustSignals={[
-      "Astro framework – faster than WordPress",
-      "Mobile-first design – 70% visits on phone",
-      "Local SEO optimized – get found",
-      "No monthly fees – you own it"
-    ]}
-    size="large"
-  >
-    Your website makes people bounce instead of win them over
-    <br class="hidden sm:block" />
+
+  <!-- PROBLEEM-GEFOCUSTE HERO -->
+<HeroSection 
+  subtitle="Small businesses deserve standout websites"
+  description="Design a professional online presence that actually converts."
+  trustSignals={[
+    "⚡ Loads under 1 second — faster than WordPress",
+    "📱 Mobile-first — 70% of visitors land on mobile",
+    "🔍 SEO ready — found in Google & Maps",
+    "🤝 One point of contact — no agency runaround",
+    "✅ Transparent pricing — no hidden monthly fees"
+  ]}
+>
+  <span class="typewriter-heading text-center">
+    <span class="typewriter-heading__label">Together we build</span>
     <TypewriterText 
-      words={["We build for speed","We think with you","Your brand. Unforgettable."]}
-      className="text-primary"
-      initialText="We build for speed"
+      words={["a brand that stands out", "online trust", "your digital future", "more customers online"]}
+      className="typewriter-heading__text text-primary"
+      initialText="a brand that stands out"
     />
+  </span>
+
+      <!-- IMMEDIATE CTA -->
+    <div class="hero-cta mt-8">
+      <a href={`/${lang}/contact`} class="inline-block bg-primary hover:bg-primary/90 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg">
+        Book your free strategy call
+      </a>
+      <p class="text-sm opacity-70 mt-3">Personal guidance — zero obligation</p>
+    </div>
   </HeroSection>
 
-  <!-- BRAND CHAMPION MESSAGE - BETTER SPACING -->
-  <section class="brand-champion-message py-6 px-4 reveal-on-scroll">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="font-heading font-bold text-4xl mb-6">In an Age Where Everyone is the Same,<br><span class="text-primary">Dare to be Different</span></h2>
-    
-    <div class="brand-philosophy grid md:grid-cols-2 gap-16 mt-16">
-      <div class="philosophy-left text-center"> <h3 class="text-2xl font-semibold mb-4">Everyone has the ability to build a website</h3>
-        <p class="text-lg opacity-80 mb-6">Templates, builders, DIY solutions—they're everywhere. But cookie-cutter websites create cookie-cutter businesses.</p>
-        <div class="problem-list space-y-4 w-fit mx-auto">
-          <div class="flex items-start gap-3">
-            <span class="text-red-500 mt-1 text-xl">❌</span>
-            <span>You blend into the crowd</span>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-red-500 mt-1 text-xl">❌</span>
-            <span>Customers can't remember you</span>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-red-500 mt-1 text-xl">❌</span>
-            <span>Competitors steal your business</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="philosophy-right text-center"> <h3 class="text-2xl font-semibold mb-4">Not everyone has the ability to stand out</h3>
-        <p class="text-lg opacity-80 mb-6">That's where we come in. We don't just develop websites—<strong>we develop brands that customers can't ignore.</strong></p>
-        <div class="solution-list space-y-4 w-fit mx-auto">
-          <div class="flex items-start gap-3">
-            <span class="text-green-500 mt-1 text-xl">✓</span>
-            <span>Your brand becomes memorable</span>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-green-500 mt-1 text-xl">✓</span>
-            <span>Customers choose you over competitors</span>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-green-500 mt-1 text-xl">✓</span>
-            <span>You dominate your local market</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="brand-promise mt-16 bg-gradient-to-r from-primary/10 to-primary/5 p-8 rounded-xl">
-      <h3 class="text-2xl font-bold mb-4">Our Promise to You</h3>
-      <p class="text-lg max-w-3xl mx-auto">
-        <strong>Don't just develop a website, develop a brand.</strong> We combine technical expertise with marketing knowledge to create something truly mesmerizing—even if you just want a "simple" website.
+<section class="pain-points-section py-16 px-4 bg-card-light dark:bg-card-dark/60 border border-primary/10 rounded-3xl shadow-lg shadow-primary/5 reveal-on-scroll">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="font-heading font-bold text-4xl mb-4">What do <span class="text-primary">entrepreneurs</span> struggle with?</h2>
+      <p class="text-lg opacity-80 max-w-3xl mx-auto">
+        We notice many small businesses battling the same hurdles. They’re easy to recognise—and thankfully easy to solve.
       </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="h-full bg-white/90 dark:bg-background-dark rounded-2xl border border-primary/10 p-8 shadow-sm shadow-primary/10 transition-transform duration-300 hover:-translate-y-1">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-semibold">01</span>
+          <h3 class="text-xl font-semibold">Hard to be found</h3>
+        </div>
+        <p class="text-base opacity-80">
+          A beautiful website alone isn’t enough. Without visibility in search engines and local listings you miss daily opportunities.
+        </p>
+      </div>
+
+      <div class="h-full bg-white/90 dark:bg-background-dark rounded-2xl border border-primary/10 p-8 shadow-sm shadow-primary/10 transition-transform duration-300 hover:-translate-y-1">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-semibold">02</span>
+          <h3 class="text-xl font-semibold">Weak first impression</h3>
+        </div>
+        <p class="text-base opacity-80">
+          Visitors decide in seconds. A cluttered or outdated look costs trust and makes it hard to stand out.
+        </p>
+      </div>
+
+      <div class="h-full bg-white/90 dark:bg-background-dark rounded-2xl border border-primary/10 p-8 shadow-sm shadow-primary/10 transition-transform duration-300 hover:-translate-y-1">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-semibold">03</span>
+          <h3 class="text-xl font-semibold">No time left</h3>
+        </div>
+        <p class="text-base opacity-80">
+          Owners want to focus on their business, not plug-ins, updates, or technical headaches. They’re looking for a partner who takes it off their plate.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-  <!-- PROFESSIONAL VS DIY/CHEAP - FIXED SPACING & HEIGHTS -->
-  <section class="professional-vs-rest py-24 px-4 bg-card-light dark:bg-card-dark reveal-on-scroll">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="font-heading font-bold text-4xl mb-6">Why Most Small Business Websites Look Amateur</h2>
-        <p class="text-lg mb-8 opacity-80">Everyone uses the same DIY tools and templates. Even many "developers" just install WordPress themes. Your business deserves better.</p>
-        <div class="professional-badge inline-block bg-gradient-to-r from-primary to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-          Professional Website Service - Now Accessible for Small Businesses
+<section class="comparison-section py-16 px-4">
+  <div class="comparison-container max-w-6xl mx-auto bg-card-light dark:bg-card-dark border border-primary/10 rounded-3xl overflow-hidden shadow-xl shadow-primary/10">
+    <div class="bg-gradient-to-r from-primary to-blue-500 text-white p-10 text-center">
+      <h2 class="font-heading font-bold text-4xl mb-2">Which path matches your ambition?</h2>
+      <p class="text-base opacity-90 max-w-3xl mx-auto">
+        Three routes to get your website online.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-0">
+      <div class="p-8 flex flex-col border-b md:border-b-0 md:border-r border-primary/10 text-center">
+        <div class="text-sm uppercase tracking-wide text-primary/80 mb-3">Option 1</div>
+        <h3 class="text-2xl font-semibold mb-4">🔧 Do it yourself</h3>
+        <ul class="space-y-3 text-base opacity-80 flex-1 text-left mx-auto max-w-xs">
+          <li>• Limited templates and little brand personality</li>
+          <li>• Requires both technical skills and lots of time</li>
+          <li>• Frequent speed and maintenance issues</li>
+        </ul>
+        <div class="mt-8 rounded-xl bg-background-light dark:bg-background-dark p-4 text-center flex flex-col items-center gap-1">
+          <span class="text-sm uppercase tracking-wide opacity-70">Resultaat</span>
+          <p class="font-semibold">Basic: a site that hits its limits quickly</p>
         </div>
       </div>
-      
-      <!-- FIXED COMPARISON GRID WITH EQUAL HEIGHTS -->
-      <div class="comparison-grid grid sm:grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        <!-- DIY Solutions -->
-        <div class="comparison-column bg-red-50 dark:bg-red-900/20 p-8 rounded-lg border border-red-200 dark:border-red-800 flex flex-col h-full">
-          <div class="column-header text-center mb-6">
-            <div class="text-4xl mb-3">😤</div>
-            <h3 class="text-xl font-semibold text-red-700 dark:text-red-300">DIY Website Builders</h3>
-            <p class="text-sm opacity-60 mt-2">Wix, Squarespace, Strato, etc.</p>
-          </div>
-          <ul class="space-y-4 text-sm flex-grow">
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Same templates everyone uses</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Slow loading times (4-8 seconds)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Limited customization</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Monthly fees forever (€15-50/month)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>No marketing strategy</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Looks like everyone else</span>
-            </li>
-          </ul>
-        </div>
 
-        <!-- Cheap "Developers" -->
-        <div class="comparison-column bg-orange-50 dark:bg-orange-900/20 p-8 rounded-lg border border-orange-200 dark:border-orange-800 flex flex-col">
-          <div class="column-header text-center mb-6">
-            <div class="text-4xl mb-3">🙄</div>
-            <h3 class="text-xl font-semibold text-orange-700 dark:text-orange-300">Cheap "Developers"</h3>
-            <p class="text-sm opacity-60 mt-2">WordPress theme installers</p>
-          </div>
-          <ul class="space-y-4 text-sm flex-grow">
-            <li class="flex items-start gap-3">
-              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
-              <span>Just install WordPress themes</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
-              <span>Break randomly from updates</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
-              <span>Security problems everywhere</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
-              <span>Disappear after delivery</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
-              <span>No brand understanding</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-orange-500 text-lg flex-shrink-0">❌</span>
-              <span>Same result as everyone else</span>
-            </li>
-          </ul>
+      <div class="p-8 flex flex-col border-b md:border-b-0 md:border-r border-primary/10 text-center">
+        <div class="text-sm uppercase tracking-wide text-primary/80 mb-3">Option 2</div>
+        <h3 class="text-2xl font-semibold mb-4">📦 Agency templates</h3>
+        <ul class="space-y-3 text-base opacity-80 flex-1 text-left mx-auto max-w-xs">
+          <li>• Dependent on WordPress/Wix and plugin chaos</li>
+          <li>• Higher costs without true custom work</li>
+          <li>• Load times and security remain risky</li>
+        </ul>
+        <div class="mt-8 rounded-xl bg-background-light dark:bg-background-dark p-4 text-center flex flex-col items-center gap-1">
+          <span class="text-sm uppercase tracking-wide opacity-70">Resultaat</span>
+          <p class="font-semibold">Limited: fine today, but not future-proof</p>
         </div>
+      </div>
 
-        <!-- Our Professional Service -->
-        <div class="comparison-column bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/20 p-8 rounded-lg border-2 border-green-300 dark:border-green-500 relative overflow-hidden flex flex-col shadow-lg">
-          <div class="professional-shine absolute inset-0 bg-gradient-to-r from-transparent via-green-200/30 dark:via-green-400/20 to-transparent transform -skew-x-12 animate-shine"></div>
-          <div class="column-header text-center mb-6 relative z-10">
-            <div class="text-4xl mb-3">✨</div>
-            <h3 class="text-xl font-semibold text-green-700 dark:text-green-300">Our Professional Service</h3>
-            <p class="text-green-600 dark:text-green-200 mt-2">What professional agencies deliver</p>
-          </div>
-          <ul class="space-y-4 text-sm relative z-10 flex-grow text-green-800 dark:text-green-100">
-            <li class="flex items-start gap-3">
-              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
-              <span><strong class="text-green-900 dark:text-green-100">Custom-built for your brand</strong></span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
-              <span>Lightning fast (under 1 second)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
-              <span>Modern, secure technology</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
-              <span>True partnership & support</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
-              <span>Complete brand strategy</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-600 dark:text-green-400 text-lg flex-shrink-0 mt-0.5">✓</span>
-              <span><strong class="text-green-900 dark:text-green-100">Impossible to ignore</strong></span>
-            </li>
-          </ul>
+      <div class="p-8 flex flex-col bg-gradient-to-b from-primary/5 to-transparent md:rounded-ss-[0] md:rounded-se-3xl text-center">
+        <div class="text-sm uppercase tracking-wide text-primary/80 mb-3">Option 3</div>
+        <h3 class="text-2xl font-semibold mb-4 text-primary">🚀 Veerman<wbr>Development</h3>
+        <ul class="space-y-3 text-base flex-1 text-left mx-auto max-w-xs">
+          <li class="flex items-start gap-2"><span class="text-primary">•</span><span>Custom code built with modern technology</span></li>
+          <li class="flex items-start gap-2"><span class="text-primary">•</span><span>Load time &lt; 1 second with SEO and performance included</span></li>
+          <li class="flex items-start gap-2"><span class="text-primary">•</span><span>Strategy and design delivered by one team</span></li>
+          <li class="flex items-start gap-2"><span class="text-primary">•</span><span>Transparent pricing with no hidden maintenance costs</span></li>
+        </ul>
+        <div class="mt-8 rounded-xl bg-primary/10 border border-primary/30 p-4 text-center flex flex-col items-center gap-1">
+          <span class="text-sm uppercase tracking-wide text-primary/90">Resultaat</span>
+          <p class="font-semibold text-primary">Premium: a growth platform that builds trust and wins customers</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WHAT MAKES US DIFFERENT - BETTER SPACING -->
-  <section class="what-makes-different py-24 px-4 reveal-on-scroll">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="font-heading font-bold text-4xl mb-4">Professional Service, Small Business Prices</h2>
-        <p class="text-lg opacity-80">What big companies get from expensive agencies, we deliver for small businesses at honest prices</p>
-      </div>
-      
-      <!-- FIXED GRID WITH EQUAL HEIGHTS -->
-      <div class="differences-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
-          <div class="text-4xl mb-4">⚡</div>
-          <h3 class="text-xl font-semibold mb-3">Professional Performance</h3>
-          <p class="text-sm opacity-80 flex-grow">While competitors use slow WordPress, we use modern technology. Your customers notice the speed difference immediately.</p>
+      <!-- UNIQUE VALUE PROPOSITION -->
+      <div class="uvp-section bg-gradient-to-r from-primary/5 to-blue-50 dark:from-primary/10 dark:to-blue-900/20 p-8 rounded-xl">
+        <h3 class="text-2xl font-bold text-center mb-6">Our unique small-business formula:</h3>
+        <div class="grid md:grid-cols-4 gap-6 text-center">
+          <div class="uvp-item">
+            <div class="text-3xl mb-3">🧠</div>
+            <div class="font-semibold mb-2">Strategy</div>
+            <div class="text-sm opacity-80">Brand positioning that sets you apart</div>
+          </div>
+          <div class="uvp-item">
+            <div class="text-3xl mb-3">⚡</div>
+            <div class="font-semibold mb-2">Technology</div>
+            <div class="text-sm opacity-80">Modern, fast, and future-proof</div>
+          </div>
+          <div class="uvp-item">
+            <div class="text-3xl mb-3">🎯</div>
+            <div class="font-semibold mb-2">Conversion</div>
+            <div class="text-sm opacity-80">Every page designed to sell</div>
+          </div>
+          <div class="uvp-item">
+            <div class="text-3xl mb-3">🤝</div>
+            <div class="font-semibold mb-2">Partnership</div>
+            <div class="text-sm opacity-80">Your long-term growth partner</div>
+          </div>
         </div>
-        
-        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
-          <div class="text-4xl mb-4">🛡️</div>
-          <h3 class="text-xl font-semibold mb-3">Reliable & Secure</h3>
-          <p class="text-sm opacity-80 flex-grow">No WordPress vulnerabilities, no plugin problems, no random breakdowns. We build websites that work reliably for years.</p>
-        </div>
-        
-        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
-          <div class="text-4xl mb-4">🎯</div>
-          <h3 class="text-xl font-semibold mb-3">Custom Brand Strategy</h3>
-          <p class="text-sm opacity-80 flex-grow">DIY builders give you templates. We create a unique brand experience that makes you stand out in your market.</p>
-        </div>
-        
-        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
-          <div class="text-4xl mb-4">📍</div>
-          <h3 class="text-xl font-semibold mb-3">Complete Brand Visibility</h3>
-          <p class="text-sm opacity-80 flex-grow">Google Maps optimization, social media setup, local SEO—we make sure your community knows you exist and remembers you.</p>
-        </div>
-        
-        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
-          <div class="text-4xl mb-4">🤝</div>
-          <h3 class="text-xl font-semibold mb-3">True Partnership</h3>
-          <p class="text-sm opacity-80 flex-grow">We don't disappear after launch. You get ongoing support and strategic guidance—the same service big companies receive.</p>
-        </div>
-        
-        <div class="difference-card bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 flex flex-col">
-          <div class="text-4xl mb-4">🎨</div>
-          <h3 class="text-xl font-semibold mb-3">Mesmerizing Design</h3>
-          <p class="text-sm opacity-80 flex-grow">Even our "simple" websites are crafted to captivate. Every element is designed to reflect your value and make customers choose you.</p>
-        </div>
-      </div>
-      
-      <!-- Quality Promise -->
-      <div class="quality-promise mt-16 text-center bg-gradient-to-r from-primary/5 to-blue-50 dark:from-primary/10 dark:to-blue-900/20 p-8 rounded-xl border border-primary/30">
-        <h3 class="text-2xl font-bold mb-4 text-primary">Our Quality Promise</h3>
-        <p class="text-lg mb-4">
-          <strong>Your website will be professionally built and strategically designed to grow your business.</strong>
-        </p>
-        <p class="text-sm opacity-80">
-          That's our commitment to bringing professional website service to small businesses.
-        </p>
       </div>
     </div>
   </section>
@@ -279,11 +186,8 @@ const pageDescription = "We build more than websites, we build brands. Professio
   <section class="packages-overview py-6 px-4 reveal-on-scroll">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <div class="launch-pricing-badge inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-          Launch Pricing - Limited Time
-        </div>
-        <h2 class="font-heading font-bold text-4xl mb-4">Choose Your Brand Transformation</h2>
-        <p class="text-lg opacity-80">€100 off all packages + complete brand strategy included. Your partner in digital growth.</p>
+        <h2 class="font-heading font-bold text-4xl mb-4">Choose your <span class="text-primary">brand transformation</span></h2>
+        <p class="text-lg opacity-80">€100 off every package + a complete brand strategy included. Your partner in sustainable digital growth.</p>
       </div>
       
       <!-- COMPLETELY FIXED PACKAGES GRID -->
@@ -291,12 +195,9 @@ const pageDescription = "We build more than websites, we build brands. Professio
         <!-- Package 1: Foundation -->
         <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
           <!-- Launch offer badge -->
-          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
-            €100 OFF
-          </div>
           <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
           
-          <div class="relative z-10 p-6 flex flex-col flex-grow">
+          <div class="relative z-10 p-6 flex flex-col flex-grow text-center">
             <div class="pricing-section mb-4">
               <div class="original-price text-lg text-gray-500 line-through">€349</div>
               <div class="package-price text-3xl font-bold text-primary">€249</div>
@@ -305,41 +206,33 @@ const pageDescription = "We build more than websites, we build brands. Professio
             
             <h4 class="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">Foundation</h4>
             <p class="text-sm opacity-60 mb-2">Perfect for</p>
-            <p class="font-medium mb-6">Coaches, consultants, service professionals</p>
+            <p class="font-medium mb-6">Freelancers and small teams who need a professional, clear website fast</p>
             
-            <ul class="space-y-3 mb-8 text-sm flex-grow">
+            <ul class="space-y-3 mb-8 text-sm flex-grow text-left mx-auto max-w-xs">
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Professional website that reflects your expertise</span>
+                <span>3–5 pages built to guide visitors</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Brand strategy & positioning</span>
+                <span>Clear calls-to-action and lead forms</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Lightning-fast performance (under 1 second)</span>
+                <span>Google Business Profile check + core SEO setup</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Brand visibility setup (Google, socials)</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Mobile-perfect on every device</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span><strong>Hosting & updates included forever</strong></span>
+                <span>Responsive design with fast hosting included</span>
               </li>
             </ul>
             
-            <div class="example-link text-xs text-primary opacity-70 mb-4">
-              Example: Professional portfolio that commands respect
+            <div class="example-link text-xs text-primary opacity-70 mb-4 text-center">
+              Example: service professional with a clear offer and contact buttons
             </div>
-            
+
             <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
-              Start Your Transformation
+              Launch your first website
             </a>
           </div>
         </div>
@@ -349,17 +242,13 @@ const pageDescription = "We build more than websites, we build brands. Professio
           <!-- More visible popular badge -->
           <div class="popular-badge-container absolute -top-4 left-0 right-0 flex justify-center z-30">
             <div class="popular-badge bg-primary text-black px-5 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white dark:border-gray-800">
-              ⭐ Most Chosen
+              ⭐ Most chosen
             </div>
           </div>
           <!-- Launch offer badge -->
-          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
-            €100 OFF
-          </div>
-          
           <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
           
-          <div class="relative z-10 p-6 pt-8 flex flex-col flex-grow">
+          <div class="relative z-10 p-6 pt-8 flex flex-col flex-grow text-center">
             <div class="pricing-section mb-4">
               <div class="original-price text-lg text-gray-500 line-through">€449</div>
               <div class="package-price text-3xl font-bold text-primary">€349</div>
@@ -368,41 +257,33 @@ const pageDescription = "We build more than websites, we build brands. Professio
             
             <h4 class="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">Growth</h4>
             <p class="text-sm opacity-60 mb-2">Perfect for</p>
-            <p class="font-medium mb-6">Local businesses ready to dominate their market</p>
+            <p class="font-medium mb-6">Service providers and local retailers chasing online leads and bookings</p>
             
-            <ul class="space-y-3 mb-8 text-sm flex-grow">
+            <ul class="space-y-3 mb-8 text-sm flex-grow text-left mx-auto max-w-xs">
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Everything in Foundation, plus:</span>
+                <span>Everything from Foundation plus an expandable sitemap (5–8 pages)</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Advanced brand strategy & market positioning</span>
+                <span>Conversion flows for quotes, reservations, or appointments</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>5-8 pages designed to convert visitors</span>
+                <span>Local SEO landing pages with geo-focused keywords</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Customer targeting strategy</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Local SEO to dominate your area</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Blog/portfolio system for ongoing engagement</span>
+                <span>Blog/news or portfolio module with training for self-management</span>
               </li>
             </ul>
             
-            <div class="example-link text-xs text-primary opacity-70 mb-4">
-              Example: waarisniels.nl (from blogger to authority)
+            <div class="example-link text-xs text-primary opacity-70 mb-4 text-center">
+              Example: waarisniels.nl — from personal project to authority
             </div>
-            
+
             <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
-              Dominate Your Market
+              Activate your online growth
             </a>
           </div>
         </div>
@@ -410,12 +291,9 @@ const pageDescription = "We build more than websites, we build brands. Professio
         <!-- Package 3: Complete -->
         <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
           <!-- Launch offer badge -->
-          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
-            €100 OFF
-          </div>
           <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
           
-          <div class="relative z-10 p-6 flex flex-col flex-grow">
+          <div class="relative z-10 p-6 flex flex-col flex-grow text-center">
             <div class="pricing-section mb-4">
               <div class="original-price text-lg text-gray-500 line-through">€549</div>
               <div class="package-price text-3xl font-bold text-primary">€449</div>
@@ -424,41 +302,37 @@ const pageDescription = "We build more than websites, we build brands. Professio
             
             <h4 class="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">Complete</h4>
             <p class="text-sm opacity-60 mb-2">Perfect for</p>
-            <p class="font-medium mb-6">Ambitious businesses ready to sell online</p>
+            <p class="font-medium mb-6">Entrepreneurs who want to sell online or automate workflows</p>
             
-            <ul class="space-y-3 mb-8 text-sm flex-grow">
+            <ul class="space-y-3 mb-8 text-sm flex-grow text-left mx-auto max-w-xs">
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Everything in Growth, plus:</span>
+                <span>Everything from Growth plus product or service catalogue</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Complete e-commerce brand experience</span>
+                <span>Webshop or custom ordering flow with payments</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Payment processing & secure checkout</span>
+                <span>Integrations with inventory, CRM, or email marketing</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Inventory management & order system</span>
+                <span>Automation for leads, loyalty, or subscriptions</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Customer loyalty & retention features</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-green-500 text-lg flex-shrink-0">✓</span>
-                <span>Advanced marketing automation</span>
+                <span>Strategic growth roadmap tailored to you</span>
               </li>
             </ul>
             
-            <div class="example-link text-xs text-primary opacity-70 mb-4">
-              Example: Coming soon (complete online brand experience)
+            <div class="example-link text-xs text-primary opacity-70 mb-4 text-center">
+              Example: sales-ready platform with integrations and automation
             </div>
-            
+
             <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
-              Build Complete Brand
+              Transform your business online
             </a>
           </div>
         </div>
@@ -466,15 +340,15 @@ const pageDescription = "We build more than websites, we build brands. Professio
       
       <!-- Brand strategy details -->
       <div class="brand-included mt-16 text-center bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-        <h3 class="font-semibold mb-4">Complete brand strategy included with every package:</h3>
+        <h3 class="font-semibold mb-4">Every package includes a complete brand strategy:</h3>
         <div class="grid md:grid-cols-5 gap-4 text-sm">
           <div>✓ Brand positioning strategy</div>
-          <div>✓ Customer targeting plan</div>
-          <div>✓ Visibility optimization</div>
+          <div>✓ Customer-focused action plan</div>
+          <div>✓ Visibility optimisation</div>
           <div>✓ Market differentiation</div>
           <div>✓ Growth partnership</div>
         </div>
-        <p class="text-xs opacity-60 mt-4">Launch offer: This comprehensive brand strategy normally costs €400+</p>
+        <p class="text-xs opacity-60 mt-4">Launch offer: this full strategy normally adds €200+ in value.</p>
       </div>
     </div>
   </section>
@@ -483,31 +357,36 @@ const pageDescription = "We build more than websites, we build brands. Professio
 <section class="success-example py-20 px-4 bg-card-light dark:bg-card-dark reveal-on-scroll">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12">
-      <h2 class="font-heading font-bold text-4xl mb-4">From Traveller to Blogger</h2>
-      <p class="text-lg opacity-80">Niels wanted a unique site to showcase his adventures, so we built him a stylish, feature-rich blog.</p>
+      <h2 class="font-heading font-bold text-4xl mb-4">Case: <span class="text-primary">waarisniels.nl</span></h2>
+      <p class="text-lg opacity-80">A personal travel blog grew into a professional platform with daily traffic and partnerships thanks to a sharp story and lightning-fast tech.</p>
     </div>
 
     <div class="transformation-grid grid lg:grid-cols-2 gap-12 items-center">
       <div class="transformation-image">
-        <img src="/portfolio/waarisniels-mockup.jpg" alt="Travel Blog Website" class="w-full h-80 object-cover rounded-lg" loading="lazy" decoding="async" />
+        <img src="/portfolio/waarisniels-mockup.jpg" alt="Travel blog website" class="w-full h-80 object-cover rounded-lg" loading="lazy" decoding="async" />
       </div>
 
       <div class="transformation-content">
-        <h3 class="text-2xl font-semibold mb-4">About the Blog</h3>
-        <p class="mb-4">A clean and modern design with interactive maps, photo galleries, and social sharing to inspire fellow travellers.</p>
+        <h3 class="text-2xl font-semibold mb-4">What we delivered</h3>
+        <p class="mb-6">We used a minimalist design and made the site personal and compelling for returning readers.</p>
 
-        <div class="transformation-benefits space-y-6 mb-6">
-          <div class="before-after bg-background rounded p-4">
-            <strong>Before:</strong> Basic blog with minimal features and little visibility.
-          </div>
-          <div class="arrow text-center text-primary text-3xl">↓</div>
-          <div class="before-after bg-primary/10 rounded p-4">
-            <strong>After:</strong> Engaging platform with rich media and growing audience.
-          </div>
-        </div>
+        <ul class="space-y-4 text-sm">
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-lg">✓</span>
+            <span>Load times under one second, even with rich media.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-lg">✓</span>
+            <span>Stories grouped automatically with maps and themes for easy navigation.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-lg">✓</span>
+            <span>Content strategy that links blog, newsletter, and social media.</span>
+          </li>
+        </ul>
 
-        <a href="https://waarisniels.nl" target="_blank" class="text-primary font-medium hover:underline inline-flex items-center gap-2">
-          Visit the Blog
+        <a href="https://waarisniels.nl" target="_blank" class="text-primary font-medium hover:underline inline-flex items-center gap-2 mt-6">
+          Visit the live site
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
           </svg>
@@ -517,36 +396,35 @@ const pageDescription = "We build more than websites, we build brands. Professio
   </div>
 </section>
 
-
   <!-- OUR PARTNERSHIP PROCESS -->
   <section class="partnership-process py-24 px-4 reveal-on-scroll">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-heading font-bold text-4xl mb-16">Your Partner in Digital Growth</h2>
+      <h2 class="font-heading font-bold text-4xl mb-16">How we <span class="text-primary">work together</span></h2>
       
       <div class="process-steps grid md:grid-cols-3 gap-12">
         <div class="step">
           <div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
-          <h3 class="text-xl font-semibold mb-4">We Understand Your Business</h3>
-          <p class="text-sm opacity-80">Deep conversation about your business, challenges, and goals. We become your dedicated digital partner who truly gets it.</p>
+          <h3 class="text-xl font-semibold mb-4">Discovery call</h3>
+          <p class="text-sm opacity-80">We start with a practical session to map your goals, audience, and current channels. Everything revolves around your story.</p>
         </div>
         
         <div class="step">
           <div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
-          <h3 class="text-xl font-semibold mb-4">We Build Your Brand</h3>
-          <p class="text-sm opacity-80"><strong>Just 3 days</strong> to create a professional brand experience. We combine technical expertise with marketing knowledge for maximum impact.</p>
+          <h3 class="text-xl font-semibold mb-4">Design & build</h3>
+          <p class="text-sm opacity-80">You receive wireframes, copy drafts, and design previews. Once you’re happy, we develop the site and connect every tool.</p>
         </div>
         
         <div class="step">
           <div class="step-number w-16 h-16 bg-primary text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
-          <h3 class="text-xl font-semibold mb-4">You Stand Out From Competitors</h3>
-          <p class="text-sm opacity-80">Your professional brand goes live and customers choose you over competitors. We provide ongoing partnership support as you grow.</p>
+          <h3 class="text-xl font-semibold mb-4">Launch & momentum</h3>
+          <p class="text-sm opacity-80">We launch together, monitor the first results, and plan improvements. You can rely on us for support and continued optimisation.</p>
         </div>
       </div>
       
       <!-- Partnership commitment -->
       <div class="partnership-commitment mt-16 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800">
         <p class="font-semibold text-orange-800 dark:text-orange-300">
-          🤝 <strong>Partnership Promise:</strong> We're your dedicated digital growth partner, not just another vendor.
+          🤝 <strong>Partnership promise:</strong> one dedicated sparring partner who stays available long after launch.
         </p>
       </div>
     </div>
@@ -565,6 +443,7 @@ const pageDescription = "We build more than websites, we build brands. Professio
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const element = entry.target;
+
             if (!(element instanceof HTMLElement)) return;
             element.style.opacity = '1';
             element.style.transform = 'translateY(0) scale(1)';
@@ -573,6 +452,7 @@ const pageDescription = "We build more than websites, we build brands. Professio
             const children = element.querySelectorAll('.package-card, .result-item, .step, .difference-card');
             children.forEach((child, childIndex) => {
               if (!(child instanceof HTMLElement)) return;
+
               const childElement = child;
               setTimeout(() => {
                 childElement.style.opacity = '1';
@@ -585,8 +465,9 @@ const pageDescription = "We build more than websites, we build brands. Professio
 
       // Apply to sections
       const sections = document.querySelectorAll('.reveal-on-scroll');
-      sections.forEach((section) => {
+      sections.forEach(section => {
         if (!(section instanceof HTMLElement)) return;
+
         const element = section;
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px) scale(0.98)';
@@ -596,8 +477,9 @@ const pageDescription = "We build more than websites, we build brands. Professio
 
       // Subtle card effects
       const subtleCards = document.querySelectorAll('.subtle-card');
-      subtleCards.forEach((card) => {
+      subtleCards.forEach(card => {
         if (!(card instanceof HTMLElement)) return;
+
         const cardElement = card;
         
         cardElement.addEventListener('mousemove', (e) => {
@@ -618,6 +500,38 @@ const pageDescription = "We build more than websites, we build brands. Professio
           cardElement.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
         });
       });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const typewriterElement = document.querySelector('.typewriter-heading');
+      if (!typewriterElement) return;
+
+      let scrollTimeout: number;
+      let isScrolling = false;
+
+      const handleScroll = () => {
+        if (!isScrolling) {
+          typewriterElement.classList.add('is-paused');
+          isScrolling = true;
+        }
+        
+        window.clearTimeout(scrollTimeout);
+        
+        scrollTimeout = window.setTimeout(() => {
+          typewriterElement.classList.remove('is-paused');
+          isScrolling = false;
+        }, 150);
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      // Cleanup on page navigation
+      document.addEventListener('astro:before-swap', () => {
+        window.removeEventListener('scroll', handleScroll);
+        window.clearTimeout(scrollTimeout);
+      }, { once: true });
     });
   </script>
 

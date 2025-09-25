@@ -1,35 +1,41 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-const pageTitle = "About VeermanDevelopment | Your Growth Partners";
-const pageDescription = "Meet the team behind high-performance websites. Learn about our philosophy, process, and commitment to building strategic partnerships that drive measurable business growth.";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const pageTitle = t('process.page.title');
+const pageDescription = t('process.page.description');
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <section class="mission-section py-20 px-4 text-center relative overflow-hidden">
+
+  <!-- LAUNCH OFFER BANNER -->
+  <section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
-      <h1 class="font-heading font-bold text-5xl sm:text-6xl mb-6 reveal-title text-center">
-        Your strategic <span class="inline-block">
-          <TypewriterText 
-            words={["growth partner"]}
-            className="text-primary text-5xl sm:text-6xl lg:text-7xl"
-            initialText="growth partner"
-          />
-        </span>
-      </h1>
-      <p class="text-xl opacity-90 leading-relaxed mb-8 reveal-text text-center">
-        We believe every business deserves a website that works as hard as they do. Our mission is to transform 
-        traditional web development from a one-time transaction into a strategic partnership that drives continuous growth.
+      <p class="text-sm font-medium">
+        🤝 <strong>Intro offer:</strong> €100 off your first project + a complimentary brand check.
       </p>
-      <div class="mission-statement bg-card-light dark:bg-card-dark rounded-xl p-8 reveal-card hover-lift-subtle">
-        <h2 class="font-heading font-bold text-2xl mb-4 gradient-text">Our Philosophy</h2>
-        <p class="text-lg opacity-90">
-          Technology isn't just about code—it's about enabling business success. We combine cutting-edge development 
-          with strategic thinking to create digital assets that generate measurable results, not just pretty interfaces.
-        </p>
-      </div>
     </div>
+    <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
+  </section>
+
+<HeroSection 
+  subtitle="A process built around you"
+  description="Clear steps, short lines of communication, and one dedicated contact. That’s how we launch fast and make sure your website keeps growing with you."
+>
+  <span class="typewriter-heading text-center">
+    <span class="typewriter-heading__label">Together we build</span>
+    <TypewriterText 
+      words={["a clear roadmap", "a stress-free launch", "a partner who thinks with you", "your digital future"]}
+      className="typewriter-heading__text text-primary"
+      initialText="a clear roadmap"
+    />
+  </span>
+</HeroSection>
     
     <div class="floating-elements absolute inset-0 pointer-events-none">
       <div class="floating-circle absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full"></div>
@@ -38,13 +44,11 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     </div>
   </section>
 
-  
-
   <section class="team-section py-16 px-4 reveal-section">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-4xl mb-4 text-primary reveal-title">Meet Your Growth Team</h2>
-        <p class="text-lg opacity-80 reveal-text">Passionate experts, fresh out of university—equipped with the latest skills and technologies, fully dedicated to driving your success.</p>
+        <h2 class="font-heading font-bold text-4xl mb-4">Meet the <span class="text-primary">team</span></h2>
+        <p class="text-lg opacity-80 reveal-text">Passionate experts with fresh perspectives—equipped with the latest skills and tech, fully committed to your success.</p>
       </div>
       
       <div class="team-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -53,14 +57,22 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
             <div class="card-shine absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="member-photo mb-6 overflow-hidden rounded-lg relative">
-                <img src="/Teampictures/Niels-Founder-Lead-Developer.jpg" alt="Niels Veerman - Founder & Lead Developer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+                <img 
+                  src="/Teampictures/Niels-Founder-Lead-Developer.jpg" 
+                  alt="Niels Veerman - Founder & Lead Developer" 
+                  class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                  width="300"
+                  height="256"
+                />
                 <div class="photo-overlay absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Niels Veerman</h3>
               <p class="text-primary font-medium mb-3">Founder & Lead Developer</p>
               <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                Passionate about building performance-driven websites that deliver real business results. 
-                Specialized in modern Jamstack architecture and conversion optimization.
+                Obsessed with building performance-driven websites that deliver real business outcomes.
+                Specialist in modern Jamstack architecture and conversion optimisation.
               </p>
             </div>
           </div>
@@ -71,14 +83,22 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
             <div class="card-shine absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="member-photo mb-6 overflow-hidden rounded-lg relative">
-                <img src="/Teampictures/Cedric-Business-Development.jpg" alt="Cedric - Brand Success" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+                <img 
+                  src="/Teampictures/Cedric-Business-Development.jpg" 
+                  alt="Cedric - Brand Success Strategist" 
+                  class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                  width="300"
+                  height="256"
+                />
                 <div class="photo-overlay absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Cedric Mueller</h3>
-              <p class="text-primary font-medium mb-3">Brand Success</p>
+              <p class="text-primary font-medium mb-3">Brand Success Strategist</p>
               <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                Strategic partner focused on understanding business goals and translating them into 
-                effective digital experiences that drive measurable results and sustainable growth.
+                Strategic partner focused on understanding business goals and translating them into
+                digital experiences that drive measurable results and sustainable growth.
               </p>
             </div>
           </div>
@@ -89,15 +109,140 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
             <div class="card-shine absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="member-photo mb-6 overflow-hidden rounded-lg relative">
-                <img src="/Teampictures/Jochem-Frontend-Developer.jpg" alt="Jochem - Frontend Developer" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+                <img 
+                  src="/Teampictures/Jochem-Frontend-Developer.jpg" 
+                  alt="Jochem - Frontend Developer" 
+                  class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                  width="300"
+                  height="256"
+                />
                 <div class="photo-overlay absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">Jochem Schreurs</h3>
               <p class="text-primary font-medium mb-3">Frontend Developer</p>
               <p class="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                Conversion-focused developer who creates beautiful interfaces that guide users toward 
-                your most profitable actions. Expert in user experience and modern frontend technologies.
+                Conversion-focused developer crafting interfaces that guide visitors to your most valuable actions.
+                Expert in user experience and modern frontend technologies.
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section py-16 px-4 reveal-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-4xl mb-4">Our <span class="text-primary">partnership<wbr>timeline</span></h2>
+        <p class="text-lg opacity-80 reveal-text">From first conversation to live website—this is our proven three-day process.</p>
+      </div>
+      
+      <div class="timeline-container relative">
+        <div class="timeline-line absolute left-1/2 transform -translate-x-1/2 top-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-primary h-full hidden lg:block"></div>
+        
+        <div class="process-flow space-y-16">
+          <div class="process-step step-reveal" data-step="1">
+            <div class="step-content text-center max-w-4xl mx-auto">
+              <div class="step-header flex items-center justify-center mb-6">
+                <div class="step-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">1</div>
+                <div>
+                  <h3 class="text-2xl font-semibold">Day 1: Discovery</h3>
+                  <p class="text-primary font-medium">Discovery & Strategy Session</p>
+                </div>
+              </div>
+              <p class="text-lg mb-6 opacity-90">
+                We kick off with an in-depth discovery session to understand your business goals, target audience,
+                and growth ambitions. This collaborative conversation lays the groundwork for a website that actually performs.
+              </p>
+              <ul class="space-y-3 checklist max-w-2xl mx-auto">
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Business goals breakdown</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Audience research and persona mapping</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Competitor review and market positioning</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Technical requirements and feature planning</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="process-step step-reveal" data-step="2">
+            <div class="step-content text-center max-w-4xl mx-auto">
+              <div class="step-header flex items-center justify-center mb-6">
+                <div class="step-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">2</div>
+                <div>
+                  <h3 class="text-2xl font-semibold">Day 2: Prototype</h3>
+                  <p class="text-primary font-medium">Design & Build</p>
+                </div>
+              </div>
+              <p class="text-lg mb-6 opacity-90">
+                Based on the discovery session we create a working prototype that brings your vision to life.
+                You see exactly how the website will look and behave before we move into launch mode.
+              </p>
+              <ul class="space-y-3 checklist max-w-2xl mx-auto">
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Custom design aligned with your brand and goals</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Responsive layout across every device</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Core functionality and user flows implemented</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Performance optimisation and testing</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="process-step step-reveal" data-step="3">
+            <div class="step-content text-center max-w-4xl mx-auto">
+              <div class="step-header flex items-center justify-center mb-6">
+                <div class="step-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">3</div>
+                <div>
+                  <h3 class="text-2xl font-semibold">Day 3: Launch</h3>
+                  <p class="text-primary font-medium">Launch & Optimisation</p>
+                </div>
+              </div>
+              <p class="text-lg mb-6 opacity-90">
+                Your website goes live with full functionality, tuned performance, and ongoing support.
+                We handle a smooth launch and train you so you can manage content with confidence.
+              </p>
+              <ul class="space-y-3 checklist max-w-2xl mx-auto">
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Domain setup and SSL certificate installation</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Analytics and performance monitoring configured</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Content management training session</span>
+                </li>
+                <li class="flex items-start gap-3 checklist-item">
+                  <span class="text-primary text-xl">✓</span>
+                  <span>Ongoing support and optimisation guidance</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -108,95 +253,93 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
   <section class="technology-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Our Technology Advantage</h2>
-        <p class="text-lg opacity-80 reveal-text">Why we choose modern Jamstack over traditional platforms</p>
+        <h2 class="font-heading font-bold text-4xl mb-4">Our <span class="text-primary">technology</span></h2>
+        <p class="text-lg opacity-80 reveal-text">Why we put modern Jamstack ahead of traditional platforms</p>
       </div>
       
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="technology-content reveal-card">
-          <h3 class="text-2xl font-semibold mb-6">Strategic Choice of Astro/Jamstack Architecture</h3>
+          <h3 class="text-2xl font-semibold mb-6">Why we build with Astro & Jamstack</h3>
           <p class="text-lg mb-6 opacity-90">
-            Our technology choices aren't arbitrary—they're strategic decisions based on what delivers 
-            the best business outcomes for our clients. Every framework and tool we use is selected 
-            to maximize performance, security, and your return on investment.
+            We choose technology that gives you an edge. No hype—just a fast, reliable foundation you and your customers can trust.
           </p>
           
           <div class="technology-benefits space-y-4">
             <div class="benefit flex items-start gap-3 hover-slide">
               <span class="text-primary text-xl benefit-icon">⚡</span>
               <div>
-                <h4 class="font-semibold mb-1">Uncompromising Performance</h4>
-                <p class="text-sm opacity-80">Sub-1-second load times that convert 2-3x better than slow sites</p>
+                <h4 class="font-semibold mb-1">Speed on default</h4>
+                <p class="text-sm opacity-80">Pages consistently load in under a second, so visitors stay and convert.</p>
               </div>
             </div>
             
             <div class="benefit flex items-start gap-3 hover-slide">
               <span class="text-primary text-xl benefit-icon">🛡️</span>
               <div>
-                <h4 class="font-semibold mb-1">Enterprise-Grade Security</h4>
-                <p class="text-sm opacity-80">Zero database vulnerabilities, virtually unhackable architecture</p>
+                <h4 class="font-semibold mb-1">Security without drama</h4>
+                <p class="text-sm opacity-80">No vulnerable plugins, which means far less risk of hacks or sudden downtime.</p>
               </div>
             </div>
             
             <div class="benefit flex items-start gap-3 hover-slide">
               <span class="text-primary text-xl benefit-icon">💰</span>
               <div>
-                <h4 class="font-semibold mb-1">Lower Total Cost of Ownership</h4>
-                <p class="text-sm opacity-80">No ongoing maintenance costs, 60-99% lower hosting expenses</p>
+                <h4 class="font-semibold mb-1">Lower ongoing costs</h4>
+                <p class="text-sm opacity-80">No monthly maintenance retainers; hosting stays lean and predictable.</p>
               </div>
             </div>
             
             <div class="benefit flex items-start gap-3 hover-slide">
               <span class="text-primary text-xl benefit-icon">📈</span>
               <div>
-                <h4 class="font-semibold mb-1">SEO Excellence</h4>
-                <p class="text-sm opacity-80">Perfect PageSpeed scores and technical SEO out of the box</p>
+                <h4 class="font-semibold mb-1">SEO-ready from day one</h4>
+                <p class="text-sm opacity-80">Speed and technical foundations are dialled in from launch, helping you rank locally faster.</p>
               </div>
             </div>
           </div>
         </div>
         
-        <div class="performance-comparison bg-background-light dark:bg-background-dark rounded-lg p-6 hover-lift-subtle reveal-card">
-          <h4 class="font-semibold mb-6 text-center">Comparative Performance & Security Analysis</h4>
+        <div id="performance-comparison" class="performance-comparison bg-background-light dark:bg-background-dark rounded-lg p-6 hover-lift-subtle reveal-card">
+          <h4 class="font-semibold mb-6 text-center">Performance & security snapshot</h4>
           <div class="overflow-x-auto">
             <table class="w-full text-sm animated-table">
               <thead>
                 <tr class="border-b border-gray-300 dark:border-gray-600">
                   <th class="text-left py-3">Metric</th>
-                  <th class="text-left py-3 text-green-600">Our Astro Solution</th>
-                  <th class="text-left py-3 text-red-600">WordPress</th>
+                  <th class="text-left py-3 text-green-600">Our Astro stack</th>
+                  <th class="text-left py-3 text-red-600">WordPress themes</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-                  <td class="py-3 font-medium">PageSpeed Score</td>
-                  <td class="py-3 text-green-600 font-bold">95-100 (Excellent)</td>
-                  <td class="py-3 text-red-600">40-80 (Poor to Fair)</td>
+                  <td class="py-3 font-medium">PageSpeed score</td>
+                  <td class="py-3 text-green-600 font-bold">95–100 (consistently high)</td>
+                  <td class="py-3 text-red-600">40–80 (depends on plugins)</td>
                 </tr>
                 <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-                  <td class="py-3 font-medium">Load Time</td>
-                  <td class="py-3 text-green-600 font-bold">&lt;1 second</td>
-                  <td class="py-3 text-red-600">3-5 seconds</td>
+                  <td class="py-3 font-medium">Load time</td>
+                  <td class="py-3 text-green-600 font-bold">0.8–1.2 s</td>
+                  <td class="py-3 text-red-600">3–7 s</td>
                 </tr>
                 <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-                  <td class="py-3 font-medium">Vulnerabilities (Annual)</td>
-                  <td class="py-3 text-green-600 font-bold">Near-Zero</td>
-                  <td class="py-3 text-red-600">8,000+ (96% plugins)</td>
+                  <td class="py-3 font-medium">Vulnerability exposure</td>
+                  <td class="py-3 text-green-600 font-bold">Very low risk</td>
+                  <td class="py-3 text-red-600">Frequent alerts (mostly plugin-related)</td>
                 </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+                <tr class="border-b border-gray-200 dark-border-gray-700 table-row">
                   <td class="py-3 font-medium">Maintenance</td>
-                  <td class="py-3 text-green-600 font-bold">None Required</td>
-                  <td class="py-3 text-red-600">Constant Updates</td>
+                  <td class="py-3 text-green-600 font-bold">No recurring update cycles</td>
+                  <td class="py-3 text-red-600">Regular plugin updates</td>
                 </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
-                  <td class="py-3 font-medium">Hosting Cost</td>
-                  <td class="py-3 text-green-600 font-bold">€1-20/year</td>
-                  <td class="py-3 text-red-600">€10-200/month</td>
+                <tr class="border-b border-gray-200 dark-border-gray-700 table-row">
+                  <td class="py-3 font-medium">Hosting costs</td>
+                  <td class="py-3 text-green-600 font-bold">€1–20 per year</td>
+                  <td class="py-3 text-red-600">€10–200 per month</td>
                 </tr>
                 <tr class="table-row">
-                  <td class="py-3 font-medium">Conversion Impact</td>
-                  <td class="py-3 text-green-600 font-bold">+200-400%</td>
-                  <td class="py-3 text-red-600">Baseline</td>
+                  <td class="py-3 font-medium">Conversion impact</td>
+                  <td class="py-3 text-green-600 font-bold">Faster sites create more enquiries</td>
+                  <td class="py-3 text-red-600">Often unchanged</td>
                 </tr>
               </tbody>
             </table>
@@ -206,154 +349,52 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     </div>
   </section>
 
-  <section class="process-section py-16 px-4 reveal-section">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-4xl mb-4 gradient-text reveal-title">Our Partnership Timeline</h2>
-        <p class="text-lg opacity-80 reveal-text">From initial meeting to live website—here's our proven 3-day process</p>
-      </div>
+
+  <section class="values-section py-16 px-4 bg-card-light dark:bg-card-dark">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-heading font-bold text-4xl mb-12">Our commitment to your <span class="text-primary">success</span></h2>
       
-      <div class="timeline-container relative">
-        <div class="timeline-line absolute left-1/2 transform -translate-x-1/2 top-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-primary h-full hidden lg:block"></div>
+      <div class="values-grid grid md:grid-cols-3 gap-8">
+        <div class="value-item hover-lift-subtle">
+          <div class="value-icon text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold mb-3">Results first</h3>
+          <p class="text-sm opacity-80">Every decision is measured against business outcomes. We win only when you do.</p>
+        </div>
         
-        <div class="process-flow space-y-16">
-          <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="1">
-            <div class="step-content lg:order-1">
-              <div class="step-header flex items-center mb-6">
-                <div class="step-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">1</div>
-                <div>
-                  <h3 class="text-2xl font-semibold">Day 1: Initial Meeting</h3>
-                  <p class="text-primary font-medium">Discovery & Strategy Session</p>
-                </div>
-              </div>
-              <p class="text-lg mb-6 opacity-90">
-                We start with a comprehensive discovery session to understand your business goals, target audience, 
-                and growth objectives. This collaborative meeting sets the foundation for your website's success.
-              </p>
-              <ul class="space-y-3 checklist">
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Business goals and KPI analysis</span>
-                </li>
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Target audience research and persona development</span>
-                </li>
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Competitive analysis and market positioning</span>
-                </li>
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Technical requirements and feature planning</span>
-                </li>
-              </ul>
-            </div>
-            <div class="step-content-spacer lg:order-2">
-              <!-- Timeline image removed as requested -->
-            </div>
-          </div>
-
-          <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="2">
-            <div class="step-content-spacer lg:order-1">
-              <!-- Timeline image removed as requested -->
-            </div>
-            <div class="step-content lg:order-2">
-              <div class="step-header flex items-center mb-6">
-                <div class="step-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">2</div>
-                <div>
-                  <h3 class="text-2xl font-semibold">Day 2: Prototype</h3>
-                  <p class="text-primary font-medium">Design & Development</p>
-                </div>
-              </div>
-              <p class="text-lg mb-6 opacity-90">
-                Based on our discovery session, we create a functional prototype that brings your vision to life. 
-                You'll see exactly how your website will look and function before we go live.
-              </p>
-              <ul class="space-y-3 checklist">
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Custom design based on your brand and goals</span>
-                </li>
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Responsive layout for all device types</span>
-                </li>
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Core functionality and user flow implementation</span>
-                </li>
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Performance optimization and testing</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="process-step grid lg:grid-cols-2 gap-12 items-center step-reveal" data-step="3">
-            <div class="step-content lg:order-1">
-              <div class="step-header flex items-center mb-6">
-                <div class="step-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mr-4 relative z-10 pulse-animation">3</div>
-                <div>
-                  <h3 class="text-2xl font-semibold">Day 3: Live!</h3>
-                  <p class="text-primary font-medium">Launch & Optimization</p>
-                </div>
-              </div>
-              <p class="text-lg mb-6 opacity-90">
-                Your website goes live with full functionality, optimized performance, and ongoing support. 
-                We ensure a smooth launch and provide training so you can manage your content independently.
-              </p>
-              <ul class="space-y-3 checklist">
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Domain setup and SSL certificate installation</span>
-                </li>
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Analytics and performance monitoring setup</span>
-                </li>
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Content management training session</span>
-                </li>
-                <li class="flex items-start gap-3 checklist-item">
-                  <span class="text-primary text-xl">✓</span>
-                  <span>Ongoing support and optimization guidance</span>
-                </li>
-              </ul>
-            </div>
-            <div class="step-content-spacer lg:order-2">
-              <!-- Timeline image removed as requested -->
-            </div>
-          </div>
+        <div class="value-item hover-lift-subtle">
+          <div class="value-icon text-4xl mb-4">🤝</div>
+          <h3 class="text-xl font-semibold mb-3">True partnership</h3>
+          <p class="text-sm opacity-80">We’re not just a vendor—we’re a strategic partner invested in your long-term growth.</p>
+        </div>
+        
+        <div class="value-item hover-lift-subtle">
+          <div class="value-icon text-4xl mb-4">⚡</div>
+          <h3 class="text-xl font-semibold mb-3">Speed built-in</h3>
+          <p class="text-sm opacity-80">From three-day delivery to lightning-fast websites—speed is baked into everything we do.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="values-section py-16 px-4 bg-card-light dark:bg-card-dark">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-heading font-bold text-4xl mb-12 gradient-text">Our Commitment to Your Success</h2>
-      
-      <div class="values-grid grid md:grid-cols-3 gap-8">
-        <div class="value-item hover-lift-subtle">
-          <div class="value-icon text-4xl mb-4">🎯</div>
-          <h3 class="text-xl font-semibold mb-3">Results-Driven</h3>
-          <p class="text-sm opacity-80">Every decision is measured against business outcomes. We succeed only when you succeed.</p>
-        </div>
-        
-        <div class="value-item hover-lift-subtle">
-          <div class="value-icon text-4xl mb-4">🤝</div>
-          <h3 class="text-xl font-semibold mb-3">True Partnership</h3>
-          <p class="text-sm opacity-80">We're not vendors—we're strategic partners invested in your long-term growth and success.</p>
-        </div>
-        
-        <div class="value-item hover-lift-subtle">
-          <div class="value-icon text-4xl mb-4">⚡</div>
-          <h3 class="text-xl font-semibold mb-3">Excellence in Speed</h3>
-          <p class="text-sm opacity-80">From 3-day delivery to lightning-fast websites—speed is built into everything we do.</p>
-        </div>
+  <section class="final-cta py-16 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-heading font-bold text-4xl mb-6">Book your free <span class="text-primary">strategy call</span></h2>
+      <p class="text-lg opacity-80 mb-8">
+        Let’s review where your website stands today and map the next steps to attract more customers.
+      </p>
+      <div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`/${lang}/contact`}
+          class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105 inline-block"
+        >
+          Book your free strategy call
+        </a>
+        <a
+          href={`/${lang}/services`}
+          class="bg-card-light dark:bg-card-dark border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary hover:text-black transition-all inline-block"
+        >
+          Explore packages & pricing
+        </a>
       </div>
     </div>
   </section>
@@ -475,6 +516,19 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
       background-clip: initial !important;
     }
 
+    .typewriter-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .typewriter-heading__text .typewriter-text {
+      display: inline-block;
+      text-align: center;
+    }
+
     /* Subtle hover effects */
     .hover-lift-subtle {
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -503,9 +557,33 @@ const pageDescription = "Meet the team behind high-performance websites. Learn a
     }
 
     .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
       opacity: 0;
       transform: translateX(-20px);
       animation: slideInLeft 0.6s ease-out forwards;
+      text-align: left;
+    }
+
+    .checklist-item > span:first-child {
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .checklist-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .checklist-item > span:first-child {
+        margin-bottom: 0.25rem;
+      }
+
+      .checklist-item > span:last-child {
+        text-align: center;
+      }
     }
 
     .checklist-item:nth-child(1) { animation-delay: 0.1s; }

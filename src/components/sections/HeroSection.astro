@@ -34,20 +34,20 @@ const bgClasses = {
 };
 
 const sizeClasses = {
-  normal: 'py-20 px-4',
-  large: 'py-24 md:py-32 px-4'
+  normal: 'py-16 md:py-20 px-4',
+  large: 'py-20 md:py-26 px-4'
 };
 ---
 
 <section class={`hero-section text-center ${sizeClasses[size]} ${bgClasses[background]} overflow-hidden`}>
-  <div class="max-w-4xl mx-auto">
+  <div class="hero-inner max-w-4xl mx-auto">
     {subtitle && (
-      <div class="hero-subtitle text-primary font-semibold text-sm md:text-base uppercase tracking-wide mb-4 opacity-80">
+      <div class="hero-subtitle text-primary font-semibold text-sm md:text-base uppercase tracking-wide mb-2 opacity-80">
         {subtitle}
       </div>
     )}
     
-    <h1 class="hero-title font-heading font-bold text-5xl sm:text-6xl lg:text-7xl mb-6 leading-tight min-h-[7rem] sm:min-h-0">
+    <h1 class="hero-title font-heading font-bold text-5xl sm:text-6xl lg:text-7xl mb-4 leading-tight min-h-[5.5rem] sm:min-h-0">
       <slot />
     </h1>
     
@@ -100,6 +100,43 @@ const sizeClasses = {
     ))}
   </div>
 </section>
+
+<style>
+  .typewriter-heading {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+  }
+
+  .typewriter-heading__label {
+    display: block;
+  }
+
+  .typewriter-heading__text {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .hero-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(360px, 60vh, 680px);
+  }
+
+  .hero-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

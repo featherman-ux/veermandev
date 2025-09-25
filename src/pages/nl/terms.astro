@@ -1,8 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-const pageTitle = "Algemene Voorwaarden | VeermanDevelopment";
-const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdiensten, projectvoorwaarden en serviceovereenkomsten.";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const pageTitle = t('terms.page.title');
+const pageDescription = t('terms.page.description');
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -39,9 +43,9 @@ const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdie
       <div class="legal-sections space-y-12">
         <!-- Agreement -->
         <div class="legal-section reveal-section" id="acceptance">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">🤝</span>
-            Overeenkomst tot Voorwaarden
+            Overeenkomst tot <span class="text-primary">voorwaarden</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-4">
@@ -58,9 +62,9 @@ const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdie
 
         <!-- Services -->
         <div class="legal-section reveal-section" id="services">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">🚀</span>
-            Onze Diensten
+            Onze <span class="text-primary">diensten</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-6">VeermanDevelopment biedt de volgende diensten:</p>
@@ -99,9 +103,9 @@ const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdie
 
         <!-- Payment Terms -->
         <div class="legal-section reveal-section" id="payment">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">💳</span>
-            Betalingsvoorwaarden
+            <span class="text-primary">Betalingsvoorwaarden</span>
           </h2>
           <div class="section-content prose-like">
             <div class="payment-structure space-y-6">
@@ -138,9 +142,9 @@ const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdie
 
         <!-- Intellectual Property -->
         <div class="legal-section reveal-section" id="intellectual-property">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">©️</span>
-            Intellectuele Eigendomsrechten
+            Intellectuele <span class="text-primary">eigendomsrechten</span>
           </h2>
           <div class="section-content prose-like">
             <div class="ip-sections space-y-6">
@@ -175,9 +179,9 @@ const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdie
 
         <!-- Client Responsibilities -->
         <div class="legal-section reveal-section" id="client-responsibilities">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">✅</span>
-            Klant Verantwoordelijkheden
+            Klant <span class="text-primary">verantwoordelijkheden</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-4">Voor succesvolle project voltooiing, stemmen klanten in met:</p>
@@ -206,9 +210,9 @@ const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdie
 
         <!-- Warranties -->
         <div class="legal-section reveal-section" id="warranties">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">🛡️</span>
-            Garanties en Disclaimers
+            Garanties en <span class="text-primary">disclaimers</span>
           </h2>
           <div class="section-content prose-like">
             <div class="warranty-sections space-y-6">
@@ -235,9 +239,9 @@ const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdie
 
         <!-- Limitation of Liability -->
         <div class="legal-section reveal-section" id="limitation">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">⚖️</span>
-            Aansprakelijkheidsbeperking
+            <span class="text-primary">Aansprakelijkheidsbeperking</span>
           </h2>
           <div class="section-content prose-like">
             <div class="liability-content space-y-4">
@@ -260,9 +264,9 @@ const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdie
 
         <!-- Termination -->
         <div class="legal-section reveal-section" id="termination">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">🔚</span>
-            Beëindiging
+            <span class="text-primary">Beëindiging</span>
           </h2>
           <div class="section-content prose-like">
             <div class="termination-policies space-y-6">
@@ -288,9 +292,9 @@ const pageDescription = "Lees onze algemene voorwaarden voor webontwikkelingsdie
 
         <!-- Contact -->
         <div class="legal-section reveal-section" id="contact">
-          <h2 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <h2 class="font-heading font-bold text-4xl mb-4 flex items-center gap-3">
             <span class="section-icon">📞</span>
-            Vragen Over Deze Voorwaarden
+            Vragen over deze <span class="text-primary">voorwaarden</span>
           </h2>
           <div class="section-content prose-like">
             <p class="mb-4">Als je vragen hebt over deze Servicevoorwaarden, neem dan contact met ons op:</p>

@@ -2,11 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-const lang = 'en';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
-const pageTitle = "Website Packages for Small Businesses | VeermanDevelopment";
-const pageDescription = "Clear pricing, no surprises. Professional websites that get you more customers. Built in 3 days, free hosting & updates included forever.";
+const pageTitle = t('services.page.title');
+const pageDescription = t('services.page.description');
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -14,41 +16,36 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
   <section class="launch-banner py-3 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
       <p class="text-sm font-medium">
-        🚀 <strong>Launch Offer:</strong> €100 off all packages + brand strategy included | Limited time only!
+        🤝 <strong>Intro offer:</strong> €100 off your first project + a complimentary brand check.
       </p>
     </div>
     <div class="banner-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shine"></div>
   </section>
 
   <!-- INTRO SECTION -->
-  <HeroSection 
-    description="A slow, outdated website costs you customers. Choose a package with clear pricing — built in 3 days, free hosting & updates forever."
-    primaryCTA={{ text: "Plan a free website audit", href: `/${lang}/contact` }}
-    trustSignals={[
-      "Astro framework – faster than WordPress",
-      "Mobile‑first design – 70% visits on phone",
-      "Local SEO optimized – get found",
-      "No monthly fees – you own it"
-    ]}
-  >
-    Choose your package
-    <br class="hidden sm:block" />
-    <TypewriterText 
-      words={["grow in 3 days","clear pricing","no hassle"]}
-      className="text-primary"
-      initialText="grow in 3 days"
-    />
-  </HeroSection>
 
-  <!-- TRANSPARENCY BLOCK -->
-  <section class="py-6 px-4">
-    <div class="max-w-4xl mx-auto bg-card-light dark:bg-card-dark rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-      <h3 class="text-2xl font-semibold mb-3">No surprises</h3>
-      <ul class="space-y-2 text-sm opacity-90">
-        <li>✓ Fixed price agreed upfront</li>
-        <li>✓ No extra costs during the project</li>
-        <li>✓ You own your website after delivery</li>
-      </ul>
+<HeroSection 
+  subtitle="Digital growth starts here"
+  description="Discover how our tailored websites and strategies make your business faster, more visible, and more profitable. We do more than build—we think along with you."
+>
+  <span class="typewriter-heading text-center">
+    <span class="typewriter-heading__label">Together we build</span>
+    <TypewriterText 
+      words={["a bold brand", "steady online leads", "growth without the hassle"]}
+      className="typewriter-heading__text text-primary"
+      initialText="a bold brand"
+    />
+  </span>
+</HeroSection>
+
+
+  <!-- PERSONAL INTRO -->
+  <section class="personal-intro py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center bg-background-light dark:bg-background-dark border border-primary/10 rounded-xl p-8 shadow-sm">
+      <h3 class="text-3xl font-semibold mb-4">We build your next online move together</h3>
+      <p class="text-lg opacity-80">
+        We stay close to every client so you never get lost in technical jargon. The goal: a website you’re proud to share and a steady stream of customers who find you through it.
+      </p>
     </div>
   </section>
 
@@ -56,16 +53,14 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
   <section class="packages-section py-16 px-4 reveal-section">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="font-heading font-bold text-4xl mb-4">Choose Your Brand Transformation</h2>
-        <p class="text-lg opacity-80">€100 off all packages + complete brand strategy included</p>
+        <h2 class="font-heading font-bold text-4xl mb-4">Choose the <span class="text-primary">package</span> that fits your ambitions</h2>
+        <p class="text-lg opacity-80">Limited launch: €100 off every package + your complete brand strategy included.</p>
       </div>
       
       <div class="packages-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <!-- Package 1: Foundation -->
         <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
-          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
-            €100 OFF
-          </div>
+
           <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
           
           <div class="relative z-10 p-8 flex flex-col flex-grow">
@@ -76,29 +71,29 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
                 <div class="savings text-sm text-green-600 font-medium">Save €100</div>
               </div>
               <h3 class="text-2xl font-semibold mb-2">Foundation</h3>
-              <p class="text-sm opacity-60">Perfect for coaches, consultants, service professionals</p>
+              <p class="text-sm opacity-60">Perfect for coaches, consultants, and service professionals</p>
             </div>
             
             <div class="package-features space-y-4 mb-8 flex-grow">
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Professional website that reflects your expertise</span>
+                <span>A website that visitors instantly trust and understand</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Brand strategy & positioning</span>
+                <span>Brand story and tone of voice crafted around you</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Lightning-fast performance (under 1 second)</span>
+                <span>Lightning-fast load times (under one second)</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Brand visibility setup (Google, socials)</span>
+                <span>Google and social profiles configured the right way</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Mobile-perfect on every device</span>
+                <span>Looks sharp on every phone and desktop</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
@@ -107,12 +102,12 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
             </div>
             
             <div class="example-info bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-6">
-              <p class="text-sm"><strong>Example:</strong> Professional portfolio that commands respect</p>
-              <p class="text-xs opacity-60 mt-1">Perfect for showcasing your work and getting contacted</p>
+              <p class="text-sm"><strong>Example:</strong> Trust-building service website</p>
+              <p class="text-xs opacity-60 mt-1">Ideal for showcasing your work and converting visitors into calls</p>
             </div>
             
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-white font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
-              Start Your Transformation
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+              Book your free strategy call
             </a>
           </div>
         </div>
@@ -120,13 +115,11 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
         <!-- Package 2: Growth (Most Popular) -->
         <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative border-2 border-primary flex flex-col">
           <div class="popular-badge-container absolute -top-4 left-0 right-0 flex justify-center z-30">
-            <div class="popular-badge bg-primary text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white dark:border-gray-800">
-              ⭐ Most Chosen
+            <div class="popular-badge bg-primary text-black px-5 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white dark:border-gray-800">
+              ⭐ Most chosen
             </div>
           </div>
-          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
-            €100 OFF
-          </div>
+
           <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
           
           <div class="relative z-10 p-8 pt-12 flex flex-col flex-grow">
@@ -137,52 +130,50 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
                 <div class="savings text-sm text-green-600 font-medium">Save €100</div>
               </div>
               <h3 class="text-2xl font-semibold mb-2">Growth</h3>
-              <p class="text-sm opacity-60">Perfect for local businesses ready to dominate their market</p>
+              <p class="text-sm opacity-60">Perfect for local businesses ready to dominate their area</p>
             </div>
             
             <div class="package-features space-y-4 mb-8 flex-grow">
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Everything in Foundation, plus:</span>
+                <span>Everything from Foundation, plus:</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Advanced brand strategy & market positioning</span>
+                <span>An expanded brand plan with concrete actions</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>5-8 pages designed to convert visitors</span>
+                <span>5-8 pages engineered to drive calls or sales</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Customer targeting strategy</span>
+                <span>Clear content tailored to your key customer groups</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Local SEO to dominate your area</span>
+                <span>Local SEO so people in your area can find you</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Blog/portfolio system for ongoing engagement</span>
+                <span>Blog or portfolio section to keep your stories flowing</span>
               </div>
             </div>
             
             <div class="example-info bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-6">
-              <p class="text-sm"><strong>Live Example:</strong> waarisniels.nl (travel blog)</p>
-              <p class="text-xs opacity-60 mt-1">Full-featured site with blog, galleries, and maps</p>
+              <p class="text-sm"><strong>Live example:</strong> waarisniels.nl (travel blog)</p>
+              <p class="text-xs opacity-60 mt-1">Feature-rich site with blog, galleries, and interactive maps</p>
             </div>
             
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-white font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
-              Dominate Your Market
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+              Book your free strategy call
             </a>
           </div>
         </div>
         
         <!-- Package 3: Complete -->
         <div class="package-card subtle-card bg-card-light dark:bg-card-dark rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer relative flex flex-col">
-          <div class="launch-offer-badge absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold z-20">
-            €100 OFF
-          </div>
+
           <div class="card-bg absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
           
           <div class="relative z-10 p-8 flex flex-col flex-grow">
@@ -193,43 +184,43 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
                 <div class="savings text-sm text-green-600 font-medium">Save €100</div>
               </div>
               <h3 class="text-2xl font-semibold mb-2">Complete</h3>
-              <p class="text-sm opacity-60">Perfect for ambitious businesses ready to sell online</p>
+              <p class="text-sm opacity-60">Perfect for businesses ready to sell online</p>
             </div>
             
             <div class="package-features space-y-4 mb-8 flex-grow">
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Everything in Growth, plus:</span>
+                <span>Everything from Growth, plus:</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Complete e-commerce brand experience</span>
+                <span>Webshop that feels trustworthy for your customers</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Payment processing & secure checkout</span>
+                <span>Secure payments and a frictionless checkout</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Inventory management & order system</span>
+                <span>Inventory and order flows you can monitor at a glance</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Customer loyalty & retention features</span>
+                <span>Repeat orders and loyalty journeys handled for you</span>
               </div>
               <div class="feature flex items-start gap-3">
                 <span class="text-green-500 text-lg flex-shrink-0 mt-0.5">✓</span>
-                <span>Advanced marketing automation</span>
+                <span>Automated emails and follow-up sequences</span>
               </div>
             </div>
             
             <div class="example-info bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg mb-6">
               <p class="text-sm"><strong>Example:</strong> vrmn.shop (coming soon)</p>
-              <p class="text-xs opacity-60 mt-1">Complete e-commerce solution for online sales</p>
+              <p class="text-xs opacity-60 mt-1">Complete e-commerce solution for running online sales</p>
             </div>
             
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-white font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
-              Build Complete Brand
+            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+              Book your free strategy call
             </a>
           </div>
         </div>
@@ -237,15 +228,15 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
       
       <!-- All packages include -->
       <div class="all-packages-include mt-16 text-center bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-        <h3 class="font-semibold mb-4">Complete brand strategy included with every package:</h3>
+        <h3 class="font-semibold mb-4">Every package includes all of this by default:</h3>
         <div class="grid md:grid-cols-5 gap-4 text-sm">
-          <div>✓ Brand positioning strategy</div>
-          <div>✓ Customer targeting plan</div>
-          <div>✓ Visibility optimization</div>
-          <div>✓ Market differentiation</div>
-          <div>✓ Growth partnership</div>
+          <div>✓ Crystal-clear brand messaging</div>
+          <div>✓ Action plan for your ideal customer</div>
+          <div>✓ Increased online visibility</div>
+          <div>✓ Your unique story translated into copy</div>
+          <div>✓ A committed partner after launch</div>
         </div>
-        <p class="text-xs opacity-60 mt-4">Launch offer: This comprehensive brand strategy normally costs €400+</p>
+        <p class="text-xs opacity-60 mt-4">Launch offer: this full brand strategy normally adds €200+ in value.</p>
       </div>
     </div>
   </section>
@@ -254,74 +245,26 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
   <section class="why-not-wordpress py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-4xl mb-4">Why Not Just Use WordPress?</h2>
-        <p class="text-lg opacity-80">Here's why most small business websites are slow and expensive</p>
+        <h2 class="font-heading font-bold text-4xl mb-4">Why not just choose <span class="text-primary">WordPress</span>?</h2>
+        <p class="text-lg opacity-80">These are the three biggest differences for small businesses</p>
       </div>
       
-      <div class="comparison-cards grid md:grid-cols-2 gap-8">
-        <div class="wordpress-card bg-red-50 dark:bg-red-900/20 p-8 rounded-lg border border-red-200 dark:border-red-800 flex flex-col">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="text-4xl">😰</div>
-            <h3 class="text-xl font-semibold text-red-700 dark:text-red-300">Most WordPress Sites</h3>
-          </div>
-          <ul class="space-y-4 text-sm flex-grow">
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Take 4-8 seconds to load (customers leave after 3)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Break randomly when plugins update</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Get hacked regularly (96% from plugins)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Cost €20-50/month for hosting & maintenance</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-500 text-lg flex-shrink-0">❌</span>
-              <span>Rank poorly on Google due to slow speed</span>
-            </li>
-          </ul>
+      <div class="comparison-cards grid md:grid-cols-3 gap-8">
+        <div class="highlight-card bg-background-light dark:bg-background-dark p-8 rounded-lg border border-primary/10 flex flex-col">
+          <h3 class="text-xl font-semibold mb-4">⏱️ Faster</h3>
+          <p class="text-sm opacity-80 mb-2"><strong>Our websites:</strong> load in under one second thanks to modern static hosting.</p>
+          <p class="text-sm opacity-70"><strong>Most WordPress themes:</strong> 4–8 seconds because of heavy themes and plugins.</p>
         </div>
-        
-        <div class="our-card bg-green-50 dark:bg-green-900/20 p-8 rounded-lg border border-green-200 dark:border-green-800 flex flex-col">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="text-4xl">😊</div>
-            <h3 class="text-xl font-semibold text-green-700 dark:text-green-300">Our Modern Websites</h3>
-          </div>
-          <ul class="space-y-4 text-sm flex-grow">
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span>Load in under 1 second (customers stay & buy)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span>Never break - built to last for years</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span>Virtually unhackable (no database to attack)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span><strong>Free hosting & updates included forever</strong></span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-lg flex-shrink-0">✅</span>
-              <span>Perfect Google scores = more customers find you</span>
-            </li>
-          </ul>
+        <div class="highlight-card bg-background-light dark:bg-background-dark p-8 rounded-lg border border-primary/10 flex flex-col">
+          <h3 class="text-xl font-semibold mb-4">💸 Lower cost</h3>
+          <p class="text-sm opacity-80 mb-2"><strong>Our websites:</strong> no monthly bills for hosting or maintenance.</p>
+          <p class="text-sm opacity-70"><strong>Most WordPress builds:</strong> €20–50 per month on hosting, maintenance, and plugin licenses.</p>
         </div>
-      </div>
-      
-      <div class="bottom-line text-center mt-8 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-        <p class="text-lg font-semibold text-blue-800 dark:text-blue-300">
-          Simple math: Fast website = More customers. Slow website = Customers go to competitors.
-        </p>
+        <div class="highlight-card bg-background-light dark:bg-background-dark p-8 rounded-lg border border-primary/10 flex flex-col">
+          <h3 class="text-xl font-semibold mb-4">🛡️ More secure</h3>
+          <p class="text-sm opacity-80 mb-2"><strong>Our websites:</strong> no plugins that can break or get hacked.</p>
+          <p class="text-sm opacity-70"><strong>Most WordPress sites:</strong> vulnerable to hacks and broken updates.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -329,31 +272,31 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
   <!-- HOW IT WORKS -->
   <section class="process-section py-16 px-4 reveal-section">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-heading font-bold text-4xl mb-12">How It Works</h2>
+      <h2 class="font-heading font-bold text-4xl mb-12">How it <span class="text-primary">works</span></h2>
       
       <div class="process-steps grid md:grid-cols-3 gap-12">
         <div class="step group">
-          <div class="step-number w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">1</div>
-          <h3 class="text-xl font-semibold mb-4">Tell Us What You Need</h3>
-          <p class="text-sm opacity-80">Quick call or message about your business. We'll recommend the right package and explain everything clearly.</p>
+          <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">1</div>
+          <h3 class="text-xl font-semibold mb-4">Tell us what you need</h3>
+          <p class="text-sm opacity-80">A quick call or message about your business. We recommend the right package and explain exactly how it works.</p>
         </div>
         
         <div class="step group">
-          <div class="step-number w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">2</div>
-          <h3 class="text-xl font-semibold mb-4">We Build Your Website</h3>
-          <p class="text-sm opacity-80"><strong>Just 3 days</strong> to design and build. We send updates and ask for feedback. No surprises or hidden costs.</p>
+          <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">2</div>
+          <h3 class="text-xl font-semibold mb-4">We build your website</h3>
+          <p class="text-sm opacity-80"><strong>Just 3 days</strong> to design and develop. We share updates, ask for feedback, and keep everything upfront.</p>
         </div>
         
         <div class="step group">
-          <div class="step-number w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">3</div>
-          <h3 class="text-xl font-semibold mb-4">You Get More Customers</h3>
-          <p class="text-sm opacity-80">Fast, professional website goes live with <strong>free hosting & updates forever</strong>. We teach you how to update it.</p>
+          <div class="step-number w-20 h-20 bg-primary text-black rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">3</div>
+          <h3 class="text-xl font-semibold mb-4">You launch and keep growing</h3>
+          <p class="text-sm opacity-80">Your fast, professional site goes live with <strong>free hosting & updates forever</strong>. We show you how to keep things fresh.</p>
         </div>
       </div>
       
       <div class="process-guarantee mt-12 bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
         <p class="font-semibold text-yellow-800 dark:text-yellow-300">
-          🎯 <strong>Our Promise:</strong> Fixed price, delivered in 3 days, free hosting & updates forever. No surprises.
+          🎯 <strong>Our promise:</strong> Fixed price, delivered in 3 days, lifetime hosting & updates. No surprises.
         </p>
       </div>
     </div>
@@ -363,8 +306,8 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
   <section class="faq-section py-16 px-4 bg-card-light dark:bg-card-dark reveal-section">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-4xl mb-4">Common Questions</h2>
-        <p class="text-lg opacity-80">Quick answers from real small business owners</p>
+        <h2 class="font-heading font-bold text-4xl mb-4">Frequently asked <span class="text-primary">questions</span></h2>
+        <p class="text-lg opacity-80">Quick answers from fellow small business owners</p>
       </div>
       
       <div class="faq-list space-y-4">
@@ -374,27 +317,27 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
             <span class="faq-toggle text-2xl">+</span>
           </button>
           <div class="faq-answer hidden p-6 pt-0 opacity-80">
-            <p>Yes! We teach you how to edit text, add photos, and update your content. No monthly fees to change simple things like your phone number or opening hours.</p>
+            <p>Absolutely. We teach you how to edit copy, add photos, and publish new content. No monthly fee for simple updates like changing your phone number or opening hours.</p>
           </div>
         </div>
         
         <div class="faq-item bg-background-light dark:bg-background-dark rounded-lg">
           <button class="faq-question w-full text-left p-6 font-semibold flex justify-between items-center hover:text-primary transition-colors duration-300">
-            What if I need changes after it's built?
+            What if I need changes after launch?
             <span class="faq-toggle text-2xl">+</span>
           </button>
           <div class="faq-answer hidden p-6 pt-0 opacity-80">
-            <p>Small changes and updates are included forever! For bigger changes like adding new pages or features, we charge fair rates (usually €25-50). We're always happy to help.</p>
+            <p>Small tweaks and updates are included forever. For bigger changes—new pages, extra features—we charge transparent rates (usually €25-50). We’re always here to help.</p>
           </div>
         </div>
         
         <div class="faq-item bg-background-light dark:bg-background-dark rounded-lg">
           <button class="faq-question w-full text-left p-6 font-semibold flex justify-between items-center hover:text-primary transition-colors duration-300">
-            Do you work with very small businesses?
+            Do you work with really small businesses?
             <span class="faq-toggle text-2xl">+</span>
           </button>
           <div class="faq-answer hidden p-6 pt-0 opacity-80">
-            <p>Absolutely! We specialize in small local businesses. From solo freelancers to family restaurants to small shops - we love helping small businesses get more customers.</p>
+            <p>Definitely. We specialise in local small businesses—from solo freelancers to family restaurants and small retailers. Helping you win more customers is what we do.</p>
           </div>
         </div>
         
@@ -404,17 +347,17 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
             <span class="faq-toggle text-2xl">+</span>
           </button>
           <div class="faq-answer hidden p-6 pt-0 opacity-80">
-            <p>Absolutely! Our websites are so efficient they barely use any server resources. We include free hosting forever because our modern technology is that much more efficient than WordPress.</p>
+            <p>Yes. Our websites are so efficient they barely use server resources. We can offer lifetime hosting because the modern stack we use is far leaner than WordPress.</p>
           </div>
         </div>
         
         <div class="faq-item bg-background-light dark:bg-background-dark rounded-lg">
           <button class="faq-question w-full text-left p-6 font-semibold flex justify-between items-center hover:text-primary transition-colors duration-300">
-            What happens if you go out of business?
+            What happens if you disappear?
             <span class="faq-toggle text-2xl">+</span>
           </button>
           <div class="faq-answer hidden p-6 pt-0 opacity-80">
-            <p>Great question! Your website files are yours, and we use standard hosting services. If anything happens, any developer can take over your site. You're never locked in.</p>
+            <p>Great question. You own the website files and we use standard hosting services. If anything happens, any developer can take over your site. You’re never locked in.</p>
           </div>
         </div>
       </div>
@@ -424,22 +367,22 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
   <!-- FINAL CTA -->
   <section class="final-cta py-16 px-4 text-center">
     <div class="max-w-3xl mx-auto">
-      <h2 class="font-heading font-bold text-4xl mb-6">Ready to Get More Customers?</h2>
+      <h2 class="font-heading font-bold text-4xl mb-6">Ready to win more <span class="text-primary">customers</span>?</h2>
       <p class="text-lg opacity-80 mb-8">
-        Stop losing customers to your slow website. Let's build you something that actually works. Free hosting & updates included forever.
+        Stop losing leads to a slow, outdated website. Let’s build something that actually works. Free hosting & lifetime updates are part of every project.
       </p>
       <div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href={`/${lang}/contact`}
-          class="bg-primary text-white font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105 inline-block"
+          class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105 inline-block"
         >
-          Get Started Today
+          Book your free strategy call
         </a>
         <a
           href={`/${lang}/portfolio`}
           class="bg-card-light dark:bg-card-dark border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary hover:text-black transition-all inline-block"
         >
-          See Real Examples
+          See real examples
         </a>
       </div>
     </div>
@@ -611,9 +554,8 @@ const pageDescription = "Clear pricing, no surprises. Professional websites that
       }
     }
 
-    .comparison-cards .wordpress-card,
-    .comparison-cards .our-card {
-      min-height: 400px;
+    .comparison-cards .highlight-card {
+      min-height: 220px;
     }
     
     .faq-question:hover .faq-toggle {

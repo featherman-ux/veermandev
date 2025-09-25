@@ -5,13 +5,22 @@ import { getLangFromUrl } from '../../i18n/utils';
 const { pathname } = Astro.url;
 const lang = getLangFromUrl(Astro.url);
 
-// Extract the page route from the current path
-const currentRoute = pathname.replace(/^\/[a-z]{2}\//, '').replace(/\/$/, '') || 'home';
+const pathSegments = pathname.split('/').filter(Boolean);
+const currentSegments = pathSegments[0] === lang ? pathSegments.slice(1) : pathSegments;
+const [currentSlug = 'home', ...remainingSegments] = currentSegments;
+const currentLangRoutes = routes[lang as keyof typeof routes] as Record<string, string> | undefined;
 
-// Function to get translated path for target language
-function getTranslatedPath(targetLang: string, route: string) {
-  const translatedRoute = routes[targetLang as keyof typeof routes]?.[route as keyof typeof routes['en']] || route;
-  return `/${targetLang}/${translatedRoute}`;
+// Match the current URL slug to its canonical route key so we can translate it reliably.
+const canonicalRoute =
+  Object.entries(currentLangRoutes ?? {}).find(([, value]) => value === currentSlug)?.[0] || currentSlug || 'home';
+
+const remainingPath = remainingSegments.join('/');
+
+function getTranslatedPath(targetLang: string, routeKey: string) {
+  const targetRoutes = routes[targetLang as keyof typeof routes] as Record<string, string> | undefined;
+  const translatedSlug = targetRoutes?.[routeKey] || routeKey;
+  const basePath = `/${targetLang}/${translatedSlug}`;
+  return remainingPath ? `${basePath}/${remainingPath}` : basePath;
 }
 
 const languageOptions = Object.entries(languages).filter(([code]) => code !== lang);
@@ -20,7 +29,7 @@ const languageOptions = Object.entries(languages).filter(([code]) => code !== la
 <div class="language-switcher">
   {languageOptions.map(([langCode, label]) => (
     <a 
-      href={getTranslatedPath(langCode, currentRoute)}
+      href={getTranslatedPath(langCode, canonicalRoute)}
       class="lang-link"
       aria-label={`Switch to ${label}`}
     >

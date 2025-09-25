@@ -1,8 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
-const pageTitle = "Privacy Policy | VeermanDevelopment";
-const pageDescription = "Learn how VeermanDevelopment protects your privacy and handles your personal information. Transparent data practices for our web development services.";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const pageTitle = t('privacy.page.title');
+const pageDescription = t('privacy.page.description');
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>

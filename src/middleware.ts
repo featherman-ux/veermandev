@@ -1,6 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 import { defaultLang, ui } from './i18n/ui';
-import { getCSPHeader } from './utils/security';
+import { getCSPHeader, getPermissionsPolicyHeader } from './utils/security';
 
 const supportedLangs = Object.keys(ui);
 
@@ -24,29 +24,33 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   // Only perform detection on the root path (first visit)
   if (url.pathname === '/') {
-    const acceptLanguage = request.headers.get('accept-language');
-    if (acceptLanguage) {
-      // Extract language codes like "en", "nl", "es" from the header
-      const preferredLang = acceptLanguage
-        .split(',')
-        .map(lang => lang.split(';')[0].trim())
-        .find(lang => supportedLangs.includes(lang));
+    const countryHeader =
+      request.headers.get('cf-ipcountry') ||
+      request.headers.get('x-vercel-ip-country') ||
+      request.headers.get('x-country-code') ||
+      request.headers.get('x-country');
 
-      // Fallback to defaultLang if nothing matches
-      const targetLang = preferredLang ?? defaultLang;
+    const geoLang = countryHeader && countryHeader.toUpperCase() === 'NL' ? 'nl' : undefined;
 
-      // Set a cookie to remember the choice (1 year expiry) with security flags
-      cookies.set('language', targetLang, {
-        path: '/',
-        maxAge: 365 * 24 * 60 * 60,
-        httpOnly: true,
-        secure: url.protocol === 'https:',
-        sameSite: 'lax'
-      });
+    const acceptLanguage = request.headers.get('accept-language') ?? '';
+    const preferredLang = acceptLanguage
+      .split(',')
+      .map(lang => lang.split(';')[0].trim())
+      .find(lang => supportedLangs.includes(lang));
 
-      // Redirect to detected language homepage
-      return redirect(`/${targetLang}/home`, 307);
-    }
+    const targetLang = (geoLang && supportedLangs.includes(geoLang)
+      ? geoLang
+      : preferredLang) ?? defaultLang;
+
+    cookies.set('language', targetLang, {
+      path: '/',
+      maxAge: 365 * 24 * 60 * 60,
+      httpOnly: true,
+      secure: url.protocol === 'https:',
+      sameSite: 'lax'
+    });
+
+    return redirect(`/${targetLang}/home`, 307);
   }
   
   // If we reach here, continue with the request and set security headers
@@ -56,12 +60,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     response.headers.set('X-Frame-Options', 'DENY');
     response.headers.set('X-Content-Type-Options', 'nosniff');
     response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-    response.headers.set('Permissions-Policy', [
-      'geolocation=()',
-      'camera=()',
-      'microphone=()',
-      'payment=()'
-    ].join(', '));
+    response.headers.set('Permissions-Policy', getPermissionsPolicyHeader());
   } catch {}
   return response;
 });

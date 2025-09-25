@@ -1,3 +1,4 @@
+
 ---
 export interface Props {
   words: string[];
@@ -8,54 +9,98 @@ export interface Props {
 
 const { words, className = "text-primary", initialText, cursorClass = "terminal-cursor" } = Astro.props;
 
-// Find the longest word to use as a sizer
-const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), '');
+// Keep the longest word for sizing so the container doesn't jump.
+const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), initialText ?? '');
 ---
 
-<div class="typewriter-wrapper">
-  <!-- Ghost element to set the container size based on the longest word -->
-  <span class="typewriter-sizer" aria-hidden="true">{longestWord}</span>
-
-  <!-- The actual typewriter element, positioned on top of the sizer -->
-  <span 
-    class={`typewriter-text ${className}`} 
-    data-words={JSON.stringify(words)}
-    data-cursor-class={cursorClass}
-  >
-    {initialText || words[0]}
-  </span>
+<div class="typewriter-container">
+  <div class="typewriter-grid">
+    <!-- Sizer and Text are in the same grid cell -->
+    <span class:list={['typewriter-sizer', className]} aria-hidden="true">{longestWord}</span>
+    <span class="typewriter-wrapper">
+      <span 
+        class:list={['typewriter-text', className]}
+        data-words={JSON.stringify(words)}
+        data-cursor-class={cursorClass}
+      >
+        {initialText || words[0]}
+      </span>
+    </span>
+  </div>
 </div>
 
 <style>
-  .typewriter-wrapper {
-    position: relative;
-    display: inline-block;
+  .typewriter-container {
+    display: inline-block; /* Ensures it behaves like a text element */
+    vertical-align: bottom; /* Aligns with surrounding text */
+  }
+
+  .typewriter-grid {
+    display: inline-grid; /* Use grid layout */
+    grid-template-areas: "stack"; /* Define a single area */
     text-align: center;
-    width: auto; /* Size to content (sizer) to prevent odd wraps */
+    vertical-align: bottom;
+  }
+
+  .typewriter-sizer,
+  .typewriter-wrapper {
+    grid-area: stack; /* Place both elements in the same area */
   }
 
   .typewriter-sizer {
-    opacity: 0;
-    min-height: 1.2em; /* Ensure it has height even if empty */
-    display: block;
-    white-space: nowrap;
+    visibility: hidden;
+    display: inline-block;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .typewriter-wrapper {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0;
+    text-align: center;
+    flex-wrap: nowrap;
+  }
+
+  .typewriter-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+    min-height: calc(1.2em * 2);
+  }
+
+  @media (max-width: 640px) {
+    .typewriter-wrapper {
+      min-height: calc(1.2em * 3);
+    }
   }
 
   .typewriter-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: block;
-    white-space: nowrap; /* Keep phrase together */
-    word-break: keep-all;
-    hyphens: none;
+    white-space: normal;
+    word-break: break-word;
+    display: inline-block;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 1;
+    position: relative;
   }
-  
-  .terminal-cursor {
+
+  .typewriter-text.is-fading-out {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+
+  .typewriter-text.is-fading-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .typewriter-text::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 0.1rem;
     animation: blink 1s infinite;
-    color: currentColor;
+    color: inherit;
   }
 
   @keyframes blink {
@@ -70,60 +115,173 @@ const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), '');
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  const setReservedHeights = () => {
+    document.querySelectorAll('.typewriter-wrapper').forEach((wrapper) => {
+      if (!(wrapper instanceof HTMLElement)) return;
+      const typewriterElement = wrapper.querySelector('.typewriter-text');
+      if (!(typewriterElement instanceof HTMLElement)) return;
+
+      let words: string[] = [];
+      try {
+        const parsed = JSON.parse(typewriterElement.dataset.words || '[]');
+        if (Array.isArray(parsed)) {
+          words = parsed;
+        }
+      } catch (error) {
+        // Ignore parse errors; simply fall back to current text
+      }
+
+      const currentText = typewriterElement.textContent?.trim();
+      if (currentText && !words.includes(currentText)) {
+        words = [currentText, ...words];
+      }
+
+      if (words.length === 0) {
+        return;
+      }
+
+      const measurement = document.createElement('span');
+      measurement.className = typewriterElement.className;
+      measurement.style.position = 'absolute';
+      measurement.style.visibility = 'hidden';
+      measurement.style.pointerEvents = 'none';
+      measurement.style.whiteSpace = 'normal';
+      measurement.style.wordBreak = 'break-word';
+      measurement.style.display = 'inline-block';
+      measurement.style.top = '0';
+      measurement.style.left = '-10000px';
+
+      const container = wrapper.parentElement instanceof HTMLElement ? wrapper.parentElement : wrapper;
+      const containerWidth = Math.max(
+        container.getBoundingClientRect().width,
+        wrapper.getBoundingClientRect().width,
+        typewriterElement.getBoundingClientRect().width
+      );
+
+      if (containerWidth > 0) {
+        measurement.style.width = `${containerWidth}px`;
+        measurement.style.maxWidth = `${containerWidth}px`;
+      }
+
+      document.body.appendChild(measurement);
+
+      let maxHeight = 0;
+      words.forEach((word) => {
+        measurement.textContent = word;
+        const { height } = measurement.getBoundingClientRect();
+        if (height > maxHeight) {
+          maxHeight = height;
+        }
+      });
+
+      measurement.remove();
+
+      const computed = window.getComputedStyle(typewriterElement);
+      let lineHeight = parseFloat(computed.lineHeight);
+      if (Number.isNaN(lineHeight) || lineHeight === 0) {
+        const fontSize = parseFloat(computed.fontSize) || 16;
+        lineHeight = fontSize * 1.2;
+      }
+
+      const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+      const baseLines = viewportWidth <= 640 ? 3 : 2;
+      const baseHeight = lineHeight * baseLines;
+
+      const targetHeight = Math.max(maxHeight, baseHeight);
+
+      if (targetHeight > 0) {
+        wrapper.style.minHeight = `${targetHeight}px`;
+      }
+    });
+  };
+
+  const initTypewriters = () => {
     const typewriterElements = document.querySelectorAll('.typewriter-text');
-    
+
     typewriterElements.forEach((typewriterElement) => {
       if (typewriterElement instanceof HTMLElement) {
+        // --- PREVENT RE-INITIALIZATION ---
+        if (typewriterElement.dataset.isAnimating === 'true') {
+          return;
+        }
+        typewriterElement.dataset.isAnimating = 'true';
+        // --- END PREVENT RE-INITIALIZATION ---
+
         const words = JSON.parse(typewriterElement.dataset.words || '[]');
-        const cursorClass = typewriterElement.dataset.cursorClass || 'terminal-cursor';
-        let currentWordIndex = 0;
-        let currentCharIndex = 0;
-        let isDeleting = false;
-        let isWaiting = false;
+        if (!Array.isArray(words) || words.length === 0) {
+          return;
+        }
+        const animationContainer = typewriterElement.closest('.typewriter-heading') || typewriterElement.closest('.typewriter-container');
 
-        function typeWriter() {
-          const currentWord = words[currentWordIndex];
-          const shouldDelete = isDeleting;
-          const shouldWait = isWaiting;
+        const displayDuration = 3000; // time word stays visible
+        const transitionDuration = 400; // fade duration
 
-          if (shouldWait) {
-            setTimeout(() => {
-              isWaiting = false;
-              typeWriter();
-            }, 2000);
+        let currentWordIndex = Math.max(
+          words.findIndex((word) => word === typewriterElement.textContent?.trim()),
+          0
+        );
+
+        typewriterElement.textContent = words[currentWordIndex];
+        typewriterElement.classList.add('is-fading-in');
+
+        const cycleWords = () => {
+          if (!document.contains(typewriterElement)) {
             return;
           }
 
-          if (shouldDelete) {
-            if (currentCharIndex > 0) {
-              currentCharIndex--;
-              typewriterElement.innerHTML = currentWord.substring(0, currentCharIndex) + `<span class="${cursorClass}">|</span>`;
-              setTimeout(typeWriter, 75);
-            } else {
-              isDeleting = false;
-              currentWordIndex = (currentWordIndex + 1) % words.length;
-              setTimeout(typeWriter, 200);
-            }
-          } else {
-            if (currentCharIndex < currentWord.length) {
-              currentCharIndex++;
-              typewriterElement.innerHTML = currentWord.substring(0, currentCharIndex) + `<span class="${cursorClass}">|</span>`;
-              setTimeout(typeWriter, 150);
-            } else {
-              isWaiting = true;
-              setTimeout(() => {
-                isDeleting = true;
-                isWaiting = false;
-                typeWriter();
-              }, 3000);
-            }
+          if (animationContainer && animationContainer.classList.contains('is-paused')) {
+            window.setTimeout(cycleWords, 200);
+            return;
           }
-        }
 
-        // Start typewriter effect after a delay
-        setTimeout(typeWriter, 1500);
+          typewriterElement.classList.add('is-fading-out');
+
+          window.setTimeout(() => {
+            if (!document.contains(typewriterElement)) {
+              return;
+            }
+
+            currentWordIndex = (currentWordIndex + 1) % words.length;
+            typewriterElement.textContent = words[currentWordIndex];
+            typewriterElement.classList.remove('is-fading-out');
+            typewriterElement.classList.add('is-fading-in');
+
+            window.setTimeout(() => {
+              typewriterElement.classList.remove('is-fading-in');
+              window.setTimeout(cycleWords, displayDuration);
+            }, transitionDuration);
+          }, transitionDuration);
+        };
+
+        window.setTimeout(() => {
+          typewriterElement.classList.remove('is-fading-in');
+          window.setTimeout(cycleWords, displayDuration);
+        }, transitionDuration);
       }
     });
+  };
+
+  // Run immediately in case the event has already fired (SSR initial load)
+  setReservedHeights();
+  initTypewriters();
+
+  // Re-run after Astro navigations
+  document.addEventListener('astro:page-load', () => {
+    setReservedHeights();
+    initTypewriters();
   });
+  document.addEventListener('astro:after-swap', () => {
+    setReservedHeights();
+    initTypewriters();
+  });
+
+  window.addEventListener('resize', () => {
+    setReservedHeights();
+  });
+
+  if ('fonts' in document && typeof (document as any).fonts?.addEventListener === 'function') {
+    (document as any).fonts.addEventListener('loadingdone', () => {
+      setReservedHeights();
+    });
+  }
 </script>
