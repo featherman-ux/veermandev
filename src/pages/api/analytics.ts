@@ -37,3 +37,10 @@ export const OPTIONS: APIRoute = async () => {
   });
 };
 
+// Add a catch-all for any other request method
+export const ALL: APIRoute = ({ request }) => {
+  return new Response(null, {
+    status: 404,
+    statusText: 'Not Found',
+  });
+};
