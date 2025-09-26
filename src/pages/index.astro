@@ -2,15 +2,41 @@
 import { ui, defaultLang } from '../i18n/ui';
 
 const supportedLangs = Object.keys(ui);
-const acceptHeader = Astro.request.headers.get('accept-language') ?? '';
-
-return Astro.redirect(
-  `/${
-    acceptHeader
-      .split(',')
-      .map((lang) => lang.split(';')[0].trim())
-      .find((lang) => supportedLangs.includes(lang)) ?? defaultLang
-  }/home`,
-  307
-);
+const defaultRedirect = `/${defaultLang}/home`;
 ---
+<!DOCTYPE html>
+<html lang={defaultLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veerman Webdevelopment</title>
+  </head>
+  <body>
+    <main style="display:flex;min-height:100vh;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;">
+      <p>We sturen je meteen door naar de juiste taalversie.</p>
+      <p><a href={defaultRedirect}>Ga verder naar de website</a></p>
+    </main>
+    <script
+      is:inline
+      data-supported-langs={JSON.stringify(supportedLangs)}
+      data-default-path={defaultRedirect}
+    >
+      (function () {
+        const script = document.currentScript;
+        if (!script) {
+          return;
+        }
+
+        const supportedLangs = JSON.parse(script.dataset.supportedLangs || '[]');
+        const defaultPath = script.dataset.defaultPath || '';
+        const locale = (navigator.language || navigator.languages?.[0] || '').toLowerCase();
+        const match = supportedLangs.find((lang) => locale === lang || locale.startsWith(lang + '-'));
+        const target = match ? '/' + match + '/home' : defaultPath;
+
+        if (target && location.pathname !== target) {
+          location.replace(target);
+        }
+      })();
+    </script>
+  </body>
+</html>

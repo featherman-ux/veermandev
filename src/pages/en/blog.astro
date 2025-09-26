@@ -1,3 +1,29 @@
 ---
-return Astro.redirect('/en/home', 307);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslatedPath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const tp = useTranslatedPath(lang);
+
+const pageTitle = 'Insights & Updates | VeermanDevelopment';
+const pageDescription = 'Articles about building fast, trustworthy websites for small businesses. New stories are on their way.';
 ---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="py-24 px-4 text-center max-w-3xl mx-auto">
+    <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-text-light dark:text-text-dark">
+      Blog coming soon
+    </h1>
+    <p class="text-lg opacity-80 mb-8">
+      We are gathering case studies, launch breakdowns, and practical tips for small business websites. Leave your email in the contact form and we will notify you when the first article is live.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href={tp('contact')} class="bg-primary text-black font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-all">
+        Get notified
+      </a>
+      <a href={tp('home')} class="bg-card-light dark:bg-card-dark border border-primary text-primary font-semibold px-6 py-3 rounded-lg hover:bg-primary hover:text-black transition-all">
+        Explore our work
+      </a>
+    </div>
+  </section>
+</BaseLayout>

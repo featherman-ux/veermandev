@@ -13,10 +13,18 @@ export function useTranslations(lang: keyof typeof ui) {
   };
 }
 
+function resolveTranslatedPath(lang: keyof typeof ui, path: string) {
+  const basePath = path.replace(/^\/|\/$/g, '');
+  const translated = routes[lang][basePath as keyof typeof routes['en']] || basePath;
+  return `/${lang}/${translated}`;
+}
+
 export function useTranslatedPath(lang: keyof typeof ui) {
   return function t(path: string) {
-    const basePath = path.replace(/^\/|\/$/g, '');
-    const translated = routes[lang][basePath as keyof typeof routes['en']] || basePath;
-    return `/${lang}/${translated}`;
+    return resolveTranslatedPath(lang, path);
   };
+}
+
+export function getTranslatedPath(lang: keyof typeof ui, path: string) {
+  return resolveTranslatedPath(lang, path);
 }

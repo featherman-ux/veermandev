@@ -1,4 +1,3 @@
-
 ---
 export interface Props {
   words: string[];
@@ -61,15 +60,11 @@ const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), initia
     gap: 0;
     text-align: center;
     flex-wrap: nowrap;
-  }
-
-  .typewriter-wrapper {
-    display: inline-flex;
-    justify-content: center;
     position: relative;
-    min-height: calc(1.2em * 2);
+    /* Removed min-height for desktop - no space reservation needed */
   }
 
+  /* Only reserve space on mobile where text wrapping occurs */
   @media (max-width: 640px) {
     .typewriter-wrapper {
       min-height: calc(1.2em * 3);
@@ -107,11 +102,6 @@ const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), initia
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
   }
-  
-  /* Mobile responsive styles can be removed as this approach is fully responsive */
-  @media (max-width: 640px) {
-    /* This block can now be safely removed */
-  }
 </style>
 
 <script>
@@ -140,42 +130,6 @@ const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), initia
         return;
       }
 
-      const measurement = document.createElement('span');
-      measurement.className = typewriterElement.className;
-      measurement.style.position = 'absolute';
-      measurement.style.visibility = 'hidden';
-      measurement.style.pointerEvents = 'none';
-      measurement.style.whiteSpace = 'normal';
-      measurement.style.wordBreak = 'break-word';
-      measurement.style.display = 'inline-block';
-      measurement.style.top = '0';
-      measurement.style.left = '-10000px';
-
-      const container = wrapper.parentElement instanceof HTMLElement ? wrapper.parentElement : wrapper;
-      const containerWidth = Math.max(
-        container.getBoundingClientRect().width,
-        wrapper.getBoundingClientRect().width,
-        typewriterElement.getBoundingClientRect().width
-      );
-
-      if (containerWidth > 0) {
-        measurement.style.width = `${containerWidth}px`;
-        measurement.style.maxWidth = `${containerWidth}px`;
-      }
-
-      document.body.appendChild(measurement);
-
-      let maxHeight = 0;
-      words.forEach((word) => {
-        measurement.textContent = word;
-        const { height } = measurement.getBoundingClientRect();
-        if (height > maxHeight) {
-          maxHeight = height;
-        }
-      });
-
-      measurement.remove();
-
       const computed = window.getComputedStyle(typewriterElement);
       let lineHeight = parseFloat(computed.lineHeight);
       if (Number.isNaN(lineHeight) || lineHeight === 0) {
@@ -184,13 +138,18 @@ const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), initia
       }
 
       const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-      const baseLines = viewportWidth <= 640 ? 3 : 2;
-      const baseHeight = lineHeight * baseLines;
-
-      const targetHeight = Math.max(maxHeight, baseHeight);
-
-      if (targetHeight > 0) {
-        wrapper.style.minHeight = `${targetHeight}px`;
+      
+      // Only set height reservation on mobile
+      if (viewportWidth <= 640) {
+        const baseLines = 3;
+        const baseHeight = lineHeight * baseLines;
+        
+        if (baseHeight > 0) {
+          wrapper.style.minHeight = `${baseHeight}px`;
+        }
+      } else {
+        // Remove any programmatically set min-height on desktop
+        wrapper.style.minHeight = '';
       }
     });
   };

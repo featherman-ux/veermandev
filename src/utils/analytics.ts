@@ -134,26 +134,48 @@ class PerformanceMonitor {
         console.warn('CLS is above 0.1 threshold - check for layout shifts in hero sections');
       }
 
-      // Send to custom endpoint for detailed analysis
-      fetch('/api/analytics', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const endpoint = import.meta.env.PUBLIC_ANALYTICS_ENDPOINT?.trim();
+      if (!endpoint) {
+        return;
+      }
+
+      const payload = JSON.stringify({
+        metric: name,
+        value,
+        timestamp: Date.now(),
+        url: window.location.href,
+        userAgent: navigator.userAgent,
+        viewport: {
+          width: window.innerWidth,
+          height: window.innerHeight,
         },
-        body: JSON.stringify({
-          metric: name,
-          value: value,
-          timestamp: Date.now(),
-          url: window.location.href,
-          userAgent: navigator.userAgent,
-          viewport: {
-            width: window.innerWidth,
-            height: window.innerHeight
-          }
-        })
-      }).catch(() => {
-        // Silently fail - analytics shouldn't break the site
       });
+
+      const sendWithBeacon = () => {
+        if (!('sendBeacon' in navigator)) {
+          return false;
+        }
+
+        try {
+          const blob = new Blob([payload], { type: 'application/json' });
+          return navigator.sendBeacon(endpoint, blob);
+        } catch {
+          return false;
+        }
+      };
+
+      if (!sendWithBeacon()) {
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: payload,
+          keepalive: true,
+        }).catch(() => {
+          // Silently fail - analytics shouldn't break the site
+        });
+      }
     }
   }
 

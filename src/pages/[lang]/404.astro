@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 import { languages } from '../../i18n/ui';
 
 // This function tells Astro to pre-build a 404 page for each supported language.
@@ -10,6 +10,7 @@ export function getStaticPaths() {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const tp = useTranslatedPath(lang);
 ---
 
 <BaseLayout 
@@ -29,7 +30,7 @@ const t = useTranslations(lang);
 
       <div class="mt-8">
         <a 
-          href={`/${lang}/`} 
+          href={tp('home')} 
           class="btn-primary transition-transform hover:scale-105"
         >
           {t('404.back_home')}

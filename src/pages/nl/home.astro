@@ -3,10 +3,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const tp = useTranslatedPath(lang);
 
 const pageTitle = t('home.page.title');
 const pageDescription = t('home.page.description');
@@ -47,7 +48,7 @@ const pageDescription = t('home.page.description');
 
       <!-- IMMEDIATE CTA -->
     <div class="hero-cta mt-8">
-      <a href={`/${lang}/contact`} class="inline-block bg-primary hover:bg-primary/90 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg">
+      <a href={tp('contact')} class="inline-block bg-primary hover:bg-primary/90 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg">
         Plan je gratis adviesgesprek
       </a>
       <p class="text-sm opacity-70 mt-3">Persoonlijk contact - Geen verplichtingen</p>
@@ -231,7 +232,7 @@ const pageDescription = t('home.page.description');
               Voorbeeld: dienstverlener met duidelijke propositie en contactknoppen
             </div>
 
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={tp('contact')} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Start je eerste website
             </a>
           </div>
@@ -282,7 +283,7 @@ const pageDescription = t('home.page.description');
               Voorbeeld: waarisniels.nl – groeien van persoonlijk project naar autoriteit
             </div>
 
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={tp('contact')} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Activeer je online groei
             </a>
           </div>
@@ -331,7 +332,7 @@ const pageDescription = t('home.page.description');
               Voorbeeld: sales-ready platform met integraties en automatisering
             </div>
 
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={tp('contact')} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Transformeer je bedrijf online
             </a>
           </div>

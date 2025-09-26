@@ -2,8 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
+import { useTranslatedPath } from '../../i18n/utils';
 
 const lang = 'nl';
+const tp = useTranslatedPath(lang);
 
 const pageTitle = "Over VeermanDevelopment | Jouw groeipartner";
 const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwijze en toewijding aan duurzame partnerships die echte groei opleveren.";
@@ -18,9 +20,9 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
   <span class="typewriter-heading">
     <span class="typewriter-heading__label">Samen bouwen we aan</span>
     <TypewriterText 
-      words={["een herkenbare uitstraling", "meer aanvragen", "websites die klanten vertrouwen"]}
+      words={["Vertrouwen", "Resultaat", "Impact"]}
       className="typewriter-heading__text text-primary"
-      initialText="een herkenbare uitstraling"
+      initialText="Vertrouwen"
     />
   </span>
 </HeroSection>
@@ -413,13 +415,13 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
       </p>
       <div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href={`/${lang}/contact`}
+          href={tp('contact')}
           class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105 inline-block"
         >
           Plan je gratis adviesgesprek
         </a>
         <a
-          href={`/${lang}/services`}
+          href={tp('services')}
           class="bg-card-light dark:bg-card-dark border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary hover:text-black transition-all inline-block"
         >
           Bekijk pakketten & prijzen

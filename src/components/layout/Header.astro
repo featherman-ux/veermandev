@@ -22,7 +22,7 @@ const currentPath = Astro.url.pathname;
     
     <!-- LOGO: single-line to keep header compact -->
     <div class="flex items-center min-w-0 flex-1 h-full">
-      <a href={`/${lang}/home`} class="font-heading text-lg sm:text-xl lg:text-2xl font-bold text-text-light dark:text-text-dark tracking-wide hover:text-primary transition group min-w-0 whitespace-nowrap mr-6 lg:mr-8 leading-none flex items-center h-full">
+      <a href={tp('home')} class="font-heading text-lg sm:text-xl lg:text-2xl font-bold text-text-light dark:text-text-dark tracking-wide hover:text-primary transition group min-w-0 whitespace-nowrap mr-6 lg:mr-8 leading-none flex items-center h-full">
         Veerman<span class="text-primary">Development</span>
       </a>
     </div>
@@ -45,7 +45,7 @@ const currentPath = Astro.url.pathname;
 
       <!-- CTA BUTTON -->
       <a
-        href={`/${lang}/contact`}
+        href={tp('contact')}
         class="bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-all transform hover:scale-105 whitespace-nowrap shrink-0"
       >
         {t('nav.cta')}
@@ -114,8 +114,8 @@ const currentPath = Astro.url.pathname;
         ))}
         
         <!-- MOBILE CTA -->
-        <a
-          href={`/${lang}/contact`}
+          <a
+            href={tp('contact')}
           class="bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-all text-center mt-4 touch-manipulation active:scale-95"
         >
           {t('nav.cta')}

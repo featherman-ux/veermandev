@@ -2,10 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const tp = useTranslatedPath(lang);
 
 const pageTitle = t('portfolio.page.title');
 const pageDescription = t('portfolio.page.description');
@@ -290,13 +291,13 @@ Choose the package that fits you and let’s build a website that actually wins 
 </p>
 <div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
 <a
-href={`/${lang}/services`}
+href={tp('services')}
 class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary/90 transition-all inline-block"
 >
 Book your free strategy call
 </a>
 <a
-href={`/${lang}/contact`}
+href={tp('contact')}
 class="bg-card-light dark:bg-card-dark border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary hover:text-black transition-all inline-block"
 >
 Ask your questions first

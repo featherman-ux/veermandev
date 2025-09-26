@@ -1,3 +1,29 @@
 ---
-return Astro.redirect('/nl/home', 307);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslatedPath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const tp = useTranslatedPath(lang);
+
+const pageTitle = 'Inspiratie & updates | VeermanDevelopment';
+const pageDescription = 'Praktische verhalen over websites die werken voor het mkb. Binnenkort publiceren we de eerste artikelen.';
 ---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="py-24 px-4 text-center max-w-3xl mx-auto">
+    <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-text-light dark:text-text-dark">
+      Blog volgt binnenkort
+    </h1>
+    <p class="text-lg opacity-80 mb-8">
+      We verzamelen klantcases, lanceringstips en praktische adviezen voor ondernemers. Laat je e-mail achter via het contactformulier en we geven een seintje zodra het eerste artikel live staat.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href={tp('contact')} class="bg-primary text-black font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-all">
+        Hou mij op de hoogte
+      </a>
+      <a href={tp('home')} class="bg-card-light dark:bg-card-dark border border-primary text-primary font-semibold px-6 py-3 rounded-lg hover:bg-primary hover:text-black transition-all">
+        Bekijk onze projecten
+      </a>
+    </div>
+  </section>
+</BaseLayout>

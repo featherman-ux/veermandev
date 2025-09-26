@@ -2,10 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const tp = useTranslatedPath(lang);
 
 const pageTitle = t('services.page.title');
 const pageDescription = t('services.page.description');
@@ -106,7 +107,7 @@ const pageDescription = t('services.page.description');
               <p class="text-xs opacity-60 mt-1">Perfect voor het showcasen van je werk en contact krijgen</p>
             </div>
             
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={tp('contact')} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Plan je gratis adviesgesprek
             </a>
           </div>
@@ -165,7 +166,7 @@ const pageDescription = t('services.page.description');
               <p class="text-xs opacity-60 mt-1">Functierijke site met blog, galerijen en kaarten</p>
             </div>
             
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={tp('contact')} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Plan je gratis adviesgesprek
             </a>
           </div>
@@ -219,7 +220,7 @@ const pageDescription = t('services.page.description');
               <p class="text-xs opacity-60 mt-1">Complete e-commerce oplossing voor online verkoop</p>
             </div>
             
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={tp('contact')} class="block text-center bg-primary text-black font-semibold py-4 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Plan je gratis adviesgesprek
             </a>
           </div>
@@ -373,13 +374,13 @@ const pageDescription = t('services.page.description');
       </p>
       <div class="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href={`/${lang}/contact`}
+          href={tp('contact')}
           class="bg-primary text-black font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary/90 transition-all transform hover:scale-105 inline-block"
         >
           Plan je gratis adviesgesprek
         </a>
         <a
-          href={`/${lang}/portfolio`}
+          href={tp('portfolio')}
           class="bg-card-light dark:bg-card-dark border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg text-xl hover:bg-primary hover:text-black transition-all inline-block"
         >
           Zie Voorbeelden

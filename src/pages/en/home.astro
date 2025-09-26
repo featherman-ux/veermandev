@@ -3,10 +3,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TypewriterText from '../../components/ui/TypewriterText.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const tp = useTranslatedPath(lang);
 
 const pageTitle = t('home.page.title');
 const pageDescription = t('home.page.description');
@@ -47,7 +48,7 @@ const pageDescription = t('home.page.description');
 
       <!-- IMMEDIATE CTA -->
     <div class="hero-cta mt-8">
-      <a href={`/${lang}/contact`} class="inline-block bg-primary hover:bg-primary/90 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg">
+      <a href={tp('contact')} class="inline-block bg-primary hover:bg-primary/90 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg">
         Book your free strategy call
       </a>
       <p class="text-sm opacity-70 mt-3">Personal guidance — zero obligation</p>
@@ -231,7 +232,7 @@ const pageDescription = t('home.page.description');
               Example: service professional with a clear offer and contact buttons
             </div>
 
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={tp('contact')} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Launch your first website
             </a>
           </div>
@@ -282,7 +283,7 @@ const pageDescription = t('home.page.description');
               Example: waarisniels.nl — from personal project to authority
             </div>
 
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={tp('contact')} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Activate your online growth
             </a>
           </div>
@@ -331,7 +332,7 @@ const pageDescription = t('home.page.description');
               Example: sales-ready platform with integrations and automation
             </div>
 
-            <a href={`/${lang}/contact`} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
+            <a href={tp('contact')} class="block text-center bg-primary text-black font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-all mt-auto">
               Transform your business online
             </a>
           </div>
