@@ -20,6 +20,7 @@ const defaultRedirect = `/${defaultLang}/home`;
       is:inline
       data-supported-langs={JSON.stringify(supportedLangs)}
       data-default-path={defaultRedirect}
+      data-default-lang={defaultLang}
     >
       (function () {
         const script = document.currentScript;
@@ -29,12 +30,63 @@ const defaultRedirect = `/${defaultLang}/home`;
 
         const supportedLangs = JSON.parse(script.dataset.supportedLangs || '[]');
         const defaultPath = script.dataset.defaultPath || '';
-        const locale = (navigator.language || navigator.languages?.[0] || '').toLowerCase();
-        const match = supportedLangs.find((lang) => locale === lang || locale.startsWith(lang + '-'));
-        const target = match ? '/' + match + '/home' : defaultPath;
+        const defaultLang = script.dataset.defaultLang || '';
+        const storageKey = 'preferred_lang';
 
-        if (target && location.pathname !== target) {
-          location.replace(target);
+        const findSupportedLang = (value) => {
+          if (!value) return null;
+          const normalized = value.toLowerCase();
+          return (
+            supportedLangs.find(
+              (lang) => normalized === lang || normalized.startsWith(lang + '-')
+            ) || null
+          );
+        };
+
+        const getStoredLang = () => {
+          try {
+            const stored = localStorage.getItem(storageKey);
+            if (stored && supportedLangs.includes(stored)) {
+              return stored;
+            }
+          } catch (error) {
+            // Ignore storage errors (private browsing, etc.)
+          }
+          return null;
+        };
+
+        const getNavigatorLang = () => {
+          const navigatorLangs = Array.isArray(navigator.languages) && navigator.languages.length
+            ? navigator.languages
+            : [navigator.language];
+          for (const candidate of navigatorLangs) {
+            const match = findSupportedLang(candidate);
+            if (match) {
+              return match;
+            }
+          }
+          return null;
+        };
+
+        let targetLang = getStoredLang() || getNavigatorLang() || defaultLang || supportedLangs[0];
+
+        if (!targetLang) {
+          if (defaultPath && location.pathname !== defaultPath) {
+            location.replace(defaultPath);
+          }
+          return;
+        }
+
+        try {
+          localStorage.setItem(storageKey, targetLang);
+        } catch (error) {
+          // Silently ignore storage errors
+        }
+
+        const targetPath = `/${targetLang}/home`;
+
+        if (targetPath && location.pathname !== targetPath) {
+          location.replace(targetPath);
         }
       })();
     </script>

@@ -26,13 +26,6 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
     />
   </span>
 </HeroSection>
-    
-    <div class="floating-elements absolute inset-0 pointer-events-none">
-      <div class="floating-circle absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full"></div>
-      <div class="floating-square absolute top-40 right-20 w-16 h-16 bg-primary/5 transform rotate-45"></div>
-      <div class="floating-triangle absolute bottom-20 left-1/4 w-12 h-12 bg-primary/10"></div>
-    </div>
-  </section>
 
   <section class="team-section py-16 px-4 reveal-section">
     <div class="max-w-6xl mx-auto">
@@ -247,7 +240,7 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
         <p class="text-lg opacity-80 reveal-text">Waarom we moderne Jamstack kiezen boven traditionele platforms</p>
       </div>
       
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
         <div class="technology-content reveal-card">
           <h3 class="text-2xl font-semibold mb-6">Waarom we voor Astro en Jamstack kiezen</h3>
           <p class="text-lg mb-6 opacity-90">
@@ -291,90 +284,48 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
         
         <div id="performance-comparison" class="performance-comparison bg-background-light dark:bg-background-dark rounded-lg p-6 hover-lift-subtle reveal-card">
           <h4 class="font-semibold mb-6 text-center">Prestatie- & beveiligingssnapshot</h4>
-          <div class="comparison-grid grid gap-4 sm:grid-cols-2">
-            <div class="comparison-card">
-              <span class="comparison-label">PageSpeed Score</span>
-              <div class="comparison-columns">
-                <div class="comparison-column">
-                  <span class="badge badge-good">Onze Astro-oplossing</span>
-                  <p class="value value-good">95-100 (heel goed)</p>
-                </div>
-                <div class="comparison-column">
-                  <span class="badge badge-bad">WordPress</span>
-                  <p class="value value-bad">40-80 (wisselend)</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="comparison-card">
-              <span class="comparison-label">Laadtijd</span>
-              <div class="comparison-columns">
-                <div class="comparison-column">
-                  <span class="badge badge-good">Onze Astro-oplossing</span>
-                  <p class="value value-good">0,8 - 1,2s</p>
-                </div>
-                <div class="comparison-column">
-                  <span class="badge badge-bad">WordPress</span>
-                  <p class="value value-bad">3 - 7s</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="comparison-card">
-              <span class="comparison-label">Kwetsbaarheden (jaarlijks)</span>
-              <div class="comparison-columns">
-                <div class="comparison-column">
-                  <span class="badge badge-good">Onze Astro-oplossing</span>
-                  <p class="value value-good">Zeer laag risico</p>
-                </div>
-                <div class="comparison-column">
-                  <span class="badge badge-bad">WordPress</span>
-                  <p class="value value-bad">Veel meldingen (via plugins)</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="comparison-card">
-              <span class="comparison-label">Onderhoud</span>
-              <div class="comparison-columns">
-                <div class="comparison-column">
-                  <span class="badge badge-good">Onze Astro-oplossing</span>
-                  <p class="value value-good">Geen vaste onderhoudsrondes</p>
-                </div>
-                <div class="comparison-column">
-                  <span class="badge badge-bad">WordPress</span>
-                  <p class="value value-bad">Regelmatige plugin-updates</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="comparison-card">
-              <span class="comparison-label">Hostingkosten</span>
-              <div class="comparison-columns">
-                <div class="comparison-column">
-                  <span class="badge badge-good">Onze Astro-oplossing</span>
-                  <p class="value value-good">€1-20 per jaar</p>
-                </div>
-                <div class="comparison-column">
-                  <span class="badge badge-bad">WordPress</span>
-                  <p class="value value-bad">€10-200 per maand</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="comparison-card">
-              <span class="comparison-label">Conversie-impact</span>
-              <div class="comparison-columns">
-                <div class="comparison-column">
-                  <span class="badge badge-good">Onze Astro-oplossing</span>
-                  <p class="value value-good">Meer aanvragen door snelheid</p>
-                </div>
-                <div class="comparison-column">
-                  <span class="badge badge-bad">WordPress</span>
-                  <p class="value value-bad">Vaak onveranderd</p>
-                </div>
-              </div>
-            </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm animated-table">
+              <thead>
+                <tr class="border-b border-gray-300 dark:border-gray-600">
+                  <th class="text-left py-3">Metric</th>
+                  <th class="text-left py-3 text-green-600">Onze Astro-stack</th>
+                  <th class="text-left py-3 text-red-600">WordPress-thema's</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+                  <td class="py-3 font-medium">PageSpeed-score</td>
+                  <td class="py-3 text-green-600 font-bold">95–100 (constant hoog)</td>
+                  <td class="py-3 text-red-600">40–80 (afhankelijk van plugins)</td>
+                </tr>
+                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+                  <td class="py-3 font-medium">Laadtijd</td>
+                  <td class="py-3 text-green-600 font-bold">0,8–1,2 s</td>
+                  <td class="py-3 text-red-600">3–7 s</td>
+                </tr>
+                <tr class="border-b border-gray-200 dark:border-gray-700 table-row">
+                  <td class="py-3 font-medium">Kwetsbaarheden</td>
+                  <td class="py-3 text-green-600 font-bold">Zeer laag risico</td>
+                  <td class="py-3 text-red-600">Veel meldingen (vooral via plugins)</td>
+                </tr>
+                <tr class="border-b border-gray-200 dark-border-gray-700 table-row">
+                  <td class="py-3 font-medium">Onderhoud</td>
+                  <td class="py-3 text-green-600 font-bold">Geen vaste update-rondes</td>
+                  <td class="py-3 text-red-600">Regelmatige plugin-updates</td>
+                </tr>
+                <tr class="border-b border-gray-200 dark-border-gray-700 table-row">
+                  <td class="py-3 font-medium">Hostingkosten</td>
+                  <td class="py-3 text-green-600 font-bold">€1–20 per jaar</td>
+                  <td class="py-3 text-red-600">€10–200 per maand</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="py-3 font-medium">Conversie-impact</td>
+                  <td class="py-3 text-green-600 font-bold">Snelle sites leveren meer aanvragen op</td>
+                  <td class="py-3 text-red-600">Vaak onveranderd</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -558,102 +509,6 @@ const pageDescription = "Maak kennis met het team. Ontdek onze filosofie, werkwi
     .typewriter-heading__text .typewriter-text {
       display: inline-block;
       text-align: center;
-    }
-
-    .comparison-grid {
-      width: 100%;
-    }
-
-    .comparison-card {
-      background-color: rgba(59, 130, 246, 0.05);
-      border: 1px solid rgba(59, 130, 246, 0.12);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      height: 100%;
-    }
-
-    .dark .comparison-card {
-      background-color: rgba(59, 130, 246, 0.1);
-      border-color: rgba(59, 130, 246, 0.2);
-    }
-
-    .comparison-label {
-      font-weight: 600;
-      font-size: 1.05rem;
-    }
-
-    .comparison-columns {
-      display: grid;
-      gap: 1rem;
-    }
-
-    @media (min-width: 480px) {
-      .comparison-columns {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .comparison-column {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      text-align: left;
-      padding: 0.75rem;
-      border-radius: 0.75rem;
-      background-color: rgba(255, 255, 255, 0.35);
-    }
-
-    .dark .comparison-column {
-      background-color: rgba(15, 23, 42, 0.35);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      width: fit-content;
-    }
-
-    .badge-good {
-      background-color: rgba(34, 197, 94, 0.15);
-      color: rgba(21, 128, 61, 1);
-    }
-
-    .dark .badge-good {
-      background-color: rgba(34, 197, 94, 0.3);
-      color: rgba(190, 242, 100, 1);
-    }
-
-    .badge-bad {
-      background-color: rgba(248, 113, 113, 0.15);
-      color: rgba(220, 38, 38, 1);
-    }
-
-    .dark .badge-bad {
-      background-color: rgba(248, 113, 113, 0.3);
-      color: rgba(252, 165, 165, 1);
-    }
-
-    .value {
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .value-good {
-      color: rgba(21, 128, 61, 1);
-    }
-
-    .value-bad {
-      color: rgba(220, 38, 38, 1);
     }
 
     /* Subtle hover effects */

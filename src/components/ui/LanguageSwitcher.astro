@@ -32,6 +32,7 @@ const languageOptions = Object.entries(languages).filter(([code]) => code !== la
       href={getTranslatedPath(langCode, canonicalRoute)}
       class="lang-link"
       aria-label={`Switch to ${label}`}
+      data-lang-code={langCode}
     >
       {label}
     </a>
@@ -61,3 +62,21 @@ const languageOptions = Object.entries(languages).filter(([code]) => code !== la
     border-color: var(--color-primary, #0a84ff);
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.language-switcher [data-lang-code]');
+    links.forEach((link) => {
+      if (!(link instanceof HTMLElement)) return;
+      link.addEventListener('click', () => {
+        const langCode = link.getAttribute('data-lang-code');
+        if (!langCode) return;
+        try {
+          localStorage.setItem('preferred_lang', langCode);
+        } catch (error) {
+          // Ignore storage errors
+        }
+      });
+    });
+  });
+</script>

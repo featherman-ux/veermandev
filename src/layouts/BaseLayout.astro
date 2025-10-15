@@ -38,7 +38,6 @@ const canonicalUrl = Astro.site
     <title>{title}</title>
 
     {/* Preload critical resources */}
-    <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
     <link rel="dns-prefetch" href="https://assets.calendly.com" />
     <link rel="dns-prefetch" href="https://formspree.io" />
 
@@ -57,8 +56,12 @@ const canonicalUrl = Astro.site
     <link rel="preload" href="/fonts/poppins-v23-latin-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/poppins-v23-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon 48x48.svg" type="image/svg+xml" sizes="48x48" />
+    <link rel="icon" href="/favicon (180 x 180 px).svg" type="image/svg+xml" sizes="180x180" />
+    <link rel="icon" href="/favicon (512 x 512 px).svg" type="image/svg+xml" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/favicon (180 x 180 px).svg" sizes="180x180" />
+    <link rel="mask-icon" href="/favicon.svg" color="#0A84FF" />
 
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={lang} href={canonicalUrl} />
