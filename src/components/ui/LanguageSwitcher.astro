@@ -71,10 +71,18 @@ const languageOptions = Object.entries(languages).filter(([code]) => code !== la
       link.addEventListener('click', () => {
         const langCode = link.getAttribute('data-lang-code');
         if (!langCode) return;
+
         try {
           localStorage.setItem('preferred_lang', langCode);
         } catch (error) {
           // Ignore storage errors
+        }
+
+        try {
+          const maxAge = 60 * 60 * 24 * 365; // 1 year
+          document.cookie = `preferred_lang=${langCode}; path=/; max-age=${maxAge}; SameSite=Lax`;
+        } catch (error) {
+          // Ignore cookie errors
         }
       });
     });

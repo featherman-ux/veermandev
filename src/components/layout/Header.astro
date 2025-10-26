@@ -18,7 +18,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="h-16 sm:h-20 bg-background-light dark:bg-background-dark sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700 shadow-sm">
-  <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 h-full flex items-center justify-between">
+  <div class="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8 h-full flex items-center justify-between">
     
     <!-- LOGO: single-line to keep header compact -->
     <div class="flex items-center min-w-0 flex-1 h-full">
@@ -28,12 +28,12 @@ const currentPath = Astro.url.pathname;
     </div>
 
     <!-- DESKTOP NAVIGATION -->
-    <nav class="hidden lg:flex items-center gap-7 h-full flex-nowrap ml-4 lg:ml-8">
+    <nav class="hidden xl:flex items-center gap-5 xl:gap-6 2xl:gap-8 h-full flex-nowrap ml-4 xl:ml-8">
       {navLinks.map(link => (
         <a
           href={link.href}
           class:list={[
-            "text-text-light dark:text-text-dark hover:text-primary transition-all duration-200 relative pb-1 whitespace-nowrap font-medium",
+            "text-sm xl:text-base text-text-light dark:text-text-dark hover:text-primary transition-all duration-200 relative pb-1 whitespace-nowrap font-medium",
             currentPath.startsWith(link.href)
               ? "text-primary font-semibold after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:bg-primary"
               : "hover:after:absolute hover:after:left-0 hover:after:bottom-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-primary/50"
@@ -46,7 +46,7 @@ const currentPath = Astro.url.pathname;
       <!-- CTA BUTTON -->
       <a
         href={tp('contact')}
-        class="bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-all transform hover:scale-105 whitespace-nowrap shrink-0"
+        class="hidden 2xl:inline-block bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-all transform hover:scale-105 whitespace-nowrap shrink-0"
       >
         {t('nav.cta')}
       </a>
@@ -67,7 +67,7 @@ const currentPath = Astro.url.pathname;
     </nav>
 
     <!-- MOBILE MENU BUTTON -->
-    <div class="lg:hidden flex items-center gap-2 sm:gap-3">
+    <div class="xl:hidden flex items-center gap-2 sm:gap-3">
       <button
         id="theme-toggler-mobile"
         type="button"
@@ -96,7 +96,7 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700 shadow-lg" role="dialog" aria-modal="true">
+  <div id="mobile-menu" class="hidden xl:hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700 shadow-lg" role="dialog" aria-modal="true">
     <nav class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6" aria-label="Mobile navigation">
       <div class="flex flex-col space-y-2 sm:space-y-3">
         {navLinks.map(link => (
